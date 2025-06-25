@@ -1,0 +1,10 @@
+enum UNIT_STATS{
+    AGILITY,
+    DEFENCE,
+    EVASION,
+    MELEE,
+    RANGED,
+    AP,
+    LUCK,
+    INITIATIVE
+}

@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://bm1sq66703pp4"]
+
+[ext_resource type="Script" uid="uid://b85g2b6j1v8gt" path="res://scripts/gameLogic/battle/BattleController.gd" id="1_npg4g"]
+[ext_resource type="PackedScene" uid="uid://cl830hpvfisf5" path="res://scenes/game logic/battle/BattleCam.tscn" id="3_q5aru"]
+[ext_resource type="PackedScene" uid="uid://be3bnvfucvm2h" path="res://scenes/game logic/battle/ui/AllyUnitGUI.tscn" id="4_4hww6"]
+[ext_resource type="PackedScene" uid="uid://b8q1wxma1ojf" path="res://scenes/game logic/battle/ui/Unit Status.tscn" id="6_7qyck"]
+[ext_resource type="PackedScene" uid="uid://b044aembwt1bj" path="res://scenes/game logic/battle/TurnManager.tscn" id="7_138ph"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7qyck"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_138ph"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q5aru"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cfyqa"]
+
+[node name="BattleController" type="Node3D"]
+script = ExtResource("1_npg4g")
+
+[node name="battleUnits" type="Node" parent="."]
+
+[node name="playerUnits" type="Node" parent="battleUnits"]
+
+[node name="enemyUnits" type="Node" parent="battleUnits"]
+
+[node name="allyUnits" type="Node" parent="battleUnits"]
+
+[node name="BattleCam" parent="." instance=ExtResource("3_q5aru")]
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AllyUnitGui" parent="ui" instance=ExtResource("4_4hww6")]
+visible = false
+layout_mode = 1
+
+[node name="UnitStatus" parent="ui" instance=ExtResource("6_7qyck")]
+visible = false
+layout_mode = 1
+offset_left = 236.0
+offset_top = 20.0
+offset_right = -34.0
+offset_bottom = -70.0
+
+[node name="TurnManager" parent="." instance=ExtResource("7_138ph")]
+
+[node name="worldWalls" type="Node" parent="."]
+
+[node name="northWall" type="StaticBody3D" parent="worldWalls"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldWalls/northWall"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_7qyck")
+
+[node name="eastWall" type="StaticBody3D" parent="worldWalls"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldWalls/eastWall"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_138ph")
+
+[node name="southWall" type="StaticBody3D" parent="worldWalls"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldWalls/southWall"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_q5aru")
+
+[node name="westWall" type="StaticBody3D" parent="worldWalls"]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="worldWalls/westWall"]
+transform = Transform3D(1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_cfyqa")
+
+[connection signal="itemSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_item_selected"]
+
+[editable path="ui/AllyUnitGui"]
+[editable path="ui/AllyUnitGui/base/MenuBox"]
+[editable path="ui/AllyUnitGui/base/MenuBox/actionTopLabel"]

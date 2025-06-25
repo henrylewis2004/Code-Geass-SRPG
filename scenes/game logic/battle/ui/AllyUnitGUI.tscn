@@ -1,0 +1,224 @@
+[gd_scene load_steps=10 format=3 uid="uid://be3bnvfucvm2h"]
+
+[ext_resource type="Script" uid="uid://diveoj2vg71vq" path="res://scripts/gameLogic/battle/allyUnitGUI.gd" id="1_0sxrj"]
+[ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="1_2wnwu"]
+[ext_resource type="FontFile" uid="uid://dovir8dg2ksv5" path="res://assets/fonts/dpcomic.ttf" id="2_kw5qa"]
+[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="3_ex1ab"]
+[ext_resource type="Texture2D" uid="uid://drid2hopqya6a" path="res://assets/2d/ui/playerHp.png" id="4_lv8sm"]
+[ext_resource type="PackedScene" uid="uid://c34s8lslb3tiy" path="res://scenes/game logic/menus/MenuBox.tscn" id="6_8u83i"]
+[ext_resource type="FontFile" uid="uid://crpmyv2e2r4wr" path="res://assets/fonts/Xirod.otf" id="7_3kbyj"]
+[ext_resource type="FontFile" uid="uid://j82odr3tufp0" path="res://assets/fonts/good timing bd.otf" id="8_0sxrj"]
+[ext_resource type="Texture2D" uid="uid://x61wqiu3snrh" path="res://assets/2d/ui/gunTest.png" id="9_hw755"]
+
+[node name="AllyUnitGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0sxrj")
+
+[node name="base" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.042
+anchor_top = 0.722
+anchor_right = 0.958
+anchor_bottom = 0.952
+offset_left = -0.160002
+offset_top = 0.0599823
+offset_right = 0.159973
+offset_bottom = -0.0400085
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="backImage" type="TextureRect" parent="base"]
+layout_mode = 2
+anchor_top = 0.032
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0159999
+offset_right = -358.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2wnwu")
+
+[node name="characterImage" type="TextureRect" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.03
+anchor_right = 0.189
+anchor_bottom = 1.0
+offset_top = 13.14
+offset_right = -36.16
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ex1ab")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="nameText" type="RichTextLabel" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.032
+anchor_right = 0.189
+anchor_bottom = 1.0
+offset_top = 0.0159999
+offset_right = -1.16
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_kw5qa")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "KALLEN"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="apText" type="RichTextLabel" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.035
+anchor_right = 0.189
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 45.83
+offset_right = -1.16
+theme_override_fonts/normal_font = ExtResource("7_3kbyj")
+theme_override_font_sizes/normal_font_size = 10
+text = "AP: 10"
+scroll_active = false
+tab_size = 0
+horizontal_alignment = 2
+
+[node name="hp" type="Control" parent="base"]
+layout_mode = 1
+anchor_top = 0.033
+anchor_right = 0.189
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 15.954
+offset_right = -2.16
+offset_bottom = -14.0
+metadata/_edit_lock_ = true
+
+[node name="rArmHp" type="TextureProgressBar" parent="base/hp"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 12.0
+offset_right = -1.0
+offset_bottom = -14.0
+value = 100.0
+texture_progress = ExtResource("4_lv8sm")
+
+[node name="lArmHp" type="TextureProgressBar" parent="base/hp"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 12.0
+offset_right = -19.0
+offset_bottom = -14.0
+value = 100.0
+texture_progress = ExtResource("4_lv8sm")
+
+[node name="bodyHp" type="TextureProgressBar" parent="base/hp"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = -10.0
+offset_bottom = -23.0
+value = 100.0
+texture_progress = ExtResource("4_lv8sm")
+
+[node name="legsHp" type="TextureProgressBar" parent="base/hp"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 21.0
+offset_right = -10.0
+offset_bottom = -5.0
+value = 100.0
+texture_progress = ExtResource("4_lv8sm")
+
+[node name="MenuBox" parent="base" instance=ExtResource("6_8u83i")]
+visible = false
+layout_mode = 1
+offset_left = 11.0
+offset_top = -76.0
+offset_right = 11.0
+offset_bottom = -76.0
+pivot_offset = Vector2(12, 78)
+
+[node name="expand" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = 0.212
+anchor_top = 0.752
+anchor_right = 0.333
+anchor_bottom = 0.933
+offset_left = 0.23999
+offset_top = -3.04001
+offset_right = 32.16
+offset_bottom = 3.09
+
+[node name="backImage" type="TextureRect" parent="expand"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1_2wnwu")
+
+[node name="weaponInfo_dmg" type="RichTextLabel" parent="expand"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.00001
+offset_top = 26.0
+offset_right = -2.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("8_0sxrj")
+theme_override_font_sizes/normal_font_size = 11
+text = "DMG: 30 x 3"
+scroll_active = false
+tab_size = 0
+
+[node name="weaponImg" type="TextureRect" parent="expand"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_hw755")
+
+[node name="weaponInfo_range" type="RichTextLabel" parent="expand"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.00002
+offset_top = 38.0
+offset_right = -1.99999
+offset_bottom = -3.99998
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("8_0sxrj")
+theme_override_font_sizes/normal_font_size = 11
+text = "RNG: 2"
+scroll_active = false
+tab_size = 0

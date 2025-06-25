@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgv5kt6htivl"]
+
+[ext_resource type="Script" uid="uid://bb1mv5vo6lt2m" path="res://resources/scripts/BaseUnit.gd" id="1_dh1rb"]
+[ext_resource type="Texture2D" uid="uid://dtcrttgfpy0si" path="res://assets/2d/characters/main/lelouch/lelouch1.png" id="2_f73vb"]
+[ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="2_kteh2"]
+[ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/BaseBodypart.gd" id="3_g0gu5"]
+[ext_resource type="Script" uid="uid://y5wyd4af163n" path="res://resources/scripts/LegsBodypart.gd" id="4_f73vb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kteh2"]
+radius = 0.25
+height = 1.0
+
+[node name="TestUnit" type="Node3D"]
+script = ExtResource("1_dh1rb")
+char_name = "test"
+charImage = ExtResource("2_f73vb")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_kteh2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("2_kteh2")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="bodyparts" type="Node" parent="."]
+
+[node name="body" type="Node" parent="bodyparts"]
+script = ExtResource("3_g0gu5")
+totalHp = 100
+string_name = "testB"
+bodyPartType = 2
+
+[node name="Larm" type="Node" parent="bodyparts"]
+script = ExtResource("3_g0gu5")
+totalHp = 50
+string_name = "testL"
+bodyPartType = 1
+
+[node name="Rarm" type="Node" parent="bodyparts"]
+script = ExtResource("3_g0gu5")
+totalHp = 50
+string_name = "testR"
+
+[node name="legs" type="Node" parent="bodyparts"]
+script = ExtResource("4_f73vb")
+moveRange = 3
+totalHp = 50
+string_name = "testLegs"
+bodyPartType = 3
+
+[node name="weapons" type="Node" parent="."]

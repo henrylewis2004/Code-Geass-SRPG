@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx7goff65a2n4"]
+
+[ext_resource type="PackedScene" uid="uid://bm1sq66703pp4" path="res://scenes/game logic/battle/battleController.tscn" id="1_6bkv6"]
+[ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/playerUnits/testUnit.tscn" id="2_yis3e"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dpb2t"]
+size = Vector2(1, 1)
+
+[node name="TestBatLevel" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.64679, 0.319903, -0.692333, 0, 0.907777, 0.419452, 0.762668, -0.271297, 0.587141, 0, 5.749, 0)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_dpb2t")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_dpb2t")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_dpb2t")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5)
+mesh = SubResource("PlaneMesh_dpb2t")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
+mesh = SubResource("PlaneMesh_dpb2t")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.5)
+mesh = SubResource("PlaneMesh_dpb2t")
+
+[node name="BattleController" parent="." instance=ExtResource("1_6bkv6")]
+mapSize = Vector2(10, 10)
+
+[node name="TestUnit" parent="BattleController/battleUnits/playerUnits" index="0" instance=ExtResource("2_yis3e")]
+
+[node name="TestUnit2" parent="BattleController/battleUnits/playerUnits" index="1" instance=ExtResource("2_yis3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77512, 0, 3.25751)
+char_name = "test6"
+agilityStat = 2
+turnTimer = 5
+
+[editable path="BattleController"]
+[editable path="BattleController/ui/AllyUnitGui"]
+[editable path="BattleController/ui/AllyUnitGui/base/MenuBox"]
+[editable path="BattleController/ui/AllyUnitGui/base/MenuBox/actionTopLabel"]

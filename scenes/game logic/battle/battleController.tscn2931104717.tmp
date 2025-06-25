@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm1sq66703pp4"]
+
+[ext_resource type="Script" uid="uid://b85g2b6j1v8gt" path="res://scripts/gameLogic/battle/BattleController.gd" id="1_npg4g"]
+[ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/playerUnits/testUnit.tscn" id="2_4hww6"]
+[ext_resource type="PackedScene" uid="uid://cl830hpvfisf5" path="res://scenes/game logic/battle/BattleCam.tscn" id="3_q5aru"]
+
+[node name="BattleController" type="Node3D"]
+script = ExtResource("1_npg4g")
+
+[node name="battleUnits" type="Node" parent="."]
+
+[node name="playerUnits" type="Node" parent="battleUnits"]
+
+[node name="TestUnit" parent="battleUnits/playerUnits" instance=ExtResource("2_4hww6")]
+
+[node name="TestUnit2" parent="battleUnits/playerUnits" instance=ExtResource("2_4hww6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08018, 0, 1.19498)
+
+[node name="BattleCam" parent="." instance=ExtResource("3_q5aru")]
