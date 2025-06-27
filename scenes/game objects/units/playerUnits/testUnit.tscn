@@ -10,22 +10,10 @@
 radius = 0.25
 height = 1.0
 
-[node name="TestUnit" type="Node3D"]
+[node name="TestUnit" type="Path3D"]
 script = ExtResource("1_dh1rb")
 char_name = "test"
 charImage = ExtResource("2_f73vb")
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CapsuleShape3D_kteh2")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
-mesh = ExtResource("2_kteh2")
-skeleton = NodePath("../CollisionShape3D")
 
 [node name="bodyparts" type="Node" parent="."]
 
@@ -54,3 +42,19 @@ string_name = "testLegs"
 bodyPartType = 3
 
 [node name="weapons" type="Node" parent="."]
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+rotation_mode = 1
+loop = false
+
+[node name="Area3D" type="Area3D" parent="PathFollow3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathFollow3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_kteh2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D/Area3D"]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("2_kteh2")
+skeleton = NodePath("../CollisionShape3D")

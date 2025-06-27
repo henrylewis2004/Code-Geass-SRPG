@@ -1,6 +1,6 @@
 class_name BattleController extends Node
 
-enum STATE{CAM_CINEMATIC, POPUP,UNIT_MENU,NONE,CAM_MOVEMENT, A_UNIT, UNIT_MOVEMENT_SELECTION,ATTACK_MOVEMENT, E_UNIT, BATTLE}
+enum STATE{CAM_CINEMATIC, POPUP,UNIT_MENU,NONE,CAM_MOVEMENT, A_UNIT, UNIT_MOVEMENT_SELECTION,ATTACK_MOVEMENT, E_UNIT, BATTLE, A_UNIT_MOVED}
 var curState: int = STATE.CAM_MOVEMENT #might need to change to none as default
 
 enum TEAM {PLAYER,ENEMY,ALLY}
@@ -10,12 +10,15 @@ enum TEAM {PLAYER,ENEMY,ALLY}
 @onready var enemyUnits: Array[Node] = $battleUnits/enemyUnits.get_children() 
 @onready var allyUnits: Array[Node] = $battleUnits/allyUnits.get_children()
 
-@onready var playerUnitGui: AllyUnitGui = $ui/AllyUnitGui 
-@onready var turnMan: TurnManager = $TurnManager
 
+@onready var playerUnitGui: AllyUnitGui = $ui/AllyUnitGui 
+@onready var turnManager: TurnManager = $TurnManager
+
+#grid
 @export var mapSize: Vector2
 var gridManager: Grid = Grid.new() 
 @onready var collisionWalls := $worldWalls.get_children() 
+var astarBoard: AStar2D
 
 var playerTurn: bool = true
 var unitPos: Array[Vector2]
@@ -164,9 +167,14 @@ func input() -> void:
 					
 				else: #no unit selected
 					var targetLoc: Vector2 = battleCam.getGridPos() #need to add valid location check
-					print("targetLoc" + str(targetLoc))
-					print("unitPos" + str(unitTurn.getGridPos()))
-					print(gridManager.dist(targetLoc,unitTurn.getGridPos()))
+					unitTurn.moveTo(targetLoc,astarBoard)
+					curState = STATE.CAM_CINEMATIC
+					
+					#add in camera follow
+
+					await unitTurn.movementFinished
+					curState = STATE.A_UNIT_MOVED
+
 					#need to add grid positions ot move to + unit movement
 					#selectedAllyUnit.moveTo(targetLoc)
 
@@ -192,6 +200,12 @@ func input() -> void:
 				playerUnitGui.hideActionBox()
 				
 				curState = STATE.CAM_MOVEMENT
+				
+			STATE.A_UNIT_MOVED:
+				unitTurn.setGridPos(unitOriginPos)
+
+
+				curState = STATE.UNIT_MOVEMENT_SELECTION
 				
 			STATE.UNIT_MOVEMENT_SELECTION:
 				playerUnitGui.showActionBox()
@@ -245,35 +259,17 @@ func _on_menu_select_item_selected(item):
 				curState = STATE.NONE
 				
 		
-		
-func nextTurn() -> void:
-	turnMan.nextTurn()
-	if $battleUnits/playerUnits.get_children().size() == 0:
-		gameOver(false)
-
-	updateUnitGridPos()
-	var unitArray := $battleUnits/playerUnits.get_children() + $battleUnits/enemyUnits.get_children() + $battleUnits/allyUnits.get_children() 
-
-	if turnMan.getTurnNo() > 0:
-		for unit in unitArray:
-			unit.incTurnTimer()
-
-		if selectedAllyUnit != null:
-			unitTurn.setTurnTimer(0)
-
-	var order := turnMan.calcTurnOrder(0,unitArray)
-	turnMan.updateUnitGuiOrder()
-	selectUnit(turnMan.getNextUnit())
-
-
 func snapCamMoveToUnit(unit: BaseUnit ) -> void:
 	curState = STATE.CAM_CINEMATIC
 	var loc: Vector3 = Vector3(unit.getGridPos().x,battleCam.position.y,unit.getGridPos().y) 
+	print(unitTurn.getGridPos())
+	print(loc)
 	
 	const speed: int = 20
 	battleCam.moveToGridPos(loc, speed)
 	
 	await battleCam.cinematicMoveFinished
+	print(battleCam.getGridPos())
 
 	curState = STATE.A_UNIT
 	playerUnitGui.showActionBox()
@@ -282,11 +278,40 @@ func snapCamMoveToUnit(unit: BaseUnit ) -> void:
 	
 func gameOver(victory: bool):
 	print("game over")
+		
+func nextTurn() -> void:
+	turnManager.nextTurn()
+	if $battleUnits/playerUnits.get_children().size() == 0:
+		gameOver(false)
+
+	updateUnitGridPos()
+	var unitArray := $battleUnits/playerUnits.get_children() + $battleUnits/enemyUnits.get_children() + $battleUnits/allyUnits.get_children() 
+	var collisions: Array[Vector2]
+	
+	for unit in unitArray:
+		collisions.append(unit.getGridPos())
+		
+	gridManager.createBoard(collisions)
+	
+
+	if turnManager.getTurnNo() > 0:
+		for unit in unitArray:
+			unit.incTurnTimer()
+
+		if selectedAllyUnit != null:
+			unitTurn.setTurnTimer(0)
+
+	var order := turnManager.calcTurnOrder(0,unitArray)
+	turnManager.updateUnitGuiOrder()
+	selectUnit(turnManager.getNextUnit())
 
 #engine operation
 func _ready():
 	gridManager.setWorldWalls(mapSize,collisionWalls)
 	nextTurn()
+	
+	unitTurn.moveTo(Vector2(0,5),astarBoard)
+	updateUnitGridPos()
 
 
 func _physics_process(delta):

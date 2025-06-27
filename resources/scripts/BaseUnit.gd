@@ -1,12 +1,17 @@
-class_name BaseUnit extends Node3D
+class_name BaseUnit extends Path3D
+
+signal movementFinished
 
 @export var team: int #0==player, 1==enemy, 2==ally
 @export var char_name: String
 @export var charImage: Texture
 @export var apCharge: int
 
+const SPEED: int = 2
+
 @onready var bodyParts: Array[Node] = $bodyparts.get_children() #as Array[BodyPart]
 @onready var weapons: Array[Node] = $weapons.get_children()
+@onready var pathFollow : PathFollow3D = $PathFollow3D
 
 var enumBodyParts := load("res://resources/scripts/enumClasses/ENUMbodyparts.gd")
 var BODYPARTS = enumBodyParts.BODYPARTS
@@ -109,8 +114,15 @@ func setTeam(newTeam: int) -> void:
 func setEquipedWeapon(newWeapon: Weapon) -> void:
 	equipedWeapon = newWeapon
 #methods
-func moveTo(loc: Vector2) -> void:
-	print(loc)
+func followPath(path: PackedVector2Array) -> void:
+	for point in path:
+		curve.add_point(Vector3(point.x,position.y,point.y) - position)
+	set_process(true)
+	
+func moveTo(pos: Vector2, astarMap: AStar2D) -> void:
+	var path := astarMap.get_point_path(astarMap.getASindex(getGridPos()), astarMap.getASindex(pos))
+	followPath(path)
+
 	
 func hasLOS(enemyLoc: Vector2) -> bool:
 	#need to implement - come to when doing battle
@@ -128,7 +140,22 @@ func _ready():
 		equipedWeapon = weapons[0]
 	
 	setGridPos(gridPosition)
+	set_process(false)
+	if not Engine.is_editor_hint():
+		curve = Curve3D.new()
 	
 	#turnTimer += randi() % agilityStat
 	
 	
+func _process(delta):
+	pathFollow.progress += SPEED * delta
+	
+	if pathFollow.progress_ratio >= 1:
+		set_process(false)
+		position = curve.get_point_position(curve.point_count - 1) + position
+		print(position)
+		print()
+		print($PathFollow3D/Area3D.position)
+		pathFollow.progress = 0
+		curve.clear_points()
+		movementFinished.emit()
