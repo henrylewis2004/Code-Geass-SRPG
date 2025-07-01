@@ -19,7 +19,7 @@ func setWorldWalls(size: Vector2, walls: Array[Node]) -> void:
 func getASindex(cell: Vector2) -> int:
 	return int(cell.x + mapSize.x * cell.y)
 
-func createBoard(collisions: Array[Vector2]) -> void:
+func createBoard(collisions: Array[Vector2]) -> AStar2D:
 	astar = AStar2D.new()
  
 	for pointX in range(mapSize.x):
@@ -32,6 +32,8 @@ func createBoard(collisions: Array[Vector2]) -> void:
 
 	#for point in collisions:
 	#	astar.remove_point(getASindex(Vector2(point.x,point.y)))
+	
+	return astar
 		
 
 #methods

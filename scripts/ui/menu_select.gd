@@ -46,6 +46,11 @@ func setIndex(index: int) -> void:
 	if menuItem == null:
 		return 
 	
+	if menuItem.visible == false:
+		setIndex(index + (index - selectIndex))
+		return
+	
+	
 	if lastItem:
 		lastItem.modulate.a = deselectOpacity
 		

@@ -44,7 +44,7 @@ bodyPartType = 3
 [node name="weapons" type="Node" parent="."]
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
-rotation_mode = 1
+rotation_mode = 0
 loop = false
 
 [node name="Area3D" type="Area3D" parent="PathFollow3D"]

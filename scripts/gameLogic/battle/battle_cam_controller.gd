@@ -46,8 +46,8 @@ func moveToGridPos(loc: Vector3, speed: int) -> void:
 	velocity = (movingToLoc - position) * speed
 	canMove = false
 	
-func snapToGridPos(pos: Vector3) -> void:
-	position = pos.floor() + Vector3(0.5,0,0.5)
+func snapToGridPos(pos: Vector2) -> void:
+	position = Vector3(pos.floor().x,position.y,pos.floor().y) + Vector3(0.5,0,0.5)
 	
 func getGridPos() -> Vector2:
 	return Vector2(position.x,position.z).floor()

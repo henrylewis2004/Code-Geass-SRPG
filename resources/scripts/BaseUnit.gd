@@ -16,7 +16,6 @@ const SPEED: int = 2
 var enumBodyParts := load("res://resources/scripts/enumClasses/ENUMbodyparts.gd")
 var BODYPARTS = enumBodyParts.BODYPARTS
 
-var gridPosition: Vector2 
 var equipedWeapon: Weapon = null
 var ap: int
 
@@ -103,7 +102,7 @@ func setName(newName: String) -> void:
 	char_name = newName
 
 func setGridPos(gridPos: Vector2) -> void:
-	position = Vector3(gridPos.x,position.y,gridPos.y)
+	position = Vector3(gridPos.x,position.y,gridPos.y).floor()
 	
 func resetAp() -> void:
 	ap = maxAp
@@ -119,8 +118,8 @@ func followPath(path: PackedVector2Array) -> void:
 		curve.add_point(Vector3(point.x,position.y,point.y) - position)
 	set_process(true)
 	
-func moveTo(pos: Vector2, astarMap: AStar2D) -> void:
-	var path := astarMap.get_point_path(astarMap.getASindex(getGridPos()), astarMap.getASindex(pos))
+func moveTo(originPosIndex: int,targetPosIndex: int, astarMap: AStar2D) -> void:
+	var path := astarMap.get_point_path(originPosIndex, targetPosIndex)
 	followPath(path)
 
 	
@@ -134,12 +133,11 @@ func hasLOS(enemyLoc: Vector2) -> bool:
 #engine utility
 func _ready():
 	ap = maxAp
-	gridPosition = getGridPos()
 	
 	if weapons.size() > 0:
 		equipedWeapon = weapons[0]
 	
-	setGridPos(gridPosition)
+	setGridPos(Vector2(position.x,position.z).floor())
 	set_process(false)
 	if not Engine.is_editor_hint():
 		curve = Curve3D.new()
@@ -153,9 +151,6 @@ func _process(delta):
 	if pathFollow.progress_ratio >= 1:
 		set_process(false)
 		position = curve.get_point_position(curve.point_count - 1) + position
-		print(position)
-		print()
-		print($PathFollow3D/Area3D.position)
 		pathFollow.progress = 0
 		curve.clear_points()
 		movementFinished.emit()
