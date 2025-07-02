@@ -154,10 +154,13 @@ texture_progress = ExtResource("4_lv8sm")
 [node name="MenuBox" parent="base" instance=ExtResource("6_8u83i")]
 visible = false
 layout_mode = 1
-offset_left = 11.0
-offset_top = -76.0
-offset_right = 11.0
-offset_bottom = -76.0
+anchor_left = 0.025
+anchor_top = -1.226
+anchor_right = 0.161
+anchor_bottom = 0.032
+offset_top = 0.0120239
+offset_right = 0.159996
+offset_bottom = 0.0159994
 pivot_offset = Vector2(12, 78)
 
 [node name="expand" type="Control" parent="."]

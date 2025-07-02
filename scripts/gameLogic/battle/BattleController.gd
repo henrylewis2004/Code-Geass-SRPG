@@ -184,6 +184,7 @@ func input() -> void:
 					await unitTurn.movementFinished
 					updateUnitGridPos()
 					playerInput(unitTurn)
+					playerUnitGui.showItem_actionBox(1,false)
 					
 					curState = STATE.A_UNIT_MOVED
 					
@@ -224,6 +225,7 @@ func input() -> void:
 			STATE.A_UNIT_MOVED:
 				unitTurn.setGridPos(unitOriginPos)
 				playerInput(unitTurn)
+				playerUnitGui.showItem_actionBox(1,true)
 
 				updateUnitGridPos()
 
@@ -314,7 +316,7 @@ func nextTurn() -> void:
 		for unit in unitArray:
 			unit.incTurnTimer()
 
-		if selectedAllyUnit != null:
+		if unitTurn != null:
 			unitTurn.setTurnTimer(0)
 
 	var order := turnManager.calcTurnOrder(0,unitArray)
