@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0lcfto4dco31"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1evt6"]
+transparency = 1
+albedo_color = Color(0, 0.662745, 1, 0.501961)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gv40x"]
+material = SubResource("StandardMaterial3D_1evt6")
+size = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv40x"]
+transparency = 1
+albedo_color = Color(0.712692, 2.93598e-06, 5.77569e-07, 0.501961)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pilt6"]
+material = SubResource("StandardMaterial3D_gv40x")
+size = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aswut"]
+transparency = 1
+albedo_color = Color(0.799608, 0.637932, 0, 0.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1evt6"]
+material = SubResource("StandardMaterial3D_aswut")
+size = Vector2(1, 1)
+
+[node name="unitSelectionTileset" type="Node3D"]
+
+[node name="movementTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_gv40x")
+
+[node name="attackTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_pilt6")
+skeleton = NodePath("../movementTile")
+
+[node name="interactTile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_1evt6")
+skeleton = NodePath("")
