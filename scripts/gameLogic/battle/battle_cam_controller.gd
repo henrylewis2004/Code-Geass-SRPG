@@ -13,6 +13,7 @@ var canMove: bool = true
 var canRot: bool = true
 
 var movingToLoc: Vector3 = Vector3.INF
+var unitFollow: BaseUnit = null
 
 #cam movement functions
 func movement() -> void:
@@ -27,8 +28,11 @@ func movement() -> void:
 			emit_signal('cinematicMoveFinished')
 	else:
 		velocity = velocity * 0
-
+		
 	move_and_slide()
+	
+	if unitFollow != null:
+		position = unitFollow.getPathPosition()
 
 	if canRot:
 		camRotation()
@@ -37,6 +41,12 @@ func camRotation() -> void:
 	_CameraPivot.rotate_y(Input.get_axis("cam_rot_left", "cam_rot_right") * camSensitivity )
 	
 	
+func followUnit(unit: BaseUnit) -> void:
+	unitFollow = unit
+	
+func clearUnitFollow() -> void:
+	unitFollow = null
+
 
 
 	

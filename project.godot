@@ -101,10 +101,17 @@ up={
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+weaponSelection={
+"deadzone": 0.2,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
+]
+}
 
 [layer_names]
 
 3d_physics/layer_8="battleCam"
+3d_physics/layer_11="ally Units collision mask"
+3d_physics/layer_12="enemy Units collision mask"
 
 [rendering]
 

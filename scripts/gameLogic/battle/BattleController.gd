@@ -1,9 +1,12 @@
 class_name BattleController extends Node
 
-enum STATE{CAM_CINEMATIC, POPUP,UNIT_MENU,NONE,CAM_MOVEMENT, A_UNIT, UNIT_MOVEMENT_SELECTION,ATTACK_MOVEMENT, E_UNIT, BATTLE, A_UNIT_MOVED}
+enum STATE{NONE,CAM_CINEMATIC,UNIT_MENU,CAM_MOVEMENT,A_UNIT,UNIT_MOVEMENT_SELECTION,ATTACK_MOVEMENT,E_UNIT,BATTLE,A_UNIT_MOVED,E_UNIT_SELECTED_ATTACK}
 var curState: int = STATE.CAM_MOVEMENT #might need to change to none as default
 
 enum TEAM {PLAYER,ENEMY,ALLY}
+
+enum UNIT_SELECT_TILE{MOVE,ATTACK,INTERACT}
+enum ACTION_BOX_ITEM{ATTACK,MOVE,STATUS,ITEM,END}
 
 @onready var battleCam: BattleCamController = $BattleCam
 @onready var playerUnits: Array[Node] = $battleUnits/playerUnits.get_children() 
@@ -12,13 +15,21 @@ enum TEAM {PLAYER,ENEMY,ALLY}
 
 
 @onready var playerUnitGui: AllyUnitGui = $ui/AllyUnitGui 
+const confirmBox := preload("res://scenes/game logic/menus/Confirmation Window.tscn")
+
 @onready var turnManager: TurnManager = $TurnManager
+
+var apCost: Vector2 = Vector2.INF #x = ap at start of turn, y = ap after move, then final ap taken in attack phase and turn ends
 
 #grid
 @export var mapSize: Vector2
 var gridManager: Grid = Grid.new() 
-@onready var collisionWalls := $worldWalls.get_children() 
+
+@onready var collisionWalls := $Grid/worldWalls.get_children() 
 var astarBoard: AStar2D 
+
+@onready var unitSelectionTiles : GridMap = $Grid/unitSelection
+#
 
 var playerTurn: bool = true
 var unitPos: Array[Vector2]
@@ -81,7 +92,7 @@ func selectUnitOverlay(unit: BaseUnit, ally: int) -> void: #ally - 0= enemy, 1= 
 
 
 func playerInput(unit: BaseUnit) -> void:
-	playerUnitGui.setExpansionInfo(unit.getEquipedWeapon())
+	playerUnitGui.setExpansionInfo(unit.getEquippedWeapon())
 	playerUnitGui.expand()
 	playerUnitGui.showActionBox()
 	
@@ -124,6 +135,16 @@ func selectUnit(unit: BaseUnit) -> void:#needs modification
 	unitTurn = unit
 	battleCam.snapToGridPos(unit.getGridPos())
 	
+	apCost.x = unitTurn.getAp()
+	
+	
+func unitTurnMoved() -> void:
+	if unitTurn.getGridPos() != unitOriginPos && unitOriginPos != Vector2.INF:
+		curState = STATE.A_UNIT_MOVED
+		playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,false)
+		return
+	curState = STATE.A_UNIT
+	
 
 	
 func selectAllyUnit(index: int) -> void: 
@@ -141,11 +162,13 @@ func input() -> void:
 				if unit != null:
 					match(unit.getTeam()):
 						TEAM.PLAYER: #player unit
-							var unitWeapon : Weapon = unit.getEquipedWeapon()
+							var unitWeapon : Weapon = unit.getEquippedWeapon()
 
 							playerUnitGui.setExpansionInfo(unitWeapon)
 							playerUnitGui.expand()
 							playerUnitGui.showActionBox()
+							
+							battleCam.snapToGridPos(unitTurn.getGridPos())
 
 							curState = STATE.A_UNIT
 
@@ -176,42 +199,68 @@ func input() -> void:
 					
 				else: #no unit selected
 					var targetLoc: Vector2 = battleCam.getGridPos() #need to add valid location check
-					unitTurn.moveTo(gridManager.getASindex(unitTurn.getGridPos()), gridManager.getASindex(targetLoc),astarBoard)
-					curState = STATE.CAM_CINEMATIC
-					
-					#add in camera follow
+					if gridManager.validMove(targetLoc,unitTurn):
+						unitTurn.incAp(-gridManager.apMoveCost(unitTurn.getGridPos(),targetLoc))
+						apCost.y = unitTurn.getAp()
 
-					await unitTurn.movementFinished
-					updateUnitGridPos()
-					playerInput(unitTurn)
-					playerUnitGui.showItem_actionBox(1,false)
-					
-					curState = STATE.A_UNIT_MOVED
-					
-					
-					
+						gridManager.clearUnitSelectionTiles(unitSelectionTiles)
+						unitTurn.moveTo(gridManager.getASindex(unitTurn.getGridPos()), gridManager.getASindex(targetLoc),astarBoard)
+						
+						battleCam.followUnit(unitTurn)
+						curState = STATE.CAM_CINEMATIC
+						
+						await unitTurn.movementFinished
 
-				
+						updateUnitGridPos()
+						playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,false)
+						playerInput(unitTurn)
+
+						battleCam.clearUnitFollow()
+						curState = STATE.A_UNIT_MOVED
+					
 			STATE.ATTACK_MOVEMENT:
 				#add attack orders
-				pass
+				var unit: BaseUnit = unitInteraction()
+				if unit != null:
+					#add in unit selection 
+					match(unit.getTeam()):
+						TEAM.PLAYER:
+							if (unitTurn != unit):
+								#needs changing
 
-		
+								playerUnitGui.expand()
+								curState = STATE.A_UNIT
+
+							else: #unit turn selected
+								unitTurnMoved()
+								playerInput(unitTurn)
+						TEAM.ALLY:
+							pass
+
+						TEAM.ENEMY:
+							#valid target - loc and range
+							if unitTurn.validTarget(unit) && unitTurn.hasLOS(unit):
+								curState = STATE.E_UNIT_SELECTED_ATTACK
+								battleCam.snapToGridPos(unit.getGridPos())
+
+								#add enemy ui
+
+									
+									
 
 	elif Input.is_action_just_pressed("cancel"):
+		gridManager.clearUnitSelectionTiles(unitSelectionTiles)
 		match curState:
 			STATE.CAM_MOVEMENT:
 				snapCamMoveToUnit(unitTurn)
+				playerInput(unitTurn)
 				
 			STATE.UNIT_MENU:
 				playerUnitGui.hideUnitMenu()
-				playerUnitGui.showActionBox()
-				playerUnitGui.expand()
 				
-				curState = STATE.A_UNIT
+				curState = STATE.CAM_MOVEMENT
 
 			STATE.A_UNIT:
-				selectedAllyUnit = null
 				playerUnitGui.hideExpansion()
 				playerUnitGui.hideActionBox()
 				
@@ -225,16 +274,18 @@ func input() -> void:
 			STATE.A_UNIT_MOVED:
 				unitTurn.setGridPos(unitOriginPos)
 				playerInput(unitTurn)
-				playerUnitGui.showItem_actionBox(1,true)
+				playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,true)
+				
+				unitTurn.setAp(apCost.x)
+				apCost.y = INF
 
 				updateUnitGridPos()
 
 				curState = STATE.A_UNIT
 				
 			STATE.ATTACK_MOVEMENT:
-				playerUnitGui.showActionBox()
-
-				curState = STATE.A_UNIT
+				playerInput(unitTurn)
+				unitTurnMoved()
 			
 			STATE.E_UNIT:
 				#when in attack choosing enemy or simply looking at enemy info
@@ -244,9 +295,40 @@ func input() -> void:
 					pass
 				pass
 			
+			STATE.E_UNIT_SELECTED_ATTACK:
+				curState = STATE.ATTACK_MOVEMENT
+				gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
+			
 
 	elif Input.is_action_just_pressed("nextUnit") || Input.is_action_just_pressed("previousUnit"):
 		selectNextUnit(Input.get_axis("previousUnit","nextUnit"))
+		
+	#weapon selection - need to add gui
+	elif Input.is_action_pressed("weaponSelection"):
+		if Input.is_action_just_pressed("weaponSelection"):
+			playerUnitGui.updateWeaponSelect(unitTurn.getWeapons())
+			playerUnitGui.selectWeapon(unitTurn.getEquippedWeaponIndex())
+			playerUnitGui.showWeaponSelect()
+			
+			playerUnitGui.hideActionBox()
+
+
+		if Input.is_action_just_pressed("down") || Input.is_action_just_pressed("up"):
+			unitTurn.weaponSelection(Input.get_axis("up","down"))
+			playerUnitGui.selectWeapon(unitTurn.getEquippedWeaponIndex())
+			
+			if curState == STATE.ATTACK_MOVEMENT:
+				unitSelectionTiles.clear()
+				gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
+
+	
+
+	elif Input.is_action_just_released("weaponSelection"):
+		#hide gui
+		playerUnitGui.hideWeaponSelect()
+		if curState == STATE.A_UNIT:
+			playerUnitGui.showActionBox()
+
 			
 	
 #player action menu selection
@@ -256,9 +338,11 @@ func _on_menu_select_item_selected(item):
 	match(item):
 		"ATTACK":
 			curState = STATE.ATTACK_MOVEMENT
+			gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
 		"MOVE":
 			curState = STATE.UNIT_MOVEMENT_SELECTION
 			unitOriginPos = unitTurn.getGridPos()
+			gridManager.createUnitMoveTiles(unitSelectionTiles,min(unitTurn.getAp(),unitTurn.getMoveRange()),unitTurn.getGridPos())
 
 		"STATUS":
 			curState = STATE.UNIT_MENU
@@ -269,10 +353,8 @@ func _on_menu_select_item_selected(item):
 		"END":
 			#end unit turn
 			nextTurn()
-			playerTurn = false
 			if unitTurn.getTeam() == TEAM.PLAYER:
 				curState = STATE.CAM_MOVEMENT
-				playerTurn = true
 			elif unitTurn.getTeam() == TEAM.ENEMY:
 				curState = STATE.NONE
 				
@@ -280,14 +362,11 @@ func _on_menu_select_item_selected(item):
 func snapCamMoveToUnit(unit: BaseUnit ) -> void:
 	curState = STATE.CAM_CINEMATIC
 	var loc: Vector3 = Vector3(unit.getGridPos().x,battleCam.position.y,unit.getGridPos().y) 
-	print(unitTurn.getGridPos())
-	print(loc)
 	
 	const speed: int = 20
 	battleCam.moveToGridPos(loc, speed)
 	
 	await battleCam.cinematicMoveFinished
-	print(battleCam.getGridPos())
 
 	curState = STATE.A_UNIT
 	playerUnitGui.showActionBox()
@@ -298,6 +377,10 @@ func gameOver(victory: bool):
 	print("game over")
 		
 func nextTurn() -> void:
+	gridManager.clearUnitSelectionTiles(unitSelectionTiles)
+	playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,true)
+	apCost = Vector2.INF
+
 	turnManager.nextTurn()
 	if $battleUnits/playerUnits.get_children().size() == 0:
 		gameOver(false)
@@ -306,11 +389,8 @@ func nextTurn() -> void:
 	var unitArray := $battleUnits/playerUnits.get_children() + $battleUnits/enemyUnits.get_children() + $battleUnits/allyUnits.get_children() 
 	var collisions: Array[Vector2]
 	
-	for unit in unitArray:
-		collisions.append(unit.getGridPos())
-		
-	astarBoard = gridManager.createBoard(collisions)
-	
+	#for unit in unitArray:
+	#	collisions.append(unit.getGridPos())
 
 	if turnManager.getTurnNo() > 0:
 		for unit in unitArray:
@@ -322,6 +402,19 @@ func nextTurn() -> void:
 	var order := turnManager.calcTurnOrder(0,unitArray)
 	turnManager.updateUnitGuiOrder()
 	selectUnit(turnManager.getNextUnit())
+	playerTurn = unitTurn.getTeam() == TEAM.PLAYER
+
+	if unitTurn.getTeam() == TEAM.PLAYER || unitTurn.getTeam() == TEAM.ALLY:
+		unitArray = $battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children()
+		
+	else:
+		unitArray = $battleUnits/enemyUnits.get_children()
+		
+	for unit in unitArray:
+		collisions.append(unit.getGridPos())
+		
+	astarBoard = gridManager.createBoard(collisions)
+
 
 #engine operation
 func _ready():
@@ -333,5 +426,8 @@ func _ready():
 func _physics_process(delta):
 	unitOverlay()
 	battleCam.input(!canCamMove(),!canCamRot())
-	input()
+	if curState > STATE.NONE && playerTurn && curState != STATE.CAM_CINEMATIC:
+		input()
+		
+	$ui/curState.text = "curState: " + str(STATE.find_key(curState))
 	

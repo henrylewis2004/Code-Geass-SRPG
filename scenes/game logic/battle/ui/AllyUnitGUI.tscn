@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://be3bnvfucvm2h"]
+[gd_scene load_steps=12 format=3 uid="uid://be3bnvfucvm2h"]
 
 [ext_resource type="Script" uid="uid://diveoj2vg71vq" path="res://scripts/gameLogic/battle/allyUnitGUI.gd" id="1_0sxrj"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="1_2wnwu"]
@@ -9,6 +9,8 @@
 [ext_resource type="FontFile" uid="uid://crpmyv2e2r4wr" path="res://assets/fonts/Xirod.otf" id="7_3kbyj"]
 [ext_resource type="FontFile" uid="uid://j82odr3tufp0" path="res://assets/fonts/good timing bd.otf" id="8_0sxrj"]
 [ext_resource type="Texture2D" uid="uid://x61wqiu3snrh" path="res://assets/2d/ui/gunTest.png" id="9_hw755"]
+[ext_resource type="PackedScene" uid="uid://8xe7hp6cm3de" path="res://scenes/game logic/menus/MenuItem.tscn" id="10_43gpe"]
+[ext_resource type="Texture2D" uid="uid://cwfi0s8twv0c1" path="res://assets/2d/ui/menuItemTop.png" id="11_w1kpr"]
 
 [node name="AllyUnitGui" type="Control"]
 layout_mode = 3
@@ -159,8 +161,8 @@ anchor_top = -1.226
 anchor_right = 0.161
 anchor_bottom = 0.032
 offset_top = 0.0120239
-offset_right = 0.159996
-offset_bottom = 0.0159994
+offset_right = 1.16
+offset_bottom = 0.0160071
 pivot_offset = Vector2(12, 78)
 
 [node name="expand" type="Control" parent="."]
@@ -225,3 +227,36 @@ theme_override_font_sizes/normal_font_size = 11
 text = "RNG: 2"
 scroll_active = false
 tab_size = 0
+
+[node name="weaponSelect" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = -430.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="weaponsBox" type="VBoxContainer" parent="weaponSelect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.6
+anchor_bottom = 0.779
+offset_bottom = -18.16
+theme_override_constants/separation = 0
+
+[node name="weaponsTop" parent="weaponSelect/weaponsBox" instance=ExtResource("10_43gpe")]
+modulate = Color(1, 1, 1, 1)
+layout_mode = 2
+text = "WEAPON"
+
+[node name="TextureRect" parent="weaponSelect/weaponsBox/weaponsTop" index="0"]
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_w1kpr")
+
+[editable path="weaponSelect/weaponsBox/weaponsTop"]

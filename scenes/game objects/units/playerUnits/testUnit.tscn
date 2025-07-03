@@ -1,14 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgv5kt6htivl"]
+[gd_scene load_steps=9 format=3 uid="uid://dgv5kt6htivl"]
 
 [ext_resource type="Script" uid="uid://bb1mv5vo6lt2m" path="res://resources/scripts/BaseUnit.gd" id="1_dh1rb"]
 [ext_resource type="Texture2D" uid="uid://dtcrttgfpy0si" path="res://assets/2d/characters/main/lelouch/lelouch1.png" id="2_f73vb"]
 [ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="2_kteh2"]
 [ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/BaseBodypart.gd" id="3_g0gu5"]
 [ext_resource type="Script" uid="uid://y5wyd4af163n" path="res://resources/scripts/LegsBodypart.gd" id="4_f73vb"]
+[ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/units/weapons/Mg Gun.tscn" id="5_kao3p"]
+[ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/units/weapons/smg.tscn" id="6_2ay0l"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kteh2"]
-radius = 0.25
-height = 1.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ay0l"]
+size = Vector3(0.75, 1, 0.75)
 
 [node name="TestUnit" type="Path3D"]
 script = ExtResource("1_dh1rb")
@@ -43,18 +44,26 @@ bodyPartType = 3
 
 [node name="weapons" type="Node" parent="."]
 
+[node name="MgGun" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_kao3p")]
+equipPart = NodePath("../../bodyparts/Larm")
+
+[node name="Smg" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("6_2ay0l")]
+equipPart = NodePath("../../bodyparts/Rarm")
+
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
 rotation_mode = 0
 loop = false
 
-[node name="Area3D" type="Area3D" parent="PathFollow3D"]
+[node name="unitCollider" type="Area3D" parent="PathFollow3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+collision_layer = 3072
+collision_mask = 3072
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PathFollow3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathFollow3D/unitCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CapsuleShape3D_kteh2")
+shape = SubResource("BoxShape3D_2ay0l")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D/Area3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D/unitCollider"]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 mesh = ExtResource("2_kteh2")
 skeleton = NodePath("../CollisionShape3D")

@@ -42,8 +42,67 @@ func absDist(pos1: Vector2, pos2: Vector2) -> int:
 	return abs(pos1.x - pos2.x) + abs(pos1.y - pos2.y)
 
 func dist(targetPos: Vector2, curPos: Vector2 ) -> int:
-	return astar.get_Point_Path(curPos,targetPos).size() - 1
+	return (getPath(curPos,targetPos).size() - 1)
 
 func getPath(pos1: Vector2, pos2: Vector2) -> PackedVector2Array:
-
 	return astar.get_point_path(getASindex(pos1),getASindex(pos2))
+
+func validMove(loc: Vector2, unit: BaseUnit) -> bool:
+	var dist: int = dist(loc,unit.getGridPos())
+	return (dist <= min(unit.getAp(),unit.getMoveRange()) && dist > 0)
+
+
+func apMoveCost(originPos: Vector2, targetPos: Vector2) -> int:
+	return dist(originPos,targetPos)
+
+
+#unit tiles
+func createUnitMoveTiles(tileGrid: GridMap, dist: int, originPos: Vector2) -> void:
+	#might need changing for different ap costs depending on tile type
+	const type: int = 0
+	
+	tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y),type)
+	
+	for index_X in range(dist + 1):
+		for index_y in range(dist + 1):
+			if index_X + index_y > dist:
+				break
+			
+			var pathDist = dist(originPos,originPos + Vector2(index_X,index_y)) 
+			if pathDist <= dist && pathDist > 0:
+				tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,index_y), type)
+
+			pathDist = dist(originPos,originPos - Vector2(index_X,index_y)) 
+			if pathDist <= dist && pathDist > 0:
+				tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) - Vector3(index_X,0,index_y), type)
+
+			pathDist = dist(originPos,originPos + Vector2(-index_X,index_y)) 
+			if pathDist <= dist && pathDist > 0:
+				tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(-index_X,0,index_y), type)
+
+			pathDist = dist(originPos,originPos + Vector2(index_X,-index_y)) 
+			if pathDist <= dist && pathDist > 0:
+				tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,-index_y), type)
+
+
+func createUnitAttackTiles(tileGrid: GridMap, range:int, originPos: Vector2) -> void:
+	const type: int = 1
+
+	for index_X in range(range + 1):
+		for index_y in range(range + 1):
+			if index_X + index_y > range:
+				break
+			
+			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,index_y), type)
+
+			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) - Vector3(index_X,0,index_y), type)
+
+			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(-index_X,0,index_y), type)
+
+			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,-index_y), type)
+
+
+
+func clearUnitSelectionTiles(tileGrid: GridMap) -> void:
+	tileGrid.clear()
+	

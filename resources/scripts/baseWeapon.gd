@@ -11,39 +11,45 @@ class_name Weapon extends Node
 
 #getters
 func getDmg() -> int:
-    return dmg
+	return dmg
 
 func getName() -> String:
-    return string_name
+	return string_name
 
 func getAccuracy() -> int:
-    return accuracy
+	return accuracy
 
 func getRounds() -> int:
-    return rounds
+	return rounds
 
 func getRange() -> int:
-    return range
+	return range
+
+func getApCost() -> int:
+	return apCost
+
+func isTwoHanded() -> bool:
+	return twoHanded
 
 func getWpnInfo() -> Array:
-    return [dmg,string_name,accuracy,rounds, range]
+	return [dmg,string_name,accuracy,rounds, range, apCost]
 
 
 #methods
 func hit() -> bool: #need to add two handed debuff
-    var hitInt: int = randi() % 101
-    if (hitInt < accuracy):
-        return true
-    return false
+	var hitInt: int = randi() % 101
+	if (hitInt < accuracy):
+		return true
+	return false
 
 func dmgCalc() -> int:
-    var totalDmg: int = 0
-    
-    for bullet in rounds:
-        if hit():
-            totalDmg += dmg
+	var totalDmg: int = 0
+	
+	for bullet in rounds:
+		if hit():
+			totalDmg += dmg
 
-    return totalDmg
+	return totalDmg
 
 
-    
+	

@@ -13,10 +13,9 @@ const SPEED: int = 2
 @onready var weapons: Array[Node] = $weapons.get_children()
 @onready var pathFollow : PathFollow3D = $PathFollow3D
 
-var enumBodyParts := load("res://resources/scripts/enumClasses/ENUMbodyparts.gd")
-var BODYPARTS = enumBodyParts.BODYPARTS
+const BODYPARTS = preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 
-var equipedWeapon: Weapon = null
+var equippedWeapon: int = -1
 var ap: int
 
 #stats
@@ -29,6 +28,9 @@ var ap: int
 #getters
 func getGridPos() -> Vector2:
 	return Vector2(position.x,position.z).floor()
+
+func getPathPosition() -> Vector3:
+	return (position + pathFollow.position + Vector3(0.5,0,0.5))
 
 func getAp() -> int:
 	return ap
@@ -65,9 +67,27 @@ func getStat(stat:String) -> int:
 	return -1
 
 
+#collisions
+func getCollisionMask() -> int:
+	return $PathFollow3D/unitCollider.collision_mask
+
+func getCollider() -> Area3D:
+	return $PathFollow3D/unitCollider
+
+
+#weapons
+
+func getEquippedWeapon() -> Weapon:
+	return weapons[equippedWeapon]
+
+func getEquippedWeaponIndex() -> int:
+	return equippedWeapon
+
+func getWeapons() -> Array[Node]:
+	return weapons
+
 #turn timer
 func getTurnTimer() -> int:
-
 	return turnTimer
 
 func setTurnTimer(timer: int) -> void:
@@ -85,8 +105,6 @@ func setPredTurnTimer(timer: int) -> void:
 func resetPredTurnTimer() -> void:
 	predTurnTimer = turnTimer
 	
-func getEquipedWeapon() -> Weapon:
-	return equipedWeapon
 
 #setters
 func setMoveRange(moveRng: int) -> void:
@@ -94,6 +112,17 @@ func setMoveRange(moveRng: int) -> void:
 
 func setAp(newAp: int) -> void:
 	ap = newAp
+
+func resetAp() -> void:
+	ap = maxAp
+	
+func incAp(val: int) -> void:
+	ap += val
+	if ap < 0: 
+		ap = 0
+	if ap > maxAp:
+		resetAp()
+
 
 func setBody(newBodyParts: Array[Node]) -> void:
 	bodyParts = newBodyParts
@@ -104,15 +133,28 @@ func setName(newName: String) -> void:
 func setGridPos(gridPos: Vector2) -> void:
 	position = Vector3(gridPos.x,position.y,gridPos.y).floor()
 	
-func resetAp() -> void:
-	ap = maxAp
-	
 func setTeam(newTeam: int) -> void:
 	team = newTeam
 	
-func setEquipedWeapon(newWeapon: Weapon) -> void:
-	equipedWeapon = newWeapon
+	getCollider().set_collision_layer_value(11 + int(team == 1),true)
+	getCollider().set_collision_layer_value(11 + int(team != 1),false)
+	
+	
+	
+func weaponSelection(select: int) -> void:
+	if equippedWeapon + select > weapons.size() - 1:
+		equippedWeapon = 0
+
+	elif equippedWeapon + select < 0:
+		equippedWeapon = weapons.size() - 1
+	
+	else:
+		equippedWeapon += select
+
+	
 #methods
+
+#movement
 func followPath(path: PackedVector2Array) -> void:
 	for point in path:
 		curve.add_point(Vector3(point.x,position.y,point.y) - position)
@@ -123,22 +165,45 @@ func moveTo(originPosIndex: int,targetPosIndex: int, astarMap: AStar2D) -> void:
 	followPath(path)
 
 	
-func hasLOS(enemyLoc: Vector2) -> bool:
-	#need to implement - come to when doing battle
+func hasLOS(enemyUnit: BaseUnit) -> bool:
+	var collisionLayer: int = 1024 + 1024 * int(enemyUnit.getTeam() == 1)
+
+	var raycast := PhysicsRayQueryParameters3D.create(Vector3(getGridPos().x,0,getGridPos().y) + Vector3(0.5,0,0.5), Vector3(enemyUnit.getGridPos().x,0,enemyUnit.getGridPos().y) + Vector3(0.5,0.5,0.5))
+	raycast.collide_with_areas = true
+	raycast.collision_mask = collisionLayer
+	
+	var result = get_world_3d().direct_space_state.intersect_ray(raycast)
+	
+	return (result && result.collider.get_parent().get_parent() == enemyUnit)
 
 
-	return false
+
+#battle
+func validTarget(target: BaseUnit) -> bool:
+	if ap < getEquippedWeapon().getApCost(): #not enough ap
+		return false
+	
+	if target.getTeam() == team || (team == 0 && target.getTeam() == 2): #same team
+		return false
+
+	if abs(abs(getGridPos().x + getGridPos().y) - abs(target.getGridPos().x + target.getGridPos().y)) > getEquippedWeapon().getRange(): #out of range
+		return false
+	
+	return true
+
 
 
 #engine utility
 func _ready():
-	ap = maxAp
+	resetAp()
+	setTeam(getTeam())
 	
 	if weapons.size() > 0:
-		equipedWeapon = weapons[0]
+		equippedWeapon = 0
 	
 	setGridPos(Vector2(position.x,position.z).floor())
 	set_process(false)
+
 	if not Engine.is_editor_hint():
 		curve = Curve3D.new()
 	

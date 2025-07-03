@@ -1,7 +1,6 @@
 class_name BodyPart extends Node
 
-var enumBodyParts := load("res://resources/scripts/enumClasses/ENUMbodyparts.gd")
-var BODYPARTS = enumBodyParts.BODYPARTS
+const BODYPARTS = preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 
 @export var totalHp: int
 @export var string_name : String
