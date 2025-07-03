@@ -3,6 +3,8 @@ class_name Grid
 var mapSize: Vector2
 var astar: AStar2D
 
+var disabledPoints: Array[Vector2] = []
+
 func setMapSize(size: Vector2) -> void:
 	mapSize = size
 
@@ -29,10 +31,23 @@ func createBoard(collisions: Array[Vector2]) -> AStar2D:
 				astar.connect_points(getASindex(Vector2(pointX - 1,pointY)), getASindex(Vector2(pointX,pointY)),true)
 			if pointY - 1 >= 0:
 				astar.connect_points(getASindex(Vector2(pointX,pointY - 1)), getASindex(Vector2(pointX,pointY)),true)
+				
+	for point in collisions:
+		astar.remove_point(getASindex(point))
+				
 
-	#for point in collisions:
-	#	astar.remove_point(getASindex(Vector2(point.x,point.y)))
+
+	return astar
+
+func updateBoardCollisions(collisions: Array[Vector2]) -> AStar2D:
+	for point in disabledPoints:
+		astar.set_point_disabled(getASindex(point),false)
 	
+	for position in collisions:
+		astar.set_point_disabled(getASindex(position),true)
+
+	disabledPoints = collisions
+
 	return astar
 		
 
@@ -67,7 +82,7 @@ func createUnitMoveTiles(tileGrid: GridMap, dist: int, originPos: Vector2) -> vo
 		for index_y in range(dist + 1):
 			if index_X + index_y > dist:
 				break
-			
+
 			var pathDist = dist(originPos,originPos + Vector2(index_X,index_y)) 
 			if pathDist <= dist && pathDist > 0:
 				tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,index_y), type)
@@ -76,13 +91,14 @@ func createUnitMoveTiles(tileGrid: GridMap, dist: int, originPos: Vector2) -> vo
 			if pathDist <= dist && pathDist > 0:
 				tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) - Vector3(index_X,0,index_y), type)
 
-			pathDist = dist(originPos,originPos + Vector2(-index_X,index_y)) 
-			if pathDist <= dist && pathDist > 0:
-				tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(-index_X,0,index_y), type)
+			if index_X != 0 && index_y != 0:
+				pathDist = dist(originPos,originPos + Vector2(-index_X,index_y)) 
+				if pathDist <= dist && pathDist > 0:
+					tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(-index_X,0,index_y), type)
 
-			pathDist = dist(originPos,originPos + Vector2(index_X,-index_y)) 
-			if pathDist <= dist && pathDist > 0:
-				tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,-index_y), type)
+				pathDist = dist(originPos,originPos + Vector2(index_X,-index_y)) 
+				if pathDist <= dist && pathDist > 0:
+					tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,-index_y), type)
 
 
 func createUnitAttackTiles(tileGrid: GridMap, range:int, originPos: Vector2) -> void:
@@ -100,6 +116,11 @@ func createUnitAttackTiles(tileGrid: GridMap, range:int, originPos: Vector2) -> 
 			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(-index_X,0,index_y), type)
 
 			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,-index_y), type)
+
+
+func createUnitTiles(tileGrid: GridMap, position: Vector3, type:int) -> void:
+	clearUnitSelectionTiles(tileGrid)
+	tileGrid.set_cell_item(position,type)
 
 
 

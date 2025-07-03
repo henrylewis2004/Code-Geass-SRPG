@@ -1,6 +1,6 @@
 class_name BattleController extends Node
 
-enum STATE{NONE,CAM_CINEMATIC,UNIT_MENU,CAM_MOVEMENT,A_UNIT,UNIT_MOVEMENT_SELECTION,ATTACK_MOVEMENT,E_UNIT,BATTLE,A_UNIT_MOVED,E_UNIT_SELECTED_ATTACK}
+enum STATE{NONE,A_UNIT_CAM_CINEMATIC,CAM_CINEMATIC,UNIT_MENU,CAM_MOVEMENT,A_UNIT,UNIT_MOVEMENT_SELECTION,ATTACK_MOVEMENT,E_UNIT,BATTLE,A_UNIT_MOVED,E_UNIT_SELECTED_ATTACK}
 var curState: int = STATE.CAM_MOVEMENT #might need to change to none as default
 
 enum TEAM {PLAYER,ENEMY,ALLY}
@@ -15,6 +15,7 @@ enum ACTION_BOX_ITEM{ATTACK,MOVE,STATUS,ITEM,END}
 
 
 @onready var playerUnitGui: AllyUnitGui = $ui/AllyUnitGui 
+@onready var enemyUnitGui: BattleUnitGui  = $ui/EnemyUnitGui
 const confirmBox := preload("res://scenes/game logic/menus/Confirmation Window.tscn")
 
 @onready var turnManager: TurnManager = $TurnManager
@@ -51,9 +52,13 @@ func updateUnitGridPos() -> void:
 
 	for unit in enemyUnits:
 		unitPos.append(unit.getGridPos())
+		gridManager.createUnitTiles(unitSelectionTiles,unit.position,unit.getTeam())
 
 	for unit in allyUnits:
 		unitPos.append(unit.getGridPos())
+		
+	
+
 		
 #cam movement allowment
 func canCamMove() -> bool:
@@ -61,10 +66,12 @@ func canCamMove() -> bool:
 
 func canCamRot() -> bool:
 	return !(curState == STATE.NONE || curState == STATE.BATTLE)
-	
+
 #unit overlay
 func unitOverlay() -> void:
 	var camPos: Vector2 = battleCam.getGridPos()
+	playerUnitGui.set_visible(false)
+	enemyUnitGui.set_visible(false)
 	
 	for pos in range(unitPos.size()):
 		if unitPos[pos] == camPos:
@@ -79,17 +86,34 @@ func unitOverlay() -> void:
 			else:
 				selectUnitOverlay(allyUnits[pos - playerUnits.size() - enemyUnits.size()], TEAM.ALLY)
 				return 
+			
 
+	if showPlayerUnit():
+		selectUnitOverlay(unitTurn,unitTurn.getTeam())
+		return
 	
-	playerUnitGui.set_visible(false)
 
-func selectUnitOverlay(unit: BaseUnit, ally: int) -> void: #ally - 0= enemy, 1= player, 2= ally
-	if ally == TEAM.PLAYER:
+func selectUnitOverlay(unit: BaseUnit, team: int) -> void: #team : 0= enemy, 1= player, 2= ally
+	if team == TEAM.PLAYER:
 		playerUnitGui.set_visible(true)
 		playerUnitGui.updateBase(unit.getName(),unit.getAp(),unit.getCharImage(),unit.getHP())
+		
+		if curState == STATE.ATTACK_MOVEMENT:
+			playerUnitGui.setExpansionInfo(unit.getEquippedWeapon())
+			playerUnitGui.expand()
+	
+	elif team == TEAM.ENEMY:
+		enemyUnitGui.set_visible(true)
+		enemyUnitGui.updateBase(unit.getName(),unit.getAp(),unit.getCharImage(),unit.getHP())
+
+		if curState == STATE.E_UNIT || curState == STATE.E_UNIT_SELECTED_ATTACK || curState == STATE.ATTACK_MOVEMENT:
+			enemyUnitGui.setExpansionInfo(unit.getEquippedWeapon())
+			enemyUnitGui.expand()
 	
 	#add enemy + ally unit overlay
 
+func showPlayerUnit() -> bool :
+	return (curState ==  STATE.A_UNIT_CAM_CINEMATIC || curState == STATE.UNIT_MOVEMENT_SELECTION || curState == STATE.ATTACK_MOVEMENT)
 
 func playerInput(unit: BaseUnit) -> void:
 	playerUnitGui.setExpansionInfo(unit.getEquippedWeapon())
@@ -207,7 +231,7 @@ func input() -> void:
 						unitTurn.moveTo(gridManager.getASindex(unitTurn.getGridPos()), gridManager.getASindex(targetLoc),astarBoard)
 						
 						battleCam.followUnit(unitTurn)
-						curState = STATE.CAM_CINEMATIC
+						curState = STATE.A_UNIT_CAM_CINEMATIC
 						
 						await unitTurn.movementFinished
 
@@ -286,6 +310,8 @@ func input() -> void:
 			STATE.ATTACK_MOVEMENT:
 				playerInput(unitTurn)
 				unitTurnMoved()
+				
+				enemyUnitGui.hideExpansion()
 			
 			STATE.E_UNIT:
 				#when in attack choosing enemy or simply looking at enemy info
@@ -298,6 +324,8 @@ func input() -> void:
 			STATE.E_UNIT_SELECTED_ATTACK:
 				curState = STATE.ATTACK_MOVEMENT
 				gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
+
+				enemyUnitGui.hideExpansion()
 			
 
 	elif Input.is_action_just_pressed("nextUnit") || Input.is_action_just_pressed("previousUnit"):
@@ -387,10 +415,10 @@ func nextTurn() -> void:
 
 	updateUnitGridPos()
 	var unitArray := $battleUnits/playerUnits.get_children() + $battleUnits/enemyUnits.get_children() + $battleUnits/allyUnits.get_children() 
-	var collisions: Array[Vector2]
+	var collisions: Array[Vector2] = []
 	
-	#for unit in unitArray:
-	#	collisions.append(unit.getGridPos())
+	for unit in $battleUnits/enemyUnits.get_children():
+		collisions.append(unit.getGridPos())
 
 	if turnManager.getTurnNo() > 0:
 		for unit in unitArray:
@@ -413,12 +441,15 @@ func nextTurn() -> void:
 	for unit in unitArray:
 		collisions.append(unit.getGridPos())
 		
+	#astarBoard = gridManager.updateBoardCollisions(collisions)
 	astarBoard = gridManager.createBoard(collisions)
 
 
 #engine operation
 func _ready():
 	gridManager.setWorldWalls(mapSize,collisionWalls)
+	#gridManager.createBoard()
+	
 	nextTurn()
 	updateUnitGridPos()
 
@@ -426,7 +457,7 @@ func _ready():
 func _physics_process(delta):
 	unitOverlay()
 	battleCam.input(!canCamMove(),!canCamRot())
-	if curState > STATE.NONE && playerTurn && curState != STATE.CAM_CINEMATIC:
+	if curState > STATE.CAM_CINEMATIC && playerTurn :
 		input()
 		
 	$ui/curState.text = "curState: " + str(STATE.find_key(curState))

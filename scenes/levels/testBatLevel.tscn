@@ -46,7 +46,7 @@ skeleton = NodePath("../MeshInstance3D3")
 mapSize = Vector2(10, 10)
 
 [node name="TestUnit2" parent="BattleController/battleUnits/playerUnits" index="0" instance=ExtResource("2_yis3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.945609, 0, 5.15533)
 char_name = "test6"
 apCharge = 3
 maxAp = 12

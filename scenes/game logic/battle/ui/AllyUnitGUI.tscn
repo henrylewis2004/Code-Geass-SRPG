@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://be3bnvfucvm2h"]
+[gd_scene load_steps=13 format=3 uid="uid://be3bnvfucvm2h"]
 
 [ext_resource type="Script" uid="uid://diveoj2vg71vq" path="res://scripts/gameLogic/battle/allyUnitGUI.gd" id="1_0sxrj"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="1_2wnwu"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://x61wqiu3snrh" path="res://assets/2d/ui/gunTest.png" id="9_hw755"]
 [ext_resource type="PackedScene" uid="uid://8xe7hp6cm3de" path="res://scenes/game logic/menus/MenuItem.tscn" id="10_43gpe"]
 [ext_resource type="Texture2D" uid="uid://cwfi0s8twv0c1" path="res://assets/2d/ui/menuItemTop.png" id="11_w1kpr"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_43gpe"]
+size = Vector2(20, 20)
 
 [node name="AllyUnitGui" type="Control"]
 layout_mode = 3
@@ -228,6 +231,14 @@ text = "RNG: 2"
 scroll_active = false
 tab_size = 0
 
+[node name="weaponTypeImg" type="TextureRect" parent="expand"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 3.00002
+offset_right = 88.0
+offset_bottom = 23.0
+texture = SubResource("PlaceholderTexture2D_43gpe")
+
 [node name="weaponSelect" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -255,8 +266,6 @@ layout_mode = 2
 text = "WEAPON"
 
 [node name="TextureRect" parent="weaponSelect/weaponsBox/weaponsTop" index="0"]
-grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("11_w1kpr")
 
 [editable path="weaponSelect/weaponsBox/weaponsTop"]
