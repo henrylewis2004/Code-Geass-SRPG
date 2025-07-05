@@ -10,3 +10,4 @@ accuracy = 50
 rounds = 10
 apCost = 2
 range = 2
+fireRate = 0.05

@@ -57,8 +57,6 @@ text = "ACTION"
 
 [node name="TextureRect" parent="actionTopLabel" index="0"]
 anchors_preset = -1
-grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("3_52fpi")
 
 [editable path="actionTopLabel"]

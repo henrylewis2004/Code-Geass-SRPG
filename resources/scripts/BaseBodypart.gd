@@ -35,6 +35,9 @@ func setHp(newHp: int, hpTotal: int) -> void:
     hp = newHp
     totalHp = hpTotal
     
+func hit(dmg: int) -> void:
+    hp -= dmg
+    
 func setName(newName: String) -> void:
     string_name = newName
     

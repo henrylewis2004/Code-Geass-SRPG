@@ -21,30 +21,38 @@ func setWorldWalls(size: Vector2, walls: Array[Node]) -> void:
 func getASindex(cell: Vector2) -> int:
 	return int(cell.x + mapSize.x * cell.y)
 
-func createBoard(collisions: Array[Vector2]) -> AStar2D:
+func createBoard() -> AStar2D:
 	astar = AStar2D.new()
  
-	for pointX in range(mapSize.x):
-		for pointY in range(mapSize.y):
+	for pointX in range(mapSize.x ):
+		for pointY in range(mapSize.y ):
 			astar.add_point(getASindex(Vector2(pointX,pointY)), Vector2(pointX,pointY))
 			if pointX - 1 >= 0:
 				astar.connect_points(getASindex(Vector2(pointX - 1,pointY)), getASindex(Vector2(pointX,pointY)),true)
 			if pointY - 1 >= 0:
 				astar.connect_points(getASindex(Vector2(pointX,pointY - 1)), getASindex(Vector2(pointX,pointY)),true)
-				
-	for point in collisions:
-		astar.remove_point(getASindex(point))
-				
 
 
 	return astar
 
 func updateBoardCollisions(collisions: Array[Vector2]) -> AStar2D:
 	for point in disabledPoints:
-		astar.set_point_disabled(getASindex(point),false)
+		astar.add_point(getASindex(point), point)
+
+		if point.x - 1 >= 0:
+			astar.connect_points(getASindex(point), getASindex(Vector2(point.x - 1,point.y)),true)
+			
+		if point.x + 1 < mapSize.x:
+			astar.connect_points(getASindex(point), getASindex(Vector2(point.x + 1,point.y)),true)
+			
+		if point.y - 1 >= 0:
+			astar.connect_points(getASindex(point), getASindex(Vector2(point.x - 1,point.y)),true)
+			
+		if point.y + 1 < mapSize.y:
+			astar.connect_points(getASindex(point), getASindex(Vector2(point.x + 1,point.y)),true)
 	
 	for position in collisions:
-		astar.set_point_disabled(getASindex(position),true)
+		astar.remove_point(getASindex(position))
 
 	disabledPoints = collisions
 
@@ -121,6 +129,12 @@ func createUnitAttackTiles(tileGrid: GridMap, range:int, originPos: Vector2) -> 
 func createUnitTiles(tileGrid: GridMap, position: Vector3, type:int) -> void:
 	clearUnitSelectionTiles(tileGrid)
 	tileGrid.set_cell_item(position,type)
+	
+func createUnitTiles_FromArray(tileGrid: GridMap, unitArray: Array[Node]) -> void:
+	for unit in unitArray:
+		tileGrid.set_cell_item(unit.position,unit.getTeam())
+
+	
 
 
 

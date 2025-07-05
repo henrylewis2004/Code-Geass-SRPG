@@ -18,11 +18,10 @@ charImage = ExtResource("2_f73vb")
 
 [node name="bodyparts" type="Node" parent="."]
 
-[node name="body" type="Node" parent="bodyparts"]
+[node name="Rarm" type="Node" parent="bodyparts"]
 script = ExtResource("3_g0gu5")
-totalHp = 100
-string_name = "testB"
-bodyPartType = 2
+totalHp = 50
+string_name = "testR"
 
 [node name="Larm" type="Node" parent="bodyparts"]
 script = ExtResource("3_g0gu5")
@@ -30,10 +29,11 @@ totalHp = 50
 string_name = "testL"
 bodyPartType = 1
 
-[node name="Rarm" type="Node" parent="bodyparts"]
+[node name="body" type="Node" parent="bodyparts"]
 script = ExtResource("3_g0gu5")
-totalHp = 50
-string_name = "testR"
+totalHp = 100
+string_name = "testB"
+bodyPartType = 2
 
 [node name="legs" type="Node" parent="bodyparts"]
 script = ExtResource("4_f73vb")
@@ -45,9 +45,11 @@ bodyPartType = 3
 [node name="weapons" type="Node" parent="."]
 
 [node name="MgGun" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_kao3p")]
+rounds = 10
 equipPart = NodePath("../../bodyparts/Larm")
 
 [node name="Smg" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("6_2ay0l")]
+apCost = 4
 equipPart = NodePath("../../bodyparts/Rarm")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]

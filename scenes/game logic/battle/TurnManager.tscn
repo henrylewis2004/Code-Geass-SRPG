@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b044aembwt1bj"]
+[gd_scene load_steps=3 format=3 uid="uid://b044aembwt1bj"]
 
 [ext_resource type="Script" uid="uid://2joeo10dyfs5" path="res://scripts/gameLogic/battle/turnManager.gd" id="1_534s0"]
+[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="2_y87lx"]
 
 [node name="TurnManager" type="Node"]
 script = ExtResource("1_534s0")
@@ -13,13 +14,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="turnOrderText" type="RichTextLabel" parent="Control"]
+[node name="unitOrderGFX" type="VBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 351.0
-offset_top = 119.0
-offset_right = 484.0
-offset_bottom = 335.0
-text = "1
-2
-3
-"
+offset_left = 440.0
+offset_top = 36.0
+offset_right = 480.0
+offset_bottom = 76.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/unitOrderGFX"]
+layout_mode = 2
+texture = ExtResource("2_y87lx")

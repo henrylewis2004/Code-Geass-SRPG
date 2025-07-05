@@ -8,6 +8,7 @@ class_name Weapon extends Node
 @export var apCost: int
 @export var equipPart: BodyPart
 @export var range: int
+@export var fireRate: float
 
 #getters
 func getDmg() -> int:
@@ -31,6 +32,12 @@ func getApCost() -> int:
 func isTwoHanded() -> bool:
 	return twoHanded
 
+func getEquipPart() -> BodyPart:
+	return equipPart
+
+func getWeaponFireRate() -> float:
+	return fireRate
+
 func getWpnInfo() -> Array:
 	return [dmg,string_name,accuracy,rounds, range, apCost]
 
@@ -42,14 +49,11 @@ func hit() -> bool: #need to add two handed debuff
 		return true
 	return false
 
-func dmgCalc() -> int:
-	var totalDmg: int = 0
+func dmgCalc(twoHanded_debuff: bool) -> int:
+	var wpnAcc : int = accuracy
+	if twoHanded_debuff: wpnAcc = wpnAcc / 2
 	
-	for bullet in rounds:
-		if hit():
-			totalDmg += dmg
-
-	return totalDmg
+	return dmg * (wpnAcc/100)
 
 
 	

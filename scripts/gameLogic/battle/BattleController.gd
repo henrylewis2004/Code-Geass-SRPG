@@ -1,12 +1,13 @@
 class_name BattleController extends Node
 
-enum STATE{NONE,A_UNIT_CAM_CINEMATIC,CAM_CINEMATIC,UNIT_MENU,CAM_MOVEMENT,A_UNIT,UNIT_MOVEMENT_SELECTION,ATTACK_MOVEMENT,E_UNIT,BATTLE,A_UNIT_MOVED,E_UNIT_SELECTED_ATTACK}
+enum STATE{E_UNIT_ATTACK,NONE,A_UNIT_CAM_CINEMATIC,CAM_CINEMATIC,UNIT_MENU,CAM_MOVEMENT,A_UNIT,UNIT_MOVEMENT_SELECTION,ATTACK_MOVEMENT,E_UNIT,BATTLE,A_UNIT_MOVED,E_UNIT_SELECTED_ATTACK}
 var curState: int = STATE.CAM_MOVEMENT #might need to change to none as default
 
 enum TEAM {PLAYER,ENEMY,ALLY}
-
 enum UNIT_SELECT_TILE{MOVE,ATTACK,INTERACT}
 enum ACTION_BOX_ITEM{ATTACK,MOVE,STATUS,ITEM,END}
+
+const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 
 @onready var battleCam: BattleCamController = $BattleCam
 @onready var playerUnits: Array[Node] = $battleUnits/playerUnits.get_children() 
@@ -19,6 +20,7 @@ enum ACTION_BOX_ITEM{ATTACK,MOVE,STATUS,ITEM,END}
 const confirmBox := preload("res://scenes/game logic/menus/Confirmation Window.tscn")
 
 @onready var turnManager: TurnManager = $TurnManager
+var aiManager : AiManager = AiManager.new()
 
 var apCost: Vector2 = Vector2.INF #x = ap at start of turn, y = ap after move, then final ap taken in attack phase and turn ends
 
@@ -36,6 +38,7 @@ var playerTurn: bool = true
 var unitPos: Array[Vector2]
 
 var unitTurn: BaseUnit = null
+var selectedEnemyUnit: BaseUnit = null
 
 var selectedAllyUnit: BaseUnit = null
 var selectedAllyUnitIndex: int = 0
@@ -52,7 +55,6 @@ func updateUnitGridPos() -> void:
 
 	for unit in enemyUnits:
 		unitPos.append(unit.getGridPos())
-		gridManager.createUnitTiles(unitSelectionTiles,unit.position,unit.getTeam())
 
 	for unit in allyUnits:
 		unitPos.append(unit.getGridPos())
@@ -77,21 +79,28 @@ func unitOverlay() -> void:
 		if unitPos[pos] == camPos:
 			if pos < playerUnits.size():
 				selectUnitOverlay(playerUnits[pos], TEAM.PLAYER)
-				return 
+				break
+				
 
 			elif pos < playerUnits.size() + enemyUnits.size():
 				selectUnitOverlay(enemyUnits[pos - playerUnits.size()], TEAM.ENEMY)
-				return 
+				break 
 			
 			else:
 				selectUnitOverlay(allyUnits[pos - playerUnits.size() - enemyUnits.size()], TEAM.ALLY)
-				return 
+				break 
 			
 
 	if showPlayerUnit():
 		selectUnitOverlay(unitTurn,unitTurn.getTeam())
-		return
-	
+		
+	if curState == STATE.E_UNIT_SELECTED_ATTACK:
+		var text = str(unitTurn.getEquippedWeapon().getAccuracy()) + "%"
+		if unitTurn.getAp() < unitTurn.getEquippedWeapon().getApCost(): text = "NO AP"
+		if !unitTurn.hasLOS(selectedEnemyUnit): text = "NO LOS"
+		if gridManager.absDist(selectedEnemyUnit.getGridPos(),unitTurn.getGridPos()) > unitTurn.getEquippedWeapon().getRange(): text = "OUT OF\nRANGE"
+
+		unitTurn.drawAccText(selectedEnemyUnit.position,text, Color.RED)
 
 func selectUnitOverlay(unit: BaseUnit, team: int) -> void: #team : 0= enemy, 1= player, 2= ally
 	if team == TEAM.PLAYER:
@@ -113,11 +122,9 @@ func selectUnitOverlay(unit: BaseUnit, team: int) -> void: #team : 0= enemy, 1= 
 	#add enemy + ally unit overlay
 
 func showPlayerUnit() -> bool :
-	return (curState ==  STATE.A_UNIT_CAM_CINEMATIC || curState == STATE.UNIT_MOVEMENT_SELECTION || curState == STATE.ATTACK_MOVEMENT)
+	return (curState ==  STATE.A_UNIT_CAM_CINEMATIC || curState == STATE.UNIT_MOVEMENT_SELECTION || curState == STATE.ATTACK_MOVEMENT || curState == STATE.E_UNIT_SELECTED_ATTACK || curState == STATE.E_UNIT_ATTACK)
 
 func playerInput(unit: BaseUnit) -> void:
-	playerUnitGui.setExpansionInfo(unit.getEquippedWeapon())
-	playerUnitGui.expand()
 	playerUnitGui.showActionBox()
 	
 	battleCam.snapToGridPos(unit.getGridPos())
@@ -186,12 +193,7 @@ func input() -> void:
 				if unit != null:
 					match(unit.getTeam()):
 						TEAM.PLAYER: #player unit
-							var unitWeapon : Weapon = unit.getEquippedWeapon()
-
-							playerUnitGui.setExpansionInfo(unitWeapon)
-							playerUnitGui.expand()
 							playerUnitGui.showActionBox()
-							
 							battleCam.snapToGridPos(unitTurn.getGridPos())
 
 							curState = STATE.A_UNIT
@@ -206,15 +208,11 @@ func input() -> void:
 
 			STATE.UNIT_MOVEMENT_SELECTION:
 				var unit: BaseUnit = unitInteraction()
-				if unit != null:
+				if unit != null: # need to do
 					#add in unit selection 
-					match(unit.getTeam()):
+					match(unit.getTeam()): 
 						TEAM.PLAYER:
-							if (unitTurn != unit):
-
-								playerUnitGui.expand()
-								
-								curState = STATE.A_UNIT
+							pass
 						#add enemy units
 						TEAM.ENEMY:
 							pass
@@ -248,12 +246,9 @@ func input() -> void:
 				if unit != null:
 					#add in unit selection 
 					match(unit.getTeam()):
-						TEAM.PLAYER:
+						TEAM.PLAYER: #need to add
 							if (unitTurn != unit):
-								#needs changing
-
-								playerUnitGui.expand()
-								curState = STATE.A_UNIT
+								pass
 
 							else: #unit turn selected
 								unitTurnMoved()
@@ -266,11 +261,18 @@ func input() -> void:
 							if unitTurn.validTarget(unit) && unitTurn.hasLOS(unit):
 								curState = STATE.E_UNIT_SELECTED_ATTACK
 								battleCam.snapToGridPos(unit.getGridPos())
-
-								#add enemy ui
-
-									
-									
+								
+								selectedEnemyUnit = unit
+								
+								#add line between uints - maybe add to unit code 
+								unitTurn.drawLos(selectedEnemyUnit, Color.RED)
+								
+			STATE.E_UNIT_SELECTED_ATTACK:
+				#check weapon equipped
+				if unitTurn.getEquippedWeapon() != null && unitTurn.validTarget(selectedEnemyUnit):
+					attackTurn(unitTurn,selectedEnemyUnit)
+					endTurn()
+					
 
 	elif Input.is_action_just_pressed("cancel"):
 		gridManager.clearUnitSelectionTiles(unitSelectionTiles)
@@ -312,6 +314,8 @@ func input() -> void:
 				unitTurnMoved()
 				
 				enemyUnitGui.hideExpansion()
+				playerUnitGui.hideExpansion()
+
 			
 			STATE.E_UNIT:
 				#when in attack choosing enemy or simply looking at enemy info
@@ -324,12 +328,17 @@ func input() -> void:
 			STATE.E_UNIT_SELECTED_ATTACK:
 				curState = STATE.ATTACK_MOVEMENT
 				gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
+				
+				selectedEnemyUnit = null
+				unitTurn.cleanLos()
 
-				enemyUnitGui.hideExpansion()
 			
 
-	elif Input.is_action_just_pressed("nextUnit") || Input.is_action_just_pressed("previousUnit"):
-		selectNextUnit(Input.get_axis("previousUnit","nextUnit"))
+	elif Input.is_action_just_pressed("enlargeTurnOrder"):
+		turnManager.enlargeUnitGui()
+		
+	elif Input.is_action_just_released("enlargeTurnOrder"):
+		turnManager.resetUnitGuiScale()
 		
 	#weapon selection - need to add gui
 	elif Input.is_action_pressed("weaponSelection"):
@@ -345,7 +354,7 @@ func input() -> void:
 			unitTurn.weaponSelection(Input.get_axis("up","down"))
 			playerUnitGui.selectWeapon(unitTurn.getEquippedWeaponIndex())
 			
-			if curState == STATE.ATTACK_MOVEMENT:
+			if curState == STATE.ATTACK_MOVEMENT || curState == STATE.E_UNIT_SELECTED_ATTACK:
 				unitSelectionTiles.clear()
 				gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
 
@@ -367,6 +376,9 @@ func _on_menu_select_item_selected(item):
 		"ATTACK":
 			curState = STATE.ATTACK_MOVEMENT
 			gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
+
+			selectUnitOverlay(unitTurn,unitTurn.getTeam())
+			
 		"MOVE":
 			curState = STATE.UNIT_MOVEMENT_SELECTION
 			unitOriginPos = unitTurn.getGridPos()
@@ -380,7 +392,7 @@ func _on_menu_select_item_selected(item):
 			playerUnitGui.showUnitItems()
 		"END":
 			#end unit turn
-			nextTurn()
+			endTurn()
 			if unitTurn.getTeam() == TEAM.PLAYER:
 				curState = STATE.CAM_MOVEMENT
 			elif unitTurn.getTeam() == TEAM.ENEMY:
@@ -400,6 +412,31 @@ func snapCamMoveToUnit(unit: BaseUnit ) -> void:
 	playerUnitGui.showActionBox()
 	playerUnitGui.expand()
 
+func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
+	curState = STATE.E_UNIT_ATTACK
+	attacker.attack(defender)
+	await attacker.attackFinished
+	
+	var attackTimer: Timer = Timer.new()
+	add_child(attackTimer)
+
+	#enemy turn
+	#ai choose weapon
+	defender.setEquippedWeapon(aiManager.getBestWeapon(defender,attacker))
+	
+	#ai attack
+	if defender.getEquippedWeapon() != null && !defender.getBodyparts()[BODYPARTS.BODY].isDestroyed():
+		attackTimer.start(0.5)
+		await attackTimer.timeout
+		defender.attack(attacker)
+		await defender.attackFinished
+		
+	attackTimer.start(2) # might need changing
+	await attackTimer.timeout
+	
+	remove_child(attackTimer)
+	attackTimer.queue_free()
+
 	
 func gameOver(victory: bool):
 	print("game over")
@@ -407,18 +444,14 @@ func gameOver(victory: bool):
 func nextTurn() -> void:
 	gridManager.clearUnitSelectionTiles(unitSelectionTiles)
 	playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,true)
+	
 	apCost = Vector2.INF
+	selectedEnemyUnit = null
 
 	turnManager.nextTurn()
-	if $battleUnits/playerUnits.get_children().size() == 0:
-		gameOver(false)
 
 	updateUnitGridPos()
 	var unitArray := $battleUnits/playerUnits.get_children() + $battleUnits/enemyUnits.get_children() + $battleUnits/allyUnits.get_children() 
-	var collisions: Array[Vector2] = []
-	
-	for unit in $battleUnits/enemyUnits.get_children():
-		collisions.append(unit.getGridPos())
 
 	if turnManager.getTurnNo() > 0:
 		for unit in unitArray:
@@ -429,26 +462,41 @@ func nextTurn() -> void:
 
 	var order := turnManager.calcTurnOrder(0,unitArray)
 	turnManager.updateUnitGuiOrder()
+
 	selectUnit(turnManager.getNextUnit())
 	playerTurn = unitTurn.getTeam() == TEAM.PLAYER
 
+	var collisions: Array[Vector2] = []
+
 	if unitTurn.getTeam() == TEAM.PLAYER || unitTurn.getTeam() == TEAM.ALLY:
-		unitArray = $battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children()
+		unitArray = $battleUnits/enemyUnits.get_children()
 		
 	else:
-		unitArray = $battleUnits/enemyUnits.get_children()
+		unitArray = $battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children()
 		
 	for unit in unitArray:
 		collisions.append(unit.getGridPos())
 		
-	#astarBoard = gridManager.updateBoardCollisions(collisions)
-	astarBoard = gridManager.createBoard(collisions)
+	astarBoard = gridManager.updateBoardCollisions(collisions)
 
+	if playerTurn:
+		curState = STATE.CAM_MOVEMENT
+
+func endTurn() -> void:
+	unitTurn.cleanLos()
+	curState = STATE.NONE
+	if $battleUnits/playerUnits.get_children().size() == 0:
+		gameOver(false)
+
+	nextTurn()
+	
+
+	
 
 #engine operation
 func _ready():
 	gridManager.setWorldWalls(mapSize,collisionWalls)
-	#gridManager.createBoard()
+	astarBoard = gridManager.createBoard()
 	
 	nextTurn()
 	updateUnitGridPos()

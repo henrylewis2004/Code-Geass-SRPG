@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://be3bnvfucvm2h"]
+[gd_scene load_steps=14 format=3 uid="uid://be3bnvfucvm2h"]
 
 [ext_resource type="Script" uid="uid://diveoj2vg71vq" path="res://scripts/gameLogic/battle/allyUnitGUI.gd" id="1_0sxrj"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="1_2wnwu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="3_ex1ab"]
 [ext_resource type="Texture2D" uid="uid://drid2hopqya6a" path="res://assets/2d/ui/playerHp.png" id="4_lv8sm"]
 [ext_resource type="PackedScene" uid="uid://c34s8lslb3tiy" path="res://scenes/game logic/menus/MenuBox.tscn" id="6_8u83i"]
+[ext_resource type="Texture2D" uid="uid://4the1wii17g4" path="res://assets/2d/ui/unitHp_back.png" id="6_w1kpr"]
 [ext_resource type="FontFile" uid="uid://crpmyv2e2r4wr" path="res://assets/fonts/Xirod.otf" id="7_3kbyj"]
 [ext_resource type="FontFile" uid="uid://j82odr3tufp0" path="res://assets/fonts/good timing bd.otf" id="8_0sxrj"]
 [ext_resource type="Texture2D" uid="uid://x61wqiu3snrh" path="res://assets/2d/ui/gunTest.png" id="9_hw755"]
@@ -57,6 +58,7 @@ anchor_right = 0.189
 anchor_bottom = 1.0
 offset_top = 13.14
 offset_right = -36.16
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_ex1ab")
@@ -118,6 +120,7 @@ offset_top = 12.0
 offset_right = -1.0
 offset_bottom = -14.0
 value = 100.0
+texture_under = ExtResource("6_w1kpr")
 texture_progress = ExtResource("4_lv8sm")
 
 [node name="lArmHp" type="TextureProgressBar" parent="base/hp"]
@@ -130,6 +133,7 @@ offset_top = 12.0
 offset_right = -19.0
 offset_bottom = -14.0
 value = 100.0
+texture_under = ExtResource("6_w1kpr")
 texture_progress = ExtResource("4_lv8sm")
 
 [node name="bodyHp" type="TextureProgressBar" parent="base/hp"]
@@ -142,6 +146,7 @@ offset_top = 3.0
 offset_right = -10.0
 offset_bottom = -23.0
 value = 100.0
+texture_under = ExtResource("6_w1kpr")
 texture_progress = ExtResource("4_lv8sm")
 
 [node name="legsHp" type="TextureProgressBar" parent="base/hp"]
@@ -154,6 +159,7 @@ offset_top = 21.0
 offset_right = -10.0
 offset_bottom = -5.0
 value = 100.0
+texture_under = ExtResource("6_w1kpr")
 texture_progress = ExtResource("4_lv8sm")
 
 [node name="MenuBox" parent="base" instance=ExtResource("6_8u83i")]

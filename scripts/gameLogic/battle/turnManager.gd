@@ -1,6 +1,6 @@
 class_name TurnManager extends Node
 
-@onready var unitGui : RichTextLabel= $Control/turnOrderText
+@onready var unitGui : VBoxContainer= $Control/unitOrderGFX
 
 const turnOrderCnt: int = 6
 var turnCnt: int = -1
@@ -26,6 +26,7 @@ func calcTurnOrder(turn: int, unitArray: Array[Node]) -> Array[BaseUnit]:
 	unitOrder.append(orderTurn(unitArray, 0, unitArray.size() - 1)[unitArray.size() - 1])
 
 	if unitOrder.size() == turnOrderCnt:
+		updateUnitGuiOrder()
 		return unitOrder
 	
 	unitArray[unitArray.size()-1].setPredTurnTimer(0)
@@ -74,7 +75,25 @@ func getNextUnit() -> BaseUnit:
 
 
 #unit turn showcase
+func createUnitGuiOrder() -> void:
+	for unitScreen in range(turnOrderCnt):
+		var unit: TextureRect = TextureRect.new()
+		unitGui.add_child(unit)
+		
+		unitGui.scale = Vector2(0.2,0.2)
+		
+func enlargeUnitGui() -> void:
+	unitGui.scale = Vector2(0.5,0.5)
+	
+func resetUnitGuiScale() -> void:
+	unitGui.scale = Vector2(0.2,0.2)
+	
+
 func updateUnitGuiOrder() -> void:
-	unitGui.text = ""
-	for unit in unitOrder:
-		unitGui.text += unit.getName() + " " + str(unit.getTurnTimer()) + "\n"
+	var unitGuiArray := unitGui.get_children()
+	for unit in range(unitOrder.size()):
+		unitGuiArray[unit].texture = unitOrder[unit].getCharImage()
+
+
+func _ready():
+	createUnitGuiOrder()

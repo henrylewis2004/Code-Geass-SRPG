@@ -44,8 +44,6 @@ text = "CONFIRMATION"
 
 [node name="TextureRect" parent="MenuItem" index="0"]
 anchors_preset = -1
-grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("3_dpqrk")
 
 [node name="Timer" type="Timer" parent="."]
