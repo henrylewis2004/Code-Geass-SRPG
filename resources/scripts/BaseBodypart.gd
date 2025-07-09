@@ -5,7 +5,7 @@ const BODYPARTS = preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd"
 @export var totalHp: int
 @export var string_name : String
 @export var destroyed: bool = false
-@export var bodyPartType: int
+@export_enum("R_ARM","L_ARM","BODY","LEGS") var bodyPartType: int
 
 var hp: int
 
@@ -13,15 +13,16 @@ var hp: int
 func getHp() -> int:
     return hp
 
-func getName() -> String:
+func getPartName() -> String:
     return string_name
+
+func getName() -> String:
+    return name
 
 func getType() -> int:
     return bodyPartType
 
 func isDestroyed() -> bool:
-    if (hp <= 0):
-        destroy()
     return destroyed
 
 func getTotalHp() -> int:
@@ -49,9 +50,18 @@ func setBodypartType(type: int) -> void:
     bodyPartType = type
     
 #methods
-func destroy():
+func destroy() -> void:
     destroyed = true
     hp = 0
+    
+func heal(healAmount: int) -> void:
+    hp += healAmount
+    if hp > totalHp:
+        hp = totalHp
+        
+func hpCheck() -> void:
+    if hp <= 0:
+        destroy()
     
 #engine
 func _ready():

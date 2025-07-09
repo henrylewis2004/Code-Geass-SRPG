@@ -1,5 +1,7 @@
 class_name Grid 
 
+const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_unitSelectionTiles.gd").SELECTION_TILES_ID
+
 var mapSize: Vector2
 var astar: AStar2D
 
@@ -82,7 +84,7 @@ func apMoveCost(originPos: Vector2, targetPos: Vector2) -> int:
 #unit tiles
 func createUnitMoveTiles(tileGrid: GridMap, dist: int, originPos: Vector2) -> void:
 	#might need changing for different ap costs depending on tile type
-	const type: int = 0
+	const type: int = SELECTION_TILE_ID.BLUE
 	
 	tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y),type)
 	
@@ -110,7 +112,7 @@ func createUnitMoveTiles(tileGrid: GridMap, dist: int, originPos: Vector2) -> vo
 
 
 func createUnitAttackTiles(tileGrid: GridMap, range:int, originPos: Vector2) -> void:
-	const type: int = 1
+	const type: int = SELECTION_TILE_ID.RED
 
 	for index_X in range(range + 1):
 		for index_y in range(range + 1):
@@ -126,15 +128,32 @@ func createUnitAttackTiles(tileGrid: GridMap, range:int, originPos: Vector2) -> 
 			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,-index_y), type)
 
 
-func createUnitTiles(tileGrid: GridMap, position: Vector3, type:int) -> void:
-	clearUnitSelectionTiles(tileGrid)
+func createItemPrevTiles(tileGrid: GridMap, range: int, originPos: Vector2, attack: bool) -> void:
+	var type: int = SELECTION_TILE_ID.YELLOW 
+
+	if attack:
+		type = SELECTION_TILE_ID.RED 
+
+	for index_X in range(range + 1):
+		for index_y in range(range + 1):
+			if index_X + index_y > range:
+				break
+			
+			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,index_y), type)
+
+			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) - Vector3(index_X,0,index_y), type)
+
+			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(-index_X,0,index_y), type)
+
+			tileGrid.set_cell_item(Vector3(originPos.x,0,originPos.y) + Vector3(index_X,0,-index_y), type)
+
+
+func createUnitTile(tileGrid: GridMap, position: Vector3, type:int) -> void:
 	tileGrid.set_cell_item(position,type)
 	
 func createUnitTiles_FromArray(tileGrid: GridMap, unitArray: Array[Node]) -> void:
 	for unit in unitArray:
 		tileGrid.set_cell_item(unit.position,unit.getTeam())
-
-	
 
 
 

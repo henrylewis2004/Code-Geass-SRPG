@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://du8nxcy6wqxab"]
+
+[ext_resource type="Script" uid="uid://c0i7ygpnevl1h" path="res://scripts/gameLogic/battle/DrawManager.gd" id="1_3tqvf"]
+
+[node name="DrawManager" type="Node"]
+script = ExtResource("1_3tqvf")

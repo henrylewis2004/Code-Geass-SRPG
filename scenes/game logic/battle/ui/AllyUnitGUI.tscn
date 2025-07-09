@@ -163,15 +163,14 @@ texture_under = ExtResource("6_w1kpr")
 texture_progress = ExtResource("4_lv8sm")
 
 [node name="MenuBox" parent="base" instance=ExtResource("6_8u83i")]
-visible = false
 layout_mode = 1
 anchor_left = 0.025
 anchor_top = -1.226
 anchor_right = 0.161
 anchor_bottom = 0.032
-offset_top = 0.0120239
+offset_top = 78.012
 offset_right = 1.16
-offset_bottom = 0.0160071
+offset_bottom = 78.016
 pivot_offset = Vector2(12, 78)
 
 [node name="expand" type="Control" parent="."]
@@ -266,12 +265,12 @@ anchor_bottom = 0.779
 offset_bottom = -18.16
 theme_override_constants/separation = 0
 
-[node name="weaponsTop" parent="weaponSelect/weaponsBox" instance=ExtResource("10_43gpe")]
+[node name="topLabel" parent="weaponSelect/weaponsBox" instance=ExtResource("10_43gpe")]
 modulate = Color(1, 1, 1, 1)
 layout_mode = 2
 text = "WEAPON"
 
-[node name="TextureRect" parent="weaponSelect/weaponsBox/weaponsTop" index="0"]
+[node name="TextureRect" parent="weaponSelect/weaponsBox/topLabel" index="0"]
 texture = ExtResource("11_w1kpr")
 
-[editable path="weaponSelect/weaponsBox/weaponsTop"]
+[editable path="weaponSelect/weaponsBox/topLabel"]

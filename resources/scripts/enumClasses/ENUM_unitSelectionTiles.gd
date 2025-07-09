@@ -1,0 +1,5 @@
+enum SELECTION_TILES_ID{
+    BLUE,
+    RED,
+    YELLOW,
+}

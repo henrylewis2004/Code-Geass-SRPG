@@ -56,17 +56,3 @@ func setExpansionInfo(equippedWeapon: Weapon) -> void:
 	else:
 		expandWeaponInfo_dmg.text = "NO WEAPON"
 		expandWeaponInfo_range.text = "EQUIPPED"
-
-
-
-#status screen
-func hideUnitMenu() -> void:
-	print("hideunitmen")
-
-
-func showStatus() -> void:
-	print("status")
-	
-#item screen
-func showUnitItems() -> void:
-	print("items")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgv5kt6htivl"]
+[gd_scene load_steps=11 format=3 uid="uid://dgv5kt6htivl"]
 
 [ext_resource type="Script" uid="uid://bb1mv5vo6lt2m" path="res://resources/scripts/BaseUnit.gd" id="1_dh1rb"]
 [ext_resource type="Texture2D" uid="uid://dtcrttgfpy0si" path="res://assets/2d/characters/main/lelouch/lelouch1.png" id="2_f73vb"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://y5wyd4af163n" path="res://resources/scripts/LegsBodypart.gd" id="4_f73vb"]
 [ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/units/weapons/Mg Gun.tscn" id="5_kao3p"]
 [ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/units/weapons/smg.tscn" id="6_2ay0l"]
+[ext_resource type="PackedScene" uid="uid://cadfl8cg6xx3a" path="res://scenes/game objects/item-abilities/items/item_health/HP_30_SINGLE.tscn" id="7_f6ejb"]
+[ext_resource type="PackedScene" uid="uid://dw0k4okfbuau3" path="res://scenes/game objects/item-abilities/abilities/ability_attack/SPEED_DOWN.tscn" id="8_kwai8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ay0l"]
 size = Vector3(0.75, 1, 0.75)
@@ -18,12 +20,12 @@ charImage = ExtResource("2_f73vb")
 
 [node name="bodyparts" type="Node" parent="."]
 
-[node name="Rarm" type="Node" parent="bodyparts"]
+[node name="R arm" type="Node" parent="bodyparts"]
 script = ExtResource("3_g0gu5")
 totalHp = 50
 string_name = "testR"
 
-[node name="Larm" type="Node" parent="bodyparts"]
+[node name="L arm" type="Node" parent="bodyparts"]
 script = ExtResource("3_g0gu5")
 totalHp = 50
 string_name = "testL"
@@ -46,11 +48,21 @@ bodyPartType = 3
 
 [node name="MgGun" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_kao3p")]
 rounds = 10
-equipPart = NodePath("../../bodyparts/Larm")
+equipPart = NodePath("../../bodyparts/L arm")
 
 [node name="Smg" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("6_2ay0l")]
 apCost = 4
-equipPart = NodePath("../../bodyparts/Rarm")
+equipPart = NodePath("../../bodyparts/R arm")
+
+[node name="inventory" type="Node" parent="."]
+
+[node name="items" type="Node" parent="inventory"]
+
+[node name="Hp30Single" parent="inventory/items" instance=ExtResource("7_f6ejb")]
+
+[node name="abilities" type="Node" parent="inventory"]
+
+[node name="SpeedDown" parent="inventory/abilities" instance=ExtResource("8_kwai8")]
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
 rotation_mode = 0

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw0k4okfbuau3"]
+
+[ext_resource type="Script" uid="uid://c2tcl4ebbkl2s" path="res://resources/scripts/BaseAbility.gd" id="1_nci1d"]
+
+[node name="SpeedDown" type="Node"]
+script = ExtResource("1_nci1d")
+attack = true
+targetEnemy = true
+energyCost = 3
+stringName = "- SPD"
+range = 2
+apCost = 3

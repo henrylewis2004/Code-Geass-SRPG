@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c34s8lslb3tiy"]
+[gd_scene load_steps=5 format=3 uid="uid://c34s8lslb3tiy"]
 
 [ext_resource type="PackedScene" uid="uid://dvtl2v8c3w6bg" path="res://scenes/game logic/menus/MenuSelect.tscn" id="1_kiib7"]
 [ext_resource type="PackedScene" uid="uid://8xe7hp6cm3de" path="res://scenes/game logic/menus/MenuItem.tscn" id="2_7if30"]
 [ext_resource type="Texture2D" uid="uid://cwfi0s8twv0c1" path="res://assets/2d/ui/menuItemTop.png" id="3_52fpi"]
+[ext_resource type="PackedScene" uid="uid://c7rfmetik5p25" path="res://scenes/game logic/menus/itemAbilities/itemAbilities_MenuBox.tscn" id="4_7if30"]
 
 [node name="MenuBox" type="Control"]
 layout_mode = 3
@@ -11,52 +12,64 @@ anchor_bottom = 0.289
 offset_bottom = -0.0299988
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(0, 78)
 
-[node name="MenuSelect" parent="." instance=ExtResource("1_kiib7")]
+[node name="MenuSelect" parent="." node_paths=PackedStringArray("menuParent") instance=ExtResource("1_kiib7")]
 layout_mode = 1
-menuParentPath = NodePath("../VBoxContainer")
+menuParent = NodePath("../action/VBoxContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="action" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.167
+offset_bottom = -12.026
+
+[node name="VBoxContainer" type="VBoxContainer" parent="action"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.167
-anchor_right = 1.0
+anchor_right = 0.967
 anchor_bottom = 1.0
-offset_top = -0.026001
+offset_right = 2.046
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="attackLabel" parent="VBoxContainer" instance=ExtResource("2_7if30")]
-layout_mode = 2
-
-[node name="moveLabel" parent="VBoxContainer" instance=ExtResource("2_7if30")]
-layout_mode = 2
-text = "MOVE"
-
-[node name="statusLabel" parent="VBoxContainer" instance=ExtResource("2_7if30")]
-layout_mode = 2
-text = "STATUS"
-
-[node name="itemLabel" parent="VBoxContainer" instance=ExtResource("2_7if30")]
-layout_mode = 2
-text = "ITEMS"
-
-[node name="endLabel" parent="VBoxContainer" instance=ExtResource("2_7if30")]
-layout_mode = 2
-text = "END"
-
-[node name="actionTopLabel" parent="." instance=ExtResource("2_7if30")]
+[node name="topLabel" parent="action/VBoxContainer" instance=ExtResource("2_7if30")]
 modulate = Color(1, 1, 1, 1)
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 0.167
-offset_bottom = -0.026001
+layout_mode = 2
 text = "ACTION"
 
-[node name="TextureRect" parent="actionTopLabel" index="0"]
+[node name="TextureRect" parent="action/VBoxContainer/topLabel" index="0"]
 anchors_preset = -1
 texture = ExtResource("3_52fpi")
 
-[editable path="actionTopLabel"]
+[node name="ATTACK" parent="action/VBoxContainer" instance=ExtResource("2_7if30")]
+layout_mode = 2
+
+[node name="MOVE" parent="action/VBoxContainer" instance=ExtResource("2_7if30")]
+layout_mode = 2
+text = "MOVE"
+
+[node name="STATUS" parent="action/VBoxContainer" instance=ExtResource("2_7if30")]
+layout_mode = 2
+text = "STATUS"
+
+[node name="ABILITY" parent="action/VBoxContainer" instance=ExtResource("2_7if30")]
+layout_mode = 2
+text = "ABILITY"
+
+[node name="ITEM" parent="action/VBoxContainer" instance=ExtResource("2_7if30")]
+layout_mode = 2
+text = "ITEMS"
+
+[node name="END" parent="action/VBoxContainer" instance=ExtResource("2_7if30")]
+layout_mode = 2
+text = "END"
+
+[node name="ItemAbilitiesMenuBox" parent="." instance=ExtResource("4_7if30")]
+layout_mode = 1
+anchor_right = 0.967
+anchor_bottom = 0.603
+offset_right = -0.0200043
+offset_bottom = 1.966
+
+[editable path="action/VBoxContainer/topLabel"]

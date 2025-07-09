@@ -3,31 +3,31 @@ class_name BaseUnit extends Path3D
 signal movementFinished
 signal attackFinished
 
-
-signal deleteDrawLine
-signal deleteLineText
-signal deleteLOS
-
-@export var team: int #0==player, 1==enemy, 2==ally
+@export_enum("player","enemy","ally") var team: int
 @export var char_name: String
 @export var charImage: Texture
 @export var apCharge: int
+@export var energyCharge: int
 
 const SPEED: int = 2
-const accuracyFont: Font = preload("res://assets/fonts/INVASION2000.TTF")
 
 @onready var bodyParts: Array[Node] = $bodyparts.get_children() #as Array[BodyPart]
 @onready var weapons: Array[Node] = $weapons.get_children()
 @onready var pathFollow : PathFollow3D = $PathFollow3D
+@onready var itemsList: Node = $inventory/items
+@onready var abilitiesList: Array[Node] = $inventory/abilities.get_children()
 
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 
 var equippedWeapon: int = -1
 var ap: int
+var energy: int
 
 #stats
 @export var maxAp: int
 @export var agilityStat: int
+@export var maxEnergy: int
+
 
 @export var turnTimer: int = 0
 @onready var predTurnTimer: int = turnTimer
@@ -48,11 +48,27 @@ func getMaxAp() -> int:
 func getBodyparts() -> Array[Node]:
 	return bodyParts
 
+func getAliveBodyparts() -> Array[Node]:
+	var partArr: Array[Node] = []
+	for part in getBodyparts():
+		if !part.isDestroyed():
+			partArr.append(part)
+			
+	return partArr
+
+
+
 func getName() -> String:
 	return char_name
 
 func getMoveRange() -> int:
 	return bodyParts[BODYPARTS.LEGS].getMoveRange()
+
+func getEnergy() -> int:
+	return energy
+
+func getMaxEnergy() -> int:
+	return maxEnergy
 
 func getHP() -> Array[float]:
 	var hpArray: Array[float]
@@ -73,6 +89,12 @@ func getStat(stat:String) -> int:
 			return agilityStat
 	return -1
 
+#item abilities
+func getItems() -> Array[Node]:
+	return itemsList.get_children() 
+
+func getAbilities() -> Array[Node]:
+	return abilitiesList
 
 #collisions
 func getCollisionMask() -> int:
@@ -143,6 +165,9 @@ func setAp(newAp: int) -> void:
 func resetAp() -> void:
 	ap = maxAp
 	
+func resetEnergy() -> void:
+	energy = maxEnergy
+	
 func incAp(val: int) -> void:
 	ap += val
 	if ap < 0: 
@@ -165,10 +190,6 @@ func setTeam(newTeam: int) -> void:
 	
 	getCollider().set_collision_layer_value(11 + int(team == 1),true)
 	getCollider().set_collision_layer_value(11 + int(team != 1),false)
-	
-	
-	
-
 	
 #methods
 
@@ -208,75 +229,6 @@ func validTarget(target: BaseUnit) -> bool:
 		return false
 	
 	return true
-
-func drawLosLine(unit: BaseUnit, colour: Color) -> void:
-	deleteDrawLine.emit()
-	
-	var meshInstance: MeshInstance3D = MeshInstance3D.new()
-	var immediateMesh: ImmediateMesh = ImmediateMesh.new()
-	var material: StandardMaterial3D = StandardMaterial3D.new()
-	
-	meshInstance.mesh = immediateMesh
-	meshInstance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-
-	immediateMesh.surface_begin(Mesh.PRIMITIVE_LINES,material)
-	immediateMesh.surface_add_vertex(position.floor() + Vector3(0.5,0.75,0.5))
-	immediateMesh.surface_add_vertex(unit.position.floor() + Vector3(0.5,0.75,0.5))
-	immediateMesh.surface_end()
-	
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.albedo_color = colour
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color.a = 0.6
-	
-	get_tree().get_root().add_child(meshInstance)
-	
-	await deleteDrawLine
-	get_tree().get_root().remove_child(meshInstance)
-	meshInstance.queue_free()
-	
-func losText(pos: Vector3,colour: Color, text:String) -> void:
-	deleteLineText.emit()
-
-	var textPos: Vector2 = get_parent().get_parent().get_parent().get_node("BattleCam/camPivot/SpringArm3D/Camera3D").unproject_position(pos)
-	
-	var textLabel: Label = Label.new()
-	textLabel.grow_horizontal = Control.GROW_DIRECTION_BOTH
-	textLabel.text = text
-	textLabel.position = textPos + Vector2(0,-10)
-	textLabel.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-
-	textLabel.add_theme_font_override("font",accuracyFont)
-	
-	get_tree().get_root().add_child(textLabel)
-
-	await deleteLineText
-	get_tree().get_root().remove_child(textLabel)
-	textLabel.queue_free()
-
-
-func drawAccText(targetEnemyPos: Vector3,accuracyText: String,colour: Color) -> void:
-	var pos: Vector3 = abs(position.floor() + targetEnemyPos.floor()) / 2 + Vector3(0.5,0.8,0.5)
-	losText(pos,colour,accuracyText)
-
-
-func drawLos(unit: BaseUnit, colour: Color) -> void:
-	drawLosLine(unit,colour)
-	var textPos: Vector3 = abs(position.floor() + unit.position.floor() )/2 + Vector3(0.5,0.8,0.5)
-	losText(textPos,colour,str(getEquippedWeapon().getAccuracy()) + "%")
-
-	
-func cleanLOSLine() -> void:
-	deleteDrawLine.emit()
-	
-func cleanLOSLabel() -> void:
-	deleteLineText.emit()
-	
-func cleanLos() -> void:
-	deleteDrawLine.emit()
-	deleteLineText.emit()
-
-
 	
 
 func attack(unit: BaseUnit) -> void:
@@ -331,7 +283,7 @@ func attack(unit: BaseUnit) -> void:
 #engine utility
 func _ready():
 	resetAp()
-	setTeam(getTeam())
+	setTeam(getTeam()) #sets collider for collisions
 	
 	if weapons.size() > 0:
 		equippedWeapon = 0

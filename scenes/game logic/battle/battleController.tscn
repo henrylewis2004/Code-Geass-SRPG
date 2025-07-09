@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bm1sq66703pp4"]
+[gd_scene load_steps=13 format=3 uid="uid://bm1sq66703pp4"]
 
 [ext_resource type="Script" uid="uid://b85g2b6j1v8gt" path="res://scripts/gameLogic/battle/BattleController.gd" id="1_npg4g"]
 [ext_resource type="PackedScene" uid="uid://cl830hpvfisf5" path="res://scenes/game logic/battle/BattleCam.tscn" id="3_q5aru"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://crk4o8v3ndkoy" path="res://scenes/game logic/battle/ui/enemyUnitGui.tscn" id="5_138ph"]
 [ext_resource type="PackedScene" uid="uid://b8q1wxma1ojf" path="res://scenes/game logic/battle/ui/Unit Status.tscn" id="6_7qyck"]
 [ext_resource type="MeshLibrary" uid="uid://br1frrys5qtyv" path="res://resources/3d-gridmaps/unitSelectionTileSet.tres" id="6_138ph"]
+[ext_resource type="PackedScene" uid="uid://du8nxcy6wqxab" path="res://scenes/game logic/shared/DrawManager.tscn" id="6_cfyqa"]
 [ext_resource type="PackedScene" uid="uid://b044aembwt1bj" path="res://scenes/game logic/battle/TurnManager.tscn" id="7_138ph"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7qyck"]
@@ -38,7 +39,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AllyUnitGui" parent="ui" instance=ExtResource("4_4hww6")]
-visible = false
 layout_mode = 1
 
 [node name="UnitStatus" parent="ui" instance=ExtResource("6_7qyck")]
@@ -55,8 +55,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="EnemyUnitGui" parent="ui" instance=ExtResource("5_138ph")]
-visible = false
 layout_mode = 1
+
+[node name="DrawManager" parent="ui" instance=ExtResource("6_cfyqa")]
 
 [node name="TurnManager" parent="." instance=ExtResource("7_138ph")]
 
@@ -105,9 +106,11 @@ collision_layer = 0
 collision_mask = 0
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
+[connection signal="battleItemSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_battle_item_selected"]
 [connection signal="itemSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_item_selected"]
+[connection signal="partSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_part_selected"]
 
 [editable path="ui/AllyUnitGui"]
 [editable path="ui/AllyUnitGui/base/MenuBox"]
-[editable path="ui/AllyUnitGui/base/MenuBox/actionTopLabel"]
-[editable path="ui/AllyUnitGui/weaponSelect/weaponsBox/weaponsTop"]
+[editable path="ui/AllyUnitGui/base/MenuBox/action/VBoxContainer/topLabel"]
+[editable path="ui/AllyUnitGui/weaponSelect/weaponsBox/topLabel"]

@@ -1,9 +1,10 @@
 class_name MenuSelect extends Control
 
 signal itemSelected(item: String)
+signal battleItemSelected(itemKey: int,isItem:bool)
+signal partSelected(partId: int)
 
-@export var menuParentPath: NodePath
-@onready var menuParent := get_node(menuParentPath)
+@export var menuParent: Node
 @onready var inputTimer := $inputTimer
 
 const deselectOpacity: float = 0.5
@@ -29,13 +30,21 @@ func _process(delta):
 				setIndex(selectIndex + input.y + input.x * menuParent.columns)
 		
 		if Input.is_action_just_pressed("accept"):
-			itemSelected.emit(getMenuItem(selectIndex).text)
+			if menuParent.get_parent().name == "action":
+				itemSelected.emit(getMenuItem(selectIndex).text)
+				
+			elif menuParent.get_parent().name == "items" || menuParent.get_parent().name == "abilities" || menuParent.get_parent().name == "bodyPartSelect":
+				if getMenuItem(selectIndex).name == "CANCEL" || getMenuItem(selectIndex).name == "no item":
+					battleItemSelected.emit(-1 - int(getMenuItem(selectIndex).name == "no item"), menuParent.get_parent().name == "items")
+
+				else:
+					battleItemSelected.emit(selectIndex - 1,menuParent.get_parent().name == "items")
 
 func getMenuItem(index: int) -> Control:
 	if menuParent == null:
 		return null
 	
-	if index >= menuParent.get_child_count() or index < 0:
+	if index >= menuParent.get_child_count() or index < 1:
 		return null
 	
 	return menuParent.get_child(index) as Control
@@ -43,7 +52,7 @@ func getMenuItem(index: int) -> Control:
 func setIndex(index: int) -> void:
 	var menuItem := getMenuItem(index)
 
-	if menuItem == null:
+	if menuItem == null || index == 0:
 		return 
 	
 	if menuItem.visible == false:
@@ -62,9 +71,13 @@ func setIndex(index: int) -> void:
 
 func enable(enableSelection:bool) -> void:
 	enabled = false
-	setIndex(0)
+	setIndex(1)
 	if enableSelection:
 		inputTimer.start()
+		
+func setMenu(node: Node) -> void:
+	menuParent = node
+
 
 
 func _on_input_timer_timeout():

@@ -1,13 +1,13 @@
 class_name BattleController extends Node
 
-enum STATE{E_UNIT_ATTACK,NONE,A_UNIT_CAM_CINEMATIC,CAM_CINEMATIC,UNIT_MENU,CAM_MOVEMENT,A_UNIT,UNIT_MOVEMENT_SELECTION,ATTACK_MOVEMENT,E_UNIT,BATTLE,A_UNIT_MOVED,E_UNIT_SELECTED_ATTACK}
+const STATE := preload("res://resources/scripts/enumClasses/ENUMstates.gd").BATTLESTATE
 var curState: int = STATE.CAM_MOVEMENT #might need to change to none as default
 
 enum TEAM {PLAYER,ENEMY,ALLY}
 enum UNIT_SELECT_TILE{MOVE,ATTACK,INTERACT}
-enum ACTION_BOX_ITEM{ATTACK,MOVE,STATUS,ITEM,END}
-
+const ACTION_BOX_ITEM := preload("res://resources/scripts/enumClasses/ENUM_actionBoxOptions.gd").ACTION_BOX_ITEM
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
+const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_unitSelectionTiles.gd").SELECTION_TILES_ID
 
 @onready var battleCam: BattleCamController = $BattleCam
 @onready var playerUnits: Array[Node] = $battleUnits/playerUnits.get_children() 
@@ -20,7 +20,10 @@ const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd
 const confirmBox := preload("res://scenes/game logic/menus/Confirmation Window.tscn")
 
 @onready var turnManager: TurnManager = $TurnManager
+@onready var drawManager: DrawManager = $ui/DrawManager
 var aiManager : AiManager = AiManager.new()
+var itemAbMan : Item_abilityManager = Item_abilityManager.new()
+
 
 var apCost: Vector2 = Vector2.INF #x = ap at start of turn, y = ap after move, then final ap taken in attack phase and turn ends
 
@@ -39,6 +42,8 @@ var unitPos: Array[Vector2]
 
 var unitTurn: BaseUnit = null
 var selectedEnemyUnit: BaseUnit = null
+var selectedActivity: BaseItem = null
+var selectedActivityUnit: BaseUnit = null
 
 var selectedAllyUnit: BaseUnit = null
 var selectedAllyUnitIndex: int = 0
@@ -64,12 +69,35 @@ func updateUnitGridPos() -> void:
 		
 #cam movement allowment
 func canCamMove() -> bool:
-	return (curState == STATE.CAM_MOVEMENT || curState == STATE.UNIT_MOVEMENT_SELECTION || curState == STATE.ATTACK_MOVEMENT)
+	return (
+		curState == STATE.CAM_MOVEMENT 
+		|| curState == STATE.UNIT_MOVEMENT_SELECTION 
+		|| curState == STATE.ATTACK_MOVEMENT 
+		|| curState == STATE.A_UNIT_ITEM_PREV 
+		|| curState == STATE.A_UNIT_ABILITY_PREV
+		)
 
 func canCamRot() -> bool:
-	return !(curState == STATE.NONE || curState == STATE.BATTLE)
+	return !(
+		curState == STATE.NONE 
+		|| curState == STATE.BATTLE
+		)
 
 #unit overlay
+func showPlayerUnit() -> bool :
+	return (
+		curState ==  STATE.A_UNIT_CAM_CINEMATIC 
+		|| curState == STATE.UNIT_MOVEMENT_SELECTION 
+		|| curState == STATE.ATTACK_MOVEMENT 
+		|| curState == STATE.E_UNIT_SELECTED_ATTACK 
+		|| curState == STATE.E_UNIT_ATTACK 
+		|| curState == STATE.A_UNIT_ITEM_PREV 
+		|| curState == STATE.A_UNIT_ABILITY_PREV
+		|| curState == STATE.A_UNIT_PART_SELECT
+
+		)
+
+
 func unitOverlay() -> void:
 	var camPos: Vector2 = battleCam.getGridPos()
 	playerUnitGui.set_visible(false)
@@ -96,11 +124,22 @@ func unitOverlay() -> void:
 		
 	if curState == STATE.E_UNIT_SELECTED_ATTACK:
 		var text = str(unitTurn.getEquippedWeapon().getAccuracy()) + "%"
-		if unitTurn.getAp() < unitTurn.getEquippedWeapon().getApCost(): text = "NO AP"
-		if !unitTurn.hasLOS(selectedEnemyUnit): text = "NO LOS"
-		if gridManager.absDist(selectedEnemyUnit.getGridPos(),unitTurn.getGridPos()) > unitTurn.getEquippedWeapon().getRange(): text = "OUT OF\nRANGE"
+		if unitTurn.getAp() < unitTurn.getEquippedWeapon().getApCost(): text = "X\nNO AP"
+		if gridManager.absDist(selectedEnemyUnit.getGridPos(),unitTurn.getGridPos()) > unitTurn.getEquippedWeapon().getRange(): text = "X\nOUT OF\nRANGE"
+		if !unitTurn.hasLOS(selectedEnemyUnit): text = "X\nNO LOS"
 
-		unitTurn.drawAccText(selectedEnemyUnit.position,text, Color.RED)
+		drawManager.drawAccText(unitTurn.position,selectedEnemyUnit.position,text, Color.RED,drawManager.defaultTextPos)
+
+	elif curState == STATE.A_UNIT_ITEM:
+		var text = selectedActivity.getName()
+		if unitTurn.getAp() < selectedActivity.getApCost(): text = "NO AP"
+		if itemAbMan.itemDistUse(unitTurn.getGridPos(),selectedActivityUnit.getGridPos()) > selectedActivity.getRange(): text = "OUT OF\nRANGE"
+
+		if selectedActivity is Ability:
+			if unitTurn.getEnergy() < selectedActivity.getEnergyCost(): text = "NO ENERGY"
+
+		drawManager.drawAccText(unitTurn.position,selectedActivityUnit.position,text, Color.RED,Vector3(0.5,1.3,0.5))
+		
 
 func selectUnitOverlay(unit: BaseUnit, team: int) -> void: #team : 0= enemy, 1= player, 2= ally
 	if team == TEAM.PLAYER:
@@ -121,11 +160,8 @@ func selectUnitOverlay(unit: BaseUnit, team: int) -> void: #team : 0= enemy, 1= 
 	
 	#add enemy + ally unit overlay
 
-func showPlayerUnit() -> bool :
-	return (curState ==  STATE.A_UNIT_CAM_CINEMATIC || curState == STATE.UNIT_MOVEMENT_SELECTION || curState == STATE.ATTACK_MOVEMENT || curState == STATE.E_UNIT_SELECTED_ATTACK || curState == STATE.E_UNIT_ATTACK)
-
 func playerInput(unit: BaseUnit) -> void:
-	playerUnitGui.showActionBox()
+	playerUnitGui.showActionBox(unit.getItems().size() > 0, unit.getAbilities().size() > 0)
 	
 	battleCam.snapToGridPos(unit.getGridPos())
 	
@@ -193,7 +229,8 @@ func input() -> void:
 				if unit != null:
 					match(unit.getTeam()):
 						TEAM.PLAYER: #player unit
-							playerUnitGui.showActionBox()
+							#needs rework
+							playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
 							battleCam.snapToGridPos(unitTurn.getGridPos())
 
 							curState = STATE.A_UNIT
@@ -258,24 +295,63 @@ func input() -> void:
 
 						TEAM.ENEMY:
 							#valid target - loc and range
-							if unitTurn.validTarget(unit) && unitTurn.hasLOS(unit):
-								curState = STATE.E_UNIT_SELECTED_ATTACK
-								battleCam.snapToGridPos(unit.getGridPos())
-								
-								selectedEnemyUnit = unit
-								
-								#add line between uints - maybe add to unit code 
-								unitTurn.drawLos(selectedEnemyUnit, Color.RED)
+							curState = STATE.E_UNIT_SELECTED_ATTACK
+							battleCam.snapToGridPos(unit.getGridPos())
+							
+							selectedEnemyUnit = unit
+							
+							#add line between uints - maybe add to unit code 
+							gridManager.clearUnitSelectionTiles(unitSelectionTiles)
+							gridManager.createUnitTile(unitSelectionTiles,unit.position.floor(),SELECTION_TILE_ID.RED)
+							drawManager.drawLosLine(unitTurn.position,selectedEnemyUnit.position, Color.RED,drawManager.defaultLinePos)
 								
 			STATE.E_UNIT_SELECTED_ATTACK:
 				#check weapon equipped
-				if unitTurn.getEquippedWeapon() != null && unitTurn.validTarget(selectedEnemyUnit):
+				if unitTurn.getEquippedWeapon() != null && unitTurn.validTarget(selectedEnemyUnit) && unitTurn.hasLOS(selectedEnemyUnit):
 					attackTurn(unitTurn,selectedEnemyUnit)
 					endTurn()
 					
+			STATE.A_UNIT_ITEM_PREV:
+				#use item
+				var unit: BaseUnit = unitInteraction()
+				if unit != null:
+					curState = STATE.A_UNIT_ITEM
+					selectedActivityUnit = unit
+
+					var colour: Color = Color.DEEP_PINK
+					if selectedActivity is BattleItem:
+						colour = Color.YELLOW
+						
+					if selectedActivity.isSinglePart():
+						#select part to affect
+						curState = STATE.A_UNIT_PART_SELECT
+						playerUnitGui.partSelectPos(unit.getTeam() != unitTurn.getTeam())
+						playerUnitGui.showPartSelection(unit.getAliveBodyparts())
+						
+
+					drawManager.drawLosLine(unitTurn.position,unit.position,colour,drawManager.defaultLinePos)
+					
+					battleCam.snapToGridPos(unit.getGridPos())
+					gridManager.clearUnitSelectionTiles(unitSelectionTiles)
+					
+			STATE.A_UNIT_ITEM:
+				if selectedActivityUnit != null:
+					#valid target
+					if selectedActivity is Ability:
+						if !itemAbMan.validAbility(unitTurn,selectedActivityUnit,selectedActivity):
+							return
+						itemAbMan.useAbility(selectedActivity,selectedActivityUnit)
+
+					else:
+						if !itemAbMan.validActivty(unitTurn,selectedActivityUnit,selectedActivity):
+							return
+
+
+
 
 	elif Input.is_action_just_pressed("cancel"):
 		gridManager.clearUnitSelectionTiles(unitSelectionTiles)
+		drawManager.cleanLos()
 		match curState:
 			STATE.CAM_MOVEMENT:
 				snapCamMoveToUnit(unitTurn)
@@ -291,6 +367,12 @@ func input() -> void:
 				playerUnitGui.hideActionBox()
 				
 				curState = STATE.CAM_MOVEMENT
+
+			STATE.A_UNIT_MENU_ITEM:
+				playerUnitGui.hideItems()
+				playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
+				unitTurnMoved()
+
 				
 			STATE.UNIT_MOVEMENT_SELECTION:
 				playerInput(unitTurn)
@@ -316,6 +398,36 @@ func input() -> void:
 				enemyUnitGui.hideExpansion()
 				playerUnitGui.hideExpansion()
 
+
+			STATE.A_UNIT_ITEM_PREV:
+				curState = STATE.A_UNIT_MENU_ITEM
+				playerInput(unitTurn)
+
+				playerUnitGui.hideItems()
+				if selectedActivity is Ability:
+					playerUnitGui.showUnitAbilities(unitTurn.getAbilities())
+
+				else:
+					playerUnitGui.showUnitItems(unitTurn.getItems())
+
+				selectedActivity = null
+
+
+
+			STATE.A_UNIT_ITEM:
+				curState = STATE.A_UNIT_ITEM_PREV
+				gridManager.createItemPrevTiles(unitSelectionTiles,selectedActivity.getRange(),unitTurn.getGridPos(),(selectedActivity is Ability && selectedActivity.isAttack()))
+				
+				selectedActivityUnit = null
+				
+			STATE.A_UNIT_PART_SELECT:
+				curState = STATE.A_UNIT_ITEM_PREV
+				gridManager.createItemPrevTiles(unitSelectionTiles,selectedActivity.getRange(),unitTurn.getGridPos(),(selectedActivity is Ability && selectedActivity.isAttack()))
+				playerUnitGui.hideItems()
+				
+				selectedActivityUnit = null
+
+
 			
 			STATE.E_UNIT:
 				#when in attack choosing enemy or simply looking at enemy info
@@ -330,7 +442,7 @@ func input() -> void:
 				gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
 				
 				selectedEnemyUnit = null
-				unitTurn.cleanLos()
+				drawManager.cleanLos()
 
 			
 
@@ -364,13 +476,13 @@ func input() -> void:
 		#hide gui
 		playerUnitGui.hideWeaponSelect()
 		if curState == STATE.A_UNIT:
-			playerUnitGui.showActionBox()
+			playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
 
 			
 	
 #player action menu selection
 func _on_menu_select_item_selected(item):
-	playerUnitGui.hideActionBox()
+	playerUnitGui.hideItems()
 	playerUnitGui.hideExpansion()
 	match(item):
 		"ATTACK":
@@ -387,9 +499,12 @@ func _on_menu_select_item_selected(item):
 		"STATUS":
 			curState = STATE.UNIT_MENU
 			playerUnitGui.showStatus()
-		"ITEM":
-			curState = STATE.UNIT_MENU
-			playerUnitGui.showUnitItems()
+		"ITEMS":
+			curState = STATE.A_UNIT_MENU_ITEM
+			playerUnitGui.showUnitItems(unitTurn.getItems())
+		"ABILITY":
+			curState = STATE.A_UNIT_MENU_ITEM
+			playerUnitGui.showUnitAbilities(unitTurn.getAbilities())
 		"END":
 			#end unit turn
 			endTurn()
@@ -398,7 +513,39 @@ func _on_menu_select_item_selected(item):
 			elif unitTurn.getTeam() == TEAM.ENEMY:
 				curState = STATE.NONE
 				
+
+#items and abliities - items
+func _on_menu_select_battle_item_selected(itemKey,isItem):
+	match(itemKey):
+		-1: #cancel
+			playerUnitGui.hideItems()
+			playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
+
+			curState = STATE.A_UNIT
+		-2:
+			pass
+		_:
+			curState = STATE.A_UNIT_ITEM_PREV
+			playerUnitGui.hideItems()
+
+			var item: BaseItem
+			if !isItem:
+				item = unitTurn.getAbilities()[itemKey]
+			else:
+				item = unitTurn.getItems()[itemKey]
+
+			selectedActivity = item
+
+			gridManager.createItemPrevTiles(unitSelectionTiles,item.getRange(),unitTurn.getGridPos(),(item is Ability && item.isAttack()))
+			
+
+
+func _on_menu_select_part_selected(partId):
+	print("s")
+	pass # Replace with function body.
+
 		
+#utility methods
 func snapCamMoveToUnit(unit: BaseUnit ) -> void:
 	curState = STATE.CAM_CINEMATIC
 	var loc: Vector3 = Vector3(unit.getGridPos().x,battleCam.position.y,unit.getGridPos().y) 
@@ -409,7 +556,7 @@ func snapCamMoveToUnit(unit: BaseUnit ) -> void:
 	await battleCam.cinematicMoveFinished
 
 	curState = STATE.A_UNIT
-	playerUnitGui.showActionBox()
+	playerUnitGui.showActionBox(unit.getItems().size() > 0, unit.getAbilities().size() > 0)
 	playerUnitGui.expand()
 
 func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
@@ -483,7 +630,7 @@ func nextTurn() -> void:
 		curState = STATE.CAM_MOVEMENT
 
 func endTurn() -> void:
-	unitTurn.cleanLos()
+	drawManager.cleanLos()
 	curState = STATE.NONE
 	if $battleUnits/playerUnits.get_children().size() == 0:
 		gameOver(false)
