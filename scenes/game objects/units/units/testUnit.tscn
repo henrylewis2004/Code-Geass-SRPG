@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://dgv5kt6htivl"]
 
-[ext_resource type="Script" uid="uid://bb1mv5vo6lt2m" path="res://resources/scripts/BaseUnit.gd" id="1_dh1rb"]
+[ext_resource type="Script" uid="uid://bb1mv5vo6lt2m" path="res://resources/scripts/battle/BaseUnit.gd" id="1_dh1rb"]
 [ext_resource type="Texture2D" uid="uid://dtcrttgfpy0si" path="res://assets/2d/characters/main/lelouch/lelouch1.png" id="2_f73vb"]
 [ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="2_kteh2"]
-[ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/BaseBodypart.gd" id="3_g0gu5"]
-[ext_resource type="Script" uid="uid://y5wyd4af163n" path="res://resources/scripts/LegsBodypart.gd" id="4_f73vb"]
+[ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/battle/BaseBodypart.gd" id="3_g0gu5"]
+[ext_resource type="Script" uid="uid://y5wyd4af163n" path="res://resources/scripts/battle/LegsBodypart.gd" id="4_f73vb"]
 [ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/units/weapons/Mg Gun.tscn" id="5_kao3p"]
 [ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/units/weapons/smg.tscn" id="6_2ay0l"]
 [ext_resource type="PackedScene" uid="uid://cadfl8cg6xx3a" path="res://scenes/game objects/item-abilities/items/item_health/HP_30_SINGLE.tscn" id="7_f6ejb"]

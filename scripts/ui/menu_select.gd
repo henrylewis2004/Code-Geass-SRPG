@@ -35,9 +35,13 @@ func _process(delta):
 				
 			elif menuParent.get_parent().name == "items" || menuParent.get_parent().name == "abilities" || menuParent.get_parent().name == "bodyPartSelect":
 				if getMenuItem(selectIndex).name == "CANCEL" || getMenuItem(selectIndex).name == "no item":
-					battleItemSelected.emit(-1 - int(getMenuItem(selectIndex).name == "no item"), menuParent.get_parent().name == "items")
+					battleItemSelected.emit(-1 - int(getMenuItem(selectIndex).name == "no item"), false)
 
 				else:
+					if menuParent.get_parent().name == "bodyPartSelect":
+						partSelected.emit(selectIndex - 1)
+						return
+
 					battleItemSelected.emit(selectIndex - 1,menuParent.get_parent().name == "items")
 
 func getMenuItem(index: int) -> Control:

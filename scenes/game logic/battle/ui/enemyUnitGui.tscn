@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://crk4o8v3ndkoy"]
 
-[ext_resource type="Script" uid="uid://cngpmqfh6ht6d" path="res://resources/scripts/battleUnitGui.gd" id="1_oy4te"]
+[ext_resource type="Script" uid="uid://cngpmqfh6ht6d" path="res://resources/scripts/battle/battleUnitGui.gd" id="1_oy4te"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="2_2nu32"]
 [ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="3_dqtrq"]
 [ext_resource type="FontFile" uid="uid://dovir8dg2ksv5" path="res://assets/fonts/dpcomic.ttf" id="4_vo6s2"]

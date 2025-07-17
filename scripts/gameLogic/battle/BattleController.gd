@@ -1,5 +1,8 @@
 class_name BattleController extends Node
 
+signal sceneOver
+signal resetScene
+
 const STATE := preload("res://resources/scripts/enumClasses/ENUMstates.gd").BATTLESTATE
 var curState: int = STATE.CAM_MOVEMENT #might need to change to none as default
 
@@ -17,7 +20,6 @@ const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_uni
 
 @onready var playerUnitGui: AllyUnitGui = $ui/AllyUnitGui 
 @onready var enemyUnitGui: BattleUnitGui  = $ui/EnemyUnitGui
-const confirmBox := preload("res://scenes/game logic/menus/Confirmation Window.tscn")
 
 @onready var turnManager: TurnManager = $TurnManager
 @onready var drawManager: DrawManager = $ui/DrawManager
@@ -146,7 +148,7 @@ func selectUnitOverlay(unit: BaseUnit, team: int) -> void: #team : 0= enemy, 1= 
 		playerUnitGui.set_visible(true)
 		playerUnitGui.updateBase(unit.getName(),unit.getAp(),unit.getCharImage(),unit.getHP())
 		
-		if curState == STATE.ATTACK_MOVEMENT:
+		if curState == STATE.ATTACK_MOVEMENT ||curState == STATE.E_UNIT_SELECTED_ATTACK:
 			playerUnitGui.setExpansionInfo(unit.getEquippedWeapon())
 			playerUnitGui.expand()
 	
@@ -218,6 +220,32 @@ func selectAllyUnit(index: int) -> void:
 	selectedAllyUnit = playerUnits[index]
 	selectedAllyUnitIndex = index
 	battleCam.snapToGridPos(selectedAllyUnit.getGridPos())
+	
+#use items
+func useItemAbility(unit: BaseUnit, targetUnit: BaseUnit, activity: BaseItem, selectedBodyPart = -1) -> void:
+	#check valid 
+
+	if selectedActivity is Ability:
+		if !itemAbMan.validAbility(unit,targetUnit,activity):
+			return 
+
+		itemAbMan.useAbility(selectedActivity,unitTurn,selectedActivityUnit)
+	else:
+		if !itemAbMan.validItem(unit,targetUnit,activity):
+			return 
+
+		itemAbMan.useItem(selectedActivity,unitTurn,selectedActivityUnit,selectedBodyPart)
+
+	
+	playerUnitGui.hideItems()
+	drawManager.cleanLos()
+	curState = STATE.A_UNIT_ITEM_ACTION
+
+	var endTurnAction: bool = await itemAbMan.actionComplete
+	print(endTurnAction)
+	
+	if endTurnAction:
+		endTurn()
 	
 	
 #handles player input
@@ -336,15 +364,8 @@ func input() -> void:
 					
 			STATE.A_UNIT_ITEM:
 				if selectedActivityUnit != null:
-					#valid target
-					if selectedActivity is Ability:
-						if !itemAbMan.validAbility(unitTurn,selectedActivityUnit,selectedActivity):
-							return
-						itemAbMan.useAbility(selectedActivity,selectedActivityUnit)
+					useItemAbility(unitTurn,selectedActivityUnit,selectedActivity)
 
-					else:
-						if !itemAbMan.validActivty(unitTurn,selectedActivityUnit,selectedActivity):
-							return
 
 
 
@@ -541,8 +562,14 @@ func _on_menu_select_battle_item_selected(itemKey,isItem):
 
 
 func _on_menu_select_part_selected(partId):
-	print("s")
-	pass # Replace with function body.
+	match (partId):
+		-1:
+			playerUnitGui.showPartSelection(selectedActivityUnit.getBodyparts())
+		-2:
+			pass
+		_:
+			useItemAbility(unitTurn,selectedActivityUnit,selectedActivity,partId)
+			
 
 		
 #utility methods
@@ -587,13 +614,17 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 	
 func gameOver(victory: bool):
 	print("game over")
+	
+	sceneOver.emit()
 		
 func nextTurn() -> void:
 	gridManager.clearUnitSelectionTiles(unitSelectionTiles)
 	playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,true)
 	
-	apCost = Vector2.INF
+	apCost = Vector2.INF 
 	selectedEnemyUnit = null
+	selectedActivityUnit = null
+	selectedActivity = null
 
 	turnManager.nextTurn()
 
@@ -604,20 +635,23 @@ func nextTurn() -> void:
 		for unit in unitArray:
 			unit.incTurnTimer()
 
-		if unitTurn != null:
-			unitTurn.setTurnTimer(0)
+#		if unitTurn != null:
+#			unitTurn.setTurnTimer(0)
 
-	var order := turnManager.calcTurnOrder(0,unitArray)
+	
+
+	turnManager.calcTurnOrder(0,unitArray)
 	turnManager.updateUnitGuiOrder()
 
 	selectUnit(turnManager.getNextUnit())
 	playerTurn = unitTurn.getTeam() == TEAM.PLAYER
+	playerUnitGui.updateBase(unitTurn.getName(),unitTurn.getAp(),unitTurn.getCharImage(),unitTurn.getHP())
 
+	#need to implement collision gridmap
 	var collisions: Array[Vector2] = []
 
 	if unitTurn.getTeam() == TEAM.PLAYER || unitTurn.getTeam() == TEAM.ALLY:
 		unitArray = $battleUnits/enemyUnits.get_children()
-		
 	else:
 		unitArray = $battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children()
 		
@@ -632,6 +666,10 @@ func nextTurn() -> void:
 func endTurn() -> void:
 	drawManager.cleanLos()
 	curState = STATE.NONE
+	
+	#take unit time away
+	unitTurn.setTurnTimer(0)
+	
 	if $battleUnits/playerUnits.get_children().size() == 0:
 		gameOver(false)
 

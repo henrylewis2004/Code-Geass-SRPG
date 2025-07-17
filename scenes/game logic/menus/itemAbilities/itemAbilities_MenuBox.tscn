@@ -65,6 +65,7 @@ anchors_preset = -1
 texture = ExtResource("4_8o2p4")
 
 [node name="bodyPartSelect" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_left = 0.115
 anchor_right = 0.885

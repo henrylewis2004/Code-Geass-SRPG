@@ -39,6 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AllyUnitGui" parent="ui" instance=ExtResource("4_4hww6")]
+visible = false
 layout_mode = 1
 
 [node name="UnitStatus" parent="ui" instance=ExtResource("6_7qyck")]
@@ -55,6 +56,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="EnemyUnitGui" parent="ui" instance=ExtResource("5_138ph")]
+visible = false
 layout_mode = 1
 
 [node name="DrawManager" parent="ui" instance=ExtResource("6_cfyqa")]

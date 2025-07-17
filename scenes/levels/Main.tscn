@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://c7qfekk0cj3xj"]
+[gd_scene load_steps=2 format=3 uid="uid://c7qfekk0cj3xj"]
+
+[ext_resource type="PackedScene" uid="uid://dvmagytfxrhbs" path="res://scenes/game logic/shared/levelManager.tscn" id="1_ty8y3"]
 
 [node name="Main" type="Node"]
+
+[node name="LevelManager" parent="." instance=ExtResource("1_ty8y3")]

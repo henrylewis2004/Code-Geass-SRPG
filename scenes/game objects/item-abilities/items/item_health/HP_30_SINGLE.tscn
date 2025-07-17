@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cadfl8cg6xx3a"]
 
-[ext_resource type="Script" uid="uid://c28lstbbd8y5c" path="res://resources/scripts/BaseBattleItem.gd" id="1_l2fvl"]
+[ext_resource type="Script" uid="uid://c28lstbbd8y5c" path="res://resources/scripts/battle/BaseBattleItem.gd" id="1_l2fvl"]
 
 [node name="Hp30Single" type="Node"]
 script = ExtResource("1_l2fvl")

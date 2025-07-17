@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://digo5sc451hvh"]
 
-[ext_resource type="Script" uid="uid://dc63qu57p6p5b" path="res://resources/scripts/baseWeapon.gd" id="1_pni8m"]
+[ext_resource type="Script" uid="uid://dc63qu57p6p5b" path="res://resources/scripts/battle/baseWeapon.gd" id="1_pni8m"]
 
 [node name="Smg" type="Node"]
 script = ExtResource("1_pni8m")

@@ -1,6 +1,5 @@
 class_name AllyUnitGui extends BattleUnitGui
 
-const catalogue := preload("res://resources/scripts/enumClasses/ENUMitems_abilities.gd")
 const ACTION_BOX_ITEM := preload("res://resources/scripts/enumClasses/ENUM_actionBoxOptions.gd").ACTION_BOX_ITEM
 
 #weapon selection
@@ -107,10 +106,8 @@ func populateList(items: Array, container: Container, noneText: String,addCancel
 		newMenuItem.text = item.getName()
 		var stringName: String = item.getName()
 
-		if item is BattleItem:
-			stringName = catalogue.items.keys()[item.getID()]
-		elif item is Ability:
-			stringName  = catalogue.items.keys()[item.getID()]
+		if item is BaseItem:
+			stringName = item.getName()
 			
 		newMenuItem.name = stringName
 		container.add_child(newMenuItem)

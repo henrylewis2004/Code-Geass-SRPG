@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxtggmsl78ela"]
+
+[ext_resource type="Texture2D" uid="uid://f4ka44l6nkbo" path="res://assets/2d/characters/overworld_sprites/lelouch_spriteSheet.png" id="1_io48k"]
+
+[node name="LelouchSchool" type="Sprite2D"]
+texture = ExtResource("1_io48k")
+hframes = 10
+vframes = 8
