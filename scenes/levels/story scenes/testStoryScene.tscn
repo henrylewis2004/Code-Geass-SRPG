@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bw5vovwhqud8j"]
 
-[ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="1_srca2"]
-[ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_w5jnt"]
-[ext_resource type="PackedScene" uid="uid://cxtggmsl78ela" path="res://scenes/cinematic scenes/characters-sprites/lelouch_school.tscn" id="2_28xsf"]
-[ext_resource type="Texture2D" uid="uid://d02lq83myk2s3" path="res://assets/2d/backgrounds/chess_area_exit.png" id="3_vu8dv"]
+[ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_k8cr2"]
+[ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="2_1c8ue"]
+[ext_resource type="PackedScene" uid="uid://cxtggmsl78ela" path="res://scenes/cinematic scenes/characters-sprites/lelouch_school.tscn" id="3_jfugj"]
+[ext_resource type="Texture2D" uid="uid://d02lq83myk2s3" path="res://assets/2d/backgrounds/chess_area_exit.png" id="4_v632q"]
 
 [sub_resource type="Animation" id="Animation_nmv0h"]
 resource_name = "levelIntro"
@@ -55,9 +55,9 @@ _data = {
 }
 
 [node name="TestStoryScene" type="Node"]
-script = ExtResource("1_w5jnt")
+script = ExtResource("1_k8cr2")
 
-[node name="baseStoryScene" parent="." instance=ExtResource("1_srca2")]
+[node name="baseStoryScene" parent="." instance=ExtResource("2_1c8ue")]
 modulate = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" parent="baseStoryScene" index="0"]
@@ -65,13 +65,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_vu8dv")
 }
 
-[node name="LelouchSchool" parent="baseStoryScene/characterSprites" index="0" instance=ExtResource("2_28xsf")]
+[node name="LelouchSchool" parent="baseStoryScene/characterSprites" index="0" instance=ExtResource("3_jfugj")]
 position = Vector2(232, 123)
 scale = Vector2(2, 2)
 flip_h = true
 
 [node name="background" parent="baseStoryScene" index="2"]
-texture = ExtResource("3_vu8dv")
+texture = ExtResource("4_v632q")
 
 [node name="DialogManager" parent="baseStoryScene" index="3"]
 dialog_script_path = "res://resources/story dialog scripts/testLevel_script.json"

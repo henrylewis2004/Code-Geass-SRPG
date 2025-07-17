@@ -2,6 +2,9 @@ class_name LevelManager extends Node
 
 @onready var curLevel : Level = get_child(0)
 
+func connectScene(scene:Level) -> void:
+	scene.resetScene.connect(resetLevel)
+	scene.sceneOver.connect(nextLevel)
 
 func resetLevel() -> void:
 	var curLevelPath := curLevel.scene_file_path
@@ -12,6 +15,8 @@ func resetLevel() -> void:
 	curLevel = load(curLevelPath).instantiate()
 	add_child(curLevel)
 	
+	connectScene(curLevel)
+	
 func nextLevel() -> void:
 	var nextLevelPath: String = curLevel.getNextLevelPath()
 
@@ -21,4 +26,6 @@ func nextLevel() -> void:
 		
 	curLevel = load(nextLevelPath).instantiate()
 	add_child(curLevel)
+
+	connectScene(curLevel)
 	

@@ -1,25 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvmagytfxrhbs"]
+[gd_scene load_steps=3 format=3 uid="uid://dvmagytfxrhbs"]
 
 [ext_resource type="Script" uid="uid://yregk1ht0a45" path="res://scripts/gameLogic/LevelManager.gd" id="1_8jykq"]
-[ext_resource type="PackedScene" uid="uid://q526mlaevq5s" path="res://scenes/levels/mainMenu.tscn" id="2_mb2s6"]
-[ext_resource type="Script" uid="uid://xibhqan5dn56" path="res://scripts/ui/MainMenu.gd" id="3_7ay2k"]
-[ext_resource type="Texture2D" uid="uid://cirb7c66751iy" path="res://assets/2d/ui/mainMenuBack.png" id="4_qaivq"]
-[ext_resource type="Texture2D" uid="uid://bj2y7ejjtxl8m" path="res://assets/2d/ui/gameLogo.png" id="5_l4rry"]
+[ext_resource type="PackedScene" uid="uid://docaydd600uqt" path="res://scenes/levels/cinematic videos/intro Video.tscn" id="2_mb2s6"]
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_8jykq")
 
-[node name="MainMenu" parent="." instance=ExtResource("2_mb2s6")]
-script = ExtResource("3_7ay2k")
+[node name="IntroVideo" parent="." instance=ExtResource("2_mb2s6")]
 
-[node name="background" type="TextureRect" parent="MainMenu"]
-layout_mode = 0
-offset_right = 480.0
-offset_bottom = 270.0
-texture = ExtResource("4_qaivq")
-
-[node name="gameLogo" type="TextureRect" parent="MainMenu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("5_l4rry")
+[connection signal="sceneOver" from="IntroVideo" to="." method="nextLevel"]
