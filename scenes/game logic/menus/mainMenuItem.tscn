@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2x84o5atyh8q"]
+
+[ext_resource type="FontFile" uid="uid://crpmyv2e2r4wr" path="res://assets/fonts/Xirod.otf" id="1_8v35v"]
+
+[node name="MenuItem" type="Label"]
+modulate = Color(1, 1, 1, 0.5)
+anchors_preset = -1
+anchor_right = 0.125
+anchor_bottom = 0.048
+offset_bottom = 0.04
+theme_override_fonts/font = ExtResource("1_8v35v")
+theme_override_font_sizes/font_size = 10
+text = "ATTACK"
+horizontal_alignment = 1

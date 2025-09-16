@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvue1eld7mt8c"
+path="res://.godot/imported/Occupied Thinking.wav-4788623cdb7e84ce776ebee89aa48fe6.sample"
+
+[deps]
+
+source_file="res://assets/sfx/music/codeGeassOst/Occupied Thinking.wav"
+dest_files=["res://.godot/imported/Occupied Thinking.wav-4788623cdb7e84ce776ebee89aa48fe6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

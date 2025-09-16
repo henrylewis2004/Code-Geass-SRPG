@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3v7ecy8vwtmu"
+path="res://.godot/imported/All Hail Britannia!!!.wav-a94bac4da1a1b5704580b353e6548e7b.sample"
+
+[deps]
+
+source_file="res://assets/sfx/music/codeGeassOst/All Hail Britannia!!!.wav"
+dest_files=["res://.godot/imported/All Hail Britannia!!!.wav-a94bac4da1a1b5704580b353e6548e7b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

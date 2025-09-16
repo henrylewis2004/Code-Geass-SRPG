@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d0i6r3sh6tqhw"
+path="res://.godot/imported/The First Signature.wav-3e1e009f41d4bce43b69589a0f7cb9ed.sample"
+
+[deps]
+
+source_file="res://assets/sfx/music/codeGeassOst/The First Signature.wav"
+dest_files=["res://.godot/imported/The First Signature.wav-3e1e009f41d4bce43b69589a0f7cb9ed.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

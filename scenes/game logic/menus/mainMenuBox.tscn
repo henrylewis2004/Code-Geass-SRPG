@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ighpt60m4nm"]
+
+[ext_resource type="PackedScene" uid="uid://dvtl2v8c3w6bg" path="res://scenes/game logic/menus/MenuSelect.tscn" id="1_5x531"]
+[ext_resource type="PackedScene" uid="uid://d2x84o5atyh8q" path="res://scenes/game logic/menus/mainMenuItem.tscn" id="2_vyqgy"]
+
+[node name="mainMenuBox" type="Control"]
+layout_mode = 3
+anchor_right = 0.181
+anchor_bottom = 0.359
+offset_right = 0.119995
+offset_bottom = 0.0699921
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuSelect" parent="." node_paths=PackedStringArray("menuParent") instance=ExtResource("1_5x531")]
+layout_mode = 1
+menuParent = NodePath("../action/VBoxContainer")
+
+[node name="action" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.167
+offset_bottom = -12.026
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="action"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.959
+offset_bottom = -0.0249176
+grow_horizontal = 2
+theme_override_constants/separation = 9
+alignment = 1
+
+[node name="NEW GAME" parent="action/VBoxContainer" instance=ExtResource("2_vyqgy")]
+layout_mode = 2
+text = "NEW GAME"
+
+[node name="CONTINUE" parent="action/VBoxContainer" instance=ExtResource("2_vyqgy")]
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="LOAD GAME" parent="action/VBoxContainer" instance=ExtResource("2_vyqgy")]
+layout_mode = 2
+text = "LOAD GAME"
+
+[node name="CONFIG" parent="action/VBoxContainer" instance=ExtResource("2_vyqgy")]
+layout_mode = 2
+text = "CONFIG"
+
+[node name="EXIT" parent="action/VBoxContainer" instance=ExtResource("2_vyqgy")]
+layout_mode = 2
+text = "EXIT"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8p5ylsgkn1dc"]
+
+[ext_resource type="Script" uid="uid://dc63qu57p6p5b" path="res://resources/scripts/battle/baseWeapon.gd" id="1_wc7f0"]
+
+[node name="MgGun" type="Node"]
+script = ExtResource("1_wc7f0")
+dmg = 5
+string_name = "MG Gun"
+accuracy = 70
+rounds = 3
+apCost = 2
+range = 4
+fireRate = 0.1
