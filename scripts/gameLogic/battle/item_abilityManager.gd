@@ -34,10 +34,11 @@ func validActivity(unit: BaseUnit,targetUnit:BaseUnit,activity: BaseItem) -> boo
 		return validAbility(unit,targetUnit,activity)
 	else:
 		return validItem(unit,targetUnit,activity)
+	
 
 #### open core
 
-func useItem(item:BattleItem, unit: BaseUnit, targetUnit:BaseUnit, targetPart: int) -> void:
+func useItem(item:BattleItem, unit: BaseUnit, targetUnit:BaseUnit, targetPart: int = -1) -> void:
 	var endTurn: bool = true
 	print(targetPart)
 

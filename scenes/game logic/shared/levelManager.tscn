@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvmagytfxrhbs"]
+[gd_scene load_steps=2 format=3 uid="uid://dvmagytfxrhbs"]
 
 [ext_resource type="Script" uid="uid://yregk1ht0a45" path="res://scripts/gameLogic/LevelManager.gd" id="1_8jykq"]
-[ext_resource type="PackedScene" uid="uid://docaydd600uqt" path="res://scenes/levels/cinematic videos/intro Video.tscn" id="2_mb2s6"]
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_8jykq")
-
-[node name="IntroVideo" parent="." instance=ExtResource("2_mb2s6")]
-
-[connection signal="sceneOver" from="IntroVideo" to="." method="nextLevel"]

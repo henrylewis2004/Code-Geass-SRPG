@@ -49,11 +49,11 @@ func hit() -> bool: #need to add two handed debuff
 		return true
 	return false
 
-func dmgCalc(twoHanded_debuff: bool) -> int:
+func dmgCalc(twoHanded_debuff: bool,unit: BaseUnit,targetUnit:BaseUnit,unitPos:Vector2 = unit.getGridPos()) -> int:
 	var wpnAcc : int = accuracy
 	if twoHanded_debuff: wpnAcc = wpnAcc / 2
 	
-	return dmg * (wpnAcc/100)
+	return (dmg * float(wpnAcc)/100 * rounds)
 
 
 	

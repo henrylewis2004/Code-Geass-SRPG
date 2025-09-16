@@ -1,8 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://q526mlaevq5s"]
+[gd_scene load_steps=14 format=3 uid="uid://q526mlaevq5s"]
 
 [ext_resource type="Script" uid="uid://xibhqan5dn56" path="res://scripts/ui/MainMenu.gd" id="1_ggjlw"]
-[ext_resource type="Texture2D" uid="uid://cirb7c66751iy" path="res://assets/2d/ui/mainMenuBack.png" id="1_n6fww"]
+[ext_resource type="Texture2D" uid="uid://cirb7c66751iy" path="res://assets/2d/backgrounds/_menu/mainMenu/mainMenuBack.png" id="1_n6fww"]
 [ext_resource type="Texture2D" uid="uid://bj2y7ejjtxl8m" path="res://assets/2d/ui/gameLogo.png" id="2_ggjlw"]
+[ext_resource type="Texture2D" uid="uid://btnts83j5l43w" path="res://assets/2d/backgrounds/_menu/mainMenu/mainMenuBack2.png" id="2_oi0l6"]
+[ext_resource type="PackedScene" uid="uid://7ighpt60m4nm" path="res://scenes/game logic/menus/mainMenuBox.tscn" id="4_415kn"]
+[ext_resource type="FontFile" uid="uid://crpmyv2e2r4wr" path="res://assets/fonts/Xirod.otf" id="7_oi0l6"]
+[ext_resource type="AudioStream" uid="uid://bfolivrwigwtr" path="res://assets/sfx/music/codeGeassOst/Brain Game (loop).wav" id="8_7j7hv"]
+
+[sub_resource type="Gradient" id="Gradient_ebtns"]
+offsets = PackedFloat32Array(0, 0.298701, 0.694805, 0.974026)
+colors = PackedColorArray(0, 0, 0, 0.37, 0.552, 0.552, 0.552, 0.536, 1, 1, 1, 0.215, 1, 1, 1, 0.237)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pdp2h"]
+gradient = SubResource("Gradient_ebtns")
+width = 480
+
+[sub_resource type="Animation" id="Animation_7j7hv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pdp2h"]
+resource_name = "sceneTransition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oi0l6"]
+resource_name = "start_modulate"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pdp2h"]
+_data = {
+&"RESET": SubResource("Animation_7j7hv"),
+&"sceneTransition": SubResource("Animation_pdp2h"),
+&"start_modulate": SubResource("Animation_oi0l6")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,14 +104,84 @@ grow_vertical = 2
 script = ExtResource("1_ggjlw")
 nextLevel_path = "res://scenes/levels/story scenes/testStoryScene.tscn"
 
+[node name="alt back" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oi0l6")
+
 [node name="background" type="TextureRect" parent="."]
-offset_right = 480.0
-offset_bottom = 270.0
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_n6fww")
 
+[node name="bluraffect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.006
+anchor_bottom = 1.1
+offset_right = 0.119995
+texture = SubResource("GradientTexture1D_pdp2h")
+
 [node name="gameLogo" type="TextureRect" parent="."]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 257.0
-offset_bottom = 129.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_top = -10.0
+offset_right = -112.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_ggjlw")
+
+[node name="mainMenuBox" parent="." instance=ExtResource("4_415kn")]
+visible = false
+layout_mode = 1
+offset_top = 129.0
+offset_right = 393.12
+offset_bottom = 129.07
+
+[node name="MenuSelect" parent="mainMenuBox" index="0"]
+enabledShadow_text = true
+
+[node name="startButton" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 234.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_oi0l6")
+theme_override_font_sizes/font_size = 8
+text = "-- START --"
+horizontal_alignment = 1
+
+[node name="menuBackground_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7j7hv")
+volume_db = -10.0
+autoplay = true
+bus = &"music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../startButton")
+libraries = {
+&"": SubResource("AnimationLibrary_pdp2h")
+}
+autoplay = "sceneTransition"
+
+[connection signal="itemSelected" from="mainMenuBox/MenuSelect" to="." method="_on_menu_select_item_selected"]
+
+[editable path="mainMenuBox"]

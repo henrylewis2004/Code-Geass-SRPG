@@ -29,3 +29,8 @@ func nextLevel() -> void:
 
 	connectScene(curLevel)
 	
+	
+	
+#engine
+func _ready():
+	connectScene(curLevel)

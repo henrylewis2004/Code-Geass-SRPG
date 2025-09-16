@@ -5,6 +5,14 @@ class_name BaseItem extends Node
 @export var endTurn: bool
 @export var apCost: int
 @export var singlePart: bool
+@export var tier: int
+
+@export_enum(
+	"HP",
+	"STATUS",
+	"ATTACK"
+
+) var itemType: int
 
 #getters setters
 func getApCost() -> int:
@@ -21,3 +29,13 @@ func getEndTurn() -> bool:
 
 func isSinglePart() -> bool:
 	return singlePart
+
+func getType() -> int:
+	return itemType
+
+func getTier() -> int:
+	return tier
+
+#setters
+func setName(newName:String) -> void:
+	stringName = newName

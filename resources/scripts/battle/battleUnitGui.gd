@@ -5,6 +5,7 @@ var enumBodyParts := load("res://resources/scripts/enumClasses/ENUMbodyparts.gd"
 var BODYPARTS = enumBodyParts.BODYPARTS
 
 #base
+@onready var baseTop = $base
 @onready var base_backImage := $base/backImage as TextureRect
 @onready var base_characterImage := $base/characterImage as TextureRect
 @onready var base_Name := $base/nameText as RichTextLabel
@@ -35,6 +36,14 @@ func updateBodyParts(bodyhp: float, lArmhp: float, rArmhp: float, legsHp: float)
 func updateBase(name: String, ap: int, characterImage: Texture, hp: Array[float]) -> void:
 	updateCharInfo(name, ap, characterImage)
 	updateBodyParts(hp[BODYPARTS.BODY],hp[BODYPARTS.L_ARM],hp[BODYPARTS.R_ARM],hp[BODYPARTS.LEGS])
+
+func hideBase() -> void:
+	baseTop.set_visible(false)
+	hideExpansion()
+	
+func showBase() -> void:
+	baseTop.set_visible(true)
+	
 
 
 	

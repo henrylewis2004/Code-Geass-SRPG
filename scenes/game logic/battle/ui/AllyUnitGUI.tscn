@@ -26,6 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_0sxrj")
 
 [node name="base" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_left = 0.042
 anchor_top = 0.722

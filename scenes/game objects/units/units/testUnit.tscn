@@ -5,8 +5,8 @@
 [ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="2_kteh2"]
 [ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/battle/BaseBodypart.gd" id="3_g0gu5"]
 [ext_resource type="Script" uid="uid://y5wyd4af163n" path="res://resources/scripts/battle/LegsBodypart.gd" id="4_f73vb"]
-[ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/units/weapons/Mg Gun.tscn" id="5_kao3p"]
-[ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/units/weapons/smg.tscn" id="6_2ay0l"]
+[ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/weapons/Mg Gun.tscn" id="5_kwai8"]
+[ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/weapons/smg.tscn" id="6_pq7bo"]
 [ext_resource type="PackedScene" uid="uid://cadfl8cg6xx3a" path="res://scenes/game objects/item-abilities/items/item_health/HP_30_SINGLE.tscn" id="7_f6ejb"]
 [ext_resource type="PackedScene" uid="uid://dw0k4okfbuau3" path="res://scenes/game objects/item-abilities/abilities/ability_attack/SPEED_DOWN.tscn" id="8_kwai8"]
 
@@ -46,13 +46,11 @@ bodyPartType = 3
 
 [node name="weapons" type="Node" parent="."]
 
-[node name="MgGun" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_kao3p")]
-rounds = 10
-equipPart = NodePath("../../bodyparts/L arm")
-
-[node name="Smg" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("6_2ay0l")]
-apCost = 4
+[node name="MgGun" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_kwai8")]
 equipPart = NodePath("../../bodyparts/R arm")
+
+[node name="Smg" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("6_pq7bo")]
+equipPart = NodePath("../../bodyparts/L arm")
 
 [node name="inventory" type="Node" parent="."]
 

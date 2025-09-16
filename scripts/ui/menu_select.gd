@@ -12,6 +12,7 @@ var selectIndex: int = 0
 var lastItem: Label
 
 var enabled: bool = false
+@export var enabledShadow_text: bool = false
 
 #methods
 func _process(delta):
@@ -48,7 +49,7 @@ func getMenuItem(index: int) -> Control:
 	if menuParent == null:
 		return null
 	
-	if index >= menuParent.get_child_count() or index < 1:
+	if index >= menuParent.get_child_count() || index < 0 || (index == 0 && menuParent.get_child(index).name == "topLabel"):
 		return null
 	
 	return menuParent.get_child(index) as Control
@@ -56,7 +57,7 @@ func getMenuItem(index: int) -> Control:
 func setIndex(index: int) -> void:
 	var menuItem := getMenuItem(index)
 
-	if menuItem == null || index == 0:
+	if menuItem == null :
 		return 
 	
 	if menuItem.visible == false:
@@ -66,17 +67,35 @@ func setIndex(index: int) -> void:
 	
 	if lastItem:
 		lastItem.modulate.a = deselectOpacity
+		if enabledShadow_text:
+			lastItem.remove_theme_color_override("font_shadow_color")
+			
+		
 		
 	lastItem = menuItem
 	lastItem.modulate.a = 1
+
+	if enabledShadow_text:
+		lastItem.add_theme_color_override("font_shadow_color",Color.BLACK)
 	
 	selectIndex = index
 	
+func enableShadow(shadow: bool) -> void:
+	enabledShadow_text = shadow
 
 func enable(enableSelection:bool) -> void:
 	enabled = false
-	setIndex(1)
+
+	if lastItem:
+		lastItem.modulate.a = deselectOpacity
+		if enabledShadow_text:
+			lastItem.remove_theme_color_override("font_shadow_color")
+
+
 	if enableSelection:
+		setIndex(1)
+		if menuParent.get_child(0).name != "topLabel":
+			setIndex(0)
 		inputTimer.start()
 		
 func setMenu(node: Node) -> void:

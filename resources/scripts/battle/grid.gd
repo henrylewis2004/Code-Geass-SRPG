@@ -3,12 +3,16 @@ class_name Grid
 const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_unitSelectionTiles.gd").SELECTION_TILES_ID
 
 var mapSize: Vector2
+var mapGrid: Array[Array] = []
 var astar: AStar2D
 
 var disabledPoints: Array[Vector2] = []
 
 func setMapSize(size: Vector2) -> void:
 	mapSize = size
+	
+func getMapSize() -> Vector2:
+	return mapSize
 
 func setWorldWalls(size: Vector2, walls: Array[Node]) -> void:
 	walls[0].position = Vector3(0,0,size.y) #north
@@ -23,19 +27,32 @@ func setWorldWalls(size: Vector2, walls: Array[Node]) -> void:
 func getASindex(cell: Vector2) -> int:
 	return int(cell.x + mapSize.x * cell.y)
 
+func getAstar() -> AStar2D:
+	return astar
+
 func createBoard() -> AStar2D:
 	astar = AStar2D.new()
  
 	for pointX in range(mapSize.x ):
+		var arrayY: Array[GridTile]
 		for pointY in range(mapSize.y ):
 			astar.add_point(getASindex(Vector2(pointX,pointY)), Vector2(pointX,pointY))
 			if pointX - 1 >= 0:
 				astar.connect_points(getASindex(Vector2(pointX - 1,pointY)), getASindex(Vector2(pointX,pointY)),true)
 			if pointY - 1 >= 0:
 				astar.connect_points(getASindex(Vector2(pointX,pointY - 1)), getASindex(Vector2(pointX,pointY)),true)
+				
+			arrayY.append(GridTile.new(Vector2(pointX,pointY)))
+				
+		mapGrid.append(arrayY)
 
 
 	return astar
+
+
+func init(size: Vector2,walls: Array[Node]) -> void:
+	setWorldWalls(size,walls)
+	createBoard()
 
 func updateBoardCollisions(collisions: Array[Vector2]) -> AStar2D:
 	for point in disabledPoints:
@@ -48,18 +65,38 @@ func updateBoardCollisions(collisions: Array[Vector2]) -> AStar2D:
 			astar.connect_points(getASindex(point), getASindex(Vector2(point.x + 1,point.y)),true)
 			
 		if point.y - 1 >= 0:
-			astar.connect_points(getASindex(point), getASindex(Vector2(point.x - 1,point.y)),true)
+			astar.connect_points(getASindex(point), getASindex(Vector2(point.x,point.y - 1)),true)
 			
 		if point.y + 1 < mapSize.y:
-			astar.connect_points(getASindex(point), getASindex(Vector2(point.x + 1,point.y)),true)
+			astar.connect_points(getASindex(point), getASindex(Vector2(point.x,point.y + 1)),true)
+			
+		resetPosition_occupied(Vector2(point.x,point.y))
+			
 	
 	for position in collisions:
 		astar.remove_point(getASindex(position))
+		setPosition_occupied(position)
 
 	disabledPoints = collisions
 
 	return astar
+
 		
+
+#gridMap
+func setPosition_occupied(new_position:Vector2,old_position : Vector2 = Vector2.INF) -> void:
+	mapGrid[new_position.x][new_position.y].setOccupied(true)
+	
+	if old_position != Vector2.INF:
+		mapGrid[old_position.x][old_position.y].setOccupied(false)
+		
+func resetPosition_occupied(position:Vector2) -> void:
+	mapGrid[position.x][position.y].setOccupied(false)
+	
+func isOccupiedPosition(position: Vector2) -> bool:
+	print(position)
+
+	return mapGrid[position.x][position.y].isOccupied()
 
 #methods
 
@@ -74,11 +111,12 @@ func getPath(pos1: Vector2, pos2: Vector2) -> PackedVector2Array:
 
 func validMove(loc: Vector2, unit: BaseUnit) -> bool:
 	var dist: int = dist(loc,unit.getGridPos())
-	return (dist <= min(unit.getAp(),unit.getMoveRange()) && dist > 0)
+	return (dist <= unit.getMoveRange() && dist > 0)
 
 
 func apMoveCost(originPos: Vector2, targetPos: Vector2) -> int:
 	return dist(originPos,targetPos)
+
 
 
 #unit tiles

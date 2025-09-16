@@ -18,6 +18,7 @@ const SPEED: int = 2
 @onready var abilitiesList: Array[Node] = $inventory/abilities.get_children()
 
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
+const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 
 var equippedWeapon: int = -1
 var ap: int
@@ -62,7 +63,7 @@ func getName() -> String:
 	return char_name
 
 func getMoveRange() -> int:
-	return bodyParts[BODYPARTS.LEGS].getMoveRange()
+	return min(getAp(),bodyParts[BODYPARTS.LEGS].getMoveRange())
 
 func getEnergy() -> int:
 	return energy
@@ -83,9 +84,9 @@ func getCharImage() -> Texture:
 func getTeam() -> int:
 	return team
 
-func getStat(stat:String) -> int:
+func getStat(stat:int) -> int:
 	match(stat):
-		"agility":
+		STATS.AGILITY:
 			return agilityStat
 	return -1
 
@@ -123,6 +124,19 @@ func setEquippedWeapon(weapon: int) -> void:
 		return
 	
 	equippedWeapon = -1
+	
+func equipAWeapon() -> void:
+	for weapon in range(0,weapons.size() - 1):
+		if !weapons[weapon].getEquipPart().isDestroyed():
+			setEquippedWeapon(weapon + 1)
+			return
+	
+func setEquippedWeapon_fromWeapon(weapon: Weapon) -> void:
+	if weapon != null:
+		for weaponIndex in range(getWeapons().size()):
+			if weapon == weapons[weaponIndex]:
+				equippedWeapon = weaponIndex
+				return
 
 func weaponSelection(select: int) -> void:
 
@@ -165,6 +179,9 @@ func setAp(newAp: int) -> void:
 func resetAp() -> void:
 	ap = maxAp
 	
+func unitApCharge() -> void:
+	incAp(apCharge)
+	
 func resetEnergy() -> void:
 	energy = maxEnergy
 	
@@ -202,12 +219,15 @@ func followPath(path: PackedVector2Array) -> void:
 func moveTo(originPosIndex: int,targetPosIndex: int, astarMap: AStar2D) -> void:
 	var path := astarMap.get_point_path(originPosIndex, targetPosIndex)
 	followPath(path)
+	
+func moveCost(originPosIndex:int,targetPosIndex:int,astarMap:AStar2D) -> int:
+	return astarMap.get_point_path(originPosIndex,targetPosIndex).size() - 1
 
 	
-func hasLOS(enemyUnit: BaseUnit) -> bool:
+func hasLOS(enemyUnit: BaseUnit,gridPosition:Vector3 = self.position.floor() ) -> bool:
 	var collisionLayer: int = 1024 + 1024 * int(enemyUnit.getTeam() == 1)
 
-	var raycast := PhysicsRayQueryParameters3D.create(Vector3(getGridPos().x,0,getGridPos().y) + Vector3(0.5,0,0.5), Vector3(enemyUnit.getGridPos().x,0,enemyUnit.getGridPos().y) + Vector3(0.5,0.5,0.5))
+	var raycast := PhysicsRayQueryParameters3D.create(gridPosition + Vector3(0.5,0,0.5), enemyUnit.position.floor() + Vector3(0.5,0.5,0.5))
 	raycast.collide_with_areas = true
 	raycast.collision_mask = collisionLayer
 	
@@ -221,7 +241,7 @@ func hasLOS(enemyUnit: BaseUnit) -> bool:
 func validTarget(target: BaseUnit) -> bool:
 	if ap < getEquippedWeapon().getApCost(): #not enough ap
 		return false
-	
+
 	if target.getTeam() == team || (team == 0 && target.getTeam() == 2): #same team
 		return false
 
@@ -234,7 +254,6 @@ func validTarget(target: BaseUnit) -> bool:
 func attack(unit: BaseUnit) -> void:
 	var weapon : Weapon = getEquippedWeapon()
 	var accuracy = weapon.getAccuracy()
-	print(weapon)
 	
 	var wpnTimer: Timer = Timer.new() #maybe change to animation instead
 	add_child(wpnTimer)
@@ -265,8 +284,8 @@ func attack(unit: BaseUnit) -> void:
 				unit.getBodyparts()[bodyPartHit].hit(weapon.getDmg())
 					
 			else:
+				pass
 				#add miss gfx
-				print("misss")
 			wpnTimer.start(weapon.getWeaponFireRate())
 			await wpnTimer.timeout
 		

@@ -6,6 +6,8 @@ const turnOrderCnt: int = 6
 var turnCnt: int = -1
 var unitOrder: Array[BaseUnit] #next 10 turns
 
+const AGILITY_STAT := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS.AGILITY
+
 
 #methods
 func getTurnNo() -> int:
@@ -15,27 +17,38 @@ func nextTurn() -> void:
 	turnCnt += 1
 
 
+func createTurnOrder(unitArray: Array[Node]) -> void:
+	nextTurn()
 
-func calcTurnOrder(turn: int, unitArray: Array[Node]) -> Array[BaseUnit]:
+	if getTurnNo() > 0:
+		for unit in unitArray:
+			unit.incTurnTimer()
+
+
+	calcTurnOrder(unitArray)
+	updateUnitGuiOrder()
+
+func calcTurnOrder(unitArray: Array[Node],turn: int = 0) -> Array[BaseUnit]:
 	if turn == 0:
 		unitOrder = []
 
 		for unit in unitArray:
 			unit.resetPredTurnTimer()
 
-	unitOrder.append(orderTurn(unitArray, 0, unitArray.size() - 1)[unitArray.size() - 1])
+	var order : Array[Node] = orderTurn(unitArray, 0, unitArray.size() - 1)
+	unitOrder.append(order[unitArray.size() - 1])
+
 
 	if unitOrder.size() == turnOrderCnt:
 		updateUnitGuiOrder()
 		return unitOrder
 	
 	unitArray[unitArray.size()-1].setPredTurnTimer(0)
-	for unitIndex in range(unitArray.size() - 1):
-		var  unit = unitArray[unitIndex]
-		unit.setPredTurnTimer(unit.getPredTurnTimer() + unit.getStat("agility"))
+	for unit in unitArray:
+		unit.setPredTurnTimer(unit.getPredTurnTimer() + unit.getStat(AGILITY_STAT))
 		
 
-	return calcTurnOrder(turn + 1, unitArray)
+	return calcTurnOrder(unitArray,turn + 1)
 	
 
 
@@ -45,7 +58,7 @@ func orderTurnPartition(unitArray: Array[Node], lowIndex: int, highIndex: int) -
 	var swapIndex = lowIndex -1
 
 	for unitIndex in range(lowIndex, highIndex):
-		if (unitArray[unitIndex].getPredTurnTimer() < pivotUnit.getPredTurnTimer()):
+		if (unitArray[unitIndex].getPredTurnTimer() < pivotUnit.getPredTurnTimer()) || (unitArray[unitIndex].getPredTurnTimer() == pivotUnit.getPredTurnTimer() && unitArray[unitIndex].getStat(AGILITY_STAT) < pivotUnit.getStat(AGILITY_STAT)):
 			swapIndex += 1
 			
 			var temp = unitArray[unitIndex]
@@ -65,6 +78,7 @@ func orderTurn(unitArray: Array[Node], lowIndex: int, highIndex: int) -> Array[N
 
 		orderTurn(unitArray,lowIndex,pivot - 1)
 		orderTurn(unitArray,pivot + 1, highIndex)
+		
 
 	return unitArray
 

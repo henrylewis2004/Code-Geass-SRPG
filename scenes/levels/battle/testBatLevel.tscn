@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx7goff65a2n4"]
+[gd_scene load_steps=7 format=3 uid="uid://cx7goff65a2n4"]
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_q0by3"]
 [ext_resource type="PackedScene" uid="uid://bm1sq66703pp4" path="res://scenes/game logic/battle/battleController.tscn" id="1_thuk5"]
 [ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/units/testUnit.tscn" id="2_q0by3"]
 [ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="3_nbk5h"]
+[ext_resource type="Texture2D" uid="uid://mvlxadcqip1q" path="res://assets/2d/characters/main/rivalz/rivalz1.png" id="5_nbk5h"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dpb2t"]
 size = Vector2(1, 1)
@@ -49,7 +50,7 @@ skeleton = NodePath("../MeshInstance3D3")
 mapSize = Vector2(10, 10)
 
 [node name="TestUnit2" parent="BattleController/battleUnits/playerUnits" index="0" instance=ExtResource("2_q0by3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16385, 0, 0.976999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
 char_name = "test6"
 apCharge = 3
 maxAp = 3
@@ -58,6 +59,7 @@ turnTimer = 5
 
 [node name="TestUnit" parent="BattleController/battleUnits/enemyUnits" index="0" instance=ExtResource("2_q0by3")]
 team = 1
+char_name = "kallen"
 charImage = ExtResource("3_nbk5h")
 apCharge = 2
 maxAp = 10
@@ -67,11 +69,19 @@ turnTimer = 3
 [node name="TestUnit2" parent="BattleController/battleUnits/enemyUnits" index="1" instance=ExtResource("2_q0by3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22785, 0, 0)
 team = 1
+charImage = ExtResource("5_nbk5h")
+
+[node name="AllyUnitGui" parent="BattleController/ui" index="0"]
+visible = true
+
+[node name="EnemyUnitGui" parent="BattleController/ui" index="3"]
+visible = true
 
 [connection signal="resetScene" from="BattleController" to="." method="resetScene_emit"]
 [connection signal="sceneOver" from="BattleController" to="." method="sceneOver_emit"]
 
 [editable path="BattleController"]
+[editable path="BattleController/battleUnits/enemyUnits/TestUnit"]
 [editable path="BattleController/ui/AllyUnitGui"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox/action/VBoxContainer/topLabel"]

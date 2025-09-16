@@ -2,15 +2,16 @@ class_name AllyUnitGui extends BattleUnitGui
 
 const ACTION_BOX_ITEM := preload("res://resources/scripts/enumClasses/ENUM_actionBoxOptions.gd").ACTION_BOX_ITEM
 
-#weapon selection
-@onready var weaponSelect := $weaponSelect
-const menuItem := preload("res://scenes/game logic/menus/MenuItem.tscn")
-const modulateValue : float = 0.5
-
 #action box
 @onready var actionBox := $base/MenuBox
 @onready var menuSelect := $base/MenuBox/MenuSelect
 const menuBoxPos: Vector2 = Vector2(11,2)
+
+
+#weapon selection
+@onready var weaponSelect := $weaponSelect
+const menuItem := preload("res://scenes/game logic/menus/MenuItem.tscn")
+const modulateValue : float = 0.5
 
 #item and abilities
 @onready var itemSelectMenu := $base/MenuBox/ItemAbilitiesMenuBox/items
@@ -94,7 +95,7 @@ func hideItems() -> void:
 	
 
 
-func populateList(items: Array, container: Container, noneText: String,addCancel: bool) -> void:
+func populateList(items: Array, container: Container, noneText: String,addCancel: bool = false) -> void:
 	for item in container.get_children():
 		if item.name != "topLabel":
 			container.remove_child(item)
@@ -140,9 +141,29 @@ func showWeaponSelect() -> void:
 func hideWeaponSelect() -> void:
 	weaponSelect.set_visible(false)
 
-func updateWeaponSelect(weapons: Array[Node]) -> void:
-	var weaponList := $weaponSelect/weaponsBox
-	populateList(weapons,weaponList,"weapons",false)
+func updateWeaponSelect(weapons: Array[Node],equippedWeapon: int,noCounter_option: bool = false) -> void:
+	var weaponBox := $weaponSelect/weaponsBox
+	var weaponList: Array[Node] = []
+	
+	if noCounter_option:
+		var noCounter: BaseItem = BaseItem.new()
+		noCounter.setName("--NO COUNTER--")
+		weaponList.append(noCounter)
+
+		for weapon in weapons:
+			weaponList.append(weapon)
+		
+
+	else:
+		weaponList = weapons
+		
+		
+	populateList(weaponList,weaponBox,"weapons")
+
+	selectWeapon(equippedWeapon)
+	showWeaponSelect()
+	
+	hideActionBox()
 
 		
 func selectWeapon(index: int) -> void:
@@ -151,8 +172,8 @@ func selectWeapon(index: int) -> void:
 		weapon.modulate.a = 0.5
 	
 	weaponList[0].modulate.a = 1
-	weaponList[index + 1].modulate.a = 1
+	weaponList[index + 1 + 1 * int(index < 0)].modulate.a = 1
+	
 
-
-func showStatus() -> void:
+func showStatus(unit:BaseUnit) -> void:
 	print("status")

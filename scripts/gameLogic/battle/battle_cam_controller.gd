@@ -51,7 +51,7 @@ func clearUnitFollow() -> void:
 
 	
 #grid functions
-func moveToGridPos(loc: Vector3, speed: int) -> void:
+func moveToGridPos(loc: Vector3, speed: int = 20) -> void:
 	movingToLoc = loc + Vector3(0.5,0,0.5)
 	velocity = (movingToLoc - position) * speed
 	canMove = false

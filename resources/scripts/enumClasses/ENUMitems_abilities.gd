@@ -1,3 +1,9 @@
+enum typeID{
+	HP,
+	STATUS,
+	ATTACK
+}
+
 enum items{
     HP_30_SINGLE,
     HP_50_SINGLE

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_k8cr2"]
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="2_1c8ue"]
 [ext_resource type="PackedScene" uid="uid://cxtggmsl78ela" path="res://scenes/cinematic scenes/characters-sprites/lelouch_school.tscn" id="3_jfugj"]
-[ext_resource type="Texture2D" uid="uid://d02lq83myk2s3" path="res://assets/2d/backgrounds/chess_area_exit.png" id="4_v632q"]
+[ext_resource type="Texture2D" uid="uid://d02lq83myk2s3" path="res://assets/2d/backgrounds/area11/chess_area_exit.png" id="4_v632q"]
 
 [sub_resource type="Animation" id="Animation_nmv0h"]
 resource_name = "levelIntro"
