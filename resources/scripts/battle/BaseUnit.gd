@@ -2,6 +2,7 @@ class_name BaseUnit extends Path3D
 
 signal movementFinished
 signal attackFinished
+signal destroy_unit(unit: BaseUnit)
 
 @export_enum("player","enemy","ally") var team: int
 @export var char_name: String
@@ -58,6 +59,8 @@ func getAliveBodyparts() -> Array[Node]:
 	return partArr
 
 
+func isDestroyed() -> bool:
+	return getBodyparts()[BODYPARTS.BODY].isDestroyed()
 
 func getName() -> String:
 	return char_name

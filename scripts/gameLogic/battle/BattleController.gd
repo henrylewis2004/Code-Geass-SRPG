@@ -669,16 +669,34 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 	battleCam.moveToGridPos(Vector3(defender.getGridPos().x,0,defender.getGridPos().y),5)
 	await battleCam.cinematicMoveFinished
 
-	
-	#ai attack
-	if defender.getEquippedWeapon() != null && !defender.getBodyparts()[BODYPARTS.BODY].isDestroyed():
-		attackTimer.start(0.5)
+	#check if dead
+	if !defender.isDestroyed():
+		#ai attack
+		if defender.getEquippedWeapon() != null:
+			attackTimer.start(0.5)
+			await attackTimer.timeout
+			defender.attack(attacker)
+			await defender.attackFinished
+
+			attackTimer.start(0.5)
+			await attackTimer.timeout
+
+			if attacker.isDestroyed():
+				battleCam.moveToGridPos(Vector3(attacker.getGridPos().x,0,attacker.getGridPos().y),5)
+				await battleCam.cinematicMoveFinished
+
+				killUnit(attacker)
+
+				attackTimer.start(1)
+				await attackTimer.timeout
+
+
+	else:
+		killUnit(defender)
+
+		attackTimer.start(1) # might need changing
 		await attackTimer.timeout
-		defender.attack(attacker)
-		await defender.attackFinished
 		
-	attackTimer.start(1) # might need changing
-	await attackTimer.timeout
 	
 	remove_child(attackTimer)
 	attackTimer.queue_free()
@@ -686,6 +704,16 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 	actionComplete.emit()
 	
+
+func killUnit(unit: BaseUnit) -> void:
+	match unit.getTeam():
+		TEAM.PLAYER -> playerUnits.remove_child(unit)
+		TEAM.ENEMY -> enemyUnits.remove_child(unit)
+		TEAM.ALLY -> allyUnits.remove_child(unit)
+
+	unit.queue_free()
+
+
 func aiAttackTurn(unit:BaseUnit, targetUnit: BaseUnit) -> void:
 	#add ui
 	#add los 
