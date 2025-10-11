@@ -44,6 +44,7 @@ var astarBoard: AStar2D
 #
 
 var playerTurn: bool = true
+var gameOver_state: bool = false
 var unitPos: Array[Vector2]
 
 var unitTurn: BaseUnit = null
@@ -302,6 +303,18 @@ func wpnSelection(input: int,unit:BaseUnit = unitTurn,noCounter:bool = false) ->
 	
 #handles player input
 func input() -> void:
+	if curState == STATE.GAME_OVER:
+		if Input.is_action_just_pressed("accept") || Input.is_action_just_pressed("start"):
+			curState = STATE.NONE
+
+			if gameOver_state == true: #player victory
+				sceneOver.emit()
+
+			else:
+				resetScene.emit()
+
+			return
+
 	if Input.is_action_just_pressed("accept"):
 		match (curState):
 			STATE.CAM_MOVEMENT:
@@ -741,8 +754,10 @@ func aiAttackTurn(unit:BaseUnit, targetUnit: BaseUnit) -> void:
 	
 func gameOver(victory: bool):
 	print("game over")
-	
-	sceneOver.emit()
+	curState = STATE.GAME_OVER
+	gameOver_state = victory
+
+	#add animation of game over 
 		
 func nextTurn() -> void:
 	gridManager.clearUnitSelectionTiles(unitSelectionTiles)
