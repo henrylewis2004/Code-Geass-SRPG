@@ -1,0 +1,46 @@
+mechanics:
+	> ai
+		> can move / attack / choose attack vector
+
+	> death
+		> defeat
+	> game over / victory
+
+	> chess minigame?
+
+art:
+	> music
+		> use show ost
+		> remove from git because large files
+
+	> 3d models
+		> knightmares
+		> helis
+		> soldiers
+
+		> terrain
+			> buildings
+			> roads
+			> probably get from package
+
+
+
+levels
+	> centered on shinjiku bit
+	> story levels
+		> copy from show 
+		> fmvs
+		> animations
+
+	> battle levels
+		> tutorial
+			> chess?
+			> knightmares after?
+
+		> 3-4 battles inbetween?
+		> boss at end
+		
+
+
+
+
