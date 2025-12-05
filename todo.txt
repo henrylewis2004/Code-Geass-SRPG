@@ -4,16 +4,27 @@ mechanics:
 
 	> death
 		> defeat
+		> play animation
+		
 	> game over / victory
 
 	> chess minigame?
 
 art:
-	> music
-		> use show ost
-		> remove from git because large files
+	> sfx
+		> sound effects
+		> music
+			> use show ost
+			> remove from git because large files
 
 	> 3d models
+		> animations
+			> shoot
+			> die
+			> move
+			> ability
+			> item
+
 		> knightmares
 		> helis
 		> soldiers
