@@ -49,7 +49,7 @@ skeleton = NodePath("../MeshInstance3D3")
 mapSize = Vector2(10, 10)
 
 [node name="TestUnit2" parent="BattleController/battleUnits/playerUnits" index="0" instance=ExtResource("2_q0by3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.070469, 0, 0.41532993)
 char_name = "test6"
 apCharge = 8
 maxAp = 9
@@ -62,16 +62,23 @@ team = 1
 charImage = ExtResource("5_nbk5h")
 apCharge = 4
 energyCharge = 10
-maxAp = 5
-agilityStat = 5
+maxAp = 10
+agilityStat = 10
 maxEnergy = 5
-turnTimer = 5
+turnTimer = 15
 
 [node name="AllyUnitGui" parent="BattleController/ui" index="0"]
 visible = true
 
 [node name="backImage" parent="BattleController/ui/AllyUnitGui/base" index="0"]
 layout_mode = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_right = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="EnemyUnitGui" parent="BattleController/ui" index="3"]
 visible = true

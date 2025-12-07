@@ -131,8 +131,10 @@ func unitOverlay() -> void:
 		selectUnitOverlay(unitTurn,unitTurn.getTeam())
 		
 	elif curState == STATE.BATTLE:
-		selectUnitOverlay(unitTurn,unitTurn.getTeam())
-		selectUnitOverlay(selectedEnemyUnit,selectedEnemyUnit.getTeam())
+		if unitTurn != null:
+			selectUnitOverlay(unitTurn,unitTurn.getTeam())
+		if selectedEnemyUnit != null:
+			selectUnitOverlay(selectedEnemyUnit,selectedEnemyUnit.getTeam())
 
 		
 	unitOverlayAttack()
@@ -720,10 +722,14 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 func killUnit(unit: BaseUnit) -> void:
 	match unit.getTeam():
-		TEAM.PLAYER: playerUnits.erase(unit)
-		TEAM.ENEMY : enemyUnits.erase(unit)
-		TEAM.ALLY  : allyUnits.erase(unit)
+		TEAM.PLAYER: 
+			playerUnits.erase(unit)
+		TEAM.ENEMY : 
+			enemyUnits.erase(unit)
+		TEAM.ALLY  : 
+			allyUnits.erase(unit)
 
+	updateUnitGridPos()
 	unit.queue_free()
 
 
@@ -760,56 +766,57 @@ func gameOver(victory: bool):
 	#add animation of game over 
 		
 func nextTurn() -> void:
-	gridManager.clearUnitSelectionTiles(unitSelectionTiles)
-	playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,true)
-	
-	apCost = Vector2.INF 
-	selectedEnemyUnit = null
-	selectedActivityUnit = null
-	selectedActivity = null
-
-	updateUnitGridPos()
-	var unitArray := $battleUnits/playerUnits.get_children() + $battleUnits/enemyUnits.get_children() + $battleUnits/allyUnits.get_children() 
-
-	turnManager.createTurnOrder(unitArray)
-
-	selectUnit(turnManager.getNextUnit())
-	unitTurn.unitApCharge()
-	apCost.x = unitTurn.getAp()
-	
-	playerTurn = unitTurn.getTeam() == TEAM.PLAYER
-	playerUnitGui.updateBase(unitTurn.getName(),unitTurn.getAp(),unitTurn.getCharImage(),unitTurn.getHP())
-
-	#need to implement collision gridmap
-	var collisions: Array[Vector2] = []
-
-	if unitTurn.getTeam() == TEAM.PLAYER || unitTurn.getTeam() == TEAM.ALLY:
-		unitArray = $battleUnits/enemyUnits.get_children()
-	else:
-		unitArray = $battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children()
+	if gameOver_state == false:
+		gridManager.clearUnitSelectionTiles(unitSelectionTiles)
+		playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,true)
 		
-	for unit in unitArray:
-		collisions.append(unit.getGridPos())
+		apCost = Vector2.INF 
+		selectedEnemyUnit = null
+		selectedActivityUnit = null
+		selectedActivity = null
+
+		updateUnitGridPos()
+		var unitArray := $battleUnits/playerUnits.get_children() + $battleUnits/enemyUnits.get_children() + $battleUnits/allyUnits.get_children() 
+
+		turnManager.createTurnOrder(unitArray)
+
+		selectUnit(turnManager.getNextUnit())
+		unitTurn.unitApCharge()
+		apCost.x = unitTurn.getAp()
 		
-	astarBoard = gridManager.updateBoardCollisions(collisions)
+		playerTurn = unitTurn.getTeam() == TEAM.PLAYER
+		playerUnitGui.updateBase(unitTurn.getName(),unitTurn.getAp(),unitTurn.getCharImage(),unitTurn.getHP())
 
-	curState = STATE.NONE
-	if playerTurn:
-		curState = STATE.CAM_MOVEMENT
+		#need to implement collision gridmap
+		var collisions: Array[Vector2] = []
+
+		if unitTurn.getTeam() == TEAM.PLAYER || unitTurn.getTeam() == TEAM.ALLY:
+			unitArray = $battleUnits/enemyUnits.get_children()
+		else:
+			unitArray = $battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children()
+			
+		for unit in unitArray:
+			collisions.append(unit.getGridPos())
+			
+		astarBoard = gridManager.updateBoardCollisions(collisions)
+
+		curState = STATE.NONE
+		if playerTurn:
+			curState = STATE.CAM_MOVEMENT
+			
+			if unitTurn.getEquippedWeapon() == null:
+				unitTurn.equipAWeapon()
 		
-		if unitTurn.getEquippedWeapon() == null:
-			unitTurn.equipAWeapon()
-	
-	else:
-		aiManager.getTurn(unitTurn,$battleUnits/enemyUnits.get_children(),$battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children(),gridManager,battleCam,itemAbMan)
-		await aiManager.turnFinished
+		else:
+			aiManager.getTurn(unitTurn,$battleUnits/enemyUnits.get_children(),$battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children(),gridManager,battleCam,itemAbMan)
+			await aiManager.turnFinished
 
-		var timer: Timer = Timer.new()
-		add_child(timer)
-		timer.start(0.5)
-		await timer.timeout
+			var timer: Timer = Timer.new()
+			add_child(timer)
+			timer.start(0.5)
+			await timer.timeout
 
-		endTurn()
+			endTurn()
 
 func endTurn() -> void:
 	drawManager.cleanLos()
@@ -851,7 +858,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if gameOver_state == true:
+	if gameOver_state == false:
 		unitOverlay()
 		battleCam.input(!canCamMove(),!canCamRot())
 	if curState > STATE.NONE:

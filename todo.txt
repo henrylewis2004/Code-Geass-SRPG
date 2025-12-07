@@ -14,10 +14,15 @@ mechanics:
 		> items abilities
 
 	> death
+		> unit kill x
 		> defeat
 		> play animation
 		
 	> game over / victory
+		> implement
+			> animation screen
+			> next level
+
 
 	> chess minigame?
 
@@ -26,10 +31,18 @@ mechanics:
 			> migfht not even be a bug might just have been the next turn need to add visual end turn 
 		> show player card on defence
 		> movement in main menu whilst confirmation screen remove
+			> ke only
+
+		> ai not making move with 0 ap
+		> selected attack without equipped weapon crashes game
+			> game is expected an equipped weapon 
+			> need to add a check for an equipped weapon and then tell the player to equip a weapon
 
 art:
 	> 2d art
 		> gun art
+			> show weapon destroeyd
+				> say destroyed
 		> correct sprite cutout sizes
 	> sfx
 		> sound effects
