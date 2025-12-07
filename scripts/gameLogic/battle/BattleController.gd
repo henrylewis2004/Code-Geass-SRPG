@@ -671,7 +671,7 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 	await attackTimer.timeout
 
 	if attacker.getEquippedWeapon() != null:
-		curState = STATE.BATTLE
+	#	curState = STATE.BATTLE
 		attacker.attack(defender)
 		await attacker.attackFinished
 	
@@ -720,9 +720,9 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 func killUnit(unit: BaseUnit) -> void:
 	match unit.getTeam():
-		TEAM.PLAYER -> playerUnits.remove_child(unit)
-		TEAM.ENEMY -> enemyUnits.remove_child(unit)
-		TEAM.ALLY -> allyUnits.remove_child(unit)
+		TEAM.PLAYER: playerUnits.erase(unit)
+		TEAM.ENEMY : enemyUnits.erase(unit)
+		TEAM.ALLY  : allyUnits.erase(unit)
 
 	unit.queue_free()
 
@@ -753,7 +753,7 @@ func aiAttackTurn(unit:BaseUnit, targetUnit: BaseUnit) -> void:
 
 	
 func gameOver(victory: bool):
-	print("game over")
+	print("game over, VICTORY: ", victory)
 	curState = STATE.GAME_OVER
 	gameOver_state = victory
 
@@ -851,8 +851,9 @@ func _ready():
 
 
 func _physics_process(delta):
-	unitOverlay()
-	battleCam.input(!canCamMove(),!canCamRot())
+	if gameOver_state == true:
+		unitOverlay()
+		battleCam.input(!canCamMove(),!canCamRot())
 	if curState > STATE.NONE:
 		input()
 		

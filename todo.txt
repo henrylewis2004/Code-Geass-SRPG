@@ -1,6 +1,17 @@
 mechanics:
+	> weapon typing 
+
+	> unit stats
+		> actually do something lol?
+
+	> attack
+		> increase dmg output
+		> keep unit cards on screen ?? maybe not lol
+
+
 	> ai
-		> can move / attack / choose attack vector
+		> can move x / attack x/ choose attack vector x
+		> items abilities
 
 	> death
 		> defeat
@@ -10,7 +21,16 @@ mechanics:
 
 	> chess minigame?
 
+	> bugs
+		> attack again after attack
+			> migfht not even be a bug might just have been the next turn need to add visual end turn 
+		> show player card on defence
+		> movement in main menu whilst confirmation screen remove
+
 art:
+	> 2d art
+		> gun art
+		> correct sprite cutout sizes
 	> sfx
 		> sound effects
 		> music

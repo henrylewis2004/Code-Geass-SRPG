@@ -4,7 +4,7 @@
 
 [node name="MgGun" type="Node"]
 script = ExtResource("1_wc7f0")
-dmg = 5
+dmg = 100
 string_name = "MG Gun"
 accuracy = 70
 rounds = 3
