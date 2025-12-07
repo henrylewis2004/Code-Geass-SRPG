@@ -1,18 +1,10 @@
-class_name Grid 
+class_name 3DBattleGrid extends BaseGrid
 
 const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_unitSelectionTiles.gd").SELECTION_TILES_ID
 
-var mapSize: Vector2
-var mapGrid: Array[Array] = []
 var astar: AStar2D
 
 var disabledPoints: Array[Vector2] = []
-
-func setMapSize(size: Vector2) -> void:
-	mapSize = size
-	
-func getMapSize() -> Vector2:
-	return mapSize
 
 func setWorldWalls(size: Vector2, walls: Array[Node]) -> void:
 	walls[0].position = Vector3(0,0,size.y) #north
@@ -23,12 +15,7 @@ func setWorldWalls(size: Vector2, walls: Array[Node]) -> void:
 	mapSize = size
 
 
-#A*
-func getASindex(cell: Vector2) -> int:
-	return int(cell.x + mapSize.x * cell.y)
 
-func getAstar() -> AStar2D:
-	return astar
 
 func createBoard() -> AStar2D:
 	astar = AStar2D.new()
@@ -48,7 +35,6 @@ func createBoard() -> AStar2D:
 
 
 	return astar
-
 
 func init(size: Vector2,walls: Array[Node]) -> void:
 	setWorldWalls(size,walls)
@@ -83,23 +69,7 @@ func updateBoardCollisions(collisions: Array[Vector2]) -> AStar2D:
 
 		
 
-#gridMap
-func setPosition_occupied(new_position:Vector2,old_position : Vector2 = Vector2.INF) -> void:
-	mapGrid[new_position.x][new_position.y].setOccupied(true)
-	
-	if old_position != Vector2.INF:
-		mapGrid[old_position.x][old_position.y].setOccupied(false)
-		
-func resetPosition_occupied(position:Vector2) -> void:
-	mapGrid[position.x][position.y].setOccupied(false)
-	
-func isOccupiedPosition(position: Vector2) -> bool:
-	print(position)
-
-	return mapGrid[position.x][position.y].isOccupied()
-
 #methods
-
 func absDist(pos1: Vector2, pos2: Vector2) -> int:
 	return abs(pos1.x - pos2.x) + abs(pos1.y - pos2.y)
 
@@ -116,8 +86,6 @@ func validMove(loc: Vector2, unit: BaseUnit) -> bool:
 
 func apMoveCost(originPos: Vector2, targetPos: Vector2) -> int:
 	return dist(originPos,targetPos)
-
-
 
 #unit tiles
 func createUnitMoveTiles(tileGrid: GridMap, dist: int, originPos: Vector2) -> void:
@@ -192,7 +160,6 @@ func createUnitTile(tileGrid: GridMap, position: Vector3, type:int) -> void:
 func createUnitTiles_FromArray(tileGrid: GridMap, unitArray: Array[Node]) -> void:
 	for unit in unitArray:
 		tileGrid.set_cell_item(unit.position,unit.getTeam())
-
 
 
 func clearUnitSelectionTiles(tileGrid: GridMap) -> void:

@@ -35,7 +35,7 @@ var apCost: Vector2 = Vector2.INF #x = ap at start of turn, y = ap after move, t
 
 #grid
 @export var mapSize: Vector2
-var gridManager: Grid = Grid.new() 
+var gridManager: 3DBattleGrid = 3DBattleGrid.new() 
 
 @onready var collisionWalls := $Grid/worldWalls.get_children() 
 var astarBoard: AStar2D 
