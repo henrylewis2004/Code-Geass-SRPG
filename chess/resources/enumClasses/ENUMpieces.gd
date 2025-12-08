@@ -1,0 +1,8 @@
+enum CHESS_PIECES{
+	PAWN,
+	ROOK,
+	BISHOP,
+	KNIGHT,
+	QUEEN,
+	KING,
+}
