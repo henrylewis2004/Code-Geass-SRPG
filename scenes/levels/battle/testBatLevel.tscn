@@ -86,9 +86,6 @@ grow_vertical = 1
 [node name="EnemyUnitGui" parent="BattleController/ui" index="2"]
 visible = true
 
-[node name="StatusScreen" parent="BattleController/ui" index="4"]
-defaultPage = 0
-
 [connection signal="resetScene" from="BattleController" to="." method="resetScene_emit"]
 [connection signal="sceneOver" from="BattleController" to="." method="sceneOver_emit"]
 
