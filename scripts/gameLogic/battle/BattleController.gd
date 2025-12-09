@@ -588,6 +588,8 @@ func _on_menu_select_item_selected(item):
 		"STATUS":
 			curState = STATE.UNIT_MENU_PLAYER
 
+			#change to selectedunit
+			statusScreen.updateAll(unitTurn)
 			statusScreen.showStatus()
 		"ITEMS":
 			curState = STATE.A_UNIT_MENU_ITEM
@@ -874,5 +876,3 @@ func _physics_process(delta):
 	
 
 
-func _on_game_over_finished(nextScene: bool) -> void:
-	pass # Replace with function body.

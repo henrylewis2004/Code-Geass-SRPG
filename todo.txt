@@ -1,16 +1,17 @@
 mechanics:
 	> ui
 		> status screen x
-			> show status screen x
-			> implement top info
-			> implement hp
-			> implement wpeaoninfo
-			> implement stats
-				> show status affects
-			> implement inventory
+			> show status screen	x
+			> implement top info 	x
+			> implement hp 	 	x
+			> implement wpeaoninfo	x
+			> implement stats	x
+				> show status affects x
+			> implement inventory	x
+			> get char img right size
+
 
 			> show non turn unit status
-
 			> show enemy unit status
 			> show ally status
 
@@ -40,6 +41,11 @@ mechanics:
 
 	> attack
 		> increase dmg output
+		> use stats
+			> crit rate
+			> evasion
+			> defence
+			> attack stat
 		> keep unit cards on screen ?? maybe not lol
 
 

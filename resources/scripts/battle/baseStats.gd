@@ -11,7 +11,7 @@ func getAbsStat(stat: int) -> int:
 func getStat(stat:int) -> int:
 	return (stats[stat] - getStatStatusPower(stat) * 0.2 * stats[stat])
 
-func getStatStatusList(stat:int) -> Array[Status]:
+func getStatStatusList(stat:int) -> Array:
 	return status[stat]
 
 func getStatStatusPower(stat:int) -> int:

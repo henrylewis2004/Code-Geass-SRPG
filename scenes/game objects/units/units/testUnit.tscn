@@ -17,7 +17,6 @@ size = Vector3(0.75, 1, 0.75)
 script = ExtResource("1_dh1rb")
 char_name = "test"
 charImage = ExtResource("2_f73vb")
-maxAp = 12
 
 [node name="bodyparts" type="Node" parent="."]
 
