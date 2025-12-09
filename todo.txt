@@ -6,6 +6,7 @@ mechanics:
 			> implement hp
 			> implement wpeaoninfo
 			> implement stats
+				> show status affects
 			> implement inventory
 
 			> show non turn unit status
@@ -26,28 +27,39 @@ mechanics:
 	> unit stats
 		> actually do something lol?
 
+		> status affects
+			> affect turn order
+			> decrease curTime
+
 	> abilities
 
+
 	> select ally units to see status
+
+	> triggers flick between units
 
 	> attack
 		> increase dmg output
 		> keep unit cards on screen ?? maybe not lol
 
 
-	> ai
+	> ai x
 		> can move x / attack x/ choose attack vector x
-		> items abilities
+		> items abilities - might cut
 
-	> death
+	> death x
 		> unit kill x
-		> defeat
+		> defeat x
 		> play animation
 		
-	> game over / victory
-		> implement
+	> game over / victory x
+		> implement x
 			> animation screen
-			> next level
+				> make victory / defeat screen x
+				> some animations
+				> music
+			> next level x
+			> reset level x
 
 
 	> chess minigame?
@@ -79,6 +91,9 @@ mechanics:
 			> need to add a check for an equipped weapon and then tell the player to equip a weapon
 		> selct weapon defence player - press back deletes los (shouldnt!)
 		> cant select weapon on defence
+		> scene transition doesnt do anything
+			> option on level class
+		> pressing back on battle level shows unit extension (weapons etc) for a second
 
 art:
 	> 2d art

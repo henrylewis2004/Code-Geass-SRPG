@@ -31,10 +31,10 @@ func _process(delta):
 				setIndex(selectIndex + input.y + input.x * menuParent.columns)
 		
 		if Input.is_action_just_pressed("accept"):
-			if menuParent.get_parent().name == "action":
+			if menuParent.get_parent().name == "action": 
 				itemSelected.emit(getMenuItem(selectIndex).text)
 				
-			elif menuParent.get_parent().name == "items" || menuParent.get_parent().name == "abilities" || menuParent.get_parent().name == "bodyPartSelect":
+			if menuParent.get_parent().name == "items" || menuParent.get_parent().name == "abilities" || menuParent.get_parent().name == "bodyPartSelect":
 				if getMenuItem(selectIndex).name == "CANCEL" || getMenuItem(selectIndex).name == "no item":
 					battleItemSelected.emit(-1 - int(getMenuItem(selectIndex).name == "no item"), false)
 
@@ -44,6 +44,8 @@ func _process(delta):
 						return
 
 					battleItemSelected.emit(selectIndex - 1,menuParent.get_parent().name == "items")
+			else: #unique selection
+				itemSelected.emit(getMenuItem(selectIndex).name)
 
 func getMenuItem(index: int) -> Control:
 	if menuParent == null:

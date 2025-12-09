@@ -92,6 +92,7 @@ func updateInventory() -> void: #need to implement
 	pass
 
 func updateStats(stats: Stats) -> void: #need to implement
+
 	pass
 
 func updateAll(unit: BaseUnit) -> void:

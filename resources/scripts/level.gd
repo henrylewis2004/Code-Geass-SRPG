@@ -9,7 +9,7 @@ signal resetScene
 func getNextLevelPath() -> String:
 	return nextLevel_path
 
-func sceneTransition() -> bool:
+func hasSceneTransition() -> bool:
 	return sceneTran
 
 func sceneOver_emit() -> void:

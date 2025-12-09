@@ -5,7 +5,9 @@ enum UNIT_STATS{
     MELEE,
     RANGED,
     AP,
+	AP_CHARGE,
 	ENERGY,
+	ENERGY_CHARGE,
     LUCK,
     INITIATIVE
 }

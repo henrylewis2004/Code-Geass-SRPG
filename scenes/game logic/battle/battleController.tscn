@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bm1sq66703pp4"]
+[gd_scene load_steps=14 format=3 uid="uid://bm1sq66703pp4"]
 
 [ext_resource type="Script" uid="uid://b85g2b6j1v8gt" path="res://scripts/gameLogic/battle/BattleController.gd" id="1_npg4g"]
 [ext_resource type="PackedScene" uid="uid://cl830hpvfisf5" path="res://scenes/game logic/battle/BattleCam.tscn" id="3_q5aru"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://du8nxcy6wqxab" path="res://scenes/game logic/shared/DrawManager.tscn" id="6_cfyqa"]
 [ext_resource type="PackedScene" uid="uid://bqmoefvgajp40" path="res://scenes/game logic/battle/ui/statusScreen.tscn" id="6_fyy83"]
 [ext_resource type="PackedScene" uid="uid://b044aembwt1bj" path="res://scenes/game logic/battle/TurnManager.tscn" id="7_138ph"]
+[ext_resource type="PackedScene" uid="uid://cs56of0iacvcp" path="res://scenes/game logic/battle/GameOver.tscn" id="9_fyy83"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7qyck"]
 
@@ -104,9 +105,12 @@ collision_layer = 0
 collision_mask = 0
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
+[node name="GameOver" parent="." instance=ExtResource("9_fyy83")]
+
 [connection signal="battleItemSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_battle_item_selected"]
 [connection signal="itemSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_item_selected"]
 [connection signal="partSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_part_selected"]
+[connection signal="gameOverFinished" from="GameOver" to="." method="endLevel"]
 
 [editable path="ui/AllyUnitGui"]
 [editable path="ui/AllyUnitGui/base/MenuBox"]

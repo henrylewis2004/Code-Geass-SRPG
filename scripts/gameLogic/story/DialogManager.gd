@@ -4,6 +4,8 @@ signal playNextLine
 signal playNextStage
 signal endDialoge
 
+@export var playOnStart: bool = true
+
 #dialog text
 @export var dialog_script_path: String
 var textData: Variant
@@ -91,7 +93,7 @@ func parseJson(path: String) -> Variant:
 
 
 #scene play
-func getSceneScript(path:String) -> void:
+func getSceneScript(path:String = dialog_script_path) -> void:
 	textData = parseJson(path)
 
 	sceneImages = {}
@@ -113,11 +115,13 @@ func getSceneScript(path:String) -> void:
 	createScene(textData["scene"])
 	
 func createScene(sceneInfo: Array) -> void:
+	set_process(true)
 	for stage in range(sceneInfo.size()):
 		playStage(sceneInfo[stage])
 		await playNextStage
 		
 	endDialoge.emit()
+	set_process(false)
 		
 	
 		
@@ -231,7 +235,9 @@ func input() -> void:
 			playNextStage.emit()
 
 func _ready():
-	getSceneScript(dialog_script_path)
+	set_process(false)
+	if playOnStart:
+		getSceneScript()
 
 
 func _process(delta):

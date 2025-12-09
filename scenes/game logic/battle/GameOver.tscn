@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://cs56of0iacvcp"]
+
+[ext_resource type="PackedScene" uid="uid://c72usmbnrmjv2" path="res://scenes/game logic/cinematic/2d/dialog Manager.tscn" id="1_51sw3"]
+[ext_resource type="Script" uid="uid://cnnilr20ht84e" path="res://scripts/gameLogic/battle/GameOverMan.gd" id="1_acrhh"]
+[ext_resource type="Texture2D" uid="uid://cbtlaorgoae8v" path="res://assets/2d/ui/gameOverDefeat.png" id="3_nn2gt"]
+[ext_resource type="Texture2D" uid="uid://cic0novkkyhbu" path="res://assets/2d/ui/gameOverVictory.png" id="3_xfcnn"]
+[ext_resource type="PackedScene" uid="uid://8xe7hp6cm3de" path="res://scenes/game logic/menus/MenuItem.tscn" id="4_yklqx"]
+[ext_resource type="PackedScene" uid="uid://dvtl2v8c3w6bg" path="res://scenes/game logic/menus/MenuSelect.tscn" id="5_pbqch"]
+
+[node name="GameOver" type="Node"]
+script = ExtResource("1_acrhh")
+screenImages = Array[Texture]([ExtResource("3_nn2gt"), ExtResource("3_xfcnn")])
+
+[node name="DialogManager" parent="." instance=ExtResource("1_51sw3")]
+visible = false
+playOnStart = false
+
+[node name="GameOverScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="back" type="TextureRect" parent="GameOverScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 12.000001
+anchor_bottom = 6.7500005
+offset_right = -3.0517578e-05
+offset_bottom = -3.0517578e-05
+texture = ExtResource("3_nn2gt")
+
+[node name="confirmationMenu" type="Control" parent="GameOverScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="defeat" type="VBoxContainer" parent="GameOverScreen/confirmationMenu"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 26.0
+offset_top = 168.0
+offset_right = 173.0
+offset_bottom = 208.0
+theme_override_constants/separation = 0
+
+[node name="options" type="HBoxContainer" parent="GameOverScreen/confirmationMenu/defeat"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="retry" parent="GameOverScreen/confirmationMenu/defeat/options" instance=ExtResource("4_yklqx")]
+layout_mode = 2
+text = "- retry -"
+
+[node name="TextureRect" parent="GameOverScreen/confirmationMenu/defeat/options/retry" index="0"]
+visible = false
+
+[node name="exit" parent="GameOverScreen/confirmationMenu/defeat/options" instance=ExtResource("4_yklqx")]
+layout_mode = 2
+text = "- exit -"
+
+[node name="TextureRect" parent="GameOverScreen/confirmationMenu/defeat/options/exit" index="0"]
+visible = false
+
+[node name="victory" type="VBoxContainer" parent="GameOverScreen/confirmationMenu"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 26.0
+offset_top = 168.0
+offset_right = 173.0
+offset_bottom = 208.0
+theme_override_constants/separation = 0
+
+[node name="options" type="HBoxContainer" parent="GameOverScreen/confirmationMenu/victory"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="continue" parent="GameOverScreen/confirmationMenu/victory/options" instance=ExtResource("4_yklqx")]
+layout_mode = 2
+text = "- continue -"
+
+[node name="TextureRect" parent="GameOverScreen/confirmationMenu/victory/options/continue" index="0"]
+visible = false
+
+[node name="MenuSelect" parent="GameOverScreen/confirmationMenu" node_paths=PackedStringArray("menuParent") instance=ExtResource("5_pbqch")]
+layout_mode = 1
+menuParent = NodePath("../defeat/options")
+
+[connection signal="itemSelected" from="GameOverScreen/confirmationMenu/MenuSelect" to="." method="input"]
+
+[editable path="GameOverScreen/confirmationMenu/defeat/options/retry"]
+[editable path="GameOverScreen/confirmationMenu/defeat/options/exit"]
+[editable path="GameOverScreen/confirmationMenu/victory/options/continue"]

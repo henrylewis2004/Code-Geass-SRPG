@@ -7,8 +7,6 @@ signal destroy_unit(unit: BaseUnit)
 @export_enum("player","enemy","ally") var team: int
 @export var char_name: String
 @export var charImage: Texture
-@export var apCharge: int
-@export var energyCharge: int
 
 #status info
 @export var full_name: String
@@ -37,10 +35,12 @@ var energy: int
 @export var meleeStat: int
 @export var rangedStat: int
 @export var maxAp: int
+@export var apCharge: int
 @export var maxEnergy: int
+@export var energyCharge: int
 @export var luckStat: int
 @export var iniativeStat: int
-@onready var stats: Stats = Stats.new(agilityStat, defenceStat,evasionStat,meleeStat,rangedStat,maxAp,maxEnergy,luckStat,iniativeStat)
+@onready var stats: Stats = Stats.new(agilityStat, defenceStat,evasionStat,meleeStat,rangedStat,maxAp,apCharge,maxEnergy,energyCharge,luckStat,iniativeStat)
 
 @export var turnTimer: int = 0
 @onready var predTurnTimer: int = turnTimer
