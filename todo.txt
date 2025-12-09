@@ -1,8 +1,34 @@
 mechanics:
+	> ui
+		> status screen x
+			> show status screen x
+			> implement top info
+			> implement hp
+			> implement wpeaoninfo
+			> implement stats
+			> implement inventory
+
+			> show non turn unit status
+
+			> show enemy unit status
+			> show ally status
+
 	> weapon typing 
+		> add to weapon class
+		> change dmg outputs
+		> add to bodypart class
+
+		> rps format
+			> piercing
+			> impact
+			> explosion?
 
 	> unit stats
 		> actually do something lol?
+
+	> abilities
+
+	> select ally units to see status
 
 	> attack
 		> increase dmg output
@@ -25,10 +51,24 @@ mechanics:
 
 
 	> chess minigame?
+		> move aorund grid x
+		> select unit x
+		> unit selection menu
+			> show move
+			> show attack
+			> show cancel
+		> get unit move/attack tiles x
+		> turn order
+		> move pieces
+		> take pieces
+		> checkmate
+			> set path
+			> chess puzzle
+		> ai
 
 	> bugs
 		> attack again after attack
-			> migfht not even be a bug might just have been the next turn need to add visual end turn 
+			> migfht not even be a bug might just have been the next turn -  need to add visual end turn 
 		> show player card on defence
 		> movement in main menu whilst confirmation screen remove
 			> ke only
@@ -37,9 +77,13 @@ mechanics:
 		> selected attack without equipped weapon crashes game
 			> game is expected an equipped weapon 
 			> need to add a check for an equipped weapon and then tell the player to equip a weapon
+		> selct weapon defence player - press back deletes los (shouldnt!)
+		> cant select weapon on defence
 
 art:
 	> 2d art
+		> status screen
+
 		> gun art
 			> show weapon destroeyd
 				> say destroyed

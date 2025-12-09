@@ -19,7 +19,7 @@ func setRoot(new_root:Node) -> void:
 
 
 ##
-func getBestWeapon(unit: BaseUnit, enemyUnit: BaseUnit, grid: Grid) -> int:
+func getBestWeapon(unit: BaseUnit, enemyUnit: BaseUnit, grid: BattleGrid) -> int:
 	var weapons: Array[Node] = unit.getWeapons()
 	var chosenWeapon: int = -1
 	
@@ -34,7 +34,7 @@ func getBestWeapon(unit: BaseUnit, enemyUnit: BaseUnit, grid: Grid) -> int:
 	
 
 
-func inRange(unit:BaseUnit,targetUnit:BaseUnit,itemRange:int,grid:Grid,allyUnits: Array[Node]) -> bool:
+func inRange(unit:BaseUnit,targetUnit:BaseUnit,itemRange:int,grid:BattleGrid,allyUnits: Array[Node]) -> bool:
 	if grid.absDist(unit.getGridPos(),targetUnit.getGridPos()) <= itemRange:
 		return true
 	
@@ -61,7 +61,7 @@ func inRange(unit:BaseUnit,targetUnit:BaseUnit,itemRange:int,grid:Grid,allyUnits
 
 	return false
 
-func unitUseItem(unit: BaseUnit,allyUnits: Array[Node],grid:Grid,itemAbManager: Item_abilityManager) -> void:
+func unitUseItem(unit: BaseUnit,allyUnits: Array[Node],grid:BattleGrid,itemAbManager: Item_abilityManager) -> void:
 	var availableItems: Array[BaseItem] = []
 
 	for item in (unit.getItems() + unit.getAbilities()):
@@ -164,7 +164,7 @@ func getAttackRange(unit:BaseUnit) -> int:
 
 
 
-func bestAttack(mv:Vector2, weapon: Weapon, unit:BaseUnit, targetUnit:BaseUnit, grid:Grid) -> int:
+func bestAttack(mv:Vector2, weapon: Weapon, unit:BaseUnit, targetUnit:BaseUnit, grid:BattleGrid) -> int:
 	if grid.absDist(unit.getGridPos() + mv,targetUnit.getGridPos()) <= weapon.getRange():
 		if unit.hasLOS(targetUnit,Vector3(unit.getGridPos().x + mv.x,0,unit.getGridPos().y + mv.y)):
 			if grid.isOccupiedPosition(unit.getGridPos() + mv):
@@ -179,7 +179,7 @@ func bestAttack(mv:Vector2, weapon: Weapon, unit:BaseUnit, targetUnit:BaseUnit, 
 
 
 	
-func attackTurn(unit:BaseUnit, allyUnits: Array[BaseUnit],enemyUnits: Array[Node],attackRange: int,grid: Grid,camera: BattleCamController) -> void:
+func attackTurn(unit:BaseUnit, allyUnits: Array[BaseUnit],enemyUnits: Array[Node],attackRange: int,grid: BattleGrid,camera: BattleCamController) -> void:
 	if attackRange == 0:
 		actionComplete_timeout(false,0.01)
 		return
@@ -274,7 +274,7 @@ func actionComplete_timeout(actionComplete: bool = true,timeout: float = 0) -> v
 
 
 			
-func moveTurn(unit: BaseUnit, enemyUnits: Array[Node],grid:Grid,camera:BattleCamController) -> void:
+func moveTurn(unit: BaseUnit, enemyUnits: Array[Node],grid:BattleGrid,camera:BattleCamController) -> void:
 	var closestEnemy: BaseUnit = null
 	var dist: int = 0
 	for e_unit in enemyUnits:
@@ -311,7 +311,7 @@ func moveTurn(unit: BaseUnit, enemyUnits: Array[Node],grid:Grid,camera:BattleCam
 	
 	
 	
-func findMovementTile(targetEnemy: BaseUnit,unit: BaseUnit,grid:Grid) -> Vector2:
+func findMovementTile(targetEnemy: BaseUnit,unit: BaseUnit,grid:BattleGrid) -> Vector2:
 	for indexX in int(grid.getMapSize().x - 1):
 		for indexY in int(grid.getMapSize().y - 1):
 			if indexX + indexY == 0:
@@ -334,7 +334,7 @@ func findMovementTile(targetEnemy: BaseUnit,unit: BaseUnit,grid:Grid) -> Vector2
 	return Vector2.INF
 
 
-func validMovementTile(unitOrigin:Vector2,enemyPos:Vector2,posDif: Vector2,grid:Grid) -> Vector2:
+func validMovementTile(unitOrigin:Vector2,enemyPos:Vector2,posDif: Vector2,grid:BattleGrid) -> Vector2:
 	if grid.dist(enemyPos + posDif, unitOrigin) > 0 && enemyPos.x + posDif.x < grid.getMapSize().x && enemyPos.y + posDif.y < grid.getMapSize().y:
 		return Vector2(1,1)
 	elif grid.dist(enemyPos - posDif, unitOrigin) > 0 && enemyPos.x - posDif.x >= 0 && enemyPos.y - posDif.y >= 0:
@@ -349,7 +349,7 @@ func validMovementTile(unitOrigin:Vector2,enemyPos:Vector2,posDif: Vector2,grid:
 
 
 
-func getTurn(unit: BaseUnit, allyUnits: Array[Node],enemyUnits: Array[Node],grid: Grid, camera: BattleCamController, itemAbManager: Item_abilityManager) -> void:
+func getTurn(unit: BaseUnit, allyUnits: Array[Node],enemyUnits: Array[Node],grid: BattleGrid, camera: BattleCamController, itemAbManager: Item_abilityManager) -> void:
 	var asBoard = grid.getAstar()
 	var teamUnits: Array[BaseUnit] = []
 

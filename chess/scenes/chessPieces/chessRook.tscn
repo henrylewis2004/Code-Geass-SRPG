@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://i5118gggteib"]
+
+[ext_resource type="Script" uid="uid://jddtc4b7d17t" path="res://chess/scripts/pieceScripts/chessPiece_rook.gd" id="1_ql84r"]
+
+[node name="ChessRook" type="Node2D"]
+script = ExtResource("1_ql84r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

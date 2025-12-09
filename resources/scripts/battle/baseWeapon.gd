@@ -9,10 +9,14 @@ class_name Weapon extends Node
 @export var equipPart: BodyPart
 @export var range: int
 @export var fireRate: float
+@export var wpnImage: Texture
 
 #getters
 func getDmg() -> int:
 	return dmg
+
+func getWpnImage() -> Texture:
+	return wpnImage
 
 func getName() -> String:
 	return string_name

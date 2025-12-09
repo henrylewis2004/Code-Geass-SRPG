@@ -10,8 +10,11 @@ func setMapSize(size: Vector2) -> void:
 func getMapSize() -> Vector2:
 	return mapSize
 
+func getMapGrid() -> Array[Array]:
+	return mapGrid
+
 #board
-func createBoard() -> void:
+func createBoard():
  
 	for pointX in range(mapSize.x ):
 		var arrayY: Array[GridTile]

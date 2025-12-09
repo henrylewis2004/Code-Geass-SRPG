@@ -23,6 +23,7 @@ const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_uni
 
 @onready var playerUnitGui: AllyUnitGui = $ui/AllyUnitGui 
 @onready var enemyUnitGui: BattleUnitGui  = $ui/EnemyUnitGui
+@onready var statusScreen: UnitStatusScreen = $ui/StatusScreen
 
 @onready var turnManager: TurnManager = $TurnManager
 @onready var drawManager: DrawManager = $ui/DrawManager
@@ -35,7 +36,7 @@ var apCost: Vector2 = Vector2.INF #x = ap at start of turn, y = ap after move, t
 
 #grid
 @export var mapSize: Vector2
-var gridManager: 3DBattleGrid = 3DBattleGrid.new() 
+var gridManager: BattleGrid = BattleGrid.new() 
 
 @onready var collisionWalls := $Grid/worldWalls.get_children() 
 var astarBoard: AStar2D 
@@ -305,18 +306,6 @@ func wpnSelection(input: int,unit:BaseUnit = unitTurn,noCounter:bool = false) ->
 	
 #handles player input
 func input() -> void:
-	if curState == STATE.GAME_OVER:
-		if Input.is_action_just_pressed("accept") || Input.is_action_just_pressed("start"):
-			curState = STATE.NONE
-
-			if gameOver_state == true: #player victory
-				sceneOver.emit()
-
-			else:
-				resetScene.emit()
-
-			return
-
 	if Input.is_action_just_pressed("accept"):
 		match (curState):
 			STATE.CAM_MOVEMENT:
@@ -449,10 +438,11 @@ func input() -> void:
 				snapCamMoveToUnit(unitTurn)
 				playerInput(unitTurn)
 				
-			STATE.UNIT_MENU:
-				playerUnitGui.hideUnitMenu()
+			STATE.UNIT_MENU_PLAYER:
+				statusScreen.hideStatus()
 				
-				curState = STATE.CAM_MOVEMENT
+				playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
+				unitTurnMoved()
 
 			STATE.A_UNIT:
 				playerUnitGui.hideExpansion()
@@ -568,6 +558,11 @@ func input() -> void:
 		if curState == STATE.A_UNIT:
 			playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
 
+	#status Screen
+	elif Input.is_action_just_released("nextUnit") || Input.is_action_just_released("previousUnit"):
+		match(curState):
+			STATE.UNIT_MENU_PLAYER:
+				statusScreen.goToNextPage(int(Input.is_action_just_released("nextUnit")) - int(Input.is_action_just_released("previousUnit")))
 			
 	
 #player action menu selection
@@ -590,8 +585,9 @@ func _on_menu_select_item_selected(item):
 			gridManager.createUnitMoveTiles(unitSelectionTiles,unitTurn.getMoveRange(),unitTurn.getGridPos())
 
 		"STATUS":
-			curState = STATE.UNIT_MENU
-			playerUnitGui.showStatus(unitTurn)
+			curState = STATE.UNIT_MENU_PLAYER
+
+			statusScreen.showStatus()
 		"ITEMS":
 			curState = STATE.A_UNIT_MENU_ITEM
 			playerUnitGui.showUnitItems(unitTurn.getItems())

@@ -19,6 +19,9 @@ const modulateValue : float = 0.5
 @onready var actionSelectMenu := $base/MenuBox/action
 
 @onready var partSelectMenu := $base/MenuBox/ItemAbilitiesMenuBox/bodyPartSelect
+
+
+
 #
 const menuItemSize : int = 13
 const partSelect_Xpos: Vector2 = Vector2(7,365)
@@ -175,5 +178,3 @@ func selectWeapon(index: int) -> void:
 	weaponList[index + 1 + 1 * int(index < 0)].modulate.a = 1
 	
 
-func showStatus(unit:BaseUnit) -> void:
-	print("status")

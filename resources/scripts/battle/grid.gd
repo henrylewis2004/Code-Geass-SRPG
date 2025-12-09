@@ -1,4 +1,4 @@
-class_name 3DBattleGrid extends BaseGrid
+class_name BattleGrid extends BaseGrid
 
 const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_unitSelectionTiles.gd").SELECTION_TILES_ID
 
@@ -15,7 +15,11 @@ func setWorldWalls(size: Vector2, walls: Array[Node]) -> void:
 	mapSize = size
 
 
+func getASindex(cell: Vector2) -> int:
+	return cell.x + cell.y * mapSize.y
 
+func getAstar() -> AStar2D:
+	return astar
 
 func createBoard() -> AStar2D:
 	astar = AStar2D.new()

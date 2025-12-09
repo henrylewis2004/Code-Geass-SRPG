@@ -10,6 +10,11 @@ signal destroy_unit(unit: BaseUnit)
 @export var apCharge: int
 @export var energyCharge: int
 
+#status info
+@export var full_name: String
+@export var status_charImg: Texture
+@export var factionName: String
+
 const SPEED: int = 2
 
 @onready var bodyParts: Array[Node] = $bodyparts.get_children() #as Array[BodyPart]
@@ -26,10 +31,16 @@ var ap: int
 var energy: int
 
 #stats
-@export var maxAp: int
 @export var agilityStat: int
+@export var defenceStat: int
+@export var evasionStat: int
+@export var meleeStat: int
+@export var rangedStat: int
+@export var maxAp: int
 @export var maxEnergy: int
-
+@export var luckStat: int
+@export var iniativeStat: int
+@onready var stats: Stats = Stats.new(agilityStat, defenceStat,evasionStat,meleeStat,rangedStat,maxAp,maxEnergy,luckStat,iniativeStat)
 
 @export var turnTimer: int = 0
 @onready var predTurnTimer: int = turnTimer
@@ -45,7 +56,7 @@ func getAp() -> int:
 	return ap
 
 func getMaxAp() -> int:
-	return  maxAp
+	return  stats.getStat(STATS.AP)
 
 func getBodyparts() -> Array[Node]:
 	return bodyParts
@@ -74,6 +85,12 @@ func getEnergy() -> int:
 func getMaxEnergy() -> int:
 	return maxEnergy
 
+func getAbsHP() -> Array[int]:
+	var hpArray: Array[int] = []
+	for bodypart in bodyParts:
+		hpArray.append(bodypart.getHp())
+	return hpArray
+
 func getHP() -> Array[float]:
 	var hpArray: Array[float]
 	for bodypart in bodyParts:
@@ -87,11 +104,20 @@ func getCharImage() -> Texture:
 func getTeam() -> int:
 	return team
 
+func getStats() -> Stats:
+	return stats
+
+
 func getStat(stat:int) -> int:
-	match(stat):
-		STATS.AGILITY:
-			return agilityStat
-	return -1
+	return stats.getStat(stat)
+
+#status getters
+func getFullName() -> String:
+	return full_name
+func getStatusImg() -> Texture:
+	return status_charImg
+func getFactionName() -> String:
+	return factionName
 
 #item abilities
 func getItems() -> Array[Node]:
@@ -160,7 +186,7 @@ func setTurnTimer(timer: int) -> void:
 	turnTimer = timer
 	
 func incTurnTimer() -> void:
-	turnTimer += agilityStat
+	turnTimer += stats.getStat(STATS.AGILITY)
 
 func getPredTurnTimer() -> int:
 	return predTurnTimer
@@ -180,19 +206,19 @@ func setAp(newAp: int) -> void:
 	ap = newAp
 
 func resetAp() -> void:
-	ap = maxAp
+	ap = stats.getStat(STATS.AP)
 	
 func unitApCharge() -> void:
 	incAp(apCharge)
 	
 func resetEnergy() -> void:
-	energy = maxEnergy
+	energy = stats.getStat(STATS.ENERGY)
 	
 func incAp(val: int) -> void:
 	ap += val
 	if ap < 0: 
 		ap = 0
-	if ap > maxAp:
+	if ap > stats.getStat(STATS.AP):
 		resetAp()
 
 
