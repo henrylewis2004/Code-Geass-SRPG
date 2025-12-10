@@ -96,30 +96,40 @@ func updateInventory(items: Array[Node], abilities: Array[Node]) -> void: #need 
 	const tabIndent: String = "   "
 	#items
 	if items.size() > 0:
-		var itemsList := invPage.get_node("items").get_child(0)
-		itemsList.text = "ITEMS:"
-		for item in range(maxItems):
-			itemsList.text += "\n" + tabIndent + items[item].getName()
+		var itemsList := invPage.get_node("items").get_child(1)
+		invPage.get_node("items").get_child(0).text = "ITEMS:" 
+
+		itemsList.text = ""
+		for item in range(min(items.size(),maxItems)):
+			itemsList.text += tabIndent + items[item].getName() + (str(items[item].getTier()) if items[item].getTier() > 1 else "") + "\n" 
 	else:
 		invPage.get_node("items").get_child(0).text += "\n" + tabIndent + "NO ITEMS"
 
 	if abilities.size() > 0:
-		var itemsList := invPage.get_node("abilities").get_child(0)
-		itemsList.text = "ABILITIES:"
-		for item in range(maxItems):
-			itemsList.text += "\n" + tabIndent + abilities[item].getName()
+		var itemsList := invPage.get_node("abilities").get_child(1)
+		invPage.get_node("abilities").get_child(0).text = "ABILITIES:" 
+
+		itemsList.text = ""
+		for item in range(min(abilities.size(),maxItems)):
+			itemsList.text += tabIndent + abilities[item].getName() + (str(abilities[item].getTier()) if abilities[item].getTier() > 1 else "") + "\n"
 	else:
 		invPage.get_node("items").get_child(0).text += "\n" + tabIndent + "NO ABILITIES"
 
 
-func updateStats(stats: Stats) -> void: #need to implement
-	var statPage := pages[PAGES.STATS].get_child(0)
+func updateStats(stats: Stats, moveRange: int, curMoveRange: int) -> void: #need to implement
+	var statPageInfo := pages[PAGES.STATS].get_child(0)
 
-	for stat in statPage.get_children().size():
-		if statPage.get_child(stat) is Control:
-			statPage.get_child(stat).get_child(1).text = str(stats.getAbsStat(stat))
+	for stat in statPageInfo.get_children().size() - 1:
+
+		if statPageInfo.get_child(stat) is Control:
+			statPageInfo.get_child(stat).get_child(1).text = str(stats.getAbsStat(stat))
+
 			if stats.getStatStatusList(stat).size() > 0:
-				statPage.get_child(stat).get_child(1).text += "(" + str(stats.getStat(stat)) + ")"
+				statPageInfo.get_child(stat).get_child(1).text += " (" + str(stats.getStat(stat)) + ")"
+
+	statPageInfo.get_node("moveRangeLabelGroup").get_child(1).text = str(moveRange) 
+	if curMoveRange != moveRange:
+		statPageInfo.get_node("moveRangeLabelGroup").get_child(1).text += " (" + str(curMoveRange) + ")"
 
 
 
@@ -127,12 +137,14 @@ func updateAll(unit: BaseUnit) -> void:
 	updateTop(unit.getFullName(),unit.getStat(STATS.AP),unit.getAp(),unit.getFactionName(),unit.getStatusImg())
 	updateHPData(unit.getHP(),unit.getAbsHP())
 	updateWeaponData(unit.getEquippedWeapon())
-	#updateInventory(unit.getItems(),unit.getAbilities())
-	updateStats(unit.getStats())
+	updateInventory(unit.getItems(),unit.getAbilities())
+	updateStats(unit.getStats(),unit.getAbsMoveRange(), unit.getMoveRange())
 	
 
 ##
-func showStatus() -> void:
+func showStatus(update: BaseUnit = null) -> void:
+	if update:
+		updateAll(update)
 	self.visible = true
 	goToDefaultPage()
 

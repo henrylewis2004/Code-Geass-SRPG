@@ -589,8 +589,8 @@ func _on_menu_select_item_selected(item):
 			curState = STATE.UNIT_MENU_PLAYER
 
 			#change to selectedunit
-			statusScreen.updateAll(unitTurn)
-			statusScreen.showStatus()
+			#statusScreen.updateAll(unitTurn)
+			statusScreen.showStatus(unitTurn)
 		"ITEMS":
 			curState = STATE.A_UNIT_MENU_ITEM
 			playerUnitGui.showUnitItems(unitTurn.getItems())

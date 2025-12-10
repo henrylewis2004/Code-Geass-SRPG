@@ -7,23 +7,18 @@ mechanics:
 			> implement wpeaoninfo	x
 			> implement stats	x
 				> show status affects x
+				> add move range x
 			> implement inventory	x
+
+			> change word seperation
+
 			> get char img right size
 
-
 			> show non turn unit status
-			> show enemy unit status
-			> show ally status
+				> show enemy unit status
+				> show ally status
 
-	> weapon typing 
-		> add to weapon class
-		> change dmg outputs
-		> add to bodypart class
 
-		> rps format
-			> piercing
-			> impact
-			> explosion?
 
 	> unit stats
 		> actually do something lol?
@@ -33,6 +28,9 @@ mechanics:
 			> decrease curTime
 
 	> abilities
+		> change word to sign (e.g. minus -> - )
+		> show tier
+		> ability goes straight to usage not selecting ability
 
 
 	> select ally units to see status
@@ -46,6 +44,10 @@ mechanics:
 			> evasion
 			> defence
 			> attack stat
+
+			> typing
+
+			> status affects
 		> keep unit cards on screen ?? maybe not lol
 
 
@@ -100,6 +102,10 @@ mechanics:
 		> scene transition doesnt do anything
 			> option on level class
 		> pressing back on battle level shows unit extension (weapons etc) for a second
+		> ability goes straight to usage not selecting ability
+
+
+###################################################################
 
 art:
 	> 2d art

@@ -1,9 +1,13 @@
 class_name LegsBodypart extends BodyPart
 
 @export var moveRange: int
+var initialMoveRange: int 
 
 func getMoveRange() -> int:
 	return moveRange
+
+func getAbsMoveRange() -> int:
+	return initialMoveRange
 
 func setMoveRange(moveRng: int) -> void:
 	moveRange = moveRng
@@ -18,3 +22,4 @@ func destroy():
 func _ready():
 	bodyPartType = BODYPARTS.LEGS
 	hp = totalHp
+	initialMoveRange = moveRange

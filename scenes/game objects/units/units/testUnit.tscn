@@ -61,6 +61,8 @@ equipPart = NodePath("../../bodyparts/L arm")
 [node name="abilities" type="Node" parent="inventory"]
 
 [node name="SpeedDown" parent="inventory/abilities" instance=ExtResource("8_kwai8")]
+stringName = "MINUS SPD"
+tier = 2
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
 rotation_mode = 0

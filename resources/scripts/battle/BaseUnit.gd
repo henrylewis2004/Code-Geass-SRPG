@@ -8,6 +8,7 @@ signal destroy_unit(unit: BaseUnit)
 @export var char_name: String
 @export var charImage: Texture
 
+
 #status info
 @export var full_name: String
 @export var status_charImg: Texture
@@ -79,6 +80,9 @@ func getName() -> String:
 func getMoveRange() -> int:
 	return min(getAp(),bodyParts[BODYPARTS.LEGS].getMoveRange())
 
+func getAbsMoveRange() -> int:
+	return bodyParts[BODYPARTS.LEGS].getAbsMoveRange()
+
 func getEnergy() -> int:
 	return energy
 
@@ -143,6 +147,9 @@ func getEquippedWeapon() -> Weapon:
 
 func getEquippedWeaponIndex() -> int:
 	return equippedWeapon
+
+func getEquippedWeaponType() -> int:
+	return getEquippedWeapon().getAttackType() #might return bug if equipped weapon returns null
 
 func getWeapons() -> Array[Node]:
 	return weapons
@@ -221,6 +228,8 @@ func incAp(val: int) -> void:
 	if ap > stats.getStat(STATS.AP):
 		resetAp()
 
+func getBodyPartType(bodyPart: int) -> int:
+	return bodyParts[bodyPart].getDefenceType()
 
 func setBody(newBodyParts: Array[Node]) -> void:
 	bodyParts = newBodyParts

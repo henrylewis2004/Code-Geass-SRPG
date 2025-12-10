@@ -5,7 +5,7 @@ class_name BaseItem extends Node
 @export var endTurn: bool
 @export var apCost: int
 @export var singlePart: bool
-@export var tier: int
+@export var tier: int = 1
 
 @export_enum(
 	"HP",

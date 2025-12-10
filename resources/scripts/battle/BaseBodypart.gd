@@ -6,11 +6,16 @@ const BODYPARTS = preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd"
 @export var startingDmg: int 
 @export var string_name : String
 @export var destroyed: bool = false
+
 @export_enum("R_ARM","L_ARM","BODY","LEGS") var bodyPartType: int
+@export_enum("IMPACT","PENETRATION","FIRE") var defenceType: int
 
 var hp: int
 
 #getters
+func getDefenceType() -> int:
+	return defenceType
+
 func getHp() -> int:
 	return hp
 

@@ -481,6 +481,16 @@ theme_override_fonts/font = ExtResource("4_bbc5g")
 theme_override_font_sizes/font_size = 20
 text = "ITEMS:"
 
+[node name="itemsList" type="Label" parent="page3/inventoryInfo/items"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 39.0
+offset_right = 97.0
+offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("7_bbc5g")
+theme_override_font_sizes/font_size = 20
+text = "HP SMALL"
+
 [node name="abilities" type="Control" parent="page3/inventoryInfo"]
 anchors_preset = 0
 offset_right = 40.0
@@ -488,13 +498,25 @@ offset_bottom = 40.0
 
 [node name="abilitiesTitle" type="Label" parent="page3/inventoryInfo/abilities"]
 layout_mode = 0
-offset_left = 102.0
-offset_top = 19.0
-offset_right = 202.0
-offset_bottom = 120.0
+offset_left = 101.0
+offset_top = 17.0
+offset_right = 201.0
+offset_bottom = 118.0
 theme_override_fonts/font = ExtResource("4_bbc5g")
 theme_override_font_sizes/font_size = 20
 text = "ABILITIES:"
+
+[node name="abilitiesList" type="Label" parent="page3/inventoryInfo/abilities"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 39.0
+offset_right = 201.0
+offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("7_bbc5g")
+theme_override_font_sizes/font_size = 20
+text = "HP SMALL
+HP SMALL
+HP SMALL"
 
 [node name="page4" type="Control" parent="."]
 visible = false
@@ -728,7 +750,7 @@ offset_right = 83.0
 offset_bottom = 26.0
 theme_override_fonts/font = ExtResource("4_bbc5g")
 theme_override_font_sizes/font_size = 20
-text = "iniative:"
+text = "INITIATIVE:"
 vertical_alignment = 1
 
 [node name="textLabel" type="Label" parent="page4/stats/iniativeLabelGroup"]
@@ -736,6 +758,34 @@ layout_mode = 0
 offset_left = 83.0
 offset_top = 7.0
 offset_right = 100.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("7_bbc5g")
+theme_override_font_sizes/font_size = 18
+text = "29"
+vertical_alignment = 1
+
+[node name="moveRangeLabelGroup" type="Control" parent="page4/stats"]
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 46.0
+offset_right = 195.0
+offset_bottom = 72.0
+
+[node name="title" type="Label" parent="page4/stats/moveRangeLabelGroup"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 83.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("4_bbc5g")
+theme_override_font_sizes/font_size = 20
+text = "MOVE RANGE:"
+vertical_alignment = 1
+
+[node name="textLabel" type="Label" parent="page4/stats/moveRangeLabelGroup"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 7.0
+offset_right = 107.0
 offset_bottom = 28.0
 theme_override_fonts/font = ExtResource("7_bbc5g")
 theme_override_font_sizes/font_size = 18
