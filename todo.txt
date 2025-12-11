@@ -9,8 +9,10 @@ mechanics:
 				> show status affects x
 				> add move range x
 			> implement inventory	x
+				> change item word line seperation
+			> implement status
+				> status affects
 
-			> change word seperation
 
 			> get char img right size
 
@@ -31,6 +33,9 @@ mechanics:
 		> change word to sign (e.g. minus -> - )
 		> show tier
 		> ability goes straight to usage not selecting ability
+		> ability time affect x
+
+		> match ability id to status affect in ability manager class
 
 
 	> select ally units to see status

@@ -8,6 +8,7 @@ class_name Ability extends BaseItem
 var attackId := preload("res://resources/scripts/enumClasses/ENUMitems_abilities.gd").typeID.ATTACK
 @export var targetEnemy: bool
 @export var energyCost: int
+@export var timeAffect: int = 1
 
 #getter setters
 func getID() -> int:
@@ -21,3 +22,6 @@ func getTargetEnemy() -> bool:
 
 func getEnergyCost() -> int:
 	return energyCost
+
+func getTimeAffect() -> int:
+	return timeAffect

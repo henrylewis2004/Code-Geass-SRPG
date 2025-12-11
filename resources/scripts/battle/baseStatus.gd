@@ -1,8 +1,8 @@
 class_name Status
 
 var powerAffect: int = 0
-var statAffect: int = -1
-var timeAffect: int = -1
+var statAffect: int
+var timeAffect: int = -1 #-1 = permament
 var curTimeAffect: int
 
 
@@ -18,9 +18,10 @@ func getTimeLeft() -> int:
 func getTotalTime() -> int:
 	return timeAffect
 #init
-func _init(power: int, stat: int, time: int, startTime: int = time) -> void:
+func _init(power: int, stat: int, time: int, startTime: int = null) -> void:
 	statAffect = stat
 	timeAffect = time
+	curTimeAffect = timeAffect
 	if startTime:
 		curTimeAffect = startTime
 	powerAffect = power
