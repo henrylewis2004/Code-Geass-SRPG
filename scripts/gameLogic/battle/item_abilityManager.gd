@@ -1,12 +1,15 @@
 class_name Item_abilityManager 
 
 #signal actionComplete(endTurn: bool)
-signal actionComplete(endTurn: bool)
+signal actionComplete()
 
 const CATALOGUE := preload("res://resources/scripts/enumClasses/ENUMitems_abilities.gd")
+const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
+const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
+
+#might not need
 const STATE_BATTLE := preload("res://resources/scripts/enumClasses/ENUMstates.gd").BATTLESTATE
 const STATE := preload("res://resources/scripts/enumClasses/ENUMstates.gd").ITEM_ABILITY_STATES
-const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 
 var curState: int = STATE.NONE
 
@@ -35,24 +38,36 @@ func validActivity(unit: BaseUnit,targetUnit:BaseUnit,activity: BaseItem) -> boo
 	else:
 		return validItem(unit,targetUnit,activity)
 	
-
 #### open core
 
-func useItem(item:BattleItem, unit: BaseUnit, targetUnit:BaseUnit, targetPart: int = -1) -> void:
-	var endTurn: bool = true
-	print(targetPart)
+func useItem(item:BattleItem, unit: BaseUnit, targetUnit:BaseUnit, targetPart: int = BODYPARTS.BODY) -> void:
 
 	match(item.getID()):
-		CATALOGUE.items.HP_30_SINGLE:
-			print("Heal")
+		CATALOGUE.ITEMS.HP_SINGLE:
+			heal(30 * item.getTier(),targetUnit.getBodyparts()[targetPart])
+
+		CATALOGUE.ITEMS.HP_ALL:
+			for bodyPart in targetUnit.getBodyparts():
+				heal(30 * item.getTier(),bodyPart)
+
+		CATALOGUE.ITEMS.STATUS_CLEAN:
+			targetUnit.getStats().cleanStatus()
+				
+	if item.isOneUse():
+		unit.removeItem(item)
 	
-	actionComplete.emit(endTurn)
+	unit.incAp(-item.getApCost())
+	
+	actionComplete.emit() #ends turn
 
 func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit) -> void:
-	var endTurn: bool = true
 	
 	match (ability.getID()):
-		CATALOGUE.abilities.MINUS_SPEED_1: 
+		CATALOGUE.ABILITIES.MINUS_SPEED:
+			targetUnit.getStats().addStatus(Status.new(ability.getTier(),STATS.AGILITY,ability.getTimeAffect()))
 			pass
 
-	actionComplete.emit(endTurn)
+	unit.incAp(-ability.getApCost())
+	unit.incEnergy(-ability.getEnergyCost())
+
+	actionComplete.emit()

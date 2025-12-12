@@ -1,10 +1,15 @@
 class_name BattleItem extends BaseItem
 
+@export var oneUse: bool = true
+
 @export_enum(
-	"HP_30_SINGLE", "HP_50_SINGLE",
+	"HP_SINGLE", 
 ) var id:int
 
 
 #getters setters
 func getID() -> int:
 	return id
+
+func isOneUse() -> bool:
+	return oneUse

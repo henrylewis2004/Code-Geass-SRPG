@@ -1,11 +1,11 @@
 class_name Ability extends BaseItem 
 
 @export_enum(
-	"MINUS_SPEED_1",
+	"MINUS_SPEED",
 	) var battleId: int
 	
 
-var attackId := preload("res://resources/scripts/enumClasses/ENUMitems_abilities.gd").typeID.ATTACK
+var attackId := preload("res://resources/scripts/enumClasses/ENUMitems_abilities.gd").TYPEID.ATTACK
 @export var targetEnemy: bool
 @export var energyCost: int
 @export var timeAffect: int = 1

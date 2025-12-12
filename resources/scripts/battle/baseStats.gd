@@ -5,6 +5,7 @@ var status: Array[Array]
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 const maxStatusPower: int = 5
 
+## methods
 func getAbsStat(stat: int) -> int:
 	return stats[stat]
 
@@ -25,9 +26,13 @@ func getStatStatusPower(stat:int) -> int:
 func getMaxStatusPower() -> int:
 	return maxStatusPower
 	
-
+#status
 func addStatus(newStatus: Status) -> void:
 	status[newStatus.getStat()].append(newStatus)
+
+func cleanStatus() -> void:
+	for s in status:
+		s = []
 
 #init
 func _init(ag:int=0,de:int=0,ev:int=0,me:int=0,ra:int=0,newAp:int=0,newApCharge:int=0,en:int=0,enCharge:int=0,lu:int=0,ini:int=0) -> void:

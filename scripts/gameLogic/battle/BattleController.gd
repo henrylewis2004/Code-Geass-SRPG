@@ -253,28 +253,27 @@ func moveUnit(unit: BaseUnit, mov_position: Vector2) -> void:
 func useItemAbility(unit: BaseUnit, targetUnit: BaseUnit, activity: BaseItem, selectedBodyPart = -1) -> void:
 	#check valid 
 
-	if selectedActivity is Ability:
-		if !itemAbMan.validAbility(unit,targetUnit,activity):
-			return 
+	if selectedActivity is Ability && !itemAbMan.validAbility(unit,targetUnit,activity):
+		return 
 
-		itemAbMan.useAbility(selectedActivity,unitTurn,selectedActivityUnit)
-	else:
-		if !itemAbMan.validItem(unit,targetUnit,activity):
-			return 
+	if selectedActivity is BattleItem && !itemAbMan.validItem(unit,targetUnit,activity):
+		return 
 
-		itemAbMan.useItem(selectedActivity,unitTurn,selectedActivityUnit,selectedBodyPart)
-
-	
 	playerUnitGui.hideItems()
 	drawManager.cleanLos()
 	curState = STATE.A_UNIT_ITEM_ACTION
 	set_unitOverlay(null,null,null)
 
-	var endTurnAction: bool = await itemAbMan.actionComplete
-	print(endTurnAction)
-	
-	if endTurnAction:
-		endTurn()
+
+	if selectedActivity is Ability:
+		itemAbMan.useAbility(selectedActivity,unitTurn,selectedActivityUnit)
+
+	else:
+		itemAbMan.useItem(selectedActivity,unitTurn,selectedActivityUnit,selectedBodyPart)
+
+
+func itemEndTurn() -> void:
+	endTurn()
 	
 func wpnSelection(input: int,unit:BaseUnit = unitTurn,noCounter:bool = false) -> void:
 	if noCounter:
@@ -858,6 +857,8 @@ func _ready():
 	gridManager.init(mapSize,collisionWalls)
 	aiManager.attackPlayer_input.connect(aiAttackTurn)
 	aiManager.setRoot(self)
+
+	itemAbMan.connect("actionComplete",itemEndTurn)
 	
 	updateOccupiedMapGrid()
 	
@@ -874,5 +875,3 @@ func _physics_process(delta):
 		
 	$ui/curState.text = "curState: " + str(STATE.find_key(curState))
 	
-
-

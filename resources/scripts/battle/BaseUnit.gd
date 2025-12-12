@@ -130,6 +130,19 @@ func getItems() -> Array[Node]:
 func getAbilities() -> Array[Node]:
 	return abilitiesList
 
+func removeItem(item: BattleItem) -> void:
+	for i in getItems():
+		if i == item:
+			itemsList.remove_child(i)
+	item.queue_free()
+
+func removeAbility(item: Ability) -> void:
+	for i in getItems():
+		if i == item:
+			itemsList.remove_child(i)
+	item.queue_free()
+
+
 #collisions
 func getCollisionMask() -> int:
 	return $PathFollow3D/unitCollider.collision_mask
@@ -220,6 +233,13 @@ func unitApCharge() -> void:
 	
 func resetEnergy() -> void:
 	energy = stats.getStat(STATS.ENERGY)
+
+func incEnergy(val: int) -> void:
+	energy += val
+	if energy < 0:
+		energy = 0
+	if energy > stats.getStat(STATS.ENERGY):
+		resetEnergy()
 	
 func incAp(val: int) -> void:
 	ap += val
@@ -228,7 +248,7 @@ func incAp(val: int) -> void:
 	if ap > stats.getStat(STATS.AP):
 		resetAp()
 
-func getBodyPartType(bodyPart: int) -> int:
+func getBodyPartDefenceType(bodyPart: int) -> int:
 	return bodyParts[bodyPart].getDefenceType()
 
 func setBody(newBodyParts: Array[Node]) -> void:

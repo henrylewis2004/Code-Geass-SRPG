@@ -1,9 +1,9 @@
 class_name Status
 
-var powerAffect: int = 0
-var statAffect: int
-var timeAffect: int = -1 #-1 = permament
-var curTimeAffect: int
+var powerAffect: int  #strength of affect
+var statAffect: int  #stat affected
+var timeAffect: int  #length of affect; -1 = permament
+var curTimeAffect: int #how long the affect will be active for
 
 
 func getPower() -> int:
@@ -18,11 +18,10 @@ func getTimeLeft() -> int:
 func getTotalTime() -> int:
 	return timeAffect
 #init
-func _init(power: int, stat: int, time: int, startTime: int = null) -> void:
+func _init(power: int, stat: int, time: int, startTime: int = -1) -> void:
 	statAffect = stat
 	timeAffect = time
 	curTimeAffect = timeAffect
-	if startTime:
+	if startTime >= 0:
 		curTimeAffect = startTime
 	powerAffect = power
-

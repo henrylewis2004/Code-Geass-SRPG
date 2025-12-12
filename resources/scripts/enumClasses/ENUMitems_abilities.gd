@@ -1,19 +1,18 @@
-enum typeID{
+enum TYPEID{
 	HP,
 	STATUS,
 	ATTACK
 }
 
-enum items{
-    HP_30_SINGLE,
-    HP_50_SINGLE
-    
-
+enum ITEMS{
+    HP_SINGLE,
+	HP_ALL,
+	STATUS_CLEAN,
 
 }
 
-enum abilities{
-    MINUS_SPEED_1,
+enum ABILITIES{
+    MINUS_SPEED,
 
 
 }

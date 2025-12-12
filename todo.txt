@@ -20,6 +20,7 @@ mechanics:
 				> show enemy unit status
 				> show ally status
 
+		> add "not enough ap for action" text
 
 
 	> unit stats
@@ -33,9 +34,18 @@ mechanics:
 		> change word to sign (e.g. minus -> - )
 		> show tier
 		> ability goes straight to usage not selecting ability
-		> ability time affect x
+		> how many turns does ability run for x
 
 		> match ability id to status affect in ability manager class
+
+		> itemEndTurn function
+			> call when ending use item/ability in itemabman
+
+		> test:
+			> item gets used
+			> item gets removed
+			> ap removed
+			> energy removed
 
 
 	> select ally units to see status
