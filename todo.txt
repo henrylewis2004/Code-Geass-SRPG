@@ -169,6 +169,8 @@ mechanics:
 ###################################################################
 
 art:
+	> psx shader
+
 	> 2d art
 		> status screen
 
@@ -200,6 +202,7 @@ art:
 			> probably get from package
 
 
+###################################################################
 
 levels
 	> centered on shinjiku bit
