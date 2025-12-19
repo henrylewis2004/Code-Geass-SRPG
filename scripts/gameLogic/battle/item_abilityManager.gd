@@ -7,13 +7,6 @@ const CATALOGUE := preload("res://resources/scripts/enumClasses/ENUMitems_abilit
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 
-#might not need
-const STATE_BATTLE := preload("res://resources/scripts/enumClasses/ENUMstates.gd").BATTLESTATE
-const STATE := preload("res://resources/scripts/enumClasses/ENUMstates.gd").ITEM_ABILITY_STATES
-
-var curState: int = STATE.NONE
-
-
 #### methods
 func itemDistUse(position1: Vector2, position2:Vector2) -> int:
 	return (abs(position1.x-position2.x) + abs(position1.y-position2.y))
@@ -60,12 +53,30 @@ func useItem(item:BattleItem, unit: BaseUnit, targetUnit:BaseUnit, targetPart: i
 	
 	actionComplete.emit() #ends turn
 
-func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit) -> void:
-	
-	match (ability.getID()):
+func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit, targetPart: int = BODYPARTS.BODY) -> void:
+	if ability.isAttack():
+		if ability.isSinglePart():
+			targetUnit.getBodyparts()[targetPart].hit(ability.getDmg())
+
+		else:
+			var bodyParts := targetUnit.getBodyparts()
+			bodyParts[BODYPARTS.BODY].hit(ability.getDmg())
+			bodyParts[BODYPARTS.L_ARM].hit(ability.getDmg() * 0.75)
+			bodyParts[BODYPARTS.R_ARM].hit(ability.getDmg() * 0.75)
+			bodyParts[BODYPARTS.LEGS].hit(ability.getDmg() * 0.5)
+
+		for bodyPart in targetUnit.getBodyparts():
+			bodyPart.hpCheck()
+
+	var statAffect: int 
+	match (ability.getID()): 		#stat to add status to
 		CATALOGUE.ABILITIES.MINUS_SPEED:
-			targetUnit.getStats().addStatus(Status.new(ability.getTier(),STATS.AGILITY,ability.getTimeAffect()))
-			pass
+			statAffect = STATS.AGILITY
+
+
+
+	if ability.isStatus():
+		targetUnit.getStats().addStatus(Status.new(ability.getTier(), statAffect,ability.getTimeAffect()))
 
 	unit.incAp(-ability.getApCost())
 	unit.incEnergy(-ability.getEnergyCost())

@@ -3,7 +3,7 @@ class_name typeManager
 const TYPES := preload("res://resources/scripts/enumClasses/ENUMtypes.gd").TYPES
 
 const resValue: float = 0.5
-const bonusValue: float = 2.0
+const bonusValue: float = 1.5
 const defValue: float = 1.0
 
 ##

@@ -20,7 +20,7 @@ func getStatStatusPower(stat:int) -> int:
 	for affect in status[stat]:
 		power += affect.getPower()
 
-	return power if abs(power) <= getMaxStatusPower() else maxStatusPower * -1 if power < 0 else maxStatusPower * 1
+	return power if abs(power) <= getMaxStatusPower() else (maxStatusPower * -1 if power < 0 else maxStatusPower * 1)
 
 
 func getMaxStatusPower() -> int:
@@ -33,6 +33,20 @@ func addStatus(newStatus: Status) -> void:
 func cleanStatus() -> void:
 	for s in status:
 		s = []
+
+func timeStatusAffect(time: int = -1) -> void:
+	for s in status:
+		for i in range(s.size() - 1, -1, -1): #individual status affect
+			s[i].incTime(time)
+
+			if s[i].getTimeLeft < 0:
+				s.remove_at(i)
+
+			
+
+
+			
+
 
 #init
 func _init(ag:int=0,de:int=0,ev:int=0,me:int=0,ra:int=0,newAp:int=0,newApCharge:int=0,en:int=0,enCharge:int=0,lu:int=0,ini:int=0) -> void:

@@ -4,9 +4,9 @@
 
 [node name="SpeedDown" type="Node"]
 script = ExtResource("1_nci1d")
-attack = true
 targetEnemy = true
 energyCost = 3
 stringName = "- SPD"
 range = 2
 apCost = 3
+itemType = 2

@@ -10,11 +10,15 @@ class_name Weapon extends Node
 @export var range: int
 @export var fireRate: float
 @export var wpnImage: Texture
+@export_enum("RANGED","MELEE") var attackStat: int
 @export_enum("IMPACT","PENETRATION","FIRE") var attackType: int
 
 #getters
 func getAttackType() -> int:
 	return attackType
+
+func getAttackStat() -> int:
+	return attackStat
 
 func getDmg() -> int:
 	return dmg

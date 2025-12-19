@@ -43,7 +43,6 @@ func createTurnOrder(unitArray: Array[Node]) -> void:
 func calcFirstTurnOrder(unitArray: Array[Node]) -> void:
 	var order: Array[Node] = orderTurn(unitArray,0,unitArray.size() - 1)
 	for unit in range(unitArray.size() - 1, -1, -1):
-		print(unit)
 		unitOrder.append(order[unit])
 
 	calcTurnOrder(unitArray, 1)

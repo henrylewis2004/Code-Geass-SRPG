@@ -7,7 +7,7 @@ signal inputTaken
 signal actionComplete
 
 const STATE := preload("res://resources/scripts/enumClasses/ENUMstates.gd").BATTLESTATE
-var curState: int = STATE.CAM_MOVEMENT #might need to change to none as default
+var curState: int = STATE.NONE #might need to change to none as default
 
 enum TEAM {PLAYER,ENEMY,ALLY}
 enum UNIT_SELECT_TILE{MOVE,ATTACK,INTERACT}
@@ -266,7 +266,7 @@ func useItemAbility(unit: BaseUnit, targetUnit: BaseUnit, activity: BaseItem, se
 
 
 	if selectedActivity is Ability:
-		itemAbMan.useAbility(selectedActivity,unitTurn,selectedActivityUnit)
+		itemAbMan.useAbility(selectedActivity,unitTurn,selectedActivityUnit, selectedBodyPart)
 
 	else:
 		itemAbMan.useItem(selectedActivity,unitTurn,selectedActivityUnit,selectedBodyPart)
@@ -786,8 +786,7 @@ func nextTurn() -> void:
 	turnManager.createTurnOrder(unitArray)
 
 	selectUnit(turnManager.getNextUnit())
-	unitTurn.unitApCharge()
-	unitTurn.unitEpCharge()
+	unitTurn.newTurn()
 	apCost.x = unitTurn.getAp()
 	
 	playerTurn = unitTurn.getTeam() == TEAM.PLAYER

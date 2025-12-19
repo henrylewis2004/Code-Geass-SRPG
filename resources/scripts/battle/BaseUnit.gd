@@ -24,10 +24,14 @@ const SPEED: int = 2
 
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
+const ATTACK_STATS  := preload("res://resources/scripts/enumClasses/ENUMtypes.gd").ATTACK_STAT
 
 var equippedWeapon: int = -1
 var ap: int
 var energy: int
+var typeMan: typeManager = typeManager.new()
+
+const maxDmgMod: Dictionary = {"min": 0.1,"max": 4.0}
 
 #stats
 @export var agilityStat: int
@@ -242,14 +246,14 @@ func resetEnergy() -> void:
 func unitEpCharge() -> void:
 	incEnergy(energyCharge)
 
-func incEnergy(val: int) -> void:
+func incEnergy(val: int = getStat(STATS.ENERGY_CHARGE)) -> void:
 	energy += val
 	if energy < 0:
 		energy = 0
 	if energy > stats.getStat(STATS.ENERGY):
 		resetEnergy()
 	
-func incAp(val: int) -> void:
+func incAp(val: int = getStat(STATS.AP_CHARGE)) -> void:
 	ap += val
 	if ap < 0: 
 		ap = 0
@@ -302,6 +306,24 @@ func hasLOS(enemyUnit: BaseUnit,gridPosition:Vector3 = self.position.floor() ) -
 
 
 #battle
+func getWeaponStatHitAffect(weaponStat: int) -> int:
+	match(weaponStat):
+		ATTACK_STATS.RANGED:
+			return getStat(STATS.RANGED)
+		
+		ATTACK_STATS.MELEE:
+			return getStat(STATS.MELEE)
+
+	print("error in weaponStatHitAffect, likely wrong weaponStat assigned to equipped weapon")
+	return 0
+
+
+func getAttackDmgStOffset(attackStat: int, defenceStat: int) -> float:
+	return 1 + (attackStat - defenceStat)/100
+
+func getAttackHitMissOffset(attackStat: int, evadeStat: int) -> int:
+	return 100 + attackStat - evadeStat
+
 func validTarget(target: BaseUnit) -> bool:
 	if ap < getEquippedWeapon().getApCost(): #not enough ap
 		return false
@@ -333,25 +355,51 @@ func attack(unit: BaseUnit) -> void:
 	if unit.getBodyparts()[BODYPARTS.BODY].getHp() >= 0:
 		ap -= weapon.apCost
 
-		for round in range(weapon.getRounds()):
-			#add dodge chance
-			var hitRoll: int = randi() % 101
-			if hitRoll <= accuracy:
-				if hitRoll <= 10:
-					#crit chance
-					pass
+		var crit: bool =  randi() % 101 < getStat(STATS.LUCK) / 4 + 2.5
+		var evade: bool = false
+		if !crit:
+			evade = randi() % 101 < getStat(STATS.EVASION) / 10
 
-				#hit
-				var bodyPartHit: int = randi() % 4
-				while unit.getBodyparts()[bodyPartHit].isDestroyed():
-					bodyPartHit = randi() % 4			
-				unit.getBodyparts()[bodyPartHit].hit(weapon.getDmg())
+		if !evade:
+			for round in range(weapon.getRounds()):
+				#add dodge chance
+				var hitRoll: int = randi() % 101 
+
+				if hitRoll <= accuracy + getAttackHitMissOffset(self.getWeaponStatHitAffect(getEquippedWeapon().getAttackStat()),unit.getStat(STATS.EVASION)) || crit:
+					#which bodypart is hit
+					var bodyPartHit: int = randi() % 4
+					while unit.getBodyparts()[bodyPartHit].isDestroyed():
+						bodyPartHit = randi() % 4			
+
+					#base dmgmod
+					var dmgMod: float = 1.0
+
+					#weapon type mod
+					dmgMod = dmgMod * (typeMan.getTypeAffectAttack(self.getEquippedWeapon().getAttackType(),unit.getBodyPartDefenceType(bodyPartHit)))
+
+					#weapon stat mod (ranged / melee) - unit defenceBonus
+					dmgMod = dmgMod * getAttackDmgStOffset(getWeaponStatHitAffect(getEquippedWeapon().getAttackStat()),unit.getStat(STATS.DEFENCE))
+
 					
-			else:
-				pass
-				#add miss gfx
-			wpnTimer.start(weapon.getWeaponFireRate())
-			await wpnTimer.timeout
+					#crit mod
+					if crit:
+						dmgMod = dmgMod * 1.5
+
+
+					if dmgMod < maxDmgMod["min"]:
+						dmgMod = maxDmgMod["min"]
+					elif dmgMod > maxDmgMod["max"]:
+						dmgMod = maxDmgMod["max"]
+
+					#hit
+
+					unit.getBodyparts()[bodyPartHit].hit(int(weapon.getDmg() * dmgMod))
+						
+				else:
+					pass
+					#add miss gfx
+				wpnTimer.start(weapon.getWeaponFireRate())
+				await wpnTimer.timeout
 		
 		for bodyPart in unit.getBodyparts():
 			if bodyPart.getHp() <= 0:
@@ -361,6 +409,14 @@ func attack(unit: BaseUnit) -> void:
 	remove_child(wpnTimer)
 	wpnTimer.queue_free()
 	attackFinished.emit()
+
+##
+func newTurn() -> void:
+	incEnergy()
+	incAp()
+	stats.timeStatusAffect()
+
+
 
 
 #engine utility

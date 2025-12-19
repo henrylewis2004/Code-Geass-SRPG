@@ -5,3 +5,9 @@ enum TYPES{
 	PENETRATION,
 	FIRE,
 	}
+
+enum ATTACK_STAT{
+	RANGED,
+	MELEE
+
+	}

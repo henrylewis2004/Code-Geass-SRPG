@@ -1,42 +1,21 @@
 mechanics:
 
 	abilities
-		> apply status affects
-			> should be quick
-		> remove status
-
-	stats
-		> attack stats (inc defence):
-			> defence
-				> decrease dmg per 10
-					> * (1 - (defence/10)/10)
-					> dmg multiplier has to be more than 0.2
-			> evasion
-				> dodge chance 
-			> weapon typing stat
-				> inc hit chance
-				> melee
-					> increase dmg per 10 
-						> * (1 + (melee/10) / 10)
-				> ranged
-					> same as melee
-
-				> weapon vs armour type
-					> done I think?
-					> need to implement
-
-
-			> luck
-				> crit chance
-				> if crit always hit
-				> crit * dmg by 1.5
-			> agility
-				> if >2x speed then attack twice?
+		> apply status affects			x
+		> remove status				x
+		> dmg abilities				x
+			> already have methods in place for individual part selected
+			> can do anything
+			> im a literal genius 
+			> i love past henry
 
 				
 	unit selection (not turn unit)
+		> can't select enemy unit 
+			> means code is already in place wooh hooh
 		> need to check when unitTurn is used instead of selected unit
 			> e.g. think game over uses unitTurn still
+			> or statusscreen rather
 
 
 
@@ -55,31 +34,22 @@ mechanics:
 				> change item word line seperation
 			> implement status
 				> status affects
+					> images at bottom show if status is affecting
+					> add number ontop of image to show tier
+					> add blue / red filter for positive or negative affect
+					> show how long affect is on for
+				> add current stat in brackets next to absolute stat in stats status screen
 
 
 			> get char img right size
 
-			> show non turn unit status
-				> show enemy unit status
-				> show ally status
 
-		> add "not enough ap for action" text
-
-
-	> unit stats
-		> actually do something lol?
-			> change attacking
-			> turn timer
-
-		> status affects x
-			> affect stats x
 
 	> abilities
 		> change ap to ep on unit card
 		> change word to sign (e.g. minus -> - )
 		> show tier
-		> ability goes straight to usage not selecting ability
-		> how many turns does ability run for x
+		> BUG: ability goes straight to usage not selecting ability
 
 		> match ability id to status affect in ability manager class
 
@@ -98,8 +68,8 @@ mechanics:
 	> triggers flick between units
 
 	> attack
-		> increase dmg output
-		> use stats
+		> find correct dmg output
+		> use stats				x
 			> crit rate
 			> evasion
 			> defence
@@ -219,7 +189,56 @@ levels
 		> 3-4 battles inbetween?
 		> boss at end
 		
+content:
+	levels
+	abilities
+	units
+	weapons
+	items
+	bodyparts
 
 
+###################################################################
 
+maybe done:
+
+	stats
+		> attack stats (inc defence):
+			> need to decide order 
+				> choose if using mulitplier or addition
+
+			> defence						x
+				> decrease dmg per 20
+					> * (1 - (defence/200)
+					> dmg multiplier has to be more than 0.2
+			> evasion						x
+				> dodge chance 
+					> dodge every attack chance = lvl / 10
+						> (e.g. maxLevel = 10% chance)
+			> weapon typing stat					x
+				> increase hit chance
+					> evasion - weapon prof
+
+				> melee						x
+					> increase dmg per 10 
+						> * (1 + (melee/10) / 10)
+				> ranged					x
+					> same as melee
+
+				> weapon vs armour type				x
+					> implement 				x
+
+
+			> luck							x
+				> crit chance					x
+				> if crit always hit				x
+				> crit * dmg by 1.5				x
+
+	> unit stats					x
+		> actually do something lol?		x
+			> change attacking		x
+			> turn timer			x
+
+		> status affects x
+			> affect stats x
 
