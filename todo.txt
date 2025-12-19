@@ -1,7 +1,39 @@
 mechanics:
 
 	abilities
+		> apply status affects
+			> should be quick
+		> remove status
+
 	stats
+		> attack stats (inc defence):
+			> defence
+				> decrease dmg per 10
+					> * (1 - (defence/10)/10)
+					> dmg multiplier has to be more than 0.2
+			> evasion
+				> dodge chance 
+			> weapon typing stat
+				> inc hit chance
+				> melee
+					> increase dmg per 10 
+						> * (1 + (melee/10) / 10)
+				> ranged
+					> same as melee
+
+				> weapon vs armour type
+					> done I think?
+					> need to implement
+
+
+			> luck
+				> crit chance
+				> if crit always hit
+				> crit * dmg by 1.5
+			> agility
+				> if >2x speed then attack twice?
+
+				
 	unit selection (not turn unit)
 		> need to check when unitTurn is used instead of selected unit
 			> e.g. think game over uses unitTurn still
@@ -13,6 +45,7 @@ mechanics:
 		> status screen x
 			> show status screen	x
 			> implement top info 	x
+			> implement ep		x
 			> implement hp 	 	x
 			> implement wpeaoninfo	x
 			> implement stats	x

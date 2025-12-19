@@ -10,12 +10,14 @@ enum PAGES{
 	}
 
 const transparencyValue: Color = Color(1,1,1,0.5) # needs changing
+const maxItems: = 3 #max items to display on inventory screen
 
 @export var weaponTypeImg: Array[PlaceholderTexture2D] = []
 
 @onready var top: Control = $top
 @onready var topName: RichTextLabel = $top/nameLabel
 @onready var topAP: RichTextLabel = $top/apLabel
+@onready var topEp: RichTextLabel = $top/epLabel
 @onready var topFactionName: RichTextLabel = $top/factionLabel
 @onready var topCharImg: TextureRect = $top/charImg
 
@@ -58,9 +60,10 @@ func getCurPage() -> int:
 	return curPage
 
 #update status
-func updateTop(name: String, apTotal: int, ap: int, factionName: String, charImg: Texture) -> void:
+func updateTop(name: String, apTotal: int, ap: int,epTotal: int, ep: int, factionName: String, charImg: Texture) -> void:
 	topName.text = name.replace(" ","\n")
 	topAP.text = "AP: " + str(ap) + "/" + str(apTotal)
+	topEp.text = "EP: " + str(ep) + "/" + str(epTotal)
 	topFactionName.text = factionName
 	topCharImg.texture = charImg
 
@@ -92,7 +95,6 @@ func updateWeaponData(equippedWeapon: Weapon) -> void:
 
 func updateInventory(items: Array[Node], abilities: Array[Node]) -> void: #need to implement
 	var invPage := pages[PAGES.INVENTORY].get_child(0)
-	const maxItems: = 5
 	const tabIndent: String = "   "
 	#items
 	if items.size() > 0:
@@ -119,7 +121,7 @@ func updateInventory(items: Array[Node], abilities: Array[Node]) -> void: #need 
 func updateStats(stats: Stats, moveRange: int, curMoveRange: int) -> void: #need to implement
 	var statPageInfo := pages[PAGES.STATS].get_child(0)
 
-	for stat in statPageInfo.get_children().size() - 1:
+	for stat in STATS.size():
 
 		if statPageInfo.get_child(stat) is Control:
 			statPageInfo.get_child(stat).get_child(1).text = str(stats.getAbsStat(stat))
@@ -134,7 +136,7 @@ func updateStats(stats: Stats, moveRange: int, curMoveRange: int) -> void: #need
 
 
 func updateAll(unit: BaseUnit) -> void:
-	updateTop(unit.getFullName(),unit.getStat(STATS.AP),unit.getAp(),unit.getFactionName(),unit.getStatusImg())
+	updateTop(unit.getFullName(),unit.getStat(STATS.AP),unit.getAp(),unit.getStat(STATS.ENERGY),unit.getEnergy(),unit.getFactionName(),unit.getStatusImg())
 	updateHPData(unit.getHP(),unit.getAbsHP())
 	updateWeaponData(unit.getEquippedWeapon())
 	updateInventory(unit.getItems(),unit.getAbilities())

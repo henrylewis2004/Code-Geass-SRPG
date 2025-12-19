@@ -84,6 +84,17 @@ theme_override_font_sizes/normal_font_size = 12
 text = "THE BLACK KNIGHTS"
 horizontal_alignment = 1
 
+[node name="epLabel" type="RichTextLabel" parent="top"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 105.0
+offset_right = 286.0
+offset_bottom = 145.0
+theme_override_fonts/normal_font = ExtResource("3_jkcvu")
+theme_override_font_sizes/normal_font_size = 13
+text = "EP: 3/5"
+horizontal_alignment = 1
+
 [node name="pageTitles" type="Control" parent="top"]
 anchors_preset = 0
 offset_right = 40.0
@@ -455,6 +466,7 @@ offset_bottom = 114.0
 texture = SubResource("PlaceholderTexture2D_wl34q")
 
 [node name="page3" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -519,7 +531,6 @@ HP SMALL
 HP SMALL"
 
 [node name="page4" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_left = 55.0
 offset_top = 100.0
@@ -706,7 +717,33 @@ vertical_alignment = 1
 
 [node name="energy" type="Node" parent="page4/stats"]
 
-[node name="energycharge" type="Node" parent="page4/stats"]
+[node name="epChargeLabelGroup" type="Control" parent="page4/stats"]
+anchors_preset = 0
+offset_left = 86.0
+offset_top = 62.0
+offset_right = 195.0
+offset_bottom = 88.0
+
+[node name="title" type="Label" parent="page4/stats/epChargeLabelGroup"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 83.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("4_bbc5g")
+theme_override_font_sizes/font_size = 20
+text = "EP CHARGE:"
+vertical_alignment = 1
+
+[node name="textLabel" type="Label" parent="page4/stats/epChargeLabelGroup"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 7.0
+offset_right = 107.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("7_bbc5g")
+theme_override_font_sizes/font_size = 18
+text = "3"
+vertical_alignment = 1
 
 [node name="luckLabelGroup" type="Control" parent="page4/stats"]
 anchors_preset = 0

@@ -2,11 +2,11 @@ class_name TurnManager extends Node
 
 @onready var unitGui : VBoxContainer= $Control/unitOrderGFX
 
-const turnOrderCnt: int = 6
+const turnOrderCnt: int = 6 #the number of units to display
 var turnCnt: int = -1
 var unitOrder: Array[BaseUnit] #next 10 turns
 
-const AGILITY_STAT := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS.AGILITY
+const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 
 
 #methods
@@ -19,6 +19,15 @@ func nextTurn() -> void:
 
 func createTurnOrder(unitArray: Array[Node]) -> void:
 	nextTurn()
+	unitOrder = []
+
+	for unit in unitArray:
+		unit.resetPredTurnTimer()
+
+	if getTurnNo() == 0:
+		calcFirstTurnOrder(unitArray)
+		updateUnitGuiOrder()
+		return
 
 	if getTurnNo() > 0:
 		for unit in unitArray:
@@ -28,12 +37,21 @@ func createTurnOrder(unitArray: Array[Node]) -> void:
 	calcTurnOrder(unitArray)
 	updateUnitGuiOrder()
 
-func calcTurnOrder(unitArray: Array[Node],turn: int = 0) -> Array[BaseUnit]:
-	if turn == 0:
-		unitOrder = []
+		
 
-		for unit in unitArray:
-			unit.resetPredTurnTimer()
+
+func calcFirstTurnOrder(unitArray: Array[Node]) -> void:
+	var order: Array[Node] = orderTurn(unitArray,0,unitArray.size() - 1)
+	for unit in range(unitArray.size() - 1, -1, -1):
+		print(unit)
+		unitOrder.append(order[unit])
+
+	calcTurnOrder(unitArray, 1)
+
+
+
+
+func calcTurnOrder(unitArray: Array[Node],turn: int = 0) -> Array[BaseUnit]:
 
 	var order : Array[Node] = orderTurn(unitArray, 0, unitArray.size() - 1)
 	unitOrder.append(order[unitArray.size() - 1])
@@ -45,7 +63,7 @@ func calcTurnOrder(unitArray: Array[Node],turn: int = 0) -> Array[BaseUnit]:
 	
 	unitArray[unitArray.size()-1].setPredTurnTimer(0)
 	for unit in unitArray:
-		unit.setPredTurnTimer(unit.getPredTurnTimer() + unit.getStat(AGILITY_STAT))
+		unit.setPredTurnTimer(unit.getPredTurnTimer() + unit.getStat(STATS.AGILITY))
 		
 
 	return calcTurnOrder(unitArray,turn + 1)
@@ -58,7 +76,7 @@ func orderTurnPartition(unitArray: Array[Node], lowIndex: int, highIndex: int) -
 	var swapIndex = lowIndex -1
 
 	for unitIndex in range(lowIndex, highIndex):
-		if (unitArray[unitIndex].getPredTurnTimer() < pivotUnit.getPredTurnTimer()) || (unitArray[unitIndex].getPredTurnTimer() == pivotUnit.getPredTurnTimer() && unitArray[unitIndex].getStat(AGILITY_STAT) < pivotUnit.getStat(AGILITY_STAT)):
+		if (unitArray[unitIndex].getPredTurnTimer() < pivotUnit.getPredTurnTimer()) || (unitArray[unitIndex].getPredTurnTimer() == pivotUnit.getPredTurnTimer() && unitArray[unitIndex].getStat(STATS.INITIATIVE) < pivotUnit.getStat(STATS.INITIATIVE)):
 			swapIndex += 1
 			
 			var temp = unitArray[unitIndex]
@@ -72,12 +90,39 @@ func orderTurnPartition(unitArray: Array[Node], lowIndex: int, highIndex: int) -
 
 	return swapIndex + 1
 
-func orderTurn(unitArray: Array[Node], lowIndex: int, highIndex: int) -> Array[Node]:
-	if lowIndex < highIndex:
-		var pivot: int = orderTurnPartition(unitArray,lowIndex,highIndex)
 
-		orderTurn(unitArray,lowIndex,pivot - 1)
-		orderTurn(unitArray,pivot + 1, highIndex)
+#iniative
+func orderTurnPartitionInitiative(unitArray: Array[Node], lowIndex: int, highIndex: int) -> int:
+	var pivotUnit: BaseUnit = unitArray[highIndex]
+	var swapIndex = lowIndex -1
+
+	for unitIndex in range(lowIndex, highIndex):
+		if (unitArray[unitIndex].getStat(STATS.INITIATIVE) < pivotUnit.getStat(STATS.INITIATIVE) || (unitArray[unitIndex].getStat(STATS.INITIATIVE) == pivotUnit.getStat(STATS.INITIATIVE) && unitArray[unitIndex].getStat(STATS.AGILITY) < pivotUnit.getStat(STATS.AGILITY))):
+			swapIndex += 1
+			
+			var temp = unitArray[unitIndex]
+			unitArray[unitIndex] = unitArray[swapIndex]
+			unitArray[swapIndex] = temp
+			
+				
+	var temp = pivotUnit
+	unitArray[highIndex] = unitArray[swapIndex + 1]
+	unitArray[swapIndex + 1] = temp
+
+	return swapIndex + 1
+
+##order the turn
+func orderTurn(unitArray: Array[Node], lowIndex: int, highIndex: int, iniative: bool = false):
+	if lowIndex < highIndex:
+		var pivot: int 
+		if iniative:
+			pivot = orderTurnPartitionInitiative(unitArray,lowIndex,highIndex)
+
+		else:
+			pivot = orderTurnPartition(unitArray,lowIndex,highIndex)
+
+		orderTurn(unitArray,lowIndex,pivot - 1,iniative)
+		orderTurn(unitArray,pivot + 1, highIndex,iniative)
 		
 
 	return unitArray

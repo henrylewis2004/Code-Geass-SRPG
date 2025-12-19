@@ -1,7 +1,6 @@
 class_name AiManager extends Node
 
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
-const ITEMTYPE := preload("res://resources/scripts/enumClasses/ENUMitems_abilities.gd").typeID
 
 signal turnFinished
 signal actionTaken(taken:bool)
@@ -60,95 +59,6 @@ func inRange(unit:BaseUnit,targetUnit:BaseUnit,itemRange:int,grid:BattleGrid,all
 
 
 	return false
-
-func unitUseItem(unit: BaseUnit,allyUnits: Array[Node],grid:BattleGrid,itemAbManager: Item_abilityManager) -> void:
-	var availableItems: Array[BaseItem] = []
-
-	for item in (unit.getItems() + unit.getAbilities()):
-		if item.getApCost() <= unit.getAp() && (item is BattleItem || item.getEnergyCost() <= unit.getEnergy() ):
-			availableItems.append(item)
-
-
-	var selectedItem: BaseItem = null
-	var selectedUnit: BaseUnit = null
-	var selectedPart: int = -1
-
-	for item in availableItems:
-		match(item.getType()):
-			ITEMTYPE.HP:
-				if unit.getHP()[BODYPARTS.BODY] < 0.5:
-					if selectedItem == null || selectedItem.getTier() < item.tier:
-						selectedItem = item
-						selectedUnit = unit
-						selectedPart = BODYPARTS.BODY
-
-				elif unit.getHP()[BODYPARTS.L_ARM] < 0.25:
-					if selectedItem == null || selectedItem.getTier() < item.tier:
-						selectedItem = item
-						selectedUnit = unit
-						selectedPart = BODYPARTS.L_ARM
-					
-				elif unit.getHP()[BODYPARTS.R_ARM] < 0.25:
-					if selectedItem == null || selectedItem.getTier() < item.tier:
-						selectedItem = item
-						selectedUnit = unit
-						selectedPart = BODYPARTS.R_ARM
-
-				elif unit.getHP()[BODYPARTS.LEGS] < 0.15:
-					if selectedItem == null || selectedItem.getTier() < item.tier:
-						selectedItem = item
-						selectedUnit = unit
-						selectedPart = BODYPARTS.LEGS
-				
-				else:
-					#use item on another unit
-					for a_unit in allyUnits:
-						if inRange(unit,a_unit,item.getRange(),grid,allyUnits):
-							if a_unit.getHP()[BODYPARTS.BODY] < 0.5:
-								if selectedItem == null || selectedItem.getTier() < item.tier:
-									selectedItem = item
-									selectedUnit = a_unit
-									selectedPart = BODYPARTS.BODY
-
-							elif a_unit.getHP()[BODYPARTS.L_ARM] < 0.25: 
-								if selectedItem == null || selectedItem.getTier() < item.tier:
-									selectedItem = item
-									selectedUnit = a_unit
-									selectedPart = BODYPARTS.L_ARM
-							
-							elif a_unit.getHP()[BODYPARTS.R_ARM] < 0.25:
-								if selectedItem == null || selectedItem.getTier() < item.tier:
-									selectedItem = item
-									selectedUnit = a_unit
-									selectedPart = BODYPARTS.R_ARM
-
-							elif a_unit.getHP()[BODYPARTS.LEGS] < 0.15:
-								if selectedItem == null || selectedItem.getTier() < item.tier:
-									selectedItem = item
-									selectedUnit = a_unit
-									selectedPart = BODYPARTS.LEGS
-
-				
-
-			ITEMTYPE.STATUS:
-				#need to implement status affects first
-				pass
-			
-			ITEMTYPE.ATTACK:
-				pass
-			
-	if selectedItem:
-		if selectedItem is Ability:
-			itemAbManager.useAbility(selectedItem,unit,selectedUnit)
-		else:
-			itemAbManager.useItem(selectedItem,unit,selectedUnit,selectedPart)
-
-		await itemAbManager.actionComplete
-		actionComplete_timeout(true,0.01)
-		return
-
-	actionComplete_timeout(false,0.01)
-
 
 func getAttackRange(unit:BaseUnit) -> int:
 	var wpnRange: int = 0
@@ -362,12 +272,6 @@ func getTurn(unit: BaseUnit, allyUnits: Array[Node],enemyUnits: Array[Node],grid
 		endTurn()
 		return
 	
-	#use item/ability
-	#if unit.getItems().size() > 0 || unit.getAbilities().size() > 0:
-	#	unitUseItem(unit,teamUnits,grid,itemAbManager)
-	#	if await actionTaken:
-	#		return
-		
 
 
 	#attack

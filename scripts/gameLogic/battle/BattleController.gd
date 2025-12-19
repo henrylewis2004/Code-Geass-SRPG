@@ -787,6 +787,7 @@ func nextTurn() -> void:
 
 	selectUnit(turnManager.getNextUnit())
 	unitTurn.unitApCharge()
+	unitTurn.unitEpCharge()
 	apCost.x = unitTurn.getAp()
 	
 	playerTurn = unitTurn.getTeam() == TEAM.PLAYER

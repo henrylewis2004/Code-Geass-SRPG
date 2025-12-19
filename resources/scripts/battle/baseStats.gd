@@ -10,7 +10,7 @@ func getAbsStat(stat: int) -> int:
 	return stats[stat]
 
 func getStat(stat:int) -> int:
-	return (stats[stat] - getStatStatusPower(stat) * 0.2 * stats[stat])
+	return (stats[stat] + getStatStatusPower(stat) * 0.2 * stats[stat])
 
 func getStatStatusList(stat:int) -> Array:
 	return status[stat]
@@ -20,7 +20,7 @@ func getStatStatusPower(stat:int) -> int:
 	for affect in status[stat]:
 		power += affect.getPower()
 
-	return power if power <= getMaxStatusPower() else maxStatusPower
+	return power if abs(power) <= getMaxStatusPower() else maxStatusPower * -1 if power < 0 else maxStatusPower * 1
 
 
 func getMaxStatusPower() -> int:

@@ -150,6 +150,11 @@ func getCollisionMask() -> int:
 func getCollider() -> Area3D:
 	return $PathFollow3D/unitCollider
 
+func getBodyPartDefenceType(bodyPart: int) -> int:
+	return bodyParts[bodyPart].getDefenceType()
+
+func missingArm() -> bool:
+	return bodyParts[BODYPARTS.R_ARM].isDestroyed() || bodyParts[BODYPARTS.L_ARM].isDestroyed()
 
 #weapons
 
@@ -234,6 +239,9 @@ func unitApCharge() -> void:
 func resetEnergy() -> void:
 	energy = stats.getStat(STATS.ENERGY)
 
+func unitEpCharge() -> void:
+	incEnergy(energyCharge)
+
 func incEnergy(val: int) -> void:
 	energy += val
 	if energy < 0:
@@ -248,8 +256,6 @@ func incAp(val: int) -> void:
 	if ap > stats.getStat(STATS.AP):
 		resetAp()
 
-func getBodyPartDefenceType(bodyPart: int) -> int:
-	return bodyParts[bodyPart].getDefenceType()
 
 func setBody(newBodyParts: Array[Node]) -> void:
 	bodyParts = newBodyParts
@@ -320,7 +326,7 @@ func attack(unit: BaseUnit) -> void:
 	#add movement - turn unit around etc
 
 	#accuracy
-	if weapon.isTwoHanded():
+	if weapon.isTwoHanded() && self.missingArm():
 		accuracy = accuracy / 2
 		
 
@@ -360,6 +366,7 @@ func attack(unit: BaseUnit) -> void:
 #engine utility
 func _ready():
 	resetAp()
+	resetEnergy()
 	setTeam(getTeam()) #sets collider for collisions
 	
 	if weapons.size() > 0:
