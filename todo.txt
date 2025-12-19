@@ -25,12 +25,14 @@ mechanics:
 
 	> unit stats
 		> actually do something lol?
+			> change attacking
+			> turn timer
 
-		> status affects
-			> affect turn order
-			> decrease curTime
+		> status affects x
+			> affect stats x
 
 	> abilities
+		> change ap to ep on unit card
 		> change word to sign (e.g. minus -> - )
 		> show tier
 		> ability goes straight to usage not selecting ability
@@ -69,6 +71,7 @@ mechanics:
 	> ai x
 		> can move x / attack x/ choose attack vector x
 		> items abilities - might cut
+		> need to double check
 
 	> death x
 		> unit kill x
