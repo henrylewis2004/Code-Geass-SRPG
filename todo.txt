@@ -1,4 +1,14 @@
 mechanics:
+
+	abilities
+	stats
+	unit selection (not turn unit)
+		> need to check when unitTurn is used instead of selected unit
+			> e.g. think game over uses unitTurn still
+
+
+
+	#####################
 	> ui
 		> status screen x
 			> show status screen	x
