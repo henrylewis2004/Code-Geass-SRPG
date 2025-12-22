@@ -68,15 +68,9 @@ func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit, targetPart
 		for bodyPart in targetUnit.getBodyparts():
 			bodyPart.hpCheck()
 
-	var statAffect: int 
-	match (ability.getID()): 		#stat to add status to
-		CATALOGUE.ABILITIES.MINUS_SPEED:
-			statAffect = STATS.AGILITY
 
-
-
-	if ability.isStatus():
-		targetUnit.getStats().addStatus(Status.new(ability.getTier(), statAffect,ability.getTimeAffect()))
+	if ability.addStatus():
+		targetUnit.getStats().addStatus(Status.new(ability.getTier(), ability.getStatAffect(),ability.getTimeAffect()))
 
 	unit.incAp(-ability.getApCost())
 	unit.incEnergy(-ability.getEnergyCost())

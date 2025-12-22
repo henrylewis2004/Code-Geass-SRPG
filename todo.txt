@@ -1,21 +1,30 @@
 mechanics:
+	
+	> display not enough ap for actions
+		> abilities x
+		> items
+		> movement x
+		> attack x
 
-	abilities
-		> apply status affects			x
-		> remove status				x
-		> dmg abilities				x
-			> already have methods in place for individual part selected
-			> can do anything
-			> im a literal genius 
-			> i love past henry
+	> display ap cost 
 
-				
+	> display status affect
+		> add colour to stat 
+			> red if less than base stat
+			> green if more
+
+	> check stater after snapToUnitPos()
+		> removed change state and show action menu and extension
+
+
+
 	unit selection (not turn unit)
-		> can't select enemy unit 
-			> means code is already in place wooh hooh
-		> need to check when unitTurn is used instead of selected unit
-			> e.g. think game over uses unitTurn still
-			> or statusscreen rather
+		> change state 			x
+
+
+		> set_unitOverlay		x
+		> select ally unit		x
+			> on cam movement	x
 
 
 
@@ -241,4 +250,8 @@ maybe done:
 
 		> status affects x
 			> affect stats x
+	abilities
+		> apply status affects			x
+		> remove status				x
+		> dmg abilities				x
 

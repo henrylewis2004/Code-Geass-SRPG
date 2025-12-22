@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx7goff65a2n4"]
+[gd_scene load_steps=8 format=3 uid="uid://cx7goff65a2n4"]
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_q0by3"]
 [ext_resource type="PackedScene" uid="uid://bm1sq66703pp4" path="res://scenes/game logic/battle/battleController.tscn" id="1_thuk5"]
@@ -8,6 +8,8 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dpb2t"]
 size = Vector2(1, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nbk5h"]
 
 [node name="TestBatLevel" type="Node3D"]
 script = ExtResource("1_q0by3")
@@ -56,16 +58,24 @@ char_name = "test6"
 full_name = "Lelouch Test3"
 status_charImg = ExtResource("4_nbk5h")
 factionName = "THE BLACK KNIGHTS"
-agilityStat = 4
-maxAp = 9
-apCharge = 8
-maxEnergy = 5
-energyCharge = 2
-iniativeStat = 10
-turnTimer = 5
+agilityStat = 1
+defenceStat = 2
+evasionStat = 3
+meleeStat = 4
+rangedStat = 5
+maxAp = 6
+apCharge = 7
+maxEnergy = 8
+energyCharge = 9
+luckStat = 10
+iniativeStat = 11
+turnTimer = 12
 
 [node name="TestUnit" parent="BattleController/battleUnits/playerUnits" index="1" instance=ExtResource("2_q0by3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8294127)
+full_name = "popo"
+status_charImg = SubResource("PlaceholderTexture2D_nbk5h")
+factionName = "pep"
 agilityStat = 2
 iniativeStat = 3
 turnTimer = 6

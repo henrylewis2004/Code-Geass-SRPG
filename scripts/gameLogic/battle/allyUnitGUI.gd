@@ -53,6 +53,10 @@ func showItem_actionBox(index: int, show: bool) -> void:
 	
 	item.set_visible(show)
 
+func showMoveOption(show: bool) -> void:
+	actionSelectMenu.get_node("VBoxContainer").get_node("MOVE").set_visible(show)
+
+
 #item and abilities
 func showUnitItems(items: Array[Node]) -> void:
 	hideItems()
@@ -177,4 +181,3 @@ func selectWeapon(index: int) -> void:
 	weaponList[0].modulate.a = 1
 	weaponList[index + 1 + 1 * int(index < 0)].modulate.a = 1
 	
-

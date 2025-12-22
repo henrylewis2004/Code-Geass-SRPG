@@ -49,8 +49,12 @@ var astarBoard: AStar2D
 var playerTurn: bool = true
 var unitPos: Array[Vector2]
 
+#units
 var unitTurn: BaseUnit = null
 var selectedEnemyUnit: BaseUnit = null
+#selection
+var selectedAllyUnit
+#activies 
 var selectedActivity: BaseItem = null
 var selectedActivityUnit: BaseUnit = null
 
@@ -86,7 +90,6 @@ func canCamMove() -> bool:
 		|| curState == STATE.UNIT_MOVEMENT_SELECTION 
 		|| curState == STATE.ATTACK_MOVEMENT 
 		|| curState == STATE.A_UNIT_ITEM_PREV 
-		|| curState == STATE.A_UNIT_ABILITY_PREV
 		)
 
 func canCamRot() -> bool:
@@ -103,7 +106,6 @@ func showPlayerUnit() -> bool :
 		|| curState == STATE.ATTACK_MOVEMENT 
 		|| curState == STATE.E_UNIT_SELECTED_ATTACK 
 		|| curState == STATE.A_UNIT_ITEM_PREV 
-		|| curState == STATE.A_UNIT_ABILITY_PREV
 		|| curState == STATE.A_UNIT_PART_SELECT
 		)
 
@@ -243,6 +245,7 @@ func unitTurnMoved() -> void:
 		playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,false)
 		return
 	curState = STATE.A_UNIT
+	playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
 	
 func moveUnit(unit: BaseUnit, mov_position: Vector2) -> void:
 	gridManager.setPosition_occupied(mov_position,unit.getGridPos())
@@ -314,18 +317,33 @@ func input() -> void:
 					match(unit.getTeam()):
 						TEAM.PLAYER: #player unit
 							#needs rework
-							playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
-							battleCam.snapToGridPos(unitTurn.getGridPos())
+							if unit == unitTurn:
+								playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
+								battleCam.snapToGridPos(unitTurn.getGridPos())
 
-							curState = STATE.A_UNIT
+								curState = STATE.A_UNIT
+
+							else:
+								curState = STATE.UNIT_MENU_ALLY
+								battleCam.snapToGridPos(unit.getGridPos())
+
+								#draw ui
+								statusScreen.showStatus(unit)
 
 						
 						TEAM.ENEMY: #add enemy units
-							print("enemy")
+							curState = STATE.UNIT_MENU_ENEMY
+							battleCam.snapToGridPos(unit.getGridPos())
+
+							#draw ui
+							statusScreen.showStatus(unit)
 
 						
 						TEAM.ALLY: #add ally units
-							print("ally")
+							curState = STATE.UNIT_MENU_ALLY
+
+							#draw ui
+							statusScreen.showStatus(unit)
 
 			STATE.UNIT_MOVEMENT_SELECTION:
 				var unit: BaseUnit = unitInteraction()
@@ -355,6 +373,7 @@ func input() -> void:
 						await unitTurn.movementFinished
 
 						updateUnitGridPos()
+						#probably dont need anymore
 						playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,false)
 						playerInput(unitTurn)
 
@@ -443,6 +462,20 @@ func input() -> void:
 				
 				playerUnitGui.showActionBox(unitTurn.getItems().size() > 0, unitTurn.getAbilities().size() > 0)
 				unitTurnMoved()
+
+			STATE.UNIT_MENU_ALLY:
+				statusScreen.hideStatus()
+				
+				#snapCamMoveToUnit(unitTurn)
+				#unitTurnMoved()
+				curState = STATE.CAM_MOVEMENT
+
+			STATE.UNIT_MENU_ENEMY:
+				statusScreen.hideStatus()
+
+			#	snapCamMoveToUnit(unitTurn)
+			#	unitTurnMoved()
+				curState = STATE.CAM_MOVEMENT
 
 			STATE.A_UNIT:
 				playerUnitGui.hideExpansion()
@@ -560,9 +593,9 @@ func input() -> void:
 
 	#status Screen
 	elif Input.is_action_just_released("nextUnit") || Input.is_action_just_released("previousUnit"):
-		match(curState):
-			STATE.UNIT_MENU_PLAYER:
-				statusScreen.goToNextPage(int(Input.is_action_just_released("nextUnit")) - int(Input.is_action_just_released("previousUnit")))
+	#	match(curState):
+	#		STATE.UNIT_MENU_PLAYER:
+		statusScreen.goToNextPage(int(Input.is_action_just_released("nextUnit")) - int(Input.is_action_just_released("previousUnit")))
 			
 	
 #player action menu selection
@@ -588,8 +621,9 @@ func _on_menu_select_item_selected(item):
 			curState = STATE.UNIT_MENU_PLAYER
 
 			#change to selectedunit
-			#statusScreen.updateAll(unitTurn)
+			statusScreen.updateAll(unitTurn)
 			statusScreen.showStatus(unitTurn)
+
 		"ITEMS":
 			curState = STATE.A_UNIT_MENU_ITEM
 			playerUnitGui.showUnitItems(unitTurn.getItems())
@@ -648,9 +682,6 @@ func snapCamMoveToUnit(unit: BaseUnit ) -> void:
 	
 	await battleCam.cinematicMoveFinished
 
-	curState = STATE.A_UNIT
-	playerUnitGui.showActionBox(unit.getItems().size() > 0, unit.getAbilities().size() > 0)
-	playerUnitGui.expand()
 
 
 func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
@@ -773,7 +804,7 @@ func endLevel(nextScene: bool) -> void:
 		
 func nextTurn() -> void:
 	gridManager.clearUnitSelectionTiles(unitSelectionTiles)
-	playerUnitGui.showItem_actionBox(ACTION_BOX_ITEM.MOVE,true)
+	playerUnitGui.showMoveOption(true)
 	
 	apCost = Vector2.INF 
 	selectedEnemyUnit = null
@@ -808,6 +839,7 @@ func nextTurn() -> void:
 	curState = STATE.NONE
 	if playerTurn:
 		curState = STATE.CAM_MOVEMENT
+		unitOriginPos = unitTurn.getGridPos()
 		
 		if unitTurn.getEquippedWeapon() == null:
 			unitTurn.equipAWeapon()
@@ -837,6 +869,7 @@ func endTurn() -> void:
 	if unitTurn != null:
 		#take unit time away
 		unitTurn.setTurnTimer(0) #need to change (placeholder)
+
 
 	nextTurn()
 	
@@ -874,4 +907,4 @@ func _physics_process(delta):
 		input()
 		
 	$ui/curState.text = "curState: " + str(STATE.find_key(curState))
-	
+

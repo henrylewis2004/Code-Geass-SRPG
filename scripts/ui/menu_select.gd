@@ -34,7 +34,7 @@ func _process(delta):
 			if menuParent.get_parent().name == "action": 
 				itemSelected.emit(getMenuItem(selectIndex).text)
 				
-			if menuParent.get_parent().name == "items" || menuParent.get_parent().name == "abilities" || menuParent.get_parent().name == "bodyPartSelect":
+			elif menuParent.get_parent().name == "items" || menuParent.get_parent().name == "abilities" || menuParent.get_parent().name == "bodyPartSelect":
 				if getMenuItem(selectIndex).name == "CANCEL" || getMenuItem(selectIndex).name == "no item":
 					battleItemSelected.emit(-1 - int(getMenuItem(selectIndex).name == "no item"), false)
 
@@ -102,7 +102,6 @@ func enable(enableSelection:bool) -> void:
 		
 func setMenu(node: Node) -> void:
 	menuParent = node
-
 
 
 func _on_input_timer_timeout():

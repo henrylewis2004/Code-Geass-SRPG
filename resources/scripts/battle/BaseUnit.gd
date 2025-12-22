@@ -416,6 +416,8 @@ func newTurn() -> void:
 	incAp()
 	stats.timeStatusAffect()
 
+	equipAWeapon()
+
 
 
 
@@ -424,9 +426,8 @@ func _ready():
 	resetAp()
 	resetEnergy()
 	setTeam(getTeam()) #sets collider for collisions
+	equipAWeapon()
 	
-	if weapons.size() > 0:
-		equippedWeapon = 0
 	
 	setGridPos(Vector2(position.x,position.z).floor())
 	set_process(false)
@@ -434,7 +435,6 @@ func _ready():
 	if not Engine.is_editor_hint():
 		curve = Curve3D.new()
 	
-	#turnTimer += randi() % agilityStat
 	
 	
 func _process(delta):

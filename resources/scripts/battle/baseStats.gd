@@ -1,5 +1,6 @@
 class_name Stats
 
+const maxStat: int = 99
 var stats: Array[int] 
 var status: Array[Array]
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
@@ -10,7 +11,7 @@ func getAbsStat(stat: int) -> int:
 	return stats[stat]
 
 func getStat(stat:int) -> int:
-	return (stats[stat] + getStatStatusPower(stat) * 0.2 * stats[stat])
+	return (stats[stat] + getStatStatusPower(stat) * 0.1 * stats[stat])
 
 func getStatStatusList(stat:int) -> Array:
 	return status[stat]
@@ -37,9 +38,10 @@ func cleanStatus() -> void:
 func timeStatusAffect(time: int = -1) -> void:
 	for s in status:
 		for i in range(s.size() - 1, -1, -1): #individual status affect
+
 			s[i].incTime(time)
 
-			if s[i].getTimeLeft < 0:
+			if s[i].getTimeLeft() < 0:
 				s.remove_at(i)
 
 			

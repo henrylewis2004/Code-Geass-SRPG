@@ -120,18 +120,19 @@ func updateInventory(items: Array[Node], abilities: Array[Node]) -> void: #need 
 
 func updateStats(stats: Stats, moveRange: int, curMoveRange: int) -> void: #need to implement
 	var statPageInfo := pages[PAGES.STATS].get_child(0)
+	print(statPageInfo.name)
 
 	for stat in STATS.size():
 
-		if statPageInfo.get_child(stat) is Control:
-			statPageInfo.get_child(stat).get_child(1).text = str(stats.getAbsStat(stat))
+		if statPageInfo.get_node("stat_values").get_child(stat) is Control:
+			statPageInfo.get_node("stat_values").get_child(stat).text = str(stats.getAbsStat(stat))
 
 			if stats.getStatStatusList(stat).size() > 0:
-				statPageInfo.get_child(stat).get_child(1).text += " (" + str(stats.getStat(stat)) + ")"
+				statPageInfo.get_node("stat_values").get_child(stat).text += " (" + str(stats.getStat(stat)) + ")"
 
-	statPageInfo.get_node("moveRangeLabelGroup").get_child(1).text = str(moveRange) 
+	statPageInfo.get_node("stat_values").get_node("move_range").text = str(moveRange) 
 	if curMoveRange != moveRange:
-		statPageInfo.get_node("moveRangeLabelGroup").get_child(1).text += " (" + str(curMoveRange) + ")"
+		statPageInfo.get_node("stat_values").get_node("move_range").text += " (" + str(curMoveRange) + ")"
 
 
 
