@@ -1,4 +1,8 @@
 mechanics:
+	> save room
+	> launch save
+		> write level to json
+		> load level
 	
 	> display not enough ap for actions
 		> abilities x
@@ -13,7 +17,7 @@ mechanics:
 			> red if less than base stat
 			> green if more
 
-	> check stater after snapToUnitPos()
+	> check state after snapToUnitPos()
 		> removed change state and show action menu and extension
 
 
