@@ -103,7 +103,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ggjlw")
-nextLevel_path = "res://scenes/levels/story scenes/testStoryScene.tscn"
+nextLevel_path = "res://scenes/levels/battle/testBatLevel.tscn"
 
 [node name="alt back" type="TextureRect" parent="."]
 layout_mode = 1

@@ -42,7 +42,6 @@ func gameOver(victory: bool) -> void:
 
 
 func input(input:String) -> void:
-	print(input)
 	match(input):
 		"exit":
 			get_tree().quit()
