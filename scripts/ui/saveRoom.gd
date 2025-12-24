@@ -81,9 +81,9 @@ func findUserInput() -> void:
 			child.queue_free()
 			break
 
-	self.get_node("usrSelection").get_node("SaveSelector").set_visible(false)
+	self.get_node("usrSelection/SaveSelector").set_visible(false)
 
-	menuSelect.setMenu(self.get_node("usrSelection").get_node("HBoxContainer"))
+	menuSelect.setMenu(self.get_node("usrSelection/HBoxContainer"))
 
 	menuSelect.itemSelected.disconnect(playerSaveSlotSelection)
 	menuSelect.itemSelected.connect(playerSelection)
@@ -94,7 +94,7 @@ func findUserInput() -> void:
 	state = STATES.MODE_SELECTION
 
 func userSaveSlot(times:Array[String],levels:Array[String],dates:Array[String]) -> void:
-	var saveSelector: Control = self.get_node("usrSelection").get_node("SaveSelector")
+	var saveSelector: Control = self.get_node("usrSelection/SaveSelector")
 	saveSelector.set_visible(true)
 	menuSelect.setMenu(saveSelector.get_node("HBoxContainer"))
 

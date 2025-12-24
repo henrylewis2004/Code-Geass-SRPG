@@ -81,6 +81,9 @@ func setIndex(index: int) -> void:
 		lastItem.add_theme_color_override("font_shadow_color",Color.BLACK)
 	
 	selectIndex = index
+
+func getIndex() -> int:
+	return selectIndex
 	
 func enableShadow(shadow: bool) -> void:
 	enabledShadow_text = shadow

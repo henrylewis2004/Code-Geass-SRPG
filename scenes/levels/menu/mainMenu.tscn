@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://q526mlaevq5s"]
+[gd_scene load_steps=15 format=3 uid="uid://q526mlaevq5s"]
 
 [ext_resource type="Script" uid="uid://xibhqan5dn56" path="res://scripts/ui/MainMenu.gd" id="1_ggjlw"]
 [ext_resource type="Texture2D" uid="uid://cirb7c66751iy" path="res://assets/2d/backgrounds/_menu/mainMenu/mainMenuBack.png" id="1_n6fww"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7ighpt60m4nm" path="res://scenes/game logic/menus/mainMenuBox.tscn" id="4_415kn"]
 [ext_resource type="FontFile" uid="uid://crpmyv2e2r4wr" path="res://assets/fonts/Xirod.otf" id="7_oi0l6"]
 [ext_resource type="AudioStream" uid="uid://bfolivrwigwtr" path="res://assets/sfx/music/codeGeassOst/Brain Game (loop).wav" id="8_7j7hv"]
+[ext_resource type="PackedScene" uid="uid://bfnudeqwvutge" path="res://scenes/game logic/menus/saveSelector.tscn" id="8_pdp2h"]
 
 [sub_resource type="Gradient" id="Gradient_ebtns"]
 offsets = PackedFloat32Array(0, 0.298701, 0.694805, 0.974026)
@@ -181,6 +182,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_pdp2h")
 }
 autoplay = "sceneTransition"
+
+[node name="SaveSelector" parent="." instance=ExtResource("8_pdp2h")]
+visible = false
+layout_mode = 0
 
 [connection signal="itemSelected" from="mainMenuBox/MenuSelect" to="." method="_on_menu_select_item_selected"]
 

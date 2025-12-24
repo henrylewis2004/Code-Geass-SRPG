@@ -5,11 +5,6 @@ mechanics:
 		> play intro again
 		> fullscreen
 		> credits
-	> load level				
-		> main menu
-		> select slot
-		> delete slot
-
 
 	> add reload level option
 		> user presses button to restart scene
