@@ -1,8 +1,19 @@
 mechanics:
-	> save room
-	> launch save
-		> write level to json
-		> load level
+	> setings menu
+		> sound 
+		> skip intro
+		> play intro again
+		> fullscreen
+		> credits
+	> load level				
+		> main menu
+		> select slot
+		> delete slot
+
+
+	> add reload level option
+		> user presses button to restart scene
+
 	
 	> display not enough ap for actions
 		> abilities x
@@ -62,37 +73,14 @@ mechanics:
 		> change ap to ep on unit card
 		> change word to sign (e.g. minus -> - )
 		> show tier
-		> BUG: ability goes straight to usage not selecting ability
-
-		> match ability id to status affect in ability manager class
-
-		> itemEndTurn function
-			> call when ending use item/ability in itemabman
-
-		> test:
-			> item gets used
-			> item gets removed
-			> ap removed
-			> energy removed
 
 
-	> select ally units to see status
 
 	> triggers flick between units
 
 	> attack
 		> find correct dmg output
-		> use stats				x
-			> crit rate
-			> evasion
-			> defence
-			> attack stat
-
-			> typing
-
-			> status affects
 		> keep unit cards on screen ?? maybe not lol
-
 
 	> ai x
 		> can move x / attack x/ choose attack vector x
@@ -110,8 +98,6 @@ mechanics:
 				> make victory / defeat screen x
 				> some animations
 				> music
-			> next level x
-			> reset level x
 
 
 	> chess minigame?

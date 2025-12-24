@@ -8,4 +8,3 @@
 [node name="LevelManager" parent="." instance=ExtResource("1_ty8y3")]
 
 [node name="IntroVideo" parent="LevelManager" instance=ExtResource("2_xnrmx")]
-nextLevel_path = "res://scenes/levels/battle/testBatLevel.tscn"

@@ -87,7 +87,7 @@ func parseJson(path: String) -> Variant:
 			print("Unexpected Data")
 
 	else:
-		print("JSON Parse Error: ", json.get_error_message(), " in ", dialog_script_path)
+		print("JSON Parse Error: ", json.get_error_message(), " in ", path)
 		
 	return null
 

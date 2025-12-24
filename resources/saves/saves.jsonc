@@ -1,0 +1,35 @@
+{
+	"slot1":{
+		"name": "test",
+		"curLevel": "test2",
+		"date-of-save": "test3",
+		/*
+		"unit stats": {
+
+
+		}
+		*/
+	},
+	"slot2":{
+		"name": "",
+		"curLevel": "",
+		"date-of-save": "",
+		/*
+		"unit stats": {
+
+
+		}
+		*/
+	},
+	"slot3":{
+		"name": "",
+		"curLevel": "",
+		"date-of-save": "",
+		/*
+		"unit stats": {
+
+
+		}
+		*/
+	},
+}

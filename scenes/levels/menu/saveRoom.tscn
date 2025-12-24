@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://hdkp2qeavmtl"]
+
+[ext_resource type="Texture2D" uid="uid://ba3qy8oxii033" path="res://assets/2d/ui/saveRoom.png" id="1_dpy7s"]
+[ext_resource type="Script" uid="uid://cwf5mek2kig44" path="res://scripts/ui/saveRoom.gd" id="1_m24oa"]
+[ext_resource type="PackedScene" uid="uid://8xe7hp6cm3de" path="res://scenes/game logic/menus/MenuItem.tscn" id="2_vqqnc"]
+[ext_resource type="PackedScene" uid="uid://dvtl2v8c3w6bg" path="res://scenes/game logic/menus/MenuSelect.tscn" id="3_m24oa"]
+[ext_resource type="PackedScene" uid="uid://bfnudeqwvutge" path="res://scenes/game logic/menus/saveSelector.tscn" id="5_dl7cl"]
+
+[node name="SaveRoom" type="Node2D"]
+script = ExtResource("1_m24oa")
+
+[node name="back" type="Sprite2D" parent="."]
+texture = ExtResource("1_dpy7s")
+centered = false
+
+[node name="usrSelection" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="usrSelection"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 179.0
+offset_right = 529.0
+offset_bottom = 266.0
+theme_override_constants/separation = 100
+
+[node name="continue" parent="usrSelection/HBoxContainer" instance=ExtResource("2_vqqnc")]
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="save" parent="usrSelection/HBoxContainer" instance=ExtResource("2_vqqnc")]
+layout_mode = 2
+text = "SAVE"
+
+[node name="exit" parent="usrSelection/HBoxContainer" instance=ExtResource("2_vqqnc")]
+layout_mode = 2
+text = "EXIT"
+
+[node name="MenuSelect" parent="usrSelection" node_paths=PackedStringArray("menuParent") instance=ExtResource("3_m24oa")]
+layout_mode = 1
+menuParent = NodePath("../HBoxContainer")
+
+[node name="SaveSelector" parent="usrSelection" instance=ExtResource("5_dl7cl")]
+layout_mode = 0
+
+[connection signal="itemSelected" from="usrSelection/MenuSelect" to="." method="playerSelection"]

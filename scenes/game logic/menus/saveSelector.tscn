@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfnudeqwvutge"]
+
+[ext_resource type="PackedScene" uid="uid://8xe7hp6cm3de" path="res://scenes/game logic/menus/MenuItem.tscn" id="1_y4w4q"]
+
+[node name="SaveSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="slot1" parent="HBoxContainer" instance=ExtResource("1_y4w4q")]
+layout_mode = 2
+text = "SLOT 1
+(empty)"
+
+[node name="slot2" parent="HBoxContainer" instance=ExtResource("1_y4w4q")]
+layout_mode = 2
+text = "SLOT 2
+hen"
+
+[node name="slot3" parent="HBoxContainer" instance=ExtResource("1_y4w4q")]
+layout_mode = 2
+text = "SLOT 3
+big chalskda"
