@@ -15,6 +15,9 @@ var enabled: bool = false
 @export var enabledShadow_text: bool = false
 
 #methods
+func getMenuParentName() -> String:
+	return menuParent.get_parent().name
+
 func _process(delta):
 	var input: Vector2 = Vector2.ZERO
 

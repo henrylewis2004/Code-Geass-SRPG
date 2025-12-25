@@ -148,9 +148,9 @@ texture = ExtResource("2_ggjlw")
 [node name="mainMenuBox" parent="." instance=ExtResource("4_415kn")]
 visible = false
 layout_mode = 1
-offset_top = 129.0
+offset_top = 165.0
 offset_right = 393.12
-offset_bottom = 129.07
+offset_bottom = 165.07
 
 [node name="MenuSelect" parent="mainMenuBox" index="0"]
 enabledShadow_text = true

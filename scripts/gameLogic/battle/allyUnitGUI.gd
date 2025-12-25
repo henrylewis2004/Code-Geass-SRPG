@@ -26,6 +26,14 @@ const modulateValue : float = 0.5
 const menuItemSize : int = 13
 const partSelect_Xpos: Vector2 = Vector2(7,365)
 
+
+#
+func getMenuSelect() -> MenuSelect:
+	return menuSelect
+
+func getMenuSelectIndex() -> int:
+	return menuSelect.getIndex()
+
 #action box
 func hideActionBox() -> void:
 	actionSelectMenu.set_visible(false)

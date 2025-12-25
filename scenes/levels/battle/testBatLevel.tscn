@@ -71,6 +71,9 @@ luckStat = 10
 iniativeStat = 11
 turnTimer = 12
 
+[node name="R arm" parent="BattleController/battleUnits/playerUnits/TestUnit2s/bodyparts" index="0"]
+destroyed = true
+
 [node name="TestUnit" parent="BattleController/battleUnits/playerUnits" index="1" instance=ExtResource("2_q0by3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8294127)
 full_name = "popo"
@@ -108,6 +111,7 @@ visible = true
 [connection signal="sceneOver" from="BattleController" to="." method="sceneOver_emit"]
 
 [editable path="BattleController"]
+[editable path="BattleController/battleUnits/playerUnits/TestUnit2s"]
 [editable path="BattleController/ui/AllyUnitGui"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox/action/VBoxContainer/topLabel"]

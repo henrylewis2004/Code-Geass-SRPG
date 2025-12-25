@@ -45,10 +45,6 @@ text = "CONTINUE"
 layout_mode = 2
 text = "LOAD GAME"
 
-[node name="CONFIG" parent="action/VBoxContainer" instance=ExtResource("2_vyqgy")]
-layout_mode = 2
-text = "CONFIG"
-
 [node name="EXIT" parent="action/VBoxContainer" instance=ExtResource("2_vyqgy")]
 layout_mode = 2
 text = "EXIT"

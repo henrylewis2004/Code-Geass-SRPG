@@ -176,7 +176,7 @@ func unitOverlayAttack() -> void:
 		drawManager.drawAccText(primaryUnit_ui.position,targetUnit_ui.position,text, Color.RED,drawManager.defaultTextPos)
 		
 func unitOverlayItem() -> void:
-	if curState == STATE.A_UNIT_ITEM:
+	if curState == STATE.A_UNIT_ITEM || curState == STATE.A_UNIT_PART_SELECT:
 		var text: String = activity_ui.getName()
 		if primaryUnit_ui.getAp() < activity_ui.getApCost(): text = "NO AP"
 		if itemAbMan.itemDistUse(primaryUnit_ui.getGridPos(),targetUnit_ui.getGridPos()) > activity_ui.getRange(): text = "OUT OF\nRANGE"
@@ -309,6 +309,9 @@ func wpnSelection(input: int,unit:BaseUnit = unitTurn,noCounter:bool = false) ->
 	
 #handles player input
 func input() -> void:
+	if Input.is_action_just_pressed("reload_level"):
+		resetScene.emit()
+
 	if Input.is_action_just_pressed("accept"):
 		match (curState):
 			STATE.CAM_MOVEMENT:
@@ -436,6 +439,10 @@ func input() -> void:
 						
 
 					drawManager.drawLosLine(unitTurn.position,unit.position,colour,drawManager.defaultLinePos)
+
+###
+
+		########
 					
 					battleCam.snapToGridPos(unit.getGridPos())
 					gridManager.clearUnitSelectionTiles(unitSelectionTiles)
@@ -907,4 +914,3 @@ func _physics_process(delta):
 		input()
 		
 	$ui/curState.text = "curState: " + str(STATE.find_key(curState))
-

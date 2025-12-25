@@ -1,42 +1,15 @@
 mechanics:
-	> setings menu
-		> sound 
-		> skip intro
-		> play intro again
-		> fullscreen
-		> credits
-
-	> add reload level option
-		> user presses button to restart scene
-
-	
-	> display not enough ap for actions
-		> abilities x
-		> items
-		> movement x
-		> attack x
-
-	> display ap cost 
-
-	> display status affect
-		> add colour to stat 
-			> red if less than base stat
-			> green if more
-
-	> check state after snapToUnitPos()
-		> removed change state and show action menu and extension
-
-
-
-	unit selection (not turn unit)
-		> change state 			x
-
-
-		> set_unitOverlay		x
-		> select ally unit		x
-			> on cam movement	x
-
-
+	> status screen
+		> show unit typings
+			> weapon
+			> armour
+		> show current status affects
+			> image of status on status screen with stats
+				> logo for if stat affected
+					> reuse for positive and negative affect
+			> add colour to stat 
+				> red if less than base stat
+				> green if more
 
 	#####################
 	> ui
@@ -94,6 +67,8 @@ mechanics:
 				> some animations
 				> music
 
+	> check state after snapToUnitPos()
+		> removed change state and show action menu and extension
 
 	> chess minigame?
 		> move aorund grid x
@@ -240,3 +215,16 @@ maybe done:
 		> remove status				x
 		> dmg abilities				x
 
+	unit selection (not turn unit)
+		> change state 			x
+
+
+		> set_unitOverlay		x
+		> select ally unit		x
+			> on cam movement	x
+
+	> display not enough ap for actions
+		> abilities x
+		> items	  x
+		> movement x
+		> attack x
