@@ -1,5 +1,9 @@
 mechanics:
+
 	> status screen
+		> bug if no weapon equipped
+			> crashes
+			> add no wpeaon option
 		> show unit typings
 			> weapon
 			> armour
