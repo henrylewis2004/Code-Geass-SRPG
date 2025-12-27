@@ -113,6 +113,8 @@ func loadLevel(levelPath: String,level:Level = curLevel) -> void:
 
 	add_child(curLevel)
 	connectScene(curLevel)
+
+	curLevel.start()
 	
 func nextLevel() -> void:
 	var nextLevelPath: String = curLevel.getNextLevelPath()
@@ -123,4 +125,4 @@ func nextLevel() -> void:
 #engine
 func _ready():
 	connectScene(curLevel)
-	saveMan.getRecentSaveSlot()
+	#saveMan.getRecentSaveSlot()

@@ -4,8 +4,6 @@ signal playNextLine
 signal playNextStage
 signal endDialoge
 
-@export var playOnStart: bool = true
-
 #dialog text
 @export var dialog_script_path: String
 var textData: Variant
@@ -32,6 +30,7 @@ const blinkTimerSpeed: float = 3
 
 #scene dictionaries
 var sceneImages: Dictionary = {}
+var backImages: Dictionary = {}
 var audioDictionary: Dictionary = {}
 
 
@@ -40,13 +39,18 @@ var facePlacement : FacePlacement = FacePlacement.new()
 
 @onready var charImg_body: Sprite2D = $base/Control/charImg_bod
 @onready var charImg_face: Sprite2D = $base/Control/charImg_face
+@onready var backgroundImg: Sprite2D = $base/Control/background
 
 const body_anim_hFrames: int = 100
 const body_anim_vFrames: int = 200
 
 const faceHeight: int = 18
 const faceWidth: int = 32
+
+
 #methods
+func getScriptPath() -> String:
+	return dialog_script_path
 
 #helper functions
 func getCharImg(charName: String, emotion: String) -> Array:
@@ -59,6 +63,11 @@ func getCharImg(charName: String, emotion: String) -> Array:
 	resultArray.append(texture)
 
 	return resultArray
+
+func getBackImg(backgroundImgDir: String) -> CompressedTexture2D:
+	var texture: CompressedTexture2D = load("res://assets/2d/backgrounds/" + backgroundImgDir + ".png")
+	return texture
+
 
 
 func getMusicFile(name: String) -> AudioStreamWAV:
@@ -103,7 +112,12 @@ func getSceneScript(path:String = dialog_script_path) -> void:
 		for emotion in textData["character_dictionary"][character]:
 			var image: Array = getCharImg(character,emotion)
 			sceneImages[character][emotion] = image
-			
+	
+	backImages = {}
+
+	for background in textData["background_dictionary"]:
+		backImages[background] = getBackImg(textData["background_dictionary"][background])
+
 	audioDictionary = {}
 
 	#need to implement
@@ -129,6 +143,10 @@ func createScene(sceneInfo: Array) -> void:
 func playStage(stageInfo: Dictionary) -> void:
 	stageFinished = false
 	$base.set_visible(true)
+
+	if stageInfo["background"] != null && stageInfo["background"] != "":
+		backgroundImg.texture = backImages[stageInfo["background"]]
+
 	
 	if stageInfo["animation"] != null:
 		animPlayer.play(stageInfo["animation"])
@@ -222,6 +240,9 @@ func updateCharImg(bodyTexture: CompressedTexture2D, faceTexture: CompressedText
 	charImg_face.hframes = bodyTexture.get_width() / body_anim_hFrames
 	charImg_face.vframes = bodyTexture.get_height() / body_anim_vFrames
 	charImg_face.frame = 0
+
+func play(scriptPath: String = dialog_script_path) -> void:
+	getSceneScript(scriptPath)
 	
 #engine
 func input() -> void:
@@ -236,15 +257,10 @@ func input() -> void:
 
 func _ready():
 	set_process(false)
-	if playOnStart:
-		getSceneScript()
 
 
 func _process(delta):
 	input()
-
-
-
 
 func _on_blink_timer_timeout():
 	if charImg_face.frame >=2:

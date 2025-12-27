@@ -1,8 +1,8 @@
 class_name BattleUnitGui extends Control
 
 #enum
-var enumBodyParts := load("res://resources/scripts/enumClasses/ENUMbodyparts.gd")
-var BODYPARTS = enumBodyParts.BODYPARTS
+const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
+const TYPES := preload("res://resources/scripts/enumClasses/ENUMtypes.gd").TYPES
 
 #base
 @onready var baseTop = $base
@@ -17,9 +17,26 @@ var BODYPARTS = enumBodyParts.BODYPARTS
 @onready var expandTop := $expand
 @onready var expandWeaponInfo_dmg := $expand/weaponInfo_dmg
 @onready var expandWeaponInfo_range := $expand/weaponInfo_range
+@onready var expandWeaponInfo_Img := $expand/weaponImg
+@onready var expandWeaponInfo_Type := $expand/weaponTypeImg
+
+const typeImages: Dictionary = {
+	"Impact": preload("res://assets/2d/ui/types/impactA.png"),
+	"Penetration": preload("res://assets/2d/ui/types/penetrationA.png"),
+	"Fire": preload("res://assets/2d/ui/types/fireA.png")}
 
 
 #methods
+func getWeaponTypeImg(type: int) -> Texture:
+	match(type):
+		TYPES.IMPACT:
+			return typeImages["Impact"]
+		TYPES.PENETRATION:
+			return typeImages["Penetration"]
+		TYPES.FIRE:
+			return typeImages["Fire"]
+
+	return null
 #base
 func updateCharInfo(name: String, ap: int, characterImage: Texture) -> void:
 	base_characterImage.texture = characterImage 
@@ -56,12 +73,22 @@ func expand() -> void:
 	expandTop.set_visible(true)
 	
 func setExpansionInfo(equippedWeapon: Weapon) -> void:
+	expandWeaponInfo_Type.set_visible(true)
+
 	if equippedWeapon != null:
 		expandWeaponInfo_dmg.text = "DMG: " + str(equippedWeapon.getDmg()) +" x " + str(equippedWeapon.getRounds())
 		expandWeaponInfo_range.text = "RANGE: " + str(equippedWeapon.getRange())
 
 		#update weapon image
+		expandWeaponInfo_Type.texture = getWeaponTypeImg(equippedWeapon.getAttackType())
+		expandWeaponInfo_Img.texture = equippedWeapon.getWpnImage()
+		
+
 		
 	else:
 		expandWeaponInfo_dmg.text = "NO WEAPON"
 		expandWeaponInfo_range.text = "EQUIPPED"
+
+		#update weapon image
+		expandWeaponInfo_Type.set_visible(false)
+		#

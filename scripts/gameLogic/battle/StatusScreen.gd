@@ -2,6 +2,7 @@ class_name UnitStatusScreen extends Control
 
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
+const TYPES := preload("res://resources/scripts/enumClasses/ENUMtypes.gd").TYPES
 enum PAGES{
 	HP,
 	WEAPONS,
@@ -11,6 +12,11 @@ enum PAGES{
 
 const transparencyValue: Color = Color(1,1,1,0.5) # needs changing
 const maxItems: = 3 #max items to display on inventory screen
+
+const typeImages: Dictionary = {
+	"Impact": [preload("res://assets/2d/ui/types/impactA.png"),	preload("res://assets/2d/ui/types/impactD.png")],
+	"Penetration": [preload("res://assets/2d/ui/types/penetrationA.png"),preload("res://assets/2d/ui/types/penetrationD.png")], 
+	"Fire": [preload("res://assets/2d/ui/types/fireA.png"),preload("res://assets/2d/ui/types/fireD.png")]}
 
 @export var weaponTypeImg: Array[PlaceholderTexture2D] = []
 
@@ -27,6 +33,21 @@ const maxItems: = 3 #max items to display on inventory screen
 
 var curPage: int = defaultPage
 
+
+######
+func getTypeImage(type:int, isAttack: bool) -> Texture:
+	match (type):
+		TYPES.IMPACT:
+			return typeImages["Impact"][int(!isAttack)]
+		TYPES.PENETRATION:
+			return typeImages["Penetration"][int(!isAttack)]
+		TYPES.FIRE:
+			return typeImages["Fire"][int(!isAttack)]
+
+	#error
+	print("no type match??, getTypeImage, statusScreen")
+	return null
+	
 
 func goToDefaultPage() -> void:
 	goToPage(defaultPage)
@@ -67,7 +88,7 @@ func updateTop(name: String, apTotal: int, ap: int,epTotal: int, ep: int, factio
 	topFactionName.text = factionName
 	topCharImg.texture = charImg
 
-func updateHPData(hpRatios: Array[float],hpValues: Array[int]) -> void:
+func updateHPData(hpRatios: Array[float],hpValues: Array[int], bodyPartTypeImg: Dictionary) -> void:
 	#update hp bars
 	var hpBars := pages[PAGES.HP].get_child(0).get_child(1).get_children()
 	
@@ -83,15 +104,38 @@ func updateHPData(hpRatios: Array[float],hpValues: Array[int]) -> void:
 	hpNumbers[2].text = str(hpValues[BODYPARTS.R_ARM]) + "/" + str(int(hpValues[BODYPARTS.R_ARM] / (hpRatios[BODYPARTS.R_ARM] * 0.01)))
 	hpNumbers[3].text = str(hpValues[BODYPARTS.LEGS]) + "/" + str(int(hpValues[BODYPARTS.LEGS] / (hpRatios[BODYPARTS.LEGS] * 0.01)))
 
-func updateWeaponData(equippedWeapon: Weapon) -> void:
-	var wpnInfo := pages[PAGES.WEAPONS].get_child(0)
+	## body part types
+	var hpTypes := pages[PAGES.HP].get_node("hpBox/armour types")
 
-	wpnInfo.get_child(0).texture = equippedWeapon.getWpnImage()
-	wpnInfo.get_child(1).text = equippedWeapon.getName() #might change to full name
-	wpnInfo.get_child(2).get_child(1).text = str(equippedWeapon.getDmg()) + "x" + str(equippedWeapon.getRounds()) + " HIT"
-	wpnInfo.get_child(3).get_child(1).text = str(equippedWeapon.getRange()) + " TILES"
-	wpnInfo.get_child(4).get_child(1).text = str(equippedWeapon.getAccuracy()) + "%"
-	wpnInfo.get_child(5).get_child(1).text = str(equippedWeapon.getApCost()) + " AP"
+	hpTypes.get_node("body").texture = bodyPartTypeImg["body"]
+	hpTypes.get_node("larm").texture = bodyPartTypeImg["larm"]
+	hpTypes.get_node("rarm").texture = bodyPartTypeImg["rarm"]
+	hpTypes.get_node("legs").texture = bodyPartTypeImg["legs"]
+
+
+
+
+func updateWeaponData(equippedWeapon: Weapon) -> void:
+	var wpnInfo := pages[PAGES.WEAPONS].get_node("weaponInfo")
+	wpnInfo.get_node("typeImg").set_visible(true)
+
+	if equippedWeapon == null:
+	#	wpnInfo.get_node("weaponImg").texture = equippedWeapon.getWpnImage() #no weapon image
+		wpnInfo.get_node("wpnNameLabel").text = "No Weapon Equipped" #might change to full name
+		wpnInfo.get_node("dmgLabelGroup/dmgLabel").text = "No Weapon Equipped" #might change to full name
+		wpnInfo.get_node("rangeLabelGroup/rangeLabel").text = "No Weapon Equipped" #might change to full name
+		wpnInfo.get_node("hitLabelGroup/hitLabel").text = "No Weapon Equipped" #might change to full name
+		wpnInfo.get_node("apLabelGroup/apLabel").text = "No Weapon Equipped" #might change to full name
+		wpnInfo.get_node("typeImg").set_visible(false)
+		return
+
+	wpnInfo.get_node("weaponImg").texture = equippedWeapon.getWpnImage()
+	wpnInfo.get_node("typeImg").texture = getTypeImage(equippedWeapon.getAttackType(),true)
+	wpnInfo.get_node("wpnNameLabel").text = equippedWeapon.getName() #might change to full name
+	wpnInfo.get_node("dmgLabelGroup/dmgLabel").text = str(equippedWeapon.getDmg()) + "x" + str(equippedWeapon.getRounds()) + " HIT"
+	wpnInfo.get_node("rangeLabelGroup/rangeLabel").text = str(equippedWeapon.getRange()) + " TILES"
+	wpnInfo.get_node("hitLabelGroup/hitLabel").text = str(equippedWeapon.getAccuracy()) + "%"
+	wpnInfo.get_node("apLabelGroup/apLabel").text = str(equippedWeapon.getApCost()) + " AP"
 
 func updateInventory(items: Array[Node], abilities: Array[Node]) -> void: #need to implement
 	var invPage := pages[PAGES.INVENTORY].get_child(0)
@@ -138,7 +182,14 @@ func updateStats(stats: Stats, moveRange: int, curMoveRange: int) -> void: #need
 
 func updateAll(unit: BaseUnit) -> void:
 	updateTop(unit.getFullName(),unit.getStat(STATS.AP),unit.getAp(),unit.getStat(STATS.ENERGY),unit.getEnergy(),unit.getFactionName(),unit.getStatusImg())
-	updateHPData(unit.getHP(),unit.getAbsHP())
+	var bodyPartTypes := {
+		"body": getTypeImage(unit.getBodyparts()[BODYPARTS.BODY].getDefenceType(),false),
+		"larm": getTypeImage(unit.getBodyparts()[BODYPARTS.L_ARM].getDefenceType(),false),
+		"rarm": getTypeImage(unit.getBodyparts()[BODYPARTS.R_ARM].getDefenceType(),false),
+		"legs": getTypeImage(unit.getBodyparts()[BODYPARTS.LEGS].getDefenceType(),false),
+		}
+
+	updateHPData(unit.getHP(),unit.getAbsHP(),bodyPartTypes)
 	updateWeaponData(unit.getEquippedWeapon())
 	updateInventory(unit.getItems(),unit.getAbilities())
 	updateStats(unit.getStats(),unit.getAbsMoveRange(), unit.getMoveRange())

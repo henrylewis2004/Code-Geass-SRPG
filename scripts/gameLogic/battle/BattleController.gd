@@ -560,7 +560,8 @@ func input() -> void:
 			
 			STATE.E_UNIT_SELECTED_ATTACK:
 				curState = STATE.ATTACK_MOVEMENT
-				gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
+				if unitTurn.getEquippedWeapon() != null:
+					gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
 				
 				set_unitOverlay(null,null,null)
 				
@@ -892,6 +893,9 @@ func updateOccupiedMapGrid() -> void:
 		gridManager.setPosition_occupied(unit.getGridPos())
 	
 
+func startLevel() -> void:
+	nextTurn()
+
 #engine operation
 func _ready():
 	gridManager.init(mapSize,collisionWalls)
@@ -902,8 +906,6 @@ func _ready():
 	
 	updateOccupiedMapGrid()
 	
-	nextTurn()
-	updateUnitGridPos()
 
 
 func _physics_process(delta):

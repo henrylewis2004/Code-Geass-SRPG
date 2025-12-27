@@ -9,9 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://drid2hopqya6a" path="res://assets/2d/ui/playerHp.png" id="4_jkcvu"]
 [ext_resource type="FontFile" uid="uid://ksxp5agk3ixw" path="res://assets/fonts/Silver.ttf" id="7_bbc5g"]
 [ext_resource type="Texture2D" uid="uid://x61wqiu3snrh" path="res://assets/2d/ui/gunTest.png" id="8_wl34q"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bbc5g"]
-size = Vector2(10, 10)
+[ext_resource type="Texture2D" uid="uid://g4oam35fokgt" path="res://assets/2d/ui/types/fireD.png" id="9_nr411"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wl34q"]
 size = Vector2(15, 15)
@@ -152,7 +150,6 @@ text = "STATS"
 horizontal_alignment = 1
 
 [node name="page1" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -242,6 +239,7 @@ texture_under = ExtResource("3_djq6a")
 texture_progress = ExtResource("4_jkcvu")
 
 [node name="hpNumbers" type="VBoxContainer" parent="page1/hpBox"]
+layout_direction = 2
 layout_mode = 0
 offset_left = 118.0
 offset_top = -16.0
@@ -283,23 +281,23 @@ offset_left = 162.0
 offset_top = -18.0
 offset_right = 180.0
 offset_bottom = 49.0
-theme_override_constants/separation = 9
+theme_override_constants/separation = 4
 
 [node name="body" type="TextureRect" parent="page1/hpBox/armour types"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_bbc5g")
+texture = ExtResource("9_nr411")
 
 [node name="larm" type="TextureRect" parent="page1/hpBox/armour types"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_bbc5g")
+texture = ExtResource("9_nr411")
 
 [node name="rarm" type="TextureRect" parent="page1/hpBox/armour types"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_bbc5g")
+texture = ExtResource("9_nr411")
 
 [node name="legs" type="TextureRect" parent="page1/hpBox/armour types"]
 layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_bbc5g")
+texture = ExtResource("9_nr411")
 
 [node name="page2" type="Control" parent="."]
 visible = false
@@ -415,7 +413,7 @@ text = "HIT CHANCE:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="rangeLabel" type="Label" parent="page2/weaponInfo/hitLabelGroup"]
+[node name="hitLabel" type="Label" parent="page2/weaponInfo/hitLabelGroup"]
 layout_mode = 0
 offset_left = 83.0
 offset_top = 7.0
@@ -445,7 +443,7 @@ text = "AP COST:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="rangeLabel" type="Label" parent="page2/weaponInfo/apLabelGroup"]
+[node name="apLabel" type="Label" parent="page2/weaponInfo/apLabelGroup"]
 layout_mode = 0
 offset_left = 83.0
 offset_top = 7.0
@@ -527,6 +525,7 @@ theme_override_fonts/font = ExtResource("7_bbc5g")
 theme_override_font_sizes/font_size = 20
 
 [node name="page4" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 55.0
 offset_top = 100.0

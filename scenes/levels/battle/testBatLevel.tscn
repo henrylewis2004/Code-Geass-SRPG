@@ -71,8 +71,11 @@ luckStat = 10
 iniativeStat = 11
 turnTimer = 12
 
-[node name="R arm" parent="BattleController/battleUnits/playerUnits/TestUnit2s/bodyparts" index="0"]
-destroyed = true
+[node name="MgGun" parent="BattleController/battleUnits/playerUnits/TestUnit2s/weapons" index="0"]
+attackType = 1
+
+[node name="Smg" parent="BattleController/battleUnits/playerUnits/TestUnit2s/weapons" index="1"]
+attackType = 2
 
 [node name="TestUnit" parent="BattleController/battleUnits/playerUnits" index="1" instance=ExtResource("2_q0by3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8294127)

@@ -95,7 +95,7 @@ _data = {
 &"start_modulate": SubResource("Animation_oi0l6")
 }
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("animPlayer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,6 +104,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ggjlw")
 nextLevel_path = "res://scenes/levels/battle/testBatLevel.tscn"
+animPlayer = NodePath("AnimationPlayer")
 
 [node name="alt back" type="TextureRect" parent="."]
 layout_mode = 1

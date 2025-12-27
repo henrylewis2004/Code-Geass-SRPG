@@ -8,7 +8,6 @@ signal refreshSaveSlots(level: MainMenu)
 @onready var menuSelect: MenuSelect = $mainMenuBox/MenuSelect
 #@onready var confirmationBox := preload("res://scenes/game logic/menus/Confirmation Window.tscn")
 const confirmationBox := preload("res://scenes/game logic/menus/Confirmation Window.tscn")
-@onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
 #state
 enum STATES{INIT,MENU_OPTION,LOAD_SCREEN,CONFIG_SCREEN,CONFIRM}

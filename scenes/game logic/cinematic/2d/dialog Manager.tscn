@@ -1,11 +1,59 @@
-[gd_scene load_steps=11 format=3 uid="uid://c72usmbnrmjv2"]
+[gd_scene load_steps=12 format=3 uid="uid://c72usmbnrmjv2"]
 
 [ext_resource type="Script" uid="uid://b0ny6js34ybnr" path="res://scripts/gameLogic/story/DialogManager.gd" id="1_m7hsp"]
+[ext_resource type="Texture2D" uid="uid://d02lq83myk2s3" path="res://assets/2d/backgrounds/area11/chess_area_exit.png" id="2_dxjdx"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="2_i8sy6"]
 [ext_resource type="Texture2D" uid="uid://c6vkbe27id7v3" path="res://assets/2d/characters/story/lelouch/body/lelouch_thinking.png" id="2_prlsa"]
 [ext_resource type="FontFile" uid="uid://dp40uiq2ohbvd" path="res://assets/fonts/INVASION2000.TTF" id="3_achk7"]
 [ext_resource type="Texture2D" uid="uid://dsnfgpk8fub6m" path="res://assets/2d/characters/story/lelouch/face/lelouch_thinking.png" id="3_dxjdx"]
 [ext_resource type="FontFile" uid="uid://ksxp5agk3ixw" path="res://assets/fonts/Silver.ttf" id="5_ummlq"]
+
+[sub_resource type="Animation" id="Animation_prlsa"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("base/textBox/nextIcon:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("base/textBox/nextIcon:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("base/textBox/nextIcon:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("base/textBox/nextIcon:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_dxjdx"]
 resource_name = "icon_flash"
@@ -56,53 +104,6 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.8, 1.6)
 }
 
-[sub_resource type="Animation" id="Animation_prlsa"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("base/textBox/nextIcon:modulate:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.2, 0, 0.2, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("base/textBox/nextIcon:modulate:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.2, 0, 0.2, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("base/textBox/nextIcon:modulate:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.2, 0, 0.2, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("base/textBox/nextIcon:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.2, 0, 0.2, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vfj3u"]
 _data = {
 &"RESET": SubResource("Animation_prlsa"),
@@ -118,7 +119,6 @@ anchors_preset = 0
 script = ExtResource("1_m7hsp")
 
 [node name="base" type="Control" parent="."]
-layout_mode = 3
 anchors_preset = 0
 offset_top = 191.0
 offset_right = 480.0
@@ -128,6 +128,11 @@ offset_bottom = 254.0
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="background" type="Sprite2D" parent="base/Control"]
+position = Vector2(0, -191)
+texture = ExtResource("2_dxjdx")
+centered = false
 
 [node name="charImg_bod" type="Sprite2D" parent="base/Control"]
 position = Vector2(99, -21)

@@ -1,25 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw5vovwhqud8j"]
+[gd_scene load_steps=6 format=3 uid="uid://bw5vovwhqud8j"]
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_k8cr2"]
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="2_1c8ue"]
 [ext_resource type="PackedScene" uid="uid://cxtggmsl78ela" path="res://scenes/cinematic scenes/characters-sprites/lelouch_school.tscn" id="3_jfugj"]
-[ext_resource type="Texture2D" uid="uid://d02lq83myk2s3" path="res://assets/2d/backgrounds/area11/chess_area_exit.png" id="4_v632q"]
-
-[sub_resource type="Animation" id="Animation_nmv0h"]
-resource_name = "levelIntro"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 0.5),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_vu8dv"]
 resource_name = "testAnim"
@@ -50,7 +33,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vu8dv"]
 _data = {
-&"levelIntro": SubResource("Animation_nmv0h"),
 &"testAnim": SubResource("Animation_vu8dv")
 }
 
@@ -58,7 +40,6 @@ _data = {
 script = ExtResource("1_k8cr2")
 
 [node name="baseStoryScene" parent="." instance=ExtResource("2_1c8ue")]
-modulate = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" parent="baseStoryScene" index="0"]
 libraries = {
@@ -66,12 +47,9 @@ libraries = {
 }
 
 [node name="LelouchSchool" parent="baseStoryScene/characterSprites" index="0" instance=ExtResource("3_jfugj")]
-position = Vector2(232, 123)
+position = Vector2(444, 71)
 scale = Vector2(2, 2)
 flip_h = true
-
-[node name="background" parent="baseStoryScene" index="2"]
-texture = ExtResource("4_v632q")
 
 [node name="DialogManager" parent="baseStoryScene" index="3"]
 dialog_script_path = "res://resources/story dialog scripts/testLevel_script.json"

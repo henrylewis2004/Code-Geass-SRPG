@@ -14,6 +14,11 @@ signal gameOverFinished(victory: bool) #true goto next scene, false reset scene
 
 const textLoc: Array[Vector2] = [Vector2(4,1),Vector2(255,15)]
 
+###
+func playScript(scriptPath:String=dialogMan.getScriptPath()) -> void:
+
+	dialogMan.play(scriptPath)
+
 
 func gameOver(victory: bool) -> void:
 
@@ -44,6 +49,7 @@ func gameOver(victory: bool) -> void:
 func input(input:String) -> void:
 	match(input):
 		"exit":
+			get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 			get_tree().quit()
 			return
 

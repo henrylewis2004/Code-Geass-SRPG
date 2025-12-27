@@ -5,6 +5,10 @@
             "thinking"
         ]
     },
+
+    "background_dictionary":{
+        "chess_area_exit":"area11/chess_area_exit",
+    },
     
 
     "music_dictionary":{
@@ -22,6 +26,7 @@
     "scene":[
         {
             "animation":"levelIntro",
+	    "background": "chess_area_exit",
 
             "lines":[
                 {
@@ -37,6 +42,7 @@
         },
         {
             "animation":null,
+	    "background": "chess_area_exit",
 
             "lines":[
                 {
@@ -52,6 +58,7 @@
 
         {
             "animation":null,
+	    "background": "chess_area_exit",
 
             "lines":[
                 {
