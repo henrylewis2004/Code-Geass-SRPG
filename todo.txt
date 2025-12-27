@@ -1,7 +1,6 @@
 mechanics:
-
-
-
+	> tilemap for level
+	> loading screen
 
 	> status screen
 		> show current status affects

@@ -5,7 +5,7 @@
 
 [node name="IntroVideo" type="Node"]
 script = ExtResource("1_af3m2")
-nextLevel_path = "res://scenes/levels/menu/mainMenu.tscn"
+nextLevel_path = "res://scenes/levels/story scenes/story1.tscn"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 offset_right = 852.0

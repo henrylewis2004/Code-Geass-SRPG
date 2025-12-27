@@ -6,8 +6,8 @@ signal sceneTransitionOver
 
 @export var nextLevel_path: String
 @export var sceneTran: bool
-@export var dialogPath: String
 @export var dialogOnStart: bool
+@export var dialogPath: String
 @export var goToSaveRoom: bool = false
 
 @export var dialogPlayer: DialogManager
@@ -17,6 +17,7 @@ signal sceneTransitionOver
 func start() -> void:
 	if sceneTran:
 		playSceneTransition()
+		await sceneTransitionOver
 
 	if self.get_node("BattleController") != null:
 		if dialogOnStart:
@@ -25,7 +26,7 @@ func start() -> void:
 			battleLevelStart()
 			return
 
-	if dialogOnStart:
+	if dialogOnStart && dialogPlayer != null:
 		if dialogPath != "" || dialogPath != null:
 			dialogPlayer.play(dialogPath)
 			return
@@ -36,7 +37,7 @@ func battleLevelStart() -> void:
 
 func playSceneTransition() -> void:
 	animPlayer.play("animIntro")
-	await animPlayer.animatinoFinished
+	await animPlayer.animation_finished
 	sceneTransitionOver.emit()
 
 

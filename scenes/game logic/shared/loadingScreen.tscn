@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://djrvarijrlv6r"]
+
+[ext_resource type="Texture2D" uid="uid://ba3qy8oxii033" path="res://assets/2d/ui/saveRoom.png" id="1_nbljg"]
+[ext_resource type="Texture2D" uid="uid://drid2hopqya6a" path="res://assets/2d/ui/playerHp.png" id="2_5l37v"]
+[ext_resource type="FontFile" uid="uid://dp40uiq2ohbvd" path="res://assets/fonts/INVASION2000.TTF" id="3_8ynml"]
+
+[sub_resource type="Animation" id="Animation_5l37v"]
+resource_name = "loading"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("progressbar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(22, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_8ynml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("progressbar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(22, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ynml"]
+_data = {
+&"RESET": SubResource("Animation_8ynml"),
+&"loading": SubResource("Animation_5l37v")
+}
+
+[node name="LoadingScreen" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("1_nbljg")
+centered = false
+
+[node name="progressbar" type="Sprite2D" parent="."]
+position = Vector2(55.000004, 228)
+scale = Vector2(22, 1.5)
+texture = ExtResource("2_5l37v")
+centered = false
+
+[node name="loadingLabel" type="Label" parent="."]
+offset_top = 235.0
+offset_right = 480.0
+offset_bottom = 258.0
+theme_override_fonts/font = ExtResource("3_8ynml")
+text = "LOADING..."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8ynml")
+}
+autoplay = "loading"

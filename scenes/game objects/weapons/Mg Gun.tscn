@@ -11,3 +11,4 @@ rounds = 3
 apCost = 2
 range = 4
 fireRate = 0.1
+attackType = 1

@@ -97,8 +97,9 @@ func saveSlot(slot:int) -> void:
 ###
 func loadLevel(levelPath: String,level:Level = curLevel) -> void:
 	var saveRoom: bool = level.toSaveRoom()
+	var previousLevel := get_children()
 
-	for child in get_children():
+	for child in previousLevel:
 		remove_child(child)
 		child.queue_free()
 		

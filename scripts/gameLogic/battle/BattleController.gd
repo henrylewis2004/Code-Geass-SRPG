@@ -98,6 +98,14 @@ func canCamRot() -> bool:
 		|| curState == STATE.BATTLE
 		)
 
+#weapon selection
+func showWeaponSelection() -> bool:
+	return !(
+		curState == STATE.UNIT_MENU_PLAYER 
+		|| curState == STATE.UNIT_MENU_ENEMY 
+		|| curState == STATE.UNIT_MENU_ALLY
+		)
+
 #unit overlay
 func showPlayerUnit() -> bool :
 	return (
@@ -109,26 +117,33 @@ func showPlayerUnit() -> bool :
 		|| curState == STATE.A_UNIT_PART_SELECT
 		)
 
+func showUnitOverlay() -> bool :
+	return !( 
+		curState == STATE.UNIT_MENU_PLAYER 
+		|| curState == STATE.UNIT_MENU_ENEMY 
+		|| curState == STATE.UNIT_MENU_ALLY
+		)
 
 func unitOverlay() -> void:
 	var camPos: Vector2 = battleCam.getGridPos()
 	playerUnitGui.hideBase()
 	enemyUnitGui.hideBase()
 	
-	for pos in range(unitPos.size()):
-		if unitPos[pos] == camPos:
-			if pos < playerUnits.size():
-				selectUnitOverlay(playerUnits[pos], TEAM.PLAYER)
-				break
-				
+	if showUnitOverlay():
+		for pos in range(unitPos.size()):
+			if unitPos[pos] == camPos:
+				if pos < playerUnits.size():
+					selectUnitOverlay(playerUnits[pos], TEAM.PLAYER)
+					break
+					
 
-			elif pos < playerUnits.size() + enemyUnits.size():
-				selectUnitOverlay(enemyUnits[pos - playerUnits.size()], TEAM.ENEMY)
-				break 
-			
-			else:
-				selectUnitOverlay(allyUnits[pos - playerUnits.size() - enemyUnits.size()], TEAM.ALLY)
-				break 
+				elif pos < playerUnits.size() + enemyUnits.size():
+					selectUnitOverlay(enemyUnits[pos - playerUnits.size()], TEAM.ENEMY)
+					break 
+				
+				else:
+					selectUnitOverlay(allyUnits[pos - playerUnits.size() - enemyUnits.size()], TEAM.ALLY)
+					break 
 			
 
 	if showPlayerUnit():
@@ -463,6 +478,7 @@ func input() -> void:
 			STATE.CAM_MOVEMENT:
 				snapCamMoveToUnit(unitTurn)
 				playerInput(unitTurn)
+				curState = STATE.A_UNIT
 				
 			STATE.UNIT_MENU_PLAYER:
 				statusScreen.hideStatus()
@@ -580,12 +596,13 @@ func input() -> void:
 		
 	#weapon selection - need to add gui
 	elif Input.is_action_pressed("weaponSelection"):
-		if Input.is_action_just_pressed("weaponSelection"):
-			playerUnitGui.updateWeaponSelect(unitTurn.getWeapons(),unitTurn.getEquippedWeaponIndex())
+		if showWeaponSelection():
+			if Input.is_action_just_pressed("weaponSelection"):
+				playerUnitGui.updateWeaponSelect(unitTurn.getWeapons(),unitTurn.getEquippedWeaponIndex())
 
 
-		if Input.is_action_just_pressed("down") || Input.is_action_just_pressed("up"):
-			wpnSelection(Input.get_axis("up","down"))
+			if Input.is_action_just_pressed("down") || Input.is_action_just_pressed("up"):
+				wpnSelection(Input.get_axis("up","down"))
 
 	elif curState == STATE.E_UNIT_ATTACK_WPN_SELECTION:
 		if Input.is_action_just_pressed("down") || Input.is_action_just_pressed("up"):

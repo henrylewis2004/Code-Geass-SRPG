@@ -75,6 +75,15 @@ func getAliveBodyparts() -> Array[Node]:
 	return partArr
 
 
+func getBodyPartDefences() -> Dictionary:
+	return {
+		"body": self.getBodyparts()[BODYPARTS.BODY].getDefenceType(),
+		"larm": self.getBodyparts()[BODYPARTS.L_ARM].getDefenceType(),
+		"rarm": self.getBodyparts()[BODYPARTS.R_ARM].getDefenceType(),
+		"legs": self.getBodyparts()[BODYPARTS.LEGS].getDefenceType(),
+		}
+
+
 func isDestroyed() -> bool:
 	return getBodyparts()[BODYPARTS.BODY].isDestroyed()
 
@@ -177,16 +186,16 @@ func getWeapons() -> Array[Node]:
 	return weapons
 
 func setEquippedWeapon(weapon: int) -> void:
-	if weapon > 0 && weapon < weapons.size():
+	if weapon >= 0 && weapon < weapons.size():
 		equippedWeapon = weapon
 		return
 	
 	equippedWeapon = -1
 	
 func equipAWeapon() -> void:
-	for weapon in range(0,weapons.size() - 1):
+	for weapon in range(0,weapons.size()):
 		if !weapons[weapon].getEquipPart().isDestroyed():
-			setEquippedWeapon(weapon + 1)
+			setEquippedWeapon(weapon)
 			return
 	
 func setEquippedWeapon_fromWeapon(weapon: Weapon) -> void:
@@ -352,7 +361,7 @@ func attack(unit: BaseUnit) -> void:
 		accuracy = accuracy / 2
 		
 
-	if unit.getBodyparts()[BODYPARTS.BODY].getHp() >= 0:
+	if !unit.isDestroyed():
 		ap -= weapon.apCost
 
 		var crit: bool =  randi() % 101 < getStat(STATS.LUCK) / 4 + 2.5
@@ -367,9 +376,9 @@ func attack(unit: BaseUnit) -> void:
 
 				if hitRoll <= accuracy + getAttackHitMissOffset(self.getWeaponStatHitAffect(getEquippedWeapon().getAttackStat()),unit.getStat(STATS.EVASION)) || crit:
 					#which bodypart is hit
-					var bodyPartHit: int = randi() % 4
+					var bodyPartHit: int = randi() % unit.getBodyparts().size()
 					while unit.getBodyparts()[bodyPartHit].isDestroyed():
-						bodyPartHit = randi() % 4			
+						bodyPartHit = randi() % unit.getBodyparts().size()		
 
 					#base dmgmod
 					var dmgMod: float = 1.0

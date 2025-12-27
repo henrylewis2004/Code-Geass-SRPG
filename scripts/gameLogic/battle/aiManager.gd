@@ -267,7 +267,7 @@ func getTurn(unit: BaseUnit, allyUnits: Array[Node],enemyUnits: Array[Node],grid
 		if a_unit != unit:
 			teamUnits.append(a_unit)
 	
-	if unit.getBodyparts()[BODYPARTS.L_ARM].isDestroyed() && unit.getBodyparts()[BODYPARTS.R_ARM].isDestroyed():
+	if unit.getBodyparts().size() > 1 && (unit.getBodyparts()[BODYPARTS.L_ARM].isDestroyed() && unit.getBodyparts()[BODYPARTS.R_ARM].isDestroyed()):
 		#do nothing
 		endTurn()
 		return

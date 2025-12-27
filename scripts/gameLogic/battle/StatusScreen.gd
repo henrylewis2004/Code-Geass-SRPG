@@ -89,29 +89,67 @@ func updateTop(name: String, apTotal: int, ap: int,epTotal: int, ep: int, factio
 	topCharImg.texture = charImg
 
 func updateHPData(hpRatios: Array[float],hpValues: Array[int], bodyPartTypeImg: Dictionary) -> void:
-	#update hp bars
 	var hpBars := pages[PAGES.HP].get_child(0).get_child(1).get_children()
-	
-	hpBars[0].value = hpRatios[BODYPARTS.BODY]
-	hpBars[1].value = hpRatios[BODYPARTS.L_ARM]
-	hpBars[2].value = hpRatios[BODYPARTS.R_ARM]
-	hpBars[3].value = hpRatios[BODYPARTS.LEGS]
-
 	var hpNumbers := pages[PAGES.HP].get_child(0).get_child(2).get_children()
-
-	hpNumbers[0].text = str(hpValues[BODYPARTS.BODY]) + "/" + str(int(hpValues[BODYPARTS.BODY] / (hpRatios[BODYPARTS.BODY] * 0.01)))
-	hpNumbers[1].text = str(hpValues[BODYPARTS.L_ARM]) + "/" + str(int(hpValues[BODYPARTS.L_ARM] / (hpRatios[BODYPARTS.L_ARM] * 0.01)))
-	hpNumbers[2].text = str(hpValues[BODYPARTS.R_ARM]) + "/" + str(int(hpValues[BODYPARTS.R_ARM] / (hpRatios[BODYPARTS.R_ARM] * 0.01)))
-	hpNumbers[3].text = str(hpValues[BODYPARTS.LEGS]) + "/" + str(int(hpValues[BODYPARTS.LEGS] / (hpRatios[BODYPARTS.LEGS] * 0.01)))
-
-	## body part types
 	var hpTypes := pages[PAGES.HP].get_node("hpBox/armour types")
+	var hpTitles := pages[PAGES.HP].get_node("hpBox/titles")
 
-	hpTypes.get_node("body").texture = bodyPartTypeImg["body"]
-	hpTypes.get_node("larm").texture = bodyPartTypeImg["larm"]
-	hpTypes.get_node("rarm").texture = bodyPartTypeImg["rarm"]
-	hpTypes.get_node("legs").texture = bodyPartTypeImg["legs"]
+	if hpValues.size() > 1:
+		for bar in hpBars:
+			bar.set_visible(true)
 
+		for number in hpNumbers:
+			number.set_visible(true)
+
+		for type in hpTypes.get_children():
+			type.set_visible(true)
+
+		for title in hpTitles.get_children():
+			title.set_visible(true)
+
+		#update hp bars
+		hpBars[0].value = hpRatios[BODYPARTS.BODY]
+		hpBars[1].value = hpRatios[BODYPARTS.L_ARM]
+		hpBars[2].value = hpRatios[BODYPARTS.R_ARM]
+		hpBars[3].value = hpRatios[BODYPARTS.LEGS]
+
+		#hp numbers
+		hpNumbers[0].text = str(hpValues[BODYPARTS.BODY]) + "/" + str(int(hpValues[BODYPARTS.BODY] / (hpRatios[BODYPARTS.BODY] * 0.01)))
+		hpNumbers[1].text = str(hpValues[BODYPARTS.L_ARM]) + "/" + str(int(hpValues[BODYPARTS.L_ARM] / (hpRatios[BODYPARTS.L_ARM] * 0.01)))
+		hpNumbers[2].text = str(hpValues[BODYPARTS.R_ARM]) + "/" + str(int(hpValues[BODYPARTS.R_ARM] / (hpRatios[BODYPARTS.R_ARM] * 0.01)))
+		hpNumbers[3].text = str(hpValues[BODYPARTS.LEGS]) + "/" + str(int(hpValues[BODYPARTS.LEGS] / (hpRatios[BODYPARTS.LEGS] * 0.01)))
+
+		## body part types
+
+		hpTypes.get_node("body").texture = bodyPartTypeImg["body"]
+		hpTypes.get_node("larm").texture = bodyPartTypeImg["larm"]
+		hpTypes.get_node("rarm").texture = bodyPartTypeImg["rarm"]
+		hpTypes.get_node("legs").texture = bodyPartTypeImg["legs"]
+
+	else:
+		for bar in hpBars:
+			bar.set_visible(false)
+
+		for number in hpNumbers:
+			number.set_visible(false)
+
+		for type in hpTypes.get_children():
+			type.set_visible(false)
+
+		for title in hpTitles.get_children():
+			title.set_visible(false)
+
+		#update hp bars
+		hpBars[0].value = hpRatios[0]
+		hpBars[0].set_visible(true)
+		#hp numbers
+		hpNumbers[0].text = str(hpValues[0]) + "/" + str(int(hpValues[0] / (hpRatios[0] * 0.01)))
+		hpNumbers[0].set_visible(true)
+		## body part types
+		hpTypes.get_node("body").texture = bodyPartTypeImg["body"]
+		hpTypes.get_node("body").set_visible(true)
+		#hp titles
+		hpTitles.get_node("body").set_visible(true)
 
 
 
@@ -148,18 +186,19 @@ func updateInventory(items: Array[Node], abilities: Array[Node]) -> void: #need 
 		itemsList.text = ""
 		for item in range(min(items.size(),maxItems)):
 			itemsList.text += tabIndent + items[item].getName() + (str(items[item].getTier()) if items[item].getTier() > 1 else "") + "\n" 
+
 	else:
-		invPage.get_node("items").get_child(0).text += "\n" + tabIndent + "NO ITEMS"
+		invPage.get_node("items/itemsList").text = tabIndent + "NO ITEMS"
 
 	if abilities.size() > 0:
-		var itemsList := invPage.get_node("abilities").get_child(1)
-		invPage.get_node("abilities").get_child(0).text = "ABILITIES:" 
+		var itemsList := invPage.get_node("abilities/abilitiesList")
+		invPage.get_node("abilities/abilitiesTitle").text = "ABILITIES:" 
 
 		itemsList.text = ""
 		for item in range(min(abilities.size(),maxItems)):
 			itemsList.text += tabIndent + abilities[item].getName() + (str(abilities[item].getTier()) if abilities[item].getTier() > 1 else "") + "\n"
 	else:
-		invPage.get_node("items").get_child(0).text += "\n" + tabIndent + "NO ABILITIES"
+		invPage.get_node("abilities/abilitiesList").text = tabIndent + "NO ABILITIES"
 
 
 func updateStats(stats: Stats, moveRange: int, curMoveRange: int) -> void: #need to implement
@@ -182,14 +221,13 @@ func updateStats(stats: Stats, moveRange: int, curMoveRange: int) -> void: #need
 
 func updateAll(unit: BaseUnit) -> void:
 	updateTop(unit.getFullName(),unit.getStat(STATS.AP),unit.getAp(),unit.getStat(STATS.ENERGY),unit.getEnergy(),unit.getFactionName(),unit.getStatusImg())
-	var bodyPartTypes := {
-		"body": getTypeImage(unit.getBodyparts()[BODYPARTS.BODY].getDefenceType(),false),
-		"larm": getTypeImage(unit.getBodyparts()[BODYPARTS.L_ARM].getDefenceType(),false),
-		"rarm": getTypeImage(unit.getBodyparts()[BODYPARTS.R_ARM].getDefenceType(),false),
-		"legs": getTypeImage(unit.getBodyparts()[BODYPARTS.LEGS].getDefenceType(),false),
-		}
+	var bodyPartTypes := unit.getBodyPartDefences()
+	var bodyPartTypesImg := {} 
+	for part in bodyPartTypes:
+		bodyPartTypesImg[part] = getTypeImage(bodyPartTypes[part], false)
 
-	updateHPData(unit.getHP(),unit.getAbsHP(),bodyPartTypes)
+
+	updateHPData(unit.getHP(),unit.getAbsHP(),bodyPartTypesImg)
 	updateWeaponData(unit.getEquippedWeapon())
 	updateInventory(unit.getItems(),unit.getAbilities())
 	updateStats(unit.getStats(),unit.getAbsMoveRange(), unit.getMoveRange())

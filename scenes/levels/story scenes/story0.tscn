@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cginmpwneoceu"]
+[gd_scene load_steps=3 format=3 uid="uid://cginmpwneoceu"]
 
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="1_cxci4"]
+[ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_i05wj"]
 
-[node name="Story0" type="Node"]
+[node name="Story0" type="Node" node_paths=PackedStringArray("dialogPlayer", "animPlayer")]
+script = ExtResource("1_i05wj")
+nextLevel_path = "res://scenes/levels/cinematic videos/intro Video.tscn"
+sceneTran = true
+dialogOnStart = true
+dialogPath = "res://resources/story dialog scripts/storyLevels/storyLevel01.json"
+dialogPlayer = NodePath("baseStoryScene/DialogManager")
+animPlayer = NodePath("baseStoryScene/AnimationPlayer")
 
 [node name="baseStoryScene" parent="." instance=ExtResource("1_cxci4")]
 

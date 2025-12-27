@@ -44,15 +44,25 @@ func updateCharInfo(name: String, ap: int, characterImage: Texture) -> void:
 	base_ap.text = "AP: " + str(ap)
 
 
-func updateBodyParts(bodyhp: float, lArmhp: float, rArmhp: float, legsHp: float) -> void:
+func updateBodyParts_Body(bodyhp: float) -> void:
 	bodyPartsHp[BODYPARTS.BODY].value = bodyhp
+	for bodyPart in bodyPartsHp:
+		bodyPart.set_visible(false)
+	bodyPartsHp[BODYPARTS.BODY].set_visible(true)
+
+func updateBodyParts(bodyhp: float, lArmhp: float, rArmhp: float, legsHp: float) -> void:
 	bodyPartsHp[BODYPARTS.L_ARM].value = lArmhp
 	bodyPartsHp[BODYPARTS.R_ARM].value = rArmhp
 	bodyPartsHp[BODYPARTS.LEGS].value = legsHp
+
+	for bodyPart in bodyPartsHp:
+		bodyPart.set_visible(true)
 	
 func updateBase(name: String, ap: int, characterImage: Texture, hp: Array[float]) -> void:
 	updateCharInfo(name, ap, characterImage)
-	updateBodyParts(hp[BODYPARTS.BODY],hp[BODYPARTS.L_ARM],hp[BODYPARTS.R_ARM],hp[BODYPARTS.LEGS])
+	updateBodyParts_Body(hp[0] if hp.size() == 1 else hp[BODYPARTS.BODY])
+	if hp.size() > 1:
+		updateBodyParts(hp[BODYPARTS.BODY],hp[BODYPARTS.L_ARM],hp[BODYPARTS.R_ARM],hp[BODYPARTS.LEGS])
 
 func hideBase() -> void:
 	baseTop.set_visible(false)
