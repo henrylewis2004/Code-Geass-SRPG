@@ -1,55 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://dly5daisvnqrg"]
+[gd_scene load_steps=6 format=3 uid="uid://dly5daisvnqrg"]
 
+[ext_resource type="Texture2D" uid="uid://b7uqbq5sqlxkp" path="res://assets/2d/backgrounds/black.png" id="1_7btpv"]
 [ext_resource type="PackedScene" uid="uid://c72usmbnrmjv2" path="res://scenes/game logic/cinematic/2d/dialog Manager.tscn" id="1_ky7s1"]
 
-[sub_resource type="Animation" id="Animation_ky7s1"]
+[sub_resource type="Animation" id="Animation_7btpv"]
 resource_name = "animIntro"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("back:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_7btpv"]
+[sub_resource type="Animation" id="Animation_23etq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("back:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_23etq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0kvn"]
 _data = {
-&"RESET": SubResource("Animation_7btpv"),
-&"animIntro": SubResource("Animation_ky7s1")
+&"RESET": SubResource("Animation_23etq"),
+&"animIntro": SubResource("Animation_7btpv")
 }
 
 [node name="baseStoryScene" type="Node2D"]
+metadata/_edit_vertical_guides_ = [63.0]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_23etq")
+&"": SubResource("AnimationLibrary_o0kvn")
 }
 
-[node name="characterSprites" type="Node2D" parent="."]
+[node name="back" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 20
+texture = ExtResource("1_7btpv")
+centered = false
+
+[node name="animCharacterSprites" type="Node2D" parent="."]
 z_index = 5
 
-[node name="DialogManager" parent="." instance=ExtResource("1_ky7s1")]
+[node name="DialogManager" parent="." node_paths=PackedStringArray("animPlayer") instance=ExtResource("1_ky7s1")]
+animPlayer = NodePath("../AnimationPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(240, 135)

@@ -1,7 +1,9 @@
 class_name LevelManager extends Node
 
 const saveRoomScene := preload("res://scenes/levels/menu/saveRoom.tscn")
-@onready var curLevel : Level = get_child(0)
+@onready var loadingScreen := $LoadingScreen
+
+@onready var curLevel : Level = get_child(1)
 var saveMan: SaveManager = SaveManager.new()
 
 func connectScene(scene:Level) -> void:
@@ -13,6 +15,8 @@ func connectScene(scene:Level) -> void:
 		scene.loadSlot.connect(loadSaveSlot)
 		scene.refreshSaveSlots.connect(updateMenuSlot)
 		scene.deleteSlot.connect(deleteSlot)
+
+	curLevel.start()
 
 func resetLevel() -> void:
 	var curLevelPath := curLevel.scene_file_path
@@ -99,23 +103,31 @@ func loadLevel(levelPath: String,level:Level = curLevel) -> void:
 	var saveRoom: bool = level.toSaveRoom()
 	var previousLevel := get_children()
 
+	curLevel = load(levelPath).instantiate() if !saveRoom else saveRoomScene.instantiate() 
+	
+	if curLevel.loadingScreen:
+		loadingScreen.set_visible(true)
+		loadingScreen.get_node("AnimationPlayer").play("loading")
+
 	for child in previousLevel:
-		remove_child(child)
-		child.queue_free()
+		if child != loadingScreen:
+			remove_child(child)
+			child.queue_free()
 		
 	if saveRoom:
-		curLevel= saveRoomScene.instantiate()
 		curLevel.setNextLevel(levelPath)
 		curLevel.exitToMenu.connect(goToMenu)
 		curLevel.saveChosen.connect(findSaveSlot)
 
-	else:
-		curLevel = load(levelPath).instantiate()
+	if curLevel.loadingScreen && loadingScreen.get_node("AnimationPlayer").is_playing():
+		await loadingScreen.get_node("AnimationPlayer").animation_finished
+		loadingScreen.set_visible(false)
 
 	add_child(curLevel)
 	connectScene(curLevel)
 
-	curLevel.start()
+
+
 	
 func nextLevel() -> void:
 	var nextLevelPath: String = curLevel.getNextLevelPath()

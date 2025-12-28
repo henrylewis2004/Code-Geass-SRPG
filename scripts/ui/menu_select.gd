@@ -66,7 +66,7 @@ func setIndex(index: int) -> void:
 		return 
 	
 	if menuItem.visible == false:
-		setIndex(index + (index - selectIndex))
+		setIndex(index + 1 if index > 0 else index - 1)
 		return
 	
 	

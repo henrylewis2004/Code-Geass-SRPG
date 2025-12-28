@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://c72usmbnrmjv2"]
+[gd_scene load_steps=11 format=3 uid="uid://c72usmbnrmjv2"]
 
 [ext_resource type="Script" uid="uid://b0ny6js34ybnr" path="res://scripts/gameLogic/story/DialogManager.gd" id="1_m7hsp"]
-[ext_resource type="Texture2D" uid="uid://d02lq83myk2s3" path="res://assets/2d/backgrounds/area11/chess_area_exit.png" id="2_dxjdx"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="2_i8sy6"]
 [ext_resource type="Texture2D" uid="uid://c6vkbe27id7v3" path="res://assets/2d/characters/story/lelouch/body/lelouch_thinking.png" id="2_prlsa"]
 [ext_resource type="FontFile" uid="uid://dp40uiq2ohbvd" path="res://assets/fonts/INVASION2000.TTF" id="3_achk7"]
@@ -53,6 +52,18 @@ tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.2, 0, 0.2, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("base/Control:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_dxjdx"]
@@ -129,11 +140,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="background" type="Sprite2D" parent="base/Control"]
-position = Vector2(0, -191)
-texture = ExtResource("2_dxjdx")
-centered = false
-
 [node name="charImg_bod" type="Sprite2D" parent="base/Control"]
 position = Vector2(99, -21)
 texture = ExtResource("2_prlsa")
@@ -204,6 +210,10 @@ offset_bottom = 61.0
 theme_override_fonts/font = ExtResource("5_ummlq")
 theme_override_font_sizes/font_size = 30
 text = ">"
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -1
+centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

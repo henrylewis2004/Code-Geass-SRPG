@@ -18,6 +18,7 @@ var curState: int = STATES.INIT
 @onready var startButtonText: Label = $startButton
 
 @onready var saveSelector: Control = $SaveSelector
+@export var animPlayer: AnimationPlayer
 
 ## confirmation box
 func confirm(topLabelText: String) -> ConfirmationWindow:

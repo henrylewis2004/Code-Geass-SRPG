@@ -18,7 +18,7 @@ var stageFinished: bool = false
 @onready var sfxPlayer : AudioStreamPlayer = $sfx
 
 #animation
-@onready var animPlayer : AnimationPlayer = get_parent().get_node("AnimationPlayer")
+@export var animPlayer : AnimationPlayer 
 
 #textBox
 @onready var textBox_name: RichTextLabel = $base/textBox/nameLabel
@@ -39,7 +39,7 @@ var facePlacement : FacePlacement = FacePlacement.new()
 
 @onready var charImg_body: Sprite2D = $base/Control/charImg_bod
 @onready var charImg_face: Sprite2D = $base/Control/charImg_face
-@onready var backgroundImg: Sprite2D = $base/Control/background
+@onready var backgroundImg: Sprite2D = $background
 
 const body_anim_hFrames: int = 100
 const body_anim_vFrames: int = 200
@@ -69,8 +69,7 @@ func getBackImg(backgroundImgDir: String) -> CompressedTexture2D:
 	return texture
 
 
-
-func getMusicFile(name: String) -> AudioStreamWAV:
+func getMusicFile(name: String) -> AudioStreamWAV: 
 	var audioFile: AudioStreamWAV = load("res://assets/sfx/music/" + name.to_lower() + ".wav")
 	
 	return audioFile

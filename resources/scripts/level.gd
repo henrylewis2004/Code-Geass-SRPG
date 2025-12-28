@@ -2,23 +2,17 @@ class_name Level extends Node
 
 signal sceneOver
 signal resetScene
-signal sceneTransitionOver
 
 @export var nextLevel_path: String
-@export var sceneTran: bool
 @export var dialogOnStart: bool
 @export var dialogPath: String
 @export var goToSaveRoom: bool = false
 
 @export var dialogPlayer: DialogManager
-@export var animPlayer: AnimationPlayer
+@export var loadingScreen: bool = true
 
 ##
 func start() -> void:
-	if sceneTran:
-		playSceneTransition()
-		await sceneTransitionOver
-
 	if self.get_node("BattleController") != null:
 		if dialogOnStart:
 			dialogPlayer.endDialoge.connect(battleLevelStart)
@@ -35,17 +29,8 @@ func start() -> void:
 func battleLevelStart() -> void:
 	self.get_node("BattleController").startLevel()
 
-func playSceneTransition() -> void:
-	animPlayer.play("animIntro")
-	await animPlayer.animation_finished
-	sceneTransitionOver.emit()
-
-
 func getNextLevelPath() -> String:
 	return nextLevel_path
-
-func hasSceneTransition() -> bool:
-	return sceneTran
 
 func toSaveRoom() -> bool:
 	return goToSaveRoom

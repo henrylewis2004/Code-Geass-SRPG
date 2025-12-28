@@ -105,6 +105,7 @@ grow_vertical = 2
 script = ExtResource("1_ggjlw")
 nextLevel_path = "res://scenes/levels/story scenes/story0.tscn"
 animPlayer = NodePath("AnimationPlayer")
+loadingScreen = false
 
 [node name="alt back" type="TextureRect" parent="."]
 layout_mode = 1

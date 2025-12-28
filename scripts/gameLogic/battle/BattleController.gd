@@ -741,7 +741,7 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 	#check if dead
 	if !defender.isDestroyed():
 		#ai attack
-		if defender.getEquippedWeapon() != null:
+		if defender.getEquippedWeapon() != null && defender.getAp() >= defender.getEquippedWeapon().getApCost():
 			attackTimer.start(0.5)
 			await attackTimer.timeout
 			defender.attack(attacker)
