@@ -71,10 +71,9 @@ _data = {
 &"animIntro": SubResource("Animation_cl6q2")
 }
 
-[node name="TestBatLevel" type="Node3D" node_paths=PackedStringArray("animPlayer")]
+[node name="TestBatLevel" type="Node3D"]
 script = ExtResource("1_gl8n8")
 nextLevel_path = "res://scenes/levels/story scenes/testStoryScene.tscn"
-animPlayer = NodePath("animationPlayer/AnimationPlayer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.64679, 0.319903, -0.692333, 0, 0.907777, 0.419452, 0.762668, -0.271297, 0.587141, 0, 5.749, 0)
@@ -145,6 +144,10 @@ grow_vertical = 1
 
 [node name="EnemyUnitGui" parent="BattleController/ui" index="2"]
 visible = true
+
+[node name="GameOver" parent="BattleController" index="5"]
+endSceneDialog = true
+dialogPath = "res://resources/story dialog scripts/battleLevels/endScreen/battleLevel01endScript.json"
 
 [node name="animationPlayer" type="Node" parent="."]
 

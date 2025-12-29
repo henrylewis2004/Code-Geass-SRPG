@@ -15,4 +15,6 @@ scale = Vector2(0.565, 0.565)
 stream = ExtResource("2_af3m2")
 autoplay = true
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="finished" from="VideoStreamPlayer" to="." method="sceneOver_emit"]

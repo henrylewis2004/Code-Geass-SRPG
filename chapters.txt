@@ -1,5 +1,6 @@
-1. intro video
-2. main menu
+1. intro video		x
+2. main menu		x
+
 3. story level 1:
 	a. intro of japan invasion
 		> slideshow of images from show
@@ -7,7 +8,7 @@
 			> dont include name or image
 		> same as show
 	b. lelouch promise to destroy britannia
-	c. play opening video?
+	c. play opening video
 
 4. story level 2
 	a. lelouch and rivalz leaving chess game
@@ -23,38 +24,84 @@
 5. battle level 1
 	> tutorial level of kallen vs helicopter
 	a. introduce movement and combat
-	b. kill 2 helicopters
+	b. kill 1 heli + 2 soldiers
 	c. closing lines
 
 6. battle level 2
 	> tutorial level for combat
-	a. kallen fights 1 nightmare and 2 soldiers at once
+	a. kallen fights 1 nightmare and 2 helis at once
 	b. kill all enemies
 	c. closing lines
 	
 	save-room: y
 
 7. story level 3
-	> lelouch in truck -> geass on viv
+	> lelouch in truck 
 
-8. battle level 
+8. battle level 3
 	> abilities tutorial
 	> lelouch uses ability "suicide" on soldier
 	> instantly kills soldier
 
+9. story level 4
+	> viva finds lelouch
+	> lelouch steals her nightmare
 
-
-8. battle leve 3
+8. battle level 4
 	> kallen fight
 		> has an item 
 		> wounded
 	a. dialog before "dont know how much more kallen can fight"
-	b. kallen and some JLF fights 2 nightmares and 2 soldiers
+	b. kallen and some JLF fights 2 nightmares 
 
-9. story level 4 
+9. story level 5 
 	> lelouch contacting kallen and japanese offering to help
 
-10. battle level 4
+10. battle level 5
 	> small orange boss battle
+	> dialog intro
+		a. kallen trying to run away and get to lelouch
+		b. orange catches her
 	a. kallen fights orange and 2 nightmares
 	b. dialog after orange declaring defeat etc (Whatever he says in the show)
+
+11. story level 6
+	> lelouch giving the japanese nightmares
+
+12. battle level 7
+	> japanese vs nightmares
+	> include some abilities for kallen
+
+13. battle level 8
+	> different group of japanese vs nightmares
+	> ending dialog > whtas that?? fade to black suzaku is here
+
+14. sotry level 7
+	> reveal of suzaku 
+
+15. battle level 9
+	> suzaku level
+	> solo kills the japanese
+		> no name japanese
+		> super easy
+
+15. battle level 10
+	> suzaku level
+	> solo kills the japanese
+		> named characters + some unnamed
+		> 6v1 or something
+		> super easy
+
+16. story level 8
+	> lelouch freaking out
+
+17. battle level 11
+	> suzaku boss fight
+	> lelouch runs away
+
+18. story level 9
+	> lelouch reaches clovius
+	> kills him
+	> end
+
+19. credits + thanks for playing

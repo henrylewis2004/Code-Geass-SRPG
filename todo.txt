@@ -1,4 +1,12 @@
 mechanics:
+	> add win conditions
+		> specific unit killed
+		> hp level for unit reached
+		> reach certain grid position
+		> survive number of turns
+
+		> lose conditions
+
 	> tilemap for level
 
 	> status screen

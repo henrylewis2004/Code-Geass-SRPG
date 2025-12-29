@@ -1,0 +1,40 @@
+{
+    "character_dictionary":{
+        "Kallen":[
+            "default",
+        ]
+    },
+
+    "background_dictionary":{
+    },
+    
+
+    "music_dictionary":{
+        "sfx":[
+        ],
+
+        "music":{
+
+        }
+    },
+    
+    
+    "scene":[
+        {
+            "animation": null,
+	    "background": null,
+
+            "lines":[
+                {
+                    "name": "Kallen",
+                    "emotion": "default",
+                    "text": "",
+                    "text_speed":0.03,
+                    "sfx": null,
+                    "music":null
+                }
+            ]
+
+        },
+    ]
+}
