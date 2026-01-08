@@ -6,8 +6,18 @@
 	},
 
 	"background_dictionary":{
-		"chess_area_exit":"area11/chess_area_exit",
-		"test2":"area11/tvScreen1",
+		"britApproach":"introChapter/britHelisApproach",
+		"japanMap":"introChapter/japanMap",
+		"planes1":"introChapter/britPlanes",
+		"planes2":"introChapter/britPlanes2",
+		"invasion":"introChapter/japanInvasion",
+		"knightmare":"introChapter/knightmare",
+		"knightmares":"introChapter/knightmares",
+		"knightmaresBattle":"introChapter/knightmareAttack",
+		"japanDefeat1":"japandefeat1",
+		"japanDefeat2":"japandefeat2",
+		"dialog":"dialogBack",
+		
 	},
 	
 
@@ -25,7 +35,7 @@
 	"scene":[
 		{
 		"animation":"animIntro",
-		"background": "chess_area_exit",
+		"background": "britApproach",
 
 			"lines":[
 				{
@@ -41,7 +51,7 @@
 		},
 		{
 		"animation":null,
-		"background": "chess_area_exit",
+		"background": "britApproach",
 
 			"lines":[
 				{
@@ -72,13 +82,13 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "japanMap",
 
 			"lines":[
 				{
 					"name": null,
 					"emotion": null,
-					"text": "The far-east island nation had held fast to its neutrality and now Britannia looms as...",
+					"text": "The far-east island nation had held fast to its neutrality and now...",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -93,7 +103,7 @@
 				{
 					"name": null,
 					"emotion": null,
-					"text": "the world's only superpower",
+					"text": "Britannia looms as the world's only superpower",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -102,13 +112,13 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "planes1",
 
 			"lines":[
 				{
 					"name": null,
 					"emotion": null,
-					"text": "Rights to Japan's underground resources became a hotly disputed issue, straining the...",
+					"text": "Rights to Japan's underground resources became a hotly disputed issue...",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -117,13 +127,13 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "planes2",
 
 			"lines":[
 				{
 					"name": null,
 					"emotion": null,
-					"text": "already deep-rooted diplomatic tensions between the two sides",
+					"text": "straining the already deep-rooted diplomatic tensions between the two sides",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -132,7 +142,7 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "invasion",
 
 			"lines":[
 				{
@@ -147,7 +157,7 @@
 		},
 				{
 		"animation":null,
-		"background": null,
+		"background": "knightmare",
 
 			"lines":[
 				{
@@ -162,13 +172,13 @@
 		},
 				{
 		"animation":null,
-		"background": null,
+		"background": "knightmares",
 
 			"lines":[
 				{
 					"name": null,
 					"emotion": null,
-					"text": "The enemy's forces where far greater than anticipated and the knightmares obliterated the Japanese line of...",
+					"text": "The enemy's forces were far greater than anticipated and the knightmares obliterated the Japanese line of...",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -177,7 +187,7 @@
 		},
 				{
 		"animation":null,
-		"background": null,
+		"background": "knightmaresBattle",
 
 			"lines":[
 				{
