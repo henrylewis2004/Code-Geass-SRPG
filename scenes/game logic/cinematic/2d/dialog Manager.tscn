@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c72usmbnrmjv2"]
+[gd_scene load_steps=10 format=3 uid="uid://c72usmbnrmjv2"]
 
 [ext_resource type="Script" uid="uid://b0ny6js34ybnr" path="res://scripts/gameLogic/story/DialogManager.gd" id="1_m7hsp"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="2_i8sy6"]
@@ -121,8 +121,6 @@ _data = {
 &"icon_flash": SubResource("Animation_dxjdx")
 }
 
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_prlsa"]
-
 [node name="DialogManager" type="Control"]
 z_index = 10
 layout_mode = 3
@@ -222,7 +220,6 @@ libraries = {
 autoplay = "icon_flash"
 
 [node name="backMusic" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamWAV_prlsa")
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 

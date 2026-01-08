@@ -71,7 +71,7 @@ func getBackImg(backgroundImgDir: String) -> CompressedTexture2D:
 
 
 func getMusicFile(name: String) -> AudioStreamWAV: 
-	var audioFile: AudioStreamWAV = load("res://assets/sfx/music/" + name.to_lower() + ".wav")
+	var audioFile: AudioStreamWAV = load("res://assets/sfx/music/" + name + ".wav")
 	
 	return audioFile
 
@@ -124,7 +124,8 @@ func getSceneScript(path:String = dialog_script_path) -> void:
 	for sfx in textData["music_dictionary"]["sfx"]:
 		audioDictionary[sfx] = getSfxFile(sfx)
 	for sfx in textData["music_dictionary"]["music"]:
-		audioDictionary[sfx] = getMusicFile(sfx)
+		audioDictionary[sfx] = getMusicFile(textData["music_dictionary"]["music"][sfx])
+
 		
 	createScene(textData["scene"])
 	
@@ -133,9 +134,13 @@ func createScene(sceneInfo: Array) -> void:
 	for stage in range(sceneInfo.size()):
 		playStage(sceneInfo[stage])
 		await playNextStage
+
+	if sfxPlayer.is_playing():
+		sfxPlayer.stop()
+
 	if musicPlayer.is_playing():
 		musicPlayer.stop()
-		await musicPlayer.finished
+
 	endDialoge.emit()
 	set_process(false)
 		

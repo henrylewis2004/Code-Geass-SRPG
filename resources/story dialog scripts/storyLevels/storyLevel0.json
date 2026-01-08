@@ -7,8 +7,8 @@
 
 	"background_dictionary":{
 		"britApproach":"introChapter/britHelisApproach",
-		"planes1":"introChapter/britPlanes",
-		"planes2":"introChapter/britPlanes2",
+		"planes1":"introChapter/britplanes",
+		"planes2":"introChapter/britplanes2",
 		"boat":"introChapter/sinkingboat",
 		"explosion":"introChapter/japanExplosion",
 		"invasion":"introChapter/japanInvasion",
@@ -34,7 +34,7 @@
 		],
 
 		"music":{
-			"Prologue":"loops/Prologue (loop)",
+			"Prologue":"codeGeassOst/loops/Prologue (loop)",
 
 		}
 	},
