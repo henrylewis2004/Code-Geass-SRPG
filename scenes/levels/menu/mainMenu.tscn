@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://btnts83j5l43w" path="res://assets/2d/backgrounds/_menu/mainMenu/mainMenuBack2.png" id="2_oi0l6"]
 [ext_resource type="PackedScene" uid="uid://7ighpt60m4nm" path="res://scenes/game logic/menus/mainMenuBox.tscn" id="4_415kn"]
 [ext_resource type="FontFile" uid="uid://crpmyv2e2r4wr" path="res://assets/fonts/Xirod.otf" id="7_oi0l6"]
-[ext_resource type="AudioStream" uid="uid://bfolivrwigwtr" path="res://assets/sfx/music/codeGeassOst/Brain Game (loop).wav" id="8_7j7hv"]
+[ext_resource type="AudioStream" uid="uid://bfolivrwigwtr" path="res://assets/sfx/music/codeGeassOst/loops/Brain Game (loop).wav" id="8_7j7hv"]
 [ext_resource type="PackedScene" uid="uid://bfnudeqwvutge" path="res://scenes/game logic/menus/saveSelector.tscn" id="8_pdp2h"]
 
 [sub_resource type="Gradient" id="Gradient_ebtns"]

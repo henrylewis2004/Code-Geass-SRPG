@@ -133,7 +133,9 @@ func createScene(sceneInfo: Array) -> void:
 	for stage in range(sceneInfo.size()):
 		playStage(sceneInfo[stage])
 		await playNextStage
-		
+	if musicPlayer.is_playing():
+		musicPlayer.stop()
+		await musicPlayer.finished
 	endDialoge.emit()
 	set_process(false)
 		
@@ -170,8 +172,9 @@ func playLine(lineInfo: Dictionary) -> void:
 	#sfx
 	if lineInfo["music"] != null:
 		musicPlayer.stop()
-		musicPlayer.stream = audioDictionary[lineInfo["music"]]
-		musicPlayer.play()
+		if lineInfo["music"] != "stop":
+			musicPlayer.stream = audioDictionary[lineInfo["music"]]
+			musicPlayer.play()
 		
 	if lineInfo["sfx"] != null:
 		sfxPlayer.stop()

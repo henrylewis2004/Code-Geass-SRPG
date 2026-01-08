@@ -34,6 +34,7 @@
 		],
 
 		"music":{
+			"Prologue":"loops/Prologue (loop)",
 
 		}
 	},
@@ -51,7 +52,7 @@
 					"text": null,
 					"text_speed":"def",
 					"sfx": null,
-					"music":null
+					"music":"Prologue"
 				}
 			]
 
