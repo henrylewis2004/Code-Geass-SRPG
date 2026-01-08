@@ -3,10 +3,11 @@ class_name DialogManager extends Control
 signal playNextLine
 signal playNextStage
 signal endDialoge
-
+ 
 #dialog text
 @export var dialog_script_path: String
 var textData: Variant
+const DEF_TEXT_SPEED: float = 0.03
 
 #timers
 @onready var textTimer: Timer = $textTimer
@@ -192,14 +193,24 @@ func playLine(lineInfo: Dictionary) -> void:
 
 	else:
 		textBox_text.text = lineInfo["text"]
-		textBox_name.text = lineInfo["name"]
+
+		if lineInfo["name"] != null:
+			textBox_name.text = lineInfo["name"]
+			
+			#character Image
+			updateCharImg(sceneImages[lineInfo["name"]][lineInfo["emotion"]][0], sceneImages[lineInfo["name"]][lineInfo["emotion"]][1])
+			charImg_face.position = facePlacement.getOffset(lineInfo["name"].to_lower(),lineInfo["emotion"])
+		else:
+			textBox_name.text = ""		
+			
+			#character Image
+			updateCharImg(null,null)
+		
 		nextIcon.set_visible(false)
 		
 		textBox_text.visible_characters = 0
 		
-		#character Image
-		updateCharImg(sceneImages[lineInfo["name"]][lineInfo["emotion"]][0], sceneImages[lineInfo["name"]][lineInfo["emotion"]][1])
-		charImg_face.position = facePlacement.getOffset(lineInfo["name"].to_lower(),lineInfo["emotion"])
+		
 		
 		blinkTimer.start(blinkTimerSpeed)
 
@@ -208,7 +219,10 @@ func playLine(lineInfo: Dictionary) -> void:
 				break
 
 			textBox_text.visible_characters += 1
-			textTimer.start(lineInfo["text_speed"])
+			if lineInfo["text_speed"] == "def":
+				textTimer.start(DEF_TEXT_SPEED)
+			else:
+				textTimer.start(lineInfo["text_speed"])
 
 			if character % 2 == 0:
 				if charImg_body.frame >= 2:
@@ -230,15 +244,22 @@ func endTextPlay() -> void:
 	
 
 func updateCharImg(bodyTexture: CompressedTexture2D, faceTexture: CompressedTexture2D) -> void:
-	charImg_body.texture = bodyTexture
-	charImg_body.hframes = bodyTexture.get_width() / body_anim_hFrames
-	charImg_body.vframes = bodyTexture.get_height() / body_anim_vFrames
-	charImg_body.frame = 0
+	charImg_body.set_visible(false)
+	charImg_face.set_visible(false)
+	
+	if bodyTexture != null:
+		charImg_body.set_visible(true)	
+		charImg_body.texture = bodyTexture
+		charImg_body.hframes = bodyTexture.get_width() / body_anim_hFrames
+		charImg_body.vframes = bodyTexture.get_height() / body_anim_vFrames
+		charImg_body.frame = 0
 
-	charImg_face.texture = faceTexture
-	charImg_face.hframes = bodyTexture.get_width() / body_anim_hFrames
-	charImg_face.vframes = bodyTexture.get_height() / body_anim_vFrames
-	charImg_face.frame = 0
+		if faceTexture != null:
+			charImg_face.set_visible(true)	
+			charImg_face.texture = faceTexture
+			charImg_face.hframes = bodyTexture.get_width() / body_anim_hFrames
+			charImg_face.vframes = bodyTexture.get_height() / body_anim_vFrames
+			charImg_face.frame = 0
 
 func play(scriptPath: String = dialog_script_path) -> void:
 	getSceneScript(scriptPath)

@@ -7,14 +7,11 @@
 script = ExtResource("1_i05wj")
 nextLevel_path = "res://scenes/levels/cinematic videos/intro Video.tscn"
 dialogOnStart = true
-dialogPath = "res://resources/story dialog scripts/storyLevels/storyLevel01.json"
+dialogPath = "res://resources/story dialog scripts/storyLevels/storyLevel0.json"
 dialogPlayer = NodePath("baseStoryScene/DialogManager")
 loadingScreen = false
 
 [node name="baseStoryScene" parent="." instance=ExtResource("1_cxci4")]
-
-[node name="AnimationPlayer" parent="baseStoryScene" index="0"]
-autoplay = ""
 
 [connection signal="endDialoge" from="baseStoryScene/DialogManager" to="." method="sceneOver_emit"]
 

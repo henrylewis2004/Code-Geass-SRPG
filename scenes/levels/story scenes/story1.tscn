@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_tjihg"]
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="1_x4kkd"]
 
-[node name="Story0" type="Node"]
+[node name="Story1" type="Node"]
 script = ExtResource("1_tjihg")
 loadingScreen = false
 

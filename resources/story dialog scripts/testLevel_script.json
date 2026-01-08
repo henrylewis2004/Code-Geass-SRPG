@@ -1,76 +1,76 @@
 {
-    "character_dictionary":{
-        "Lelouch":[
-            "default",
+	"character_dictionary":{
+		"Lelouch":[
+			"default",
             "thinking"
-        ]
-    },
+		]
+	},
 
-    "background_dictionary":{
-        "chess_area_exit":"area11/chess_area_exit",
-    },
-    
+	"background_dictionary":{
+		"chess_area_exit":"area11/chess_area_exit",
+	},
+	
 
-    "music_dictionary":{
-        "sfx":[
+	"music_dictionary":{
+		"sfx":[
             "game-start"
-            
-        ],
+			
+		],
 
-        "music":{
+		"music":{
 
-        }
-    },
-    
-    
-    "scene":[
-        {
-            "animation":"levelIntro",
-	    "background": "chess_area_exit",
+		}
+	},
+	
+	
+	"scene":[
+		{
+			"animation":"levelIntro",
+		"background": "chess_area_exit",
 
-            "lines":[
-                {
-                    "name": null,
-                    "emotion": null,
-                    "text": null,
-                    "text_speed":null,
-                    "sfx": "game-start",
-                    "music":null
-                }
-            ]
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":null,
+					"sfx": "game-start",
+					"music":null
+				}
+			]
 
-        },
-        {
-            "animation":null,
-	    "background": "chess_area_exit",
+		},
+		{
+			"animation":null,
+		"background": "chess_area_exit",
 
-            "lines":[
-                {
-                    "name": "Lelouch",
-                    "emotion": "thinking",
-                    "text": "Hello, there my friend!",
-                    "text_speed":0.03,
-                    "sfx": "game-start",
-                    "music":null
-                }
-            ]
-        },
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "thinking",
+					"text": "Hello, there my friend!",
+					"text_speed":0.03,
+					"sfx": "game-start",
+					"music":null
+				}
+			]
+		},
 
-        {
-            "animation":null,
-	    "background": "chess_area_exit",
+		{
+			"animation":null,
+		"background": "chess_area_exit",
 
-            "lines":[
-                {
-                    "name": "Lelouch",
-                    "emotion": "default",
-                    "text": "this is the second line",
-                    "text_speed": 0.03,
-                    "sfx": null,
-                    "music":null
-                }
-            ]
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "default",
+					"text": "this is the second line",
+					"text_speed": 0.03,
+					"sfx": null,
+					"music":null
+				}
+			]
 
-        }
-    ]
+		}
+	]
 }

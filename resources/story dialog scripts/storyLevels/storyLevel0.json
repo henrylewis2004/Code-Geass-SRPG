@@ -1,0 +1,314 @@
+{
+	"character_dictionary":{
+		"Lelouch":[
+			"default"
+		],
+	},
+
+	"background_dictionary":{
+		"chess_area_exit":"area11/chess_area_exit",
+		"test2":"area11/tvScreen1",
+	},
+	
+
+	"music_dictionary":{
+		"sfx":[
+			
+		],
+
+		"music":{
+
+		}
+	},
+	
+	
+	"scene":[
+		{
+		"animation":"animIntro",
+		"background": "chess_area_exit",
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+
+		},
+		{
+		"animation":null,
+		"background": "chess_area_exit",
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "The date was August 10 in the year 2010 of the Imperial Calendar",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "The Holy Britannian Empire had just declared war upon Japan",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "The far-east island nation had held fast to its neutrality and now Britannia looms as...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "the world's only superpower",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "Rights to Japan's underground resources became a hotly disputed issue, straining the...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "already deep-rooted diplomatic tensions between the two sides",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "In the deciding battle between for the mainland, Britannian forces introduced into combat...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+				{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "the humanoid autonomous armoured knight, known as the knightmare frame",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+				{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "The enemy's forces where far greater than anticipated and the knightmares obliterated the Japanese line of...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+				{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "defence on the mainland with little effort",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+				{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "Japan became a dominion of the Empire, their country was stripped of its freedom, its rights and its name",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+				{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "AREA 11",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+				{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "The defeated and once proud nation of Japan was rechristened with a mere number",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+				{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": "That's where you came in...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "default",
+					"text": "I SWEAR...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "default",
+					"text": "I SWEAR, so help me...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "default",
+					"text": "I will one day...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "default",
+					"text": "OBLITERATE BRITANNIA!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+	]
+}
