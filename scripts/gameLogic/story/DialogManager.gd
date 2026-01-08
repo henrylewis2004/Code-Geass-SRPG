@@ -198,8 +198,9 @@ func playLine(lineInfo: Dictionary) -> void:
 			textBox_name.text = lineInfo["name"]
 			
 			#character Image
-			updateCharImg(sceneImages[lineInfo["name"]][lineInfo["emotion"]][0], sceneImages[lineInfo["name"]][lineInfo["emotion"]][1])
-			charImg_face.position = facePlacement.getOffset(lineInfo["name"].to_lower(),lineInfo["emotion"])
+			if lineInfo["emotion"] != null && lineInfo["emotion"] != "none":
+				updateCharImg(sceneImages[lineInfo["name"]][lineInfo["emotion"]][0], sceneImages[lineInfo["name"]][lineInfo["emotion"]][1])
+				charImg_face.position = facePlacement.getOffset(lineInfo["name"].to_lower(),lineInfo["emotion"])
 		else:
 			textBox_name.text = ""		
 			
