@@ -20,6 +20,7 @@
 		"tvScreenFlag":"area11/level1/tvscreen2",
 		"tvScreenClovis":"area11/level1/tvscreen3",
 		"tvScreenKallen":"area11/level1/kallentvscreen",
+		"lelouchParkedBike":"area11/level1/lelouchBike1",
 	},
 	
 
@@ -297,7 +298,7 @@
 
 			"lines":[
 				{
-					"name": "Mysterous Woman",
+					"name": "Mysterous Voice",
 					"emotion": "none",
 					"text": "We're not Elevens, we're JAPANESE!",
 					"text_speed":"def",
@@ -465,6 +466,111 @@
 					"name": "News Anchor",
 					"emotion": "none",
 					"text": "A moment of silence now please...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": "lelouchParkedBike",
+
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "default",
+					"text": "Well aren't you going to join in?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "happy",
+					"text": "Aren't you?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "happy",
+					"text": "Heh... it's sort of embarassing",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "happy",
+					"text": "And I agree with you",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "happy",
+					"text": "Besides, spilling tears over those people won't bring them back to life, now will it?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background":null,
+
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "happy",
+					"text": "Dang! Thats dark buddy!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "happy",
+					"text": "It's all about self satisfaction, it doesn't matter how hard you try",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
