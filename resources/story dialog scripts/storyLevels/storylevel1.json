@@ -9,7 +9,9 @@
 			"default"
 		],
 		"Prince Clovis":[
-			"emotional"
+			"emotional",
+			"default",
+			"angry"
 		]
 	},
 
@@ -25,6 +27,9 @@
 		"reaction2":"area11/level1/reaction2",
 		"lelouchReaction":"area11/level1/lelouchReaction",
 		"lelouchParkedBike":"area11/level1/lelouchBike1",
+		
+		"clovisThrone":"area11/level1a/clovisThrone",
+		"camera": "area11/level1a/camera",
 	},
 	
 
@@ -621,6 +626,142 @@
 					"emotion": null,
 					"text": null,
 					"text_speed":null,
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":"animIntro",
+		"background": "camera",
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":null,
+					"sfx": null,
+					"music":null
+				}
+			]
+
+		},
+		{
+		"animation":null,
+		"background": "clovisThrone",
+
+			"lines":[
+				{
+					"name": "Party Goers",
+					"emotion": "none",
+					"text": "You were magnificent, your highness!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Party Goers",
+					"emotion": "none",
+					"text": "One would never guess that you were attending a party whilst doing that!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "default",
+					"text": "Well!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "default",
+					"text": "After all the viceroy is the markey actor of Area 11, I need to change costumes quickly",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Party Goers",
+					"emotion": "none",
+					"text": "My... You're so self confident!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "default",
+					"text": "It's all in the performance...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "default",
+					"text": "since the media want a charismatic prince, I give them one",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Party Goers",
+					"emotion": "none",
+					"text": "Untrue! Prince Clovis, our key purpose in life is to support and assist your reign in anyway we can!",
+					"text_speed":"def",
 					"sfx": null,
 					"music":null
 				}
