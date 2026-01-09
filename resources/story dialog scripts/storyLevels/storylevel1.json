@@ -1,7 +1,7 @@
 {
 	"character_dictionary":{
 		"Lelouch":[
-			"default"
+			"happy"
 		],
 		"Rivalz":[
 			"happy",
@@ -105,7 +105,7 @@
 				{
 					"name": "Rivalz",
 					"emotion": "default",
-					"text": "Besides that, 8 minutes and 32 seconds is a new record",
+					"text": "By the way, 8 minutes and 32 seconds is a new record",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -119,7 +119,7 @@
 			"lines":[
 				{
 					"name": "Lelouch",
-					"emotion": "default",
+					"emotion": "happy",
 					"text": "He also didn't have much time to move either",
 					"text_speed":"def",
 					"sfx": null,
@@ -134,7 +134,7 @@
 			"lines":[
 				{
 					"name": "Lelouch",
-					"emotion": "default",
+					"emotion": "happy",
 					"text": "And as opponents go...",
 					"text_speed":"def",
 					"sfx": null,
@@ -149,7 +149,7 @@
 			"lines":[
 				{
 					"name": "Lelouch",
-					"emotion": "default",
+					"emotion": "happy",
 					"text": "the nobles are tepid, they're just overprivaleged parasites that's all",
 					"text_speed":"def",
 					"sfx": null,
@@ -464,7 +464,7 @@
 				{
 					"name": "News Anchor",
 					"emotion": "none",
-					"text": "A moment of silence now please",
+					"text": "A moment of silence now please...",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null

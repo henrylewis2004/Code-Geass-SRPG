@@ -8,6 +8,8 @@ func getOffset(character:String,emotion: String) -> Vector2:
 
 				"thinking": return Vector2(112,-55)
 				
+				"happy": return Vector2(95,-57)
+				
 		"rivalz":
 			match(emotion):
 				"default": return Vector2(98.5,-41)
