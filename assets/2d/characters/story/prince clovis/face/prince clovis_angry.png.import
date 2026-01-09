@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbl28reh2a4m0"
-path="res://.godot/imported/au_b3204.ncer_6.png-9a1e518aba66cc84800b3d7fd41b59c6.ctex"
+uid="uid://d1cklnya4o6r2"
+path="res://.godot/imported/prince clovis_angry.png-9caebd4fca71dbd09d73cdc66c21e1c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/story/prince clovis/au_b3204.ncer_6.png"
-dest_files=["res://.godot/imported/au_b3204.ncer_6.png-9a1e518aba66cc84800b3d7fd41b59c6.ctex"]
+source_file="res://assets/2d/characters/story/prince clovis/face/prince clovis_angry.png"
+dest_files=["res://.godot/imported/prince clovis_angry.png-9caebd4fca71dbd09d73cdc66c21e1c2.ctex"]
 
 [params]
 

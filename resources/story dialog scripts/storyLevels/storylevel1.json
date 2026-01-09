@@ -8,7 +8,8 @@
 			"default"
 		],
 		"Prince Clovis":[
-			"emotional"
+			"emotional",
+			"default"
 		]
 	},
 
@@ -18,6 +19,7 @@
 		"tvScreen1":"area11/level1/tv screen",
 		"tvScreenFlag":"area11/level1/tvscreen2",
 		"tvScreenClovis":"area11/level1/tvscreen3",
+		"tvScreenKallen":"area11/level1/kallentvscreen",
 	},
 	
 
@@ -163,7 +165,7 @@
 				{
 					"name": "Rivalz",
 					"emotion": "happy",
-					"text": "Well then why don't you challenge one of the elevens, they're NOTHING like us Briannians",
+					"text": "Well then why don't you challenge one of the elevens, they're NOTHING like us Britannians",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -194,7 +196,7 @@
 					"name": "Nearby Male Britannian",
 					"emotion": "none",
 					"text": "What are they trying to prove by killing innocent people?!",
-					"text_speed":0.04,
+					"text_speed":0.01,
 					"sfx": null,
 					"music":null
 				}
@@ -209,7 +211,7 @@
 					"name": "Nearby Female Britannian",
 					"emotion": "none",
 					"text": "Those Elevens terrify me!",
-					"text_speed":0.04,
+					"text_speed":0.01,
 					"sfx": null,
 					"music":null
 				}
@@ -252,7 +254,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
-					"emotion": "emotional",
+					"emotion": "default",
 					"text": "To all my Imperial subjects...",
 					"text_speed":"def",
 					"sfx": null,
@@ -268,7 +270,21 @@
 				{
 					"name": "Prince Clovis",
 					"emotion": "emotional",
-					"text": "Inlcuding of course, the many cooperative Elevans who choose to serve the Empire of Brtiannia",
+					"text": "Inlcuding of course, the many cooperative Elevans who...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},{
+		"animation":null,
+		"background": "tvScreenKallen",
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "choose to serve the Empire of Brtiannia",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -277,7 +293,22 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "tvScreenKallen",
+
+			"lines":[
+				{
+					"name": "Mysterous Woman",
+					"emotion": "none",
+					"text": "We're not Elevens, we're JAPANESE!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": "tvScreenClovis",
 
 			"lines":[
 				{
@@ -344,6 +375,96 @@
 					"name": "Prince Clovis",
 					"emotion": "emotional",
 					"text": "the remnants are filled with rage and sadness",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "However, as ruler of Area 11, I will not tolerate terrorism of any kind!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "Because the battle we fight is a RIGHTEOUS one!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "A virtuous battle to protect the wellbeing of one and all!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "Now, everyone I would like you to join me in observance of the eight who...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "died for justice in the line of duty...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": "tvScreenFlag",
+
+			"lines":[
+				{
+					"name": "News Anchor",
+					"emotion": "none",
+					"text": "A moment of silence now please",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
