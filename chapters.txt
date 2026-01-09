@@ -1,7 +1,7 @@
 1. intro video		x
 2. main menu		x
 
-3. story level 1:
+3. story level 1:			x
 	a. intro of japan invasion
 		> slideshow of images from show
 		> text of cc explanation
