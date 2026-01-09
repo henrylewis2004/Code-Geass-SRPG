@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw42led8fnaqu"
-path="res://.godot/imported/tvScreen2.png-1f0780076e6e356fd200c3b476aaab6b.ctex"
+uid="uid://juidvfkn8mib"
+path="res://.godot/imported/au_b0803.ncer_1.png-31f26ecc4f7acae9fb38acea2374103c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/backgrounds/area11/tvScreen2.png"
-dest_files=["res://.godot/imported/tvScreen2.png-1f0780076e6e356fd200c3b476aaab6b.ctex"]
+source_file="res://assets/2d/characters/story/rivalz/Rivalz Cardemonde/au_b0803.ncer_1.png"
+dest_files=["res://.godot/imported/au_b0803.ncer_1.png-31f26ecc4f7acae9fb38acea2374103c.ctex"]
 
 [params]
 

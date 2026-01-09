@@ -42,6 +42,8 @@ var facePlacement : FacePlacement = FacePlacement.new()
 @onready var charImg_face: Sprite2D = $base/Control/charImg_face
 @onready var backgroundImg: Sprite2D = $background
 
+var bodyAnimFrames : BodyAnimationFrames = BodyAnimationFrames.new()
+
 const body_anim_hFrames: int = 100
 const body_anim_vFrames: int = 200
 
@@ -163,7 +165,6 @@ func playStage(stageInfo: Dictionary) -> void:
 		await playNextLine
 		
 	if stageInfo["animation"] != null && animPlayer.is_playing():
-		print(animPlayer.current_animation)
 		await animPlayer.animation_finished
 
 	stageFinished = true
@@ -208,13 +209,16 @@ func playLine(lineInfo: Dictionary) -> void:
 			
 			#character Image
 			if lineInfo["emotion"] != null && lineInfo["emotion"] != "none":
-				updateCharImg(sceneImages[lineInfo["name"]][lineInfo["emotion"]][0], sceneImages[lineInfo["name"]][lineInfo["emotion"]][1])
+				updateCharImg(sceneImages[lineInfo["name"]][lineInfo["emotion"]][0], sceneImages[lineInfo["name"]][lineInfo["emotion"]][1], bodyAnimFrames.getSplit(lineInfo["name"].to_lower(),lineInfo["emotion"].to_lower())) #0 is for body, 1 is for face (I hate this i set this up ages ago T_T)
 				charImg_face.position = facePlacement.getOffset(lineInfo["name"].to_lower(),lineInfo["emotion"])
+			elif lineInfo["emotion"] == "none":
+				updateCharImg(null,null,Vector2.ZERO)
+				
 		else:
 			textBox_name.text = ""		
 			
 			#character Image
-			updateCharImg(null,null)
+			updateCharImg(null,null,Vector2.ZERO)
 		
 		nextIcon.set_visible(false)
 		
@@ -253,22 +257,22 @@ func endTextPlay() -> void:
 	charImg_body.frame = 0
 	
 
-func updateCharImg(bodyTexture: CompressedTexture2D, faceTexture: CompressedTexture2D) -> void:
+func updateCharImg(bodyTexture: CompressedTexture2D, faceTexture: CompressedTexture2D,frameCut: Vector2) -> void:
 	charImg_body.set_visible(false)
 	charImg_face.set_visible(false)
 	
 	if bodyTexture != null:
 		charImg_body.set_visible(true)	
 		charImg_body.texture = bodyTexture
-		charImg_body.hframes = bodyTexture.get_width() / body_anim_hFrames
-		charImg_body.vframes = bodyTexture.get_height() / body_anim_vFrames
+		charImg_body.hframes = frameCut.x
+		charImg_body.vframes = frameCut.y
 		charImg_body.frame = 0
 
 		if faceTexture != null:
 			charImg_face.set_visible(true)	
 			charImg_face.texture = faceTexture
-			charImg_face.hframes = bodyTexture.get_width() / body_anim_hFrames
-			charImg_face.vframes = bodyTexture.get_height() / body_anim_vFrames
+			charImg_face.hframes = frameCut.x
+			charImg_face.vframes = frameCut.y
 			charImg_face.frame = 0
 
 func play(scriptPath: String = dialog_script_path) -> void:

@@ -2,11 +2,17 @@
 	"character_dictionary":{
 		"Lelouch":[
 			"default"
+		],
+		"Rivalz":[
+			"happy",
+			"default"
 		]
 	},
 
 	"background_dictionary":{
 		"chess_area_exit":"area11/chess_area_exit",
+		"shockedRivalz":"area11/level1/shocked rivalz",
+		"tvScreen1":"area11/level1/tv screen",
 	},
 	
 
@@ -60,15 +66,181 @@
 
 			"lines":[
 				{
-					"name": "Lelouch",
-					"emotion": "default",
-					"text": "Hello, there my friend!",
+					"name": "Rivalz",
+					"emotion": "happy",
+					"text": "I love playing against the nobility!",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
 				}
 			]
 		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "happy",
+					"text": "When they lose they always pay out of pride!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "default",
+					"text": "Besides that, 8 minutes and 32 seconds is a new record",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "default",
+					"text": "He also didn't have much time to move either",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "default",
+					"text": "And as opponents go...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "default",
+					"text": "the nobles are tepid, they're just overprivaleged parasites that's all",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":"leaveStartRoom",
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "happy",
+					"text": "Well then why don't you challenge one of the elevens, they're NOTHING like us Briannians",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": "shockedRivalz",
+
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "none",
+					"text": "Huh...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": "tvScreen1",
+
+			"lines":[
+				{
+					"name": "Nearby Male Britannian",
+					"emotion": "none",
+					"text": "What are they trying to prove by killing innocent people?!",
+					"text_speed":0.04,
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Nearby Female Britannian",
+					"emotion": "none",
+					"text": "Those Elevens terrify me!",
+					"text_speed":0.04,
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "News Anchor",
+					"emotion": "none",
+					"text": "We apologise for the delay",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "News Anchor",
+					"emotion": "none",
+					"text": "Now, his royal highness Prince Clovus, 3rd Prince of Britannia, will address the nation",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		
 
 	]
 }
