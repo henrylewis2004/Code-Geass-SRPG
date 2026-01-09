@@ -1,15 +1,15 @@
 {
 	"character_dictionary":{
 		"Lelouch":[
-			"happy"
+			"happy",
+			"thinking"
 		],
 		"Rivalz":[
 			"happy",
 			"default"
 		],
 		"Prince Clovis":[
-			"emotional",
-			"default"
+			"emotional"
 		]
 	},
 
@@ -23,6 +23,7 @@
 		"japan":"area11/japan",
 		"reaction1":"area11/level1/reaction1",
 		"reaction2":"area11/level1/reaction2",
+		"lelouchReaction":"area11/level1/lelouchReaction",
 		"lelouchParkedBike":"area11/level1/lelouchBike1",
 	},
 	
@@ -258,7 +259,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
-					"emotion": "default",
+					"emotion": "emotional",
 					"text": "To all my Imperial subjects...",
 					"text_speed":"def",
 					"sfx": null,
@@ -273,7 +274,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
-					"emotion": "default",
+					"emotion": "emotional",
 					"text": "Inlcuding of course, the many cooperative Elevans who...",
 					"text_speed":"def",
 					"sfx": null,
@@ -287,7 +288,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
-					"emotion": "default",
+					"emotion": "emotional",
 					"text": "choose to serve the Empire of Brtiannia",
 					"text_speed":"def",
 					"sfx": null,
@@ -432,7 +433,7 @@
 		},
 		{
 		"animation":null,
-		"background": "tvScreenClovis",
+		"background": "lelouchReaction",
 
 			"lines":[
 				{
@@ -462,7 +463,7 @@
 		},
 		{
 		"animation":null,
-		"background": "tvScreenFlag",
+		"background": null,
 
 			"lines":[
 				{
@@ -573,8 +574,53 @@
 				{
 					"name": "Lelouch",
 					"emotion": "happy",
-					"text": "It's all about self satisfaction, it doesn't matter how hard you try",
+					"text": "It's all about self satisfaction",
 					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "thinking",
+					"text": "It doesn't matter how hard you try, you can't do it...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "thinking",
+					"text": "There's no way you can change the world",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":"animOutLong",
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":null,
 					"sfx": null,
 					"music":null
 				}
