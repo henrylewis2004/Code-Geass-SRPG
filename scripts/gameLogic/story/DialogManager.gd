@@ -233,8 +233,9 @@ func playLine(lineInfo: Dictionary) -> void:
 				break
 
 			textBox_text.visible_characters += 1
-			if lineInfo["text_speed"] == "def":
+			if str(lineInfo["text_speed"]) == "def":
 				textTimer.start(DEF_TEXT_SPEED)
+				
 			else:
 				textTimer.start(lineInfo["text_speed"])
 

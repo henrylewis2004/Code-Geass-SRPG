@@ -6,6 +6,9 @@
 		"Rivalz":[
 			"happy",
 			"default"
+		],
+		"Prince Clovis":[
+			"emotional"
 		]
 	},
 
@@ -14,6 +17,7 @@
 		"shockedRivalz":"area11/level1/shocked rivalz",
 		"tvScreen1":"area11/level1/tv screen",
 		"tvScreenFlag":"area11/level1/tvscreen2",
+		"tvScreenClovis":"area11/level1/tvscreen3",
 	},
 	
 
@@ -213,7 +217,7 @@
 		},
 		{
 		"animation":null,
-		"background": "tvscreenFlag",
+		"background": "tvScreenFlag",
 
 			"lines":[
 				{
@@ -228,7 +232,7 @@
 		},
 		{
 		"animation":null,
-		"background": "tvscreenFlag",
+		"background": null,
 
 			"lines":[
 				{
@@ -243,12 +247,12 @@
 		},
 		{
 		"animation":null,
-		"background": "tvscreenFlag",
+		"background": "tvScreenClovis",
 
 			"lines":[
 				{
 					"name": "Prince Clovis",
-					"emotion": "none",
+					"emotion": "emotional",
 					"text": "To all my Imperial subjects...",
 					"text_speed":"def",
 					"sfx": null,
@@ -258,13 +262,88 @@
 		},
 		{
 		"animation":null,
-		"background": "tvscreenFlag",
+		"background": null,
 
 			"lines":[
 				{
 					"name": "Prince Clovis",
-					"emotion": "none",
-					"text": "To all my Imperial subjects...",
+					"emotion": "emotional",
+					"text": "Inlcuding of course, the many cooperative Elevans who choose to serve the Empire of Brtiannia",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "Do you not see my pain?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "My heart was...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "RIPPED...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "from my chest, only to be torn apart...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "emotional",
+					"text": "the remnants are filled with rage and sadness",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
