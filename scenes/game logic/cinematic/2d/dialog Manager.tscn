@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b0ny6js34ybnr" path="res://scripts/gameLogic/story/DialogManager.gd" id="1_m7hsp"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="2_i8sy6"]
-[ext_resource type="Texture2D" uid="uid://cdcyq2ex3faro" path="res://assets/2d/characters/story/lelouch/body/lelouch_happy.png" id="2_prlsa"]
+[ext_resource type="Texture2D" uid="uid://dcq5o6wjs1hp5" path="res://assets/2d/characters/story/prince clovis/body/prince clovis_default.png" id="2_prlsa"]
 [ext_resource type="FontFile" uid="uid://dp40uiq2ohbvd" path="res://assets/fonts/INVASION2000.TTF" id="3_achk7"]
-[ext_resource type="Texture2D" uid="uid://mt5j42lu8f2w" path="res://assets/2d/characters/story/lelouch/face/lelouch_happy.png" id="3_dxjdx"]
+[ext_resource type="Texture2D" uid="uid://bqskc71p6fxm6" path="res://assets/2d/characters/story/prince clovis/face/prince clovis_default.png" id="3_dxjdx"]
 [ext_resource type="FontFile" uid="uid://ksxp5agk3ixw" path="res://assets/fonts/Silver.ttf" id="5_ummlq"]
 
 [sub_resource type="Animation" id="Animation_prlsa"]
@@ -174,7 +174,7 @@ hframes = 3
 frame = 2
 
 [node name="charImg_face" type="Sprite2D" parent="base/Control"]
-position = Vector2(95, -57)
+position = Vector2(110, -66)
 texture = ExtResource("3_dxjdx")
 hframes = 3
 

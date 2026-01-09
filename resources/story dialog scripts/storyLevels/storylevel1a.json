@@ -77,6 +77,21 @@
 				{
 					"name": "Prince Clovis",
 					"emotion": "default",
+					"text": "Well!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "default",
 					"text": "After all the viceroy is the markey actor of Area 11, I need to change costumes quickly",
 					"text_speed":"def",
 					"sfx": null,
