@@ -39,6 +39,22 @@
 
 		},
 		{
+		"animation": "lelouchMoveStart",
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":null,
+					"sfx": null,
+					"music":null
+				}
+			]
+
+		},
+		{
 		"animation":null,
 		"background": null,
 
@@ -47,8 +63,8 @@
 					"name": "Lelouch",
 					"emotion": "default",
 					"text": "Hello, there my friend!",
-					"text_speed":0.03,
-					"sfx": "game-start",
+					"text_speed":"def",
+					"sfx": null,
 					"music":null
 				}
 			]

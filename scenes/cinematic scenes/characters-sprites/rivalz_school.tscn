@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxc061lsv66v1"]
+
+[ext_resource type="Texture2D" uid="uid://06ah6t8yeg48" path="res://assets/2d/characters/overworld_sprites/rivalz_spritesheet.png" id="1_v7c30"]
+
+[node name="rivalzSchool" type="Sprite2D"]
+texture = ExtResource("1_v7c30")
+hframes = 5
+vframes = 9
