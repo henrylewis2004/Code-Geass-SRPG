@@ -255,6 +255,7 @@ _data = {
 
 [node name="Story1" type="Node" node_paths=PackedStringArray("dialogPlayer")]
 script = ExtResource("1_tjihg")
+nextLevel_path = "res://scenes/levels/story scenes/story1a.tscn"
 dialogOnStart = true
 dialogPath = "res://resources/story dialog scripts/storyLevels/storylevel1.json"
 dialogPlayer = NodePath("baseStoryScene/DialogManager")

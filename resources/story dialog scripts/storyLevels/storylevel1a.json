@@ -1,0 +1,88 @@
+{
+	"character_dictionary":{
+		"Prince Clovis":[
+			"default",
+			"angry"
+		]
+	},
+
+	"background_dictionary":{
+		"clovisThrone":"area11/level1a/clovisThrone",
+	},
+	
+
+	"music_dictionary":{
+		"sfx":[
+			
+		],
+
+		"music":{
+
+		}
+	},
+	
+	
+	"scene":[
+		{
+		"animation":"animIntro",
+		"background": "clovisThrone",
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":null,
+					"sfx": null,
+					"music":null
+				}
+			]
+
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Party Goers",
+					"emotion": "none",
+					"text": "You were magnificent, your highness!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Party Goers",
+					"emotion": "none",
+					"text": "One would never guess that you were attending a party whilst doing that!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "default",
+					"text": "After all the viceroy is the markey actor of Area 11, I need to change costumes quickly",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+	]
+}

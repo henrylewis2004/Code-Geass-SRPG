@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhwq4pblj0fwl"]
 
 [ext_resource type="PackedScene" uid="uid://dvmagytfxrhbs" path="res://scenes/game logic/shared/levelManager.tscn" id="1_7xqha"]
-[ext_resource type="PackedScene" uid="uid://ggmwy8xld1a5" path="res://scenes/levels/story scenes/story1.tscn" id="2_7xqha"]
+[ext_resource type="PackedScene" uid="uid://co2t6cmvfjabw" path="res://scenes/levels/story scenes/story1a.tscn" id="2_7xqha"]
 
 [node name="Main" type="Node"]
 
 [node name="LevelManager" parent="." instance=ExtResource("1_7xqha")]
 
-[node name="Story1" parent="LevelManager" instance=ExtResource("2_7xqha")]
+[node name="Story1a" parent="LevelManager" instance=ExtResource("2_7xqha")]
