@@ -20,6 +20,9 @@
 		"tvScreenFlag":"area11/level1/tvscreen2",
 		"tvScreenClovis":"area11/level1/tvscreen3",
 		"tvScreenKallen":"area11/level1/kallentvscreen",
+		"japan":"area11/japan",
+		"reaction1":"area11/level1/reaction1",
+		"reaction2":"area11/level1/reaction2",
 		"lelouchParkedBike":"area11/level1/lelouchBike1",
 	},
 	
@@ -270,7 +273,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
-					"emotion": "emotional",
+					"emotion": "default",
 					"text": "Inlcuding of course, the many cooperative Elevans who...",
 					"text_speed":"def",
 					"sfx": null,
@@ -284,7 +287,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
-					"emotion": "emotional",
+					"emotion": "default",
 					"text": "choose to serve the Empire of Brtiannia",
 					"text_speed":"def",
 					"sfx": null,
@@ -384,7 +387,7 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "japan",
 
 			"lines":[
 				{
@@ -399,7 +402,7 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "reaction1",
 
 			"lines":[
 				{
@@ -414,7 +417,7 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "reaction2",
 
 			"lines":[
 				{
@@ -429,7 +432,7 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "tvScreenClovis",
 
 			"lines":[
 				{
