@@ -1,9 +1,6 @@
 {
 	"character_dictionary":{
-		"Lelouch":[
-			"default",
-            "thinking"
-		]
+
 	},
 
 	"background_dictionary":{
@@ -13,7 +10,6 @@
 
 	"music_dictionary":{
 		"sfx":[
-            "game-start"
 			
 		],
 
@@ -26,7 +22,7 @@
 	
 	"scene":[
 		{
-			"animation":"levelIntro",
+		"animation":"levelIntro",
 		"background": "chess_area_exit",
 
 			"lines":[
@@ -35,43 +31,12 @@
 					"emotion": null,
 					"text": null,
 					"text_speed":null,
-					"sfx": "game-start",
-					"music":null
-				}
-			]
-
-		},
-		{
-			"animation":null,
-		"background": "chess_area_exit",
-
-			"lines":[
-				{
-					"name": "Lelouch",
-					"emotion": "thinking",
-					"text": "Hello, there my friend!",
-					"text_speed":0.03,
-					"sfx": "game-start",
-					"music":null
-				}
-			]
-		},
-
-		{
-			"animation":null,
-		"background": "chess_area_exit",
-
-			"lines":[
-				{
-					"name": "Lelouch",
-					"emotion": "default",
-					"text": "this is the second line",
-					"text_speed": 0.03,
 					"sfx": null,
 					"music":null
 				}
 			]
 
-		}
+		},
+		
 	]
 }

@@ -91,7 +91,6 @@ func parseJson(path: String) -> Variant:
 	if error == OK:
 		var data = json.data
 		if typeof(data) == TYPE_DICTIONARY:
-			print("data recieved")
 			return data
 
 		else:
