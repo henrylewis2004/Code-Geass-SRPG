@@ -1,10 +1,18 @@
 {
 	"character_dictionary":{
+		"lelouch":[
+			"default_happy"
+		],
+		"Rivalz":[
+			"default"	
+		],
+			
 
 	},
 
 	"background_dictionary":{
-		"chess_area_exit":"area11/chess_area_exit",
+		"bikeHighway":"area11/level2/lelouchBikeHighway",
+		"lelouchRunning2":"area11/level2/lelouchRunning2",
 	},
 	
 
@@ -22,8 +30,8 @@
 	
 	"scene":[
 		{
-		"animation":"levelIntro",
-		"background": "chess_area_exit",
+		"animation":"animIntro",
+		"background": "bikeHighway",
 
 			"lines":[
 				{
@@ -34,6 +42,46 @@
 					"sfx": null,
 					"music":null
 				}
+			]
+
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "default",
+					"text": "That first move you made...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Rivalz",
+					"emotion": "default",
+					"text": "Why'd you start with the king?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"emotion": "default_happy",
+					"text": "If the king doesn't lead, how can he expect his subordinates to follow?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Rivalz",
+					"emotion": "default",
+					"text": "What's with that?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
 			]
 
 		},
