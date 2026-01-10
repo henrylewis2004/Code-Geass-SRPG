@@ -13,6 +13,8 @@ func getSplit(character:String,emotion: String) -> Vector2:
 				"default": return Vector2(3,1)
 				
 				"happy": return Vector2(3,1)
+				
+		_: return Vector2(3,1)
 
 
 

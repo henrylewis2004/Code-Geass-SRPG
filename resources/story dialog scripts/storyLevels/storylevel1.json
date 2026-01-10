@@ -12,7 +12,16 @@
 			"emotional",
 			"default",
 			"angry"
-		]
+		],
+		"Diethard":[
+			"sulk",
+			"happy"
+		],
+		"Bartley":[
+			"default",
+			"sad"
+		],
+		
 	},
 
 	"background_dictionary":{
@@ -39,7 +48,8 @@
 		],
 
 		"music":{
-
+			"strayCat_loop":"codeGeassOst/loops/Stray Cat (loop)",
+			"coldNobility_loop":"codeGeassOst/loops/Cold Nobility (loop)",
 		}
 	},
 	
@@ -56,7 +66,7 @@
 					"text": null,
 					"text_speed":null,
 					"sfx": null,
-					"music":null
+					"music":"strayCat_loop"
 				}
 			]
 
@@ -193,7 +203,7 @@
 					"text": "Huh...",
 					"text_speed":"def",
 					"sfx": null,
-					"music":null
+					"music":"stop"
 				}
 			]
 		},
@@ -579,7 +589,7 @@
 				{
 					"name": "Lelouch",
 					"emotion": "happy",
-					"text": "It's all about self satisfaction",
+					"text": "It's all about self satisfaction...",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -642,7 +652,7 @@
 					"text": null,
 					"text_speed":null,
 					"sfx": null,
-					"music":null
+					"music":"coldNobility_loop"
 				}
 			]
 
@@ -745,7 +755,7 @@
 				{
 					"name": "Prince Clovis",
 					"emotion": "default",
-					"text": "since the media want a charismatic prince, I give them one",
+					"text": "Since the media want a charismatic prince, I give them one",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -767,5 +777,186 @@
 				}
 			]
 		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Diethard",
+					"emotion": "sulk",
+					"text": "Tsch...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Diethard",
+					"emotion": "sulk",
+					"text": "His reign is a pathetic sham...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Bartley",
+					"emotion": "sad",
+					"text": "Yo-your highness!!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Diethard",
+					"emotion": "sulk",
+					"text": "Hmm? A soldier?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "default",
+					"text": "How borish of you",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Bartley",
+					"emotion": "sad",
+					"text": "I beg your pardon, your highness",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Diethard",
+					"emotion": "sulk",
+					"text": "Not another appearance for him? I hope it's not as dreary...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "angry",
+					"text": "You FOOL!!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Bartley",
+					"emotion": "sad",
+					"text": "The police where informed that it was 'Medical Equipment' thats all...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Bartley",
+					"emotion": "sad",
+					"text": "If we scramble the army there'll be a reco- ",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Prince Clovis",
+					"emotion": "angry",
+					"text": "Deploy the Royal Guard! The knightmares aswell!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		{
+		"animation":"animOutLong",
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":null,
+					"sfx": null,
+					"music":null
+				}
+			]
+		},
+		
 	]
 }

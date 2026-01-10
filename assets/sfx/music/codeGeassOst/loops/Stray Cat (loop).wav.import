@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ypyq1hkxft1x"
+path="res://.godot/imported/Stray Cat (loop).wav-63825a58e2ed97c1e8ffa46c9df3b7a8.sample"
+
+[deps]
+
+source_file="res://assets/sfx/music/codeGeassOst/loops/Stray Cat (loop).wav"
+dest_files=["res://.godot/imported/Stray Cat (loop).wav-63825a58e2ed97c1e8ffa46c9df3b7a8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
