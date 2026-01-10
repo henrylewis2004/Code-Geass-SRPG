@@ -21,6 +21,10 @@
 			"default",
 			"sad"
 		],
+		"Mysterious Voice":
+			[
+				"kallen"
+			]
 		
 	},
 
@@ -48,8 +52,6 @@
 		],
 
 		"music":{
-			"strayCat_loop":"codeGeassOst/loops/Stray Cat (loop)",
-			"coldNobility_loop":"codeGeassOst/loops/Cold Nobility (loop)",
 		}
 	},
 	
@@ -66,7 +68,7 @@
 					"text": null,
 					"text_speed":null,
 					"sfx": null,
-					"music":"strayCat_loop"
+					"music":null
 				}
 			]
 
@@ -203,7 +205,7 @@
 					"text": "Huh...",
 					"text_speed":"def",
 					"sfx": null,
-					"music":"stop"
+					"music": null
 				}
 			]
 		},
@@ -317,8 +319,8 @@
 
 			"lines":[
 				{
-					"name": "Mysterous Voice",
-					"emotion": "none",
+					"name": "Mysterious Voice",
+					"emotion": "kallen",
 					"text": "We're not Elevens, we're JAPANESE!",
 					"text_speed":"def",
 					"sfx": null,
@@ -652,7 +654,7 @@
 					"text": null,
 					"text_speed":null,
 					"sfx": null,
-					"music":"coldNobility_loop"
+					"music":null
 				}
 			]
 
