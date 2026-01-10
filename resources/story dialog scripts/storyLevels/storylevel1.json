@@ -2,7 +2,7 @@
 	"character_dictionary":{
 		"Lelouch":[
 			"happy",
-			"thinking"
+			"tired"
 		],
 		"Rivalz":[
 			"happy",
@@ -101,14 +101,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Rivalz",
 					"emotion": "happy",
@@ -116,14 +109,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Rivalz",
 					"emotion": "default",
@@ -131,14 +117,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Lelouch",
 					"emotion": "happy",
@@ -146,14 +125,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Lelouch",
 					"emotion": "happy",
@@ -164,21 +136,8 @@
 				}
 			]
 		},
-		{
-		"animation":null,
-		"background": null,
 
-			"lines":[
-				{
-					"name": "Lelouch",
-					"emotion": "happy",
-					"text": "the nobles are tepid, they're just overprivaleged parasites that's all",
-					"text_speed":"def",
-					"sfx": null,
-					"music":null
-				}
-			]
-		},
+		
 		{
 		"animation":"leaveStartRoom",
 		"background": null,
@@ -221,14 +180,7 @@
 					"text_speed":0.01,
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Nearby Female Britannian",
 					"emotion": "none",
@@ -251,14 +203,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "News Anchor",
 					"emotion": "none",
@@ -269,6 +214,7 @@
 				}
 			]
 		},
+		
 		{
 		"animation":null,
 		"background": "tvScreenClovis",
@@ -281,14 +227,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "emotional",
@@ -298,7 +237,8 @@
 					"music":null
 				}
 			]
-		},{
+		},
+		{
 		"animation":null,
 		"background": "tvScreenKallen",
 
@@ -310,14 +250,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": "tvScreenKallen",
-
-			"lines":[
+				},
 				{
 					"name": "Mysterious Voice",
 					"emotion": "kallen",
@@ -340,14 +273,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "emotional",
@@ -355,14 +281,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "emotional",
@@ -370,14 +289,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "emotional",
@@ -385,14 +297,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "emotional",
@@ -403,6 +308,7 @@
 				}
 			]
 		},
+
 		{
 		"animation":null,
 		"background": "japan",
@@ -460,14 +366,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "emotional",
@@ -475,14 +374,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "News Anchor",
 					"emotion": "none",
@@ -505,14 +397,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Lelouch",
 					"emotion": "happy",
@@ -520,14 +405,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Rivalz",
 					"emotion": "happy",
@@ -535,14 +413,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Lelouch",
 					"emotion": "happy",
@@ -550,14 +421,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Lelouch",
 					"emotion": "happy",
@@ -565,14 +429,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background":null,
-
-			"lines":[
+				},
 				{
 					"name": "Rivalz",
 					"emotion": "happy",
@@ -580,14 +437,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Lelouch",
 					"emotion": "happy",
@@ -595,32 +445,18 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Lelouch",
-					"emotion": "thinking",
+					"emotion": "tired",
 					"text": "It doesn't matter how hard you try, you can't do it...",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Lelouch",
-					"emotion": "thinking",
+					"emotion": "tired",
 					"text": "There's no way you can change the world",
 					"text_speed":"def",
 					"sfx": null,
@@ -671,14 +507,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Party Goers",
 					"emotion": "none",
@@ -686,14 +515,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "default",
@@ -701,14 +523,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "default",
@@ -716,14 +531,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Party Goers",
 					"emotion": "none",
@@ -731,14 +539,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "default",
@@ -746,14 +547,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "default",
@@ -761,14 +555,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Party Goers",
 					"emotion": "none",
@@ -776,14 +563,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Diethard",
 					"emotion": "sulk",
@@ -791,14 +571,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Diethard",
 					"emotion": "sulk",
@@ -806,14 +579,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Bartley",
 					"emotion": "sad",
@@ -821,14 +587,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Diethard",
 					"emotion": "sulk",
@@ -836,14 +595,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "default",
@@ -851,14 +603,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Bartley",
 					"emotion": "sad",
@@ -866,14 +611,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Diethard",
 					"emotion": "sulk",
@@ -881,14 +619,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "angry",
@@ -896,14 +627,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Bartley",
 					"emotion": "sad",
@@ -911,14 +635,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Bartley",
 					"emotion": "sad",
@@ -926,14 +643,7 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
-				}
-			]
-		},
-		{
-		"animation":null,
-		"background": null,
-
-			"lines":[
+				},
 				{
 					"name": "Prince Clovis",
 					"emotion": "angry",

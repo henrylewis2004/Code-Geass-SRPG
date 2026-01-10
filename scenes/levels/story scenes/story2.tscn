@@ -225,10 +225,10 @@ scale = Vector2(4, 4)
 frame = 42
 
 [node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
-visible = false
 animPlayer = NodePath("../../AnimationPlayer")
 
 [node name="placeholder" type="Sprite2D" parent="baseStoryScene"]
+visible = false
 z_index = -1
 texture = ExtResource("4_lq1cs")
 centered = false

@@ -1,10 +1,13 @@
 {
 	"character_dictionary":{
-		"lelouch":[
-			"default_happy"
+		"Lelouch":[
+			"default_happy",
+			"smirking2"
 		],
 		"Rivalz":[
-			"default"	
+			"default",
+			"confused",
+			"default_question"
 		],
 			
 
@@ -12,6 +15,7 @@
 
 	"background_dictionary":{
 		"bikeHighway":"area11/level2/lelouchBikeHighway",
+		"bikeCrash": "area11/level2/bikeCrash",
 		"lelouchRunning2":"area11/level2/lelouchRunning2",
 	},
 	
@@ -52,7 +56,7 @@
 			"lines":[
 				{
 					"name": "Rivalz",
-					"emotion": "default",
+					"emotion": "confused",
 					"text": "That first move you made...",
 					"text_speed":"def",
 					"sfx": null,
@@ -60,7 +64,7 @@
 				},
 				{
 					"name": "Rivalz",
-					"emotion": "default",
+					"emotion": "confused",
 					"text": "Why'd you start with the king?",
 					"text_speed":"def",
 					"sfx": null,
@@ -76,15 +80,55 @@
 				},
 				{
 					"name": "Rivalz",
-					"emotion": "default",
+					"emotion": "confused",
 					"text": "What's with that?",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
 				},
+				{
+					"name": "Lelouch",
+					"emotion": "default_happy",
+					"text": "Whats with what?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Rivalz",
+					"emotion": "default_question",
+					"text": "Do you fantasize about running a major corporation?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"emotion": "default_happy",
+					"text": "No way, amitions like that will ruin your hea- ",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+			]
+		},
+		{
+		"animation":null,
+		"background": "bikeCrash",
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":null,
+					"sfx": null,
+					"music":null
+				}
 			]
 
 		},
+		
 		
 	]
 }

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs3e5ua8cd6gb"
-path="res://.godot/imported/shouting_angry.png-608695883bcd5114a5a7b4bbfa20cb62.ctex"
+uid="uid://by14ub3jwg5do"
+path="res://.godot/imported/rivalz_default_question.png-68262ed581ed5a774bf2c1372cb4e879.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/story/lelouch/body/shouting_angry.png"
-dest_files=["res://.godot/imported/shouting_angry.png-608695883bcd5114a5a7b4bbfa20cb62.ctex"]
+source_file="res://assets/2d/characters/story/rivalz/body/rivalz_default_question.png"
+dest_files=["res://.godot/imported/rivalz_default_question.png-68262ed581ed5a774bf2c1372cb4e879.ctex"]
 
 [params]
 

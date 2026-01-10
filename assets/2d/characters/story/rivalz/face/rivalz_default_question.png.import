@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy4g2femyiykm"
-path="res://.godot/imported/shouting_shocked.png-f34a1022f012a0951b0a727bbac61914.ctex"
+uid="uid://cdywnlrcws4ct"
+path="res://.godot/imported/rivalz_default_question.png-891b0b1099c7e0b5520c99d0a2540ade.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/story/lelouch/body/shouting_shocked.png"
-dest_files=["res://.godot/imported/shouting_shocked.png-f34a1022f012a0951b0a727bbac61914.ctex"]
+source_file="res://assets/2d/characters/story/rivalz/face/rivalz_default_question.png"
+dest_files=["res://.godot/imported/rivalz_default_question.png-891b0b1099c7e0b5520c99d0a2540ade.ctex"]
 
 [params]
 

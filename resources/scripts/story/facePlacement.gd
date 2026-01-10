@@ -5,6 +5,8 @@ func getOffset(character:String,emotion: String) -> Vector2:
 		"lelouch":
 			match(emotion):
 				"default": return Vector2(112,-62)
+				
+				"default2": return Vector2(113,-53)
 
 				"thinking": return Vector2(112,-55)
 				
@@ -12,15 +14,41 @@ func getOffset(character:String,emotion: String) -> Vector2:
 				
 				"default_happy": return Vector2(88,-56)
 				
+				"angry": return Vector2(118,-49)
+				
+				"angry2": return Vector2(108,-57)
+				
+				"annoyed": return Vector2(102,-49)
+				
+				"geass": return Vector2(93,-57)
+				
+				"gun": return Vector2(83,-54)
+				
+				"phone": return Vector2(103,-57)
+				
+				"shocked": return Vector2(104,-59)
+				
+				"shouting_angry": return Vector2(150,-48)
+				
+				"smirking": return Vector2(107,-58)
+				
+				"smirking2": return Vector2(103,-49)
+				
+				"tired": return Vector2(108,-49)
+				
+				"typing": return Vector2(84,-41)
+				
 		"rivalz":
 			match(emotion):
-				"default": return Vector2(98.5,-41)
+				"default": return Vector2(98,-41)
 				
 				"happy": return Vector2(98,-41)
 				
 				"confused": return Vector2(99,-40)
 				
 				"shocked": return Vector2(73,-25)
+				
+				"default_question": return Vector2(111,-57)
 				
 		"prince clovis":
 			match(emotion):
