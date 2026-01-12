@@ -1,4 +1,19 @@
 mechanics:
+	> ability animaiton
+		> sound
+	> attack animation
+		> plays animation x
+			> make animation
+		> sound
+		> particle affects
+
+		> hit animation
+			> particle is red / yellow
+		> miss animation
+			> particle is gray
+			
+
+
 	> add win conditions
 		> specific unit killed
 		> hp level for unit reached

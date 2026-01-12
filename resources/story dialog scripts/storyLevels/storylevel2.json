@@ -2,13 +2,22 @@
 	"character_dictionary":{
 		"Lelouch":[
 			"default_happy",
-			"smirking2"
+			"smirking2",
+			"default",
+			"shocked"
 		],
 		"Rivalz":[
 			"default",
 			"confused",
-			"default_question"
+			"shocked",
 		],
+		"Mysterious Voice":[
+			"kallen",
+		],
+		"Naoto":[
+			"default",
+		],
+		
 			
 
 	},
@@ -17,6 +26,10 @@
 		"bikeHighway":"area11/level2/lelouchBikeHighway",
 		"bikeCrash": "area11/level2/bikeCrash",
 		"lelouchRunning2":"area11/level2/lelouchRunning2",
+		"insideTruck1":"area11/level2/insideTruck1",
+		"truckCrash1":"area11/level2/truckcrash1",
+		"truckCrash2":"area11/level2/truckcrash2",
+
 	},
 	
 
@@ -96,8 +109,8 @@
 				},
 				{
 					"name": "Rivalz",
-					"emotion": "default_question",
-					"text": "Do you fantasize about running a major corporation?",
+					"emotion": "confused",
+					"text": "Do you fantasize about running a major corporation, or something?",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -113,7 +126,7 @@
 			]
 		},
 		{
-		"animation":null,
+		"animation":"bikeCrash",
 		"background": "bikeCrash",
 
 			"lines":[
@@ -125,6 +138,117 @@
 					"sfx": null,
 					"music":null
 				}
+			]
+
+		},
+		{
+		"animation":null,
+		"background": null,
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "shocked",
+					"text": "Waah...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"emotion": "shocked",
+					"text": "Are they crazy?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
+
+		},
+		{
+		"animation":null,
+		"background": "insideTruck1",
+
+			"lines":[
+				{
+					"name": "Naoto",
+					"emotion": "default",
+					"text": "Ugh...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Naoto",
+					"emotion": "default",
+					"text": "Get out of the way!!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Mysterious Voice",
+					"emotion": "kallen",
+					"text": "Not that way!!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+			]
+
+		},
+		{
+		"animation":null,
+		"background": "truckCrash1",
+
+			"lines":[
+				{
+					"name": "Mysterious Voice",
+					"emotion": "kallen",
+					"text": "Watch out!!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Naoto",
+					"emotion": "default",
+					"text": "Hold on!!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+			]
+
+		},
+		{
+		"animation":"truckCrash",
+		"background": "truckCrash2",
+
+			"lines":[
+				{
+					"name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":null,
+					"sfx": null,
+					"music":null
+				},
+			]
+
+		},
+		{
+		"animation":null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Lelouch",
+					"emotion": "default",
+					"text": "test",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
 			]
 
 		},

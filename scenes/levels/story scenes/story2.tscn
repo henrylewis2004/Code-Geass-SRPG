@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnq658pjgvnsu"]
+[gd_scene load_steps=15 format=3 uid="uid://cnq658pjgvnsu"]
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_lq1cs"]
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="2_6h6ij"]
@@ -103,45 +103,9 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_lq1cs"]
-resource_name = "lelouchRunningToTruck"
-length = 1.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.3666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(236, 320), Vector2(236, -58)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.3666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2, 2), Vector2(1.8, 1.8)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [61, 62, 64, 63, 64, 61, 62, 64, 63, 64, 61, 62, 64, 63, 64]
-}
+[sub_resource type="Animation" id="Animation_gvcjx"]
+resource_name = "bikeCrash"
+length = 0.3
 
 [sub_resource type="Animation" id="Animation_6h6ij"]
 resource_name = "lelouchRunningFromBike"
@@ -182,6 +146,46 @@ tracks/2/keys = {
 "values": [40, 41, 42, 44, 43, 44, 41, 42, 44, 43, 44]
 }
 
+[sub_resource type="Animation" id="Animation_lq1cs"]
+resource_name = "lelouchRunningToTruck"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(236, 320), Vector2(236, -58)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1.8, 1.8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [61, 62, 64, 63, 64, 61, 62, 64, 63, 64, 61, 62, 64, 63, 64]
+}
+
 [sub_resource type="Animation" id="Animation_4ce5h"]
 resource_name = "ty"
 length = 0.5
@@ -199,14 +203,19 @@ tracks/0/keys = {
 "values": [41, 42, 44, 43, 44]
 }
 
+[sub_resource type="Animation" id="Animation_stp26"]
+resource_name = "truckCrash"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0kvn"]
 _data = {
 &"RESET": SubResource("Animation_23etq"),
 &"animIntro": SubResource("Animation_7btpv"),
 &"animOut": SubResource("Animation_i05wj"),
 &"animOutLong": SubResource("Animation_d58t0"),
+&"bikeCrash": SubResource("Animation_gvcjx"),
 &"lelouchRunningFromBike": SubResource("Animation_6h6ij"),
 &"lelouchRunningToTruck": SubResource("Animation_lq1cs"),
+&"truckCrash": SubResource("Animation_stp26"),
 &"ty": SubResource("Animation_4ce5h")
 }
 

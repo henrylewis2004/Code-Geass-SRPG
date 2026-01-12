@@ -22,6 +22,8 @@ const SPEED: int = 2
 @onready var itemsList: Node = $inventory/items
 @onready var abilitiesList: Array[Node] = $inventory/abilities.get_children()
 
+@onready var animPlayer: AnimationPlayer = $AnimationPlayer
+
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 const ATTACK_STATS  := preload("res://resources/scripts/enumClasses/ENUMtypes.gd").ATTACK_STAT
@@ -346,7 +348,7 @@ func validTarget(target: BaseUnit) -> bool:
 	return true
 	
 
-func attack(unit: BaseUnit) -> void:
+func attack(unit: BaseUnit,animation: String) -> void:
 	var weapon : Weapon = getEquippedWeapon()
 	var accuracy = weapon.getAccuracy()
 	
@@ -407,8 +409,10 @@ func attack(unit: BaseUnit) -> void:
 				else:
 					pass
 					#add miss gfx
-				wpnTimer.start(weapon.getWeaponFireRate())
-				await wpnTimer.timeout
+
+				#add animation
+				animPlayer.play(animation)
+				await animPlayer.finished
 		
 		for bodyPart in unit.getBodyparts():
 			if bodyPart.getHp() <= 0:

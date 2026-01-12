@@ -8,12 +8,17 @@ class_name Weapon extends Node
 @export var apCost: int
 @export var equipPart: BodyPart
 @export var range: int
-@export var fireRate: float
+#@export var fireRate: float
 @export var wpnImage: Texture
+
+@export_enum("SMG","MG","RIFLE","SNIPER","SHOTGUN","PUNCH","SOLDIER_PISTOL") var weaponId: int
 @export_enum("RANGED","MELEE") var attackStat: int
 @export_enum("IMPACT","PENETRATION","FIRE") var attackType: int
 
 #getters
+func getWeaponID() -> int:
+	return weaponId
+
 func getAttackType() -> int:
 	return attackType
 
@@ -47,8 +52,8 @@ func isTwoHanded() -> bool:
 func getEquipPart() -> BodyPart:
 	return equipPart
 
-func getWeaponFireRate() -> float:
-	return fireRate
+#func getWeaponFireRate() -> float:
+#	return fireRate
 
 func getWpnInfo() -> Array:
 	return [dmg,string_name,accuracy,rounds, range, apCost]

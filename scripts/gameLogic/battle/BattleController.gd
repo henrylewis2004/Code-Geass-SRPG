@@ -66,6 +66,7 @@ var activity_ui: BaseItem = null
 var unitOriginPos: Vector2 = Vector2.INF
 
 var utilFun: Util = Util.new()
+var attackAnimMan : AttackAnimationManager = AttackAnimationManager.new()
 
 #methods
 func updateUnitGridPos() -> void:
@@ -728,7 +729,7 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 	if attacker.getEquippedWeapon() != null:
 	#	curState = STATE.BATTLE
-		attacker.attack(defender)
+		attacker.attack(defender,attackAnimMan.getWeaponAnim(attacker.getEquippedWeapon().getWeaponID()))
 		await attacker.attackFinished
 	
 	attackTimer.start(0.5)
@@ -744,7 +745,7 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 		if defender.getEquippedWeapon() != null && defender.getAp() >= defender.getEquippedWeapon().getApCost():
 			attackTimer.start(0.5)
 			await attackTimer.timeout
-			defender.attack(attacker)
+			defender.attack(attacker,attackAnimMan.getWeaponAnim(defender.getEquippedWeapon().getWeaponID()))
 			await defender.attackFinished
 
 			attackTimer.start(0.5)
