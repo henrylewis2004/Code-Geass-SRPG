@@ -207,10 +207,10 @@ func playLine(lineInfo: Dictionary) -> void:
 			textBox_name.text = lineInfo["name"]
 			
 			#character Image
-			if lineInfo["emotion"] != null && lineInfo["emotion"] != "none":
+			if lineInfo["emotion"] != null && (lineInfo["emotion"] != "none" && lineInfo["emotion"] != "NONE"):
 				updateCharImg(sceneImages[lineInfo["name"]][lineInfo["emotion"]][0], sceneImages[lineInfo["name"]][lineInfo["emotion"]][1], bodyAnimFrames.getSplit(lineInfo["name"].to_lower(),lineInfo["emotion"].to_lower())) #0 is for body, 1 is for face (I hate this i set this up ages ago T_T)
 				charImg_face.position = facePlacement.getOffset(lineInfo["name"].to_lower(),lineInfo["emotion"])
-			elif lineInfo["emotion"] == "none":
+			elif lineInfo["emotion"] == "none" || lineInfo["emotion"] == "NONE" :
 				updateCharImg(null,null,Vector2.ZERO)
 				
 		else:

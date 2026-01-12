@@ -4,6 +4,7 @@
 			"default_happy",
 			"smirking2",
 			"default",
+			"default3",
 			"shocked"
 		],
 		"Rivalz":[
@@ -17,6 +18,10 @@
 		"Naoto":[
 			"default",
 		],
+		"Bartley":[
+			"default",
+		],
+
 		
 			
 
@@ -29,6 +34,12 @@
 		"insideTruck1":"area11/level2/insideTruck1",
 		"truckCrash1":"area11/level2/truckcrash1",
 		"truckCrash2":"area11/level2/truckcrash2",
+		"truckCrashBikePov":"area11/level2/crashBikePerspective",
+		"helipov":"area11/level2/helicopterpov",
+		"geass":"area11/level2/geass",
+		"peopleReaction":"area11/level2/lelouchLookingatPeople",
+		"lelouchRunning1":"area11/level2/lelouchRunning",
+		"lelouchRunning2":"area11/level2/lelouchrunning2",
 
 	},
 	
@@ -154,6 +165,14 @@
 					"music":null
 				},
 				{
+					"name": "Rivalz",
+					"emotion": "shocked",
+					"text": "We're gonna die!!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
 					"name": "Lelouch",
 					"emotion": "shocked",
 					"text": "Are they crazy?",
@@ -180,7 +199,15 @@
 				{
 					"name": "Naoto",
 					"emotion": "default",
-					"text": "Get out of the way!!",
+					"text": "You idiots!!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Naoto",
+					"emotion": "default",
+					"text": "Watch where you're going!!",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -188,7 +215,7 @@
 				{
 					"name": "Mysterious Voice",
 					"emotion": "kallen",
-					"text": "Not that way!!",
+					"text": "NO! Not that way!!",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -205,14 +232,6 @@
 					"name": "Mysterious Voice",
 					"emotion": "kallen",
 					"text": "Watch out!!",
-					"text_speed":"def",
-					"sfx": null,
-					"music":null
-				},
-				{
-					"name": "Naoto",
-					"emotion": "default",
-					"text": "Hold on!!",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -238,13 +257,29 @@
 		},
 		{
 		"animation":null,
-		"background": null,
+		"background": "truckCrashBikePov",
 
 			"lines":[
 				{
+					"name": "Rivalz",
+					"emotion": "Confused",
+					"text": "Uhh...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Rivalz",
+					"emotion": "Confused",
+					"text": "Was that our fault?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
 					"name": "Lelouch",
-					"emotion": "default",
-					"text": "test",
+					"emotion": "default3",
+					"text": "I don't think so",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -252,6 +287,223 @@
 			]
 
 		},
+		{
+		"animation":null,
+		"background": "helipov",
+
+			"lines":[
+				{
+					"name": "Helicopter Pilot",
+					"emotion": "NONE",
+					"text": "Control, the target has crashed at the abandoned V.O. construction site",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Control",
+					"emotion": "NONE",
+					"text": "The military will take over, General Bartley's command",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Helicopter Pilot",
+					"emotion": "NONE",
+					"text": "HIM??",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Bartley",
+					"emotion": "default",
+					"text": "We have to retrieve it at all costs...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+			]
+
+		},
+		{
+		"animation":null,
+		"background": "geass",
+
+			"lines":[
+				{
+					"name": "Bartley",
+					"emotion": "default",
+					"text": "That THING...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Bartley",
+					"emotion": "default",
+					"text": "in the wrong hands...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"emotion": "default3",
+					"text": "What is that...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Rivalz",
+					"emotion": "default3",
+					"text": "Oh man! This suck!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Rivalz",
+					"emotion": "default3",
+					"text": "The powerline on the bike got cut",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"emotion": "default3",
+					"text": "Yeah...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"emotion": "default3",
+					"text": "Rivalz, come check this out",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+			]
+
+		},
+		{
+		"animation":null,
+		"background": "peopleReaction",
+
+			"lines":[
+				{
+					"name": "Man On Bridge",
+					"emotion": "NONE",
+					"text": "Hey! Over here!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Person On Bridge",
+					"emotion": "NONE",
+					"text": "Woah! That's a nasty crash!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Woman On Bridge",
+					"emotion": "NONE",
+					"text": "What happened? Some sort of accident?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Old Man On Bridge",
+					"emotion": "NONE",
+					"text": "Probably some drunk driver...",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Woman On Bridge",
+					"emotion": "NONE",
+					"text": "It's always some moron",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Person On Bridge",
+					"emotion": "NONE",
+					"text": "Maybe someone aught to go help?",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"emotion": "NONE",
+					"text": "Those idiots!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+			]
+
+		},
+		{
+		"animation":"lelouchRunningFromBike",
+		"background": "lelouchRunning1",
+
+			"lines":[
+				{
+					"name": "Rivalz",
+					"emotion": "confused",
+					"text": "Wait!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+			]
+
+		},
+		{
+		"animation":"lelouchRunningToTruck",
+		"background": "lelouchRunning2",
+
+			"lines":[
+				{
+					"name": "Man On Bridge",
+					"emotion": "NONE",
+					"text": "Look! The student rescue team has arrived!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"emotion": "default3",
+					"text": "Hey!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"emotion": "default3",
+					"text": "You alright?!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+			]
+
+		},
+		
 		
 		
 	]
