@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ggmwy8xld1a5"]
+[gd_scene load_steps=14 format=3 uid="uid://ggmwy8xld1a5"]
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_tjihg"]
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="1_x4kkd"]
 [ext_resource type="PackedScene" uid="uid://cxtggmsl78ela" path="res://scenes/cinematic scenes/characters-sprites/lelouch_school.tscn" id="3_r030a"]
 [ext_resource type="PackedScene" uid="uid://cxc061lsv66v1" path="res://scenes/cinematic scenes/characters-sprites/rivalz_school.tscn" id="4_d58t0"]
+[ext_resource type="AudioStream" uid="uid://do7xb6gldxk8g" path="res://assets/sfx/sfx/ds_sfx/applause.wav" id="5_d58t0"]
 
 [sub_resource type="Animation" id="Animation_23etq"]
 length = 0.001
@@ -243,9 +244,50 @@ tracks/5/keys = {
 "values": [Vector2(600, -50), Vector2(349, 123)]
 }
 
+[sub_resource type="Animation" id="Animation_fsvpj"]
+resource_name = "animCamera"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("baseStoryScene/back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("baseStoryScene/DialogManager/sfx:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_d58t0")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("baseStoryScene/DialogManager/sfx:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0kvn"]
 _data = {
 &"RESET": SubResource("Animation_23etq"),
+&"animCamera": SubResource("Animation_fsvpj"),
 &"animIntro": SubResource("Animation_7btpv"),
 &"animOut": SubResource("Animation_i05wj"),
 &"animOutLong": SubResource("Animation_d58t0"),
@@ -278,9 +320,13 @@ frame = 18
 [node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")
 
+[node name="sfx" parent="baseStoryScene/DialogManager" index="4"]
+stream = ExtResource("5_d58t0")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_o0kvn")
 }
 
 [editable path="baseStoryScene"]
+[editable path="baseStoryScene/DialogManager"]

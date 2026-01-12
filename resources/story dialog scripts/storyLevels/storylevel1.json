@@ -2,7 +2,7 @@
 	"character_dictionary":{
 		"Lelouch":[
 			"happy",
-			"tired"
+			"default2"
 		],
 		"Rivalz":[
 			"happy",
@@ -22,9 +22,9 @@
 			"sad"
 		],
 		"Mysterious Voice":
-			[
-				"kallen"
-			]
+		[
+			"kallen"
+		]
 		
 	},
 
@@ -48,6 +48,7 @@
 
 	"music_dictionary":{
 		"sfx":[
+			"ds_sfx/applause",
 			
 		],
 
@@ -440,7 +441,7 @@
 				},
 				{
 					"name": "Lelouch",
-					"emotion": "happy",
+					"emotion": "default2",
 					"text": "It's all about self satisfaction...",
 					"text_speed":"def",
 					"sfx": null,
@@ -448,7 +449,7 @@
 				},
 				{
 					"name": "Lelouch",
-					"emotion": "tired",
+					"emotion": "default2",
 					"text": "It doesn't matter how hard you try, you can't do it...",
 					"text_speed":"def",
 					"sfx": null,
@@ -456,8 +457,8 @@
 				},
 				{
 					"name": "Lelouch",
-					"emotion": "tired",
-					"text": "There's no way you can change the world",
+					"emotion": "default2",
+					"text": "There's no way you can change the world....",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -480,7 +481,7 @@
 			]
 		},
 		{
-		"animation":"animIntro",
+		"animation":"animCamera",
 		"background": "camera",
 
 			"lines":[
@@ -505,7 +506,7 @@
 					"emotion": "none",
 					"text": "You were magnificent, your highness!",
 					"text_speed":"def",
-					"sfx": null,
+					"sfx": "ds_sfx/applause",
 					"music":null
 				},
 				{
@@ -647,7 +648,15 @@
 				{
 					"name": "Prince Clovis",
 					"emotion": "angry",
-					"text": "Deploy the Royal Guard! The knightmares aswell!",
+					"text": "Deploy the Royal Guard!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Prince Clovis",
+					"emotion": "angry",
+					"text": "The knightmares aswell!",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
