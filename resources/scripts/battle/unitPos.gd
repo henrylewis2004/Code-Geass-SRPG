@@ -11,5 +11,3 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		var child = get_child(0) as BaseUnit
 		child.position = set_position
-
-

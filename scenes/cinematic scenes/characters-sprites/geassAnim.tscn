@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqa4fu04378is"]
+
+[ext_resource type="Texture2D" uid="uid://cvforvewndr61" path="res://assets/2d/ui/Geass/geass_spriteSheet.png" id="1_uiu77"]
+
+[node name="geassAnim" type="Sprite2D"]
+texture = ExtResource("1_uiu77")
+hframes = 5
+vframes = 2

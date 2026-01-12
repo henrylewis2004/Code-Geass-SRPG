@@ -15,6 +15,7 @@ const ACTION_BOX_ITEM := preload("res://resources/scripts/enumClasses/ENUM_actio
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_unitSelectionTiles.gd").SELECTION_TILES_ID
 
+@onready var abilitiesAnim: AnimationPlayer = $abilitiesAnim/AnimationPlayer
 @onready var battleCam: BattleCamController = $BattleCam
 @onready var playerUnits: Array[BaseUnit] = getUnits($battleUnits/playerUnits.get_children() )
 @onready var enemyUnits: Array[BaseUnit] = getUnits($battleUnits/enemyUnits.get_children() )
