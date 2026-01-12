@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="2_uwoxi"]
 [ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/battle/BaseBodypart.gd" id="3_g0gu5"]
 [ext_resource type="Script" uid="uid://y5wyd4af163n" path="res://resources/scripts/battle/LegsBodypart.gd" id="4_f73vb"]
-[ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/weapons/Mg Gun.tscn" id="5_wjmp6"]
+[ext_resource type="PackedScene" uid="uid://04xva0vfqr6g" path="res://scenes/game logic/battle/unitAttackPlayer.tscn" id="6_baoks"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ay0l"]
 size = Vector3(0.75, 1, 0.75)
 
-[node name="Kallen" type="Path3D"]
+[node name="baseUnit" type="Path3D"]
 script = ExtResource("1_dh1rb")
 char_name = "Kallen"
 charImage = ExtResource("2_uwoxi")
@@ -45,9 +45,6 @@ bodyPartType = 3
 
 [node name="weapons" type="Node" parent="."]
 
-[node name="MgGun" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_wjmp6")]
-equipPart = NodePath("../../bodyparts/R arm")
-
 [node name="inventory" type="Node" parent="."]
 
 [node name="items" type="Node" parent="inventory"]
@@ -71,3 +68,5 @@ shape = SubResource("BoxShape3D_2ay0l")
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 mesh = ExtResource("2_kteh2")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="UnitAttackPlayer" parent="." instance=ExtResource("6_baoks")]

@@ -1,16 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://xgdy5a12w6f8"]
+[gd_scene load_steps=5 format=3 uid="uid://xgdy5a12w6f8"]
 
-[ext_resource type="Script" uid="uid://clr1kavhyrbu7" path="res://scripts/units/stanUNit.gd" id="1_3kayn"]
+[ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_m57m1"]
 [ext_resource type="Texture2D" uid="uid://g15ec3ye31jo" path="res://assets/2d/characters/enemy/britannia/npc/britSoldier1.png" id="2_lm43b"]
-[ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/battle/BaseBodypart.gd" id="3_mj7ee"]
+[ext_resource type="PackedScene" uid="uid://b1pswkcy0x2kx" path="res://scenes/game objects/units/stanUnit.tscn" id="5_ams47"]
 [ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/weapons/smg.tscn" id="5_qqb8i"]
-[ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="6_kvhpq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ay0l"]
-size = Vector3(0.75, 1, 0.75)
+[node name="BritannianSoldier" type="Node"]
+script = ExtResource("1_m57m1")
 
-[node name="BritannianSoldier" type="Path3D"]
-script = ExtResource("1_3kayn")
+[node name="stanUnit" parent="." instance=ExtResource("5_ams47")]
 moveRange = 2
 team = 1
 char_name = "Soldier"
@@ -18,39 +16,7 @@ charImage = ExtResource("2_lm43b")
 full_name = "Soldier"
 factionName = "Britannian Empire"
 
-[node name="bodyparts" type="Node" parent="."]
-
-[node name="body" type="Node" parent="bodyparts"]
-script = ExtResource("3_mj7ee")
-totalHp = 100
-string_name = "testB"
-bodyPartType = 2
-
-[node name="weapons" type="Node" parent="."]
-
-[node name="Smg" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_qqb8i")]
+[node name="Smg" parent="stanUnit/weapons" index="0" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_qqb8i")]
 equipPart = NodePath("../../bodyparts/body")
 
-[node name="inventory" type="Node" parent="."]
-
-[node name="items" type="Node" parent="inventory"]
-
-[node name="abilities" type="Node" parent="inventory"]
-
-[node name="PathFollow3D" type="PathFollow3D" parent="."]
-rotation_mode = 0
-loop = false
-
-[node name="unitCollider" type="Area3D" parent="PathFollow3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
-collision_layer = 3072
-collision_mask = 3072
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PathFollow3D/unitCollider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_2ay0l")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D/unitCollider"]
-transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
-mesh = ExtResource("6_kvhpq")
-skeleton = NodePath("../CollisionShape3D")
+[editable path="stanUnit"]

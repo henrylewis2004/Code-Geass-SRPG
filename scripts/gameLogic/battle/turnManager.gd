@@ -17,7 +17,7 @@ func nextTurn() -> void:
 	turnCnt += 1
 
 
-func createTurnOrder(unitArray: Array[Node]) -> void:
+func createTurnOrder(unitArray: Array[BaseUnit]) -> void:
 	nextTurn()
 	unitOrder = []
 
@@ -40,8 +40,8 @@ func createTurnOrder(unitArray: Array[Node]) -> void:
 		
 
 
-func calcFirstTurnOrder(unitArray: Array[Node]) -> void:
-	var order: Array[Node] = orderTurn(unitArray,0,unitArray.size() - 1)
+func calcFirstTurnOrder(unitArray: Array[BaseUnit]) -> void:
+	var order: Array[BaseUnit] = orderTurn(unitArray,0,unitArray.size() - 1)
 	for unit in range(unitArray.size() - 1, -1, -1):
 		unitOrder.append(order[unit])
 
@@ -50,9 +50,9 @@ func calcFirstTurnOrder(unitArray: Array[Node]) -> void:
 
 
 
-func calcTurnOrder(unitArray: Array[Node],turn: int = 0) -> Array[BaseUnit]:
+func calcTurnOrder(unitArray: Array[BaseUnit],turn: int = 0) -> Array[BaseUnit]:
 
-	var order : Array[Node] = orderTurn(unitArray, 0, unitArray.size() - 1)
+	var order : Array[BaseUnit] = orderTurn(unitArray, 0, unitArray.size() - 1)
 	unitOrder.append(order[unitArray.size() - 1])
 
 
@@ -70,7 +70,7 @@ func calcTurnOrder(unitArray: Array[Node],turn: int = 0) -> Array[BaseUnit]:
 
 
 #turn ordering based on unit turn time
-func orderTurnPartition(unitArray: Array[Node], lowIndex: int, highIndex: int) -> int:
+func orderTurnPartition(unitArray: Array[BaseUnit], lowIndex: int, highIndex: int) -> int:
 	var pivotUnit: BaseUnit = unitArray[highIndex]
 	var swapIndex = lowIndex -1
 
@@ -91,7 +91,7 @@ func orderTurnPartition(unitArray: Array[Node], lowIndex: int, highIndex: int) -
 
 
 #iniative
-func orderTurnPartitionInitiative(unitArray: Array[Node], lowIndex: int, highIndex: int) -> int:
+func orderTurnPartitionInitiative(unitArray: Array[BaseUnit], lowIndex: int, highIndex: int) -> int:
 	var pivotUnit: BaseUnit = unitArray[highIndex]
 	var swapIndex = lowIndex -1
 
@@ -111,7 +111,7 @@ func orderTurnPartitionInitiative(unitArray: Array[Node], lowIndex: int, highInd
 	return swapIndex + 1
 
 ##order the turn
-func orderTurn(unitArray: Array[Node], lowIndex: int, highIndex: int, iniative: bool = false):
+func orderTurn(unitArray: Array[BaseUnit], lowIndex: int, highIndex: int, iniative: bool = false) -> Array[BaseUnit]:
 	if lowIndex < highIndex:
 		var pivot: int 
 		if iniative:

@@ -22,7 +22,7 @@ const SPEED: int = 2
 @onready var itemsList: Node = $inventory/items
 @onready var abilitiesList: Array[Node] = $inventory/abilities.get_children()
 
-@onready var animPlayer: AnimationPlayer = $AnimationPlayer
+@onready var animPlayer: AnimationPlayer = $UnitAttackPlayer/animPlayer
 
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
@@ -412,7 +412,7 @@ func attack(unit: BaseUnit,animation: String) -> void:
 
 				#add animation
 				animPlayer.play(animation)
-				await animPlayer.finished
+				await animPlayer.animation_finished
 		
 		for bodyPart in unit.getBodyparts():
 			if bodyPart.getHp() <= 0:
@@ -431,6 +431,8 @@ func newTurn() -> void:
 
 	equipAWeapon()
 
+func kill() -> void:
+	get_parent().queue_free()
 
 
 

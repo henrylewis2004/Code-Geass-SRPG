@@ -1,16 +1,41 @@
-[gd_scene load_steps=12 format=3 uid="uid://cx7goff65a2n4"]
+[gd_scene load_steps=11 format=3 uid="uid://cx7goff65a2n4"]
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_q0by3"]
 [ext_resource type="PackedScene" uid="uid://bm1sq66703pp4" path="res://scenes/game logic/battle/battleController.tscn" id="1_thuk5"]
-[ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/testUnit.tscn" id="2_q0by3"]
-[ext_resource type="Texture2D" uid="uid://dtcrttgfpy0si" path="res://assets/2d/characters/main/lelouch/lelouch1.png" id="4_nbk5h"]
-[ext_resource type="Texture2D" uid="uid://mvlxadcqip1q" path="res://assets/2d/characters/main/rivalz/rivalz1.png" id="5_nbk5h"]
+[ext_resource type="PackedScene" uid="uid://k4cewou3a7w4" path="res://scenes/game objects/units/units/kallen.tscn" id="3_a5oht"]
+[ext_resource type="PackedScene" uid="uid://ch23ifeu1601i" path="res://scenes/game objects/units/britannia/britHeli.tscn" id="4_cl6q2"]
+[ext_resource type="PackedScene" uid="uid://xgdy5a12w6f8" path="res://scenes/game objects/units/britannia/britSoldier.tscn" id="5_t7p2l"]
 [ext_resource type="Texture2D" uid="uid://b7uqbq5sqlxkp" path="res://assets/2d/backgrounds/black.png" id="6_a5oht"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dpb2t"]
 size = Vector2(1, 1)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nbk5h"]
+[sub_resource type="Animation" id="Animation_a5oht"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animationPlayer/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animationPlayer/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_cl6q2"]
 resource_name = "animIntro"
@@ -40,44 +65,15 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_a5oht"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("animationPlayer/Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("animationPlayer/Sprite2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t7p2l"]
 _data = {
 &"RESET": SubResource("Animation_a5oht"),
 &"animIntro": SubResource("Animation_cl6q2")
 }
 
-[node name="TestBatLevel" type="Node3D" node_paths=PackedStringArray("animPlayer")]
+[node name="TestBatLevel" type="Node3D"]
 script = ExtResource("1_q0by3")
 nextLevel_path = "res://scenes/levels/story scenes/testStoryScene.tscn"
-sceneTran = true
-animPlayer = NodePath("animationPlayer/AnimationPlayer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.64679, 0.319903, -0.692333, 0, 0.907777, 0.419452, 0.762668, -0.271297, 0.587141, 0, 5.749, 0)
@@ -116,48 +112,14 @@ skeleton = NodePath("../MeshInstance3D3")
 [node name="BattleController" parent="." instance=ExtResource("1_thuk5")]
 mapSize = Vector2(10, 10)
 
-[node name="TestUnit2s" parent="BattleController/battleUnits/playerUnits" index="0" instance=ExtResource("2_q0by3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.070469, 0, 0.41532993)
-char_name = "test6"
-full_name = "Lelouch Test3"
-status_charImg = ExtResource("4_nbk5h")
-factionName = "THE BLACK KNIGHTS"
-agilityStat = 1
-defenceStat = 2
-evasionStat = 3
-meleeStat = 4
-rangedStat = 5
-maxAp = 6
-apCharge = 7
-maxEnergy = 8
-energyCharge = 9
-luckStat = 10
-iniativeStat = 11
-turnTimer = 12
+[node name="kallen" parent="BattleController/battleUnits/playerUnits" index="0" instance=ExtResource("3_a5oht")]
+set_position = Vector3(2, 0, 1)
 
-[node name="MgGun" parent="BattleController/battleUnits/playerUnits/TestUnit2s/weapons" index="0"]
-attackType = 1
+[node name="BrittaniaHelicopter" parent="BattleController/battleUnits/enemyUnits" index="0" instance=ExtResource("4_cl6q2")]
+set_position = Vector3(3, 0, 2)
 
-[node name="Smg" parent="BattleController/battleUnits/playerUnits/TestUnit2s/weapons" index="1"]
-attackType = 2
-
-[node name="TestUnit" parent="BattleController/battleUnits/playerUnits" index="1" instance=ExtResource("2_q0by3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8294127)
-full_name = "popo"
-status_charImg = SubResource("PlaceholderTexture2D_nbk5h")
-factionName = "pep"
-agilityStat = 2
-iniativeStat = 3
-turnTimer = 6
-
-[node name="TestUnit2" parent="BattleController/battleUnits/enemyUnits" index="0" instance=ExtResource("2_q0by3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22785, 0, 0)
-team = 1
-charImage = ExtResource("5_nbk5h")
-agilityStat = 3
-maxEnergy = 5
-energyCharge = 10
-iniativeStat = 4
+[node name="BritannianSoldier" parent="BattleController/battleUnits/enemyUnits" index="1" instance=ExtResource("5_t7p2l")]
+set_position = Vector3(1, 0, 3)
 
 [node name="AllyUnitGui" parent="BattleController/ui" index="0"]
 visible = true
@@ -192,7 +154,6 @@ centered = false
 [connection signal="sceneOver" from="BattleController" to="." method="sceneOver_emit"]
 
 [editable path="BattleController"]
-[editable path="BattleController/battleUnits/playerUnits/TestUnit2s"]
 [editable path="BattleController/ui/AllyUnitGui"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox/action/VBoxContainer/topLabel"]

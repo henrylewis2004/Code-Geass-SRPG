@@ -16,9 +16,9 @@ const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd
 const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_unitSelectionTiles.gd").SELECTION_TILES_ID
 
 @onready var battleCam: BattleCamController = $BattleCam
-@onready var playerUnits: Array[Node] = $battleUnits/playerUnits.get_children() 
-@onready var enemyUnits: Array[Node] = $battleUnits/enemyUnits.get_children() 
-@onready var allyUnits: Array[Node] = $battleUnits/allyUnits.get_children()
+@onready var playerUnits: Array[BaseUnit] = getUnits($battleUnits/playerUnits.get_children() )
+@onready var enemyUnits: Array[BaseUnit] = getUnits($battleUnits/enemyUnits.get_children() )
+@onready var allyUnits: Array[BaseUnit] = getUnits( $battleUnits/allyUnits.get_children())
 
 
 @onready var playerUnitGui: AllyUnitGui = $ui/AllyUnitGui 
@@ -69,6 +69,15 @@ var utilFun: Util = Util.new()
 var attackAnimMan : AttackAnimationManager = AttackAnimationManager.new()
 
 #methods
+func getUnits(unitArray: Array[Node]) -> Array[BaseUnit]:
+	var arr : Array[BaseUnit] = []
+
+	for unit in unitArray:
+		arr.append(unit.get_child(0))
+
+	return arr
+
+
 func updateUnitGridPos() -> void:
 	unitPos = []
 
@@ -80,7 +89,6 @@ func updateUnitGridPos() -> void:
 
 	for unit in allyUnits:
 		unitPos.append(unit.getGridPos())
-		
 	
 
 		
@@ -785,7 +793,7 @@ func killUnit(unit: BaseUnit) -> void:
 			allyUnits.erase(unit)
 
 	updateUnitGridPos()
-	unit.queue_free()
+	unit.kill()
 
 
 func aiAttackTurn(unit:BaseUnit, targetUnit: BaseUnit) -> void:
@@ -838,7 +846,7 @@ func nextTurn() -> void:
 	selectedActivity = null
 
 	updateUnitGridPos()
-	var unitArray := $battleUnits/playerUnits.get_children() + $battleUnits/enemyUnits.get_children() + $battleUnits/allyUnits.get_children() 
+	var unitArray := getUnits($battleUnits/playerUnits.get_children()) + getUnits($battleUnits/enemyUnits.get_children()) + getUnits($battleUnits/allyUnits.get_children() )
 
 	turnManager.createTurnOrder(unitArray)
 
@@ -853,9 +861,9 @@ func nextTurn() -> void:
 	var collisions: Array[Vector2] = []
 
 	if unitTurn.getTeam() == TEAM.PLAYER || unitTurn.getTeam() == TEAM.ALLY:
-		unitArray = $battleUnits/enemyUnits.get_children()
+		unitArray = getUnits($battleUnits/enemyUnits.get_children())
 	else:
-		unitArray = $battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children()
+		unitArray = getUnits($battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children())
 		
 	for unit in unitArray:
 		collisions.append(unit.getGridPos())

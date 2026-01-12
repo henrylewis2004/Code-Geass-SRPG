@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1pswkcy0x2kx"]
+
+[ext_resource type="Script" uid="uid://clr1kavhyrbu7" path="res://scripts/units/stanUNit.gd" id="1_7478y"]
+[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="2_lnjvq"]
+[ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/battle/BaseBodypart.gd" id="3_oqhg4"]
+[ext_resource type="PackedScene" uid="uid://04xva0vfqr6g" path="res://scenes/game logic/battle/unitAttackPlayer.tscn" id="5_ijl1s"]
+[ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="5_ws4l3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ay0l"]
+size = Vector3(0.75, 1, 0.75)
+
+[node name="stanUnit" type="Path3D"]
+script = ExtResource("1_7478y")
+char_name = "Kallen"
+charImage = ExtResource("2_lnjvq")
+full_name = "Kallen Kozaku"
+factionName = "JAPANESE"
+
+[node name="bodyparts" type="Node" parent="."]
+
+[node name="body" type="Node" parent="bodyparts"]
+script = ExtResource("3_oqhg4")
+totalHp = 100
+string_name = "testB"
+bodyPartType = 2
+
+[node name="weapons" type="Node" parent="."]
+
+[node name="inventory" type="Node" parent="."]
+
+[node name="items" type="Node" parent="inventory"]
+
+[node name="abilities" type="Node" parent="inventory"]
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+rotation_mode = 0
+loop = false
+
+[node name="unitCollider" type="Area3D" parent="PathFollow3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+collision_layer = 3072
+collision_mask = 3072
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PathFollow3D/unitCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_2ay0l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D/unitCollider"]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+mesh = ExtResource("5_ws4l3")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="UnitAttackPlayer" parent="." instance=ExtResource("5_ijl1s")]

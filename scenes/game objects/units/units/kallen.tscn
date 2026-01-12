@@ -1,80 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://k4cewou3a7w4"]
+[gd_scene load_steps=4 format=3 uid="uid://k4cewou3a7w4"]
 
-[ext_resource type="Script" uid="uid://bb1mv5vo6lt2m" path="res://resources/scripts/battle/BaseUnit.gd" id="1_gtyyi"]
-[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="2_c5s2f"]
-[ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/battle/BaseBodypart.gd" id="3_pijba"]
-[ext_resource type="Script" uid="uid://y5wyd4af163n" path="res://resources/scripts/battle/LegsBodypart.gd" id="4_klykj"]
+[ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_7xprv"]
+[ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/baseUnit.tscn" id="1_lffj7"]
 [ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/weapons/Mg Gun.tscn" id="5_cwe5n"]
-[ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="9_pdfic"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ay0l"]
-size = Vector3(0.75, 1, 0.75)
+[node name="kallen" type="Node"]
+script = ExtResource("1_7xprv")
 
-[node name="Kallen" type="Path3D"]
-script = ExtResource("1_gtyyi")
-char_name = "Kallen"
-charImage = ExtResource("2_c5s2f")
-full_name = "Kallen Kozaki"
-factionName = "JAPANESE"
-agilityStat = 5
-maxAp = 12
-apCharge = 4
+[node name="baseUnit" parent="." instance=ExtResource("1_lffj7")]
+agilityStat = 50
+defenceStat = 5
+evasionStat = 50
+meleeStat = 10
+rangedStat = 10
+maxAp = 10
+apCharge = 10
+maxEnergy = 10
+energyCharge = 10
+luckStat = 10
 iniativeStat = 20
 turnTimer = 10
 
-[node name="bodyparts" type="Node" parent="."]
+[node name="MgGun" parent="baseUnit/weapons" index="0" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_cwe5n")]
+equipPart = NodePath("../../bodyparts/L arm")
 
-[node name="R arm" type="Node" parent="bodyparts"]
-script = ExtResource("3_pijba")
-totalHp = 50
-string_name = "testR"
-
-[node name="L arm" type="Node" parent="bodyparts"]
-script = ExtResource("3_pijba")
-totalHp = 50
-string_name = "testL"
-bodyPartType = 1
-
-[node name="body" type="Node" parent="bodyparts"]
-script = ExtResource("3_pijba")
-totalHp = 100
-string_name = "testB"
-bodyPartType = 2
-
-[node name="legs" type="Node" parent="bodyparts"]
-script = ExtResource("4_klykj")
-moveRange = 3
-totalHp = 50
-string_name = "testLegs"
-bodyPartType = 3
-
-[node name="weapons" type="Node" parent="."]
-
-[node name="MgGun" parent="weapons" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_cwe5n")]
-equipPart = NodePath("../../bodyparts/R arm")
-
-[node name="inventory" type="Node" parent="."]
-
-[node name="items" type="Node" parent="inventory"]
-
-[node name="abilities" type="Node" parent="inventory"]
-
-[node name="PathFollow3D" type="PathFollow3D" parent="."]
-rotation_mode = 0
-loop = false
-
-[node name="unitCollider" type="Area3D" parent="PathFollow3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
-collision_layer = 3072
-collision_mask = 3072
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PathFollow3D/unitCollider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_2ay0l")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFollow3D/unitCollider"]
-transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
-mesh = ExtResource("9_pdfic")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[editable path="baseUnit"]
