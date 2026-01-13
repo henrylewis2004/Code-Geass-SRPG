@@ -1,7 +1,6 @@
 class_name Item_abilityManager 
 
-#signal actionComplete(endTurn: bool)
-signal actionComplete()
+signal actionComplete(ability: bool)
 
 const CATALOGUE := preload("res://resources/scripts/enumClasses/ENUMitems_abilities.gd")
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
@@ -51,7 +50,7 @@ func useItem(item:BattleItem, unit: BaseUnit, targetUnit:BaseUnit, targetPart: i
 	
 	unit.incAp(-item.getApCost())
 	
-	actionComplete.emit() #ends turn
+	actionComplete.emit(item == Ability) #ends turn
 
 func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit, targetPart: int = BODYPARTS.BODY) -> void:
 	if ability.isAttack():
@@ -75,4 +74,4 @@ func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit, targetPart
 	unit.incAp(-ability.getApCost())
 	unit.incEnergy(-ability.getEnergyCost())
 
-	actionComplete.emit()
+	actionComplete.emit(ability == Ability)

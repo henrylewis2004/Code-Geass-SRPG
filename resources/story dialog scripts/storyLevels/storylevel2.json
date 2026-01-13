@@ -495,7 +495,7 @@
 				{
 					"name": "Lelouch",
 					"emotion": "default3",
-					"text": "You alright?!",
+					"text": "Are you alright?!",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null

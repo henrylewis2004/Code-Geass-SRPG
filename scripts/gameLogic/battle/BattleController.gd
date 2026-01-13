@@ -300,7 +300,13 @@ func useItemAbility(unit: BaseUnit, targetUnit: BaseUnit, activity: BaseItem, se
 		itemAbMan.useItem(selectedActivity,unitTurn,selectedActivityUnit,selectedBodyPart)
 
 
-func itemEndTurn() -> void:
+func itemEndTurn(abilitiy: bool) -> void:
+	var anim: String = "itemAnim" #item
+	if ability:
+		anim = "geassAnim"	#ability
+
+	abilitiesAnim.play(anim)
+	await abilitiesAnim.animation_finished
 	endTurn()
 	
 func wpnSelection(input: int,unit:BaseUnit = unitTurn,noCounter:bool = false) -> void:
