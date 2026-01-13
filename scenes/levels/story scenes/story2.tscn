@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cnq658pjgvnsu"]
+[gd_scene load_steps=15 format=3 uid="uid://bq8ypi1qgoj8l"]
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_lq1cs"]
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="2_6h6ij"]
@@ -22,38 +22,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:position")
+tracks/1/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-42, 172)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 4)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [42]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_7btpv"]
@@ -145,6 +121,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [40, 41, 42, 44, 43, 44, 41, 42, 44, 43, 44]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_lq1cs"]
 resource_name = "lelouchRunningToTruck"
@@ -186,6 +174,9 @@ tracks/2/keys = {
 "values": [61, 62, 64, 63, 64, 61, 62, 64, 63, 64, 61, 62, 64, 63, 64]
 }
 
+[sub_resource type="Animation" id="Animation_stp26"]
+resource_name = "truckCrash"
+
 [sub_resource type="Animation" id="Animation_4ce5h"]
 resource_name = "ty"
 length = 0.5
@@ -202,9 +193,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [41, 42, 44, 43, 44]
 }
-
-[sub_resource type="Animation" id="Animation_stp26"]
-resource_name = "truckCrash"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0kvn"]
 _data = {
@@ -229,9 +217,11 @@ loadingScreen = false
 [node name="baseStoryScene" parent="." instance=ExtResource("2_6h6ij")]
 
 [node name="LelouchSchool" parent="baseStoryScene/animCharacterSprites" index="0" instance=ExtResource("3_4ce5h")]
-position = Vector2(-42, 172)
+visible = false
+z_index = 5
+position = Vector2(394, 117)
 scale = Vector2(4, 4)
-frame = 42
+frame = 40
 
 [node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")

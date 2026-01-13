@@ -7,6 +7,8 @@ func getOffset(character:String,emotion: String) -> Vector2:
 				"default": return Vector2(112,-62)
 				
 				"default2": return Vector2(113,-53)
+				
+				"default3": return Vector2(99,-52)
 
 				"thinking": return Vector2(112,-55)
 				
@@ -49,6 +51,8 @@ func getOffset(character:String,emotion: String) -> Vector2:
 				"shocked": return Vector2(73,-25)
 				
 				"default_question": return Vector2(111,-57)
+				
+				"concerned": return Vector2(88,-45)
 				
 		"prince clovis":
 			match(emotion):

@@ -5,12 +5,15 @@
 			"smirking2",
 			"default",
 			"default3",
-			"shocked"
+			"shocked",
+			"angry"
 		],
 		"Rivalz":[
 			"default",
 			"confused",
 			"shocked",
+			"default_question",
+			"concerned"
 		],
 		"Mysterious Voice":[
 			"kallen",
@@ -159,7 +162,7 @@
 				{
 					"name": "Rivalz",
 					"emotion": "shocked",
-					"text": "Waah...",
+					"text": "Waaaaah...",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -262,7 +265,7 @@
 			"lines":[
 				{
 					"name": "Rivalz",
-					"emotion": "Confused",
+					"emotion": "confused",
 					"text": "Uhh...",
 					"text_speed":"def",
 					"sfx": null,
@@ -270,7 +273,7 @@
 				},
 				{
 					"name": "Rivalz",
-					"emotion": "Confused",
+					"emotion": "confused",
 					"text": "Was that our fault?",
 					"text_speed":"def",
 					"sfx": null,
@@ -358,15 +361,15 @@
 				},
 				{
 					"name": "Rivalz",
-					"emotion": "default3",
-					"text": "Oh man! This suck!",
+					"emotion": "default_question",
+					"text": "Oh man! This sucks!",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
 				},
 				{
 					"name": "Rivalz",
-					"emotion": "default3",
+					"emotion": "default_question",
 					"text": "The powerline on the bike got cut",
 					"text_speed":"def",
 					"sfx": null,
@@ -446,7 +449,7 @@
 				},
 				{
 					"name": "Lelouch",
-					"emotion": "NONE",
+					"emotion": "angry",
 					"text": "Those idiots!",
 					"text_speed":"def",
 					"sfx": null,
@@ -459,48 +462,72 @@
 		"animation":"lelouchRunningFromBike",
 		"background": "lelouchRunning1",
 
-			"lines":[
-				{
-					"name": "Rivalz",
-					"emotion": "confused",
-					"text": "Wait!",
-					"text_speed":"def",
-					"sfx": null,
-					"music":null
-				},
-			]
+		"lines":[
+			{
+				"name": "Rivalz",
+				"emotion": "confused",
+				"text": "Wait!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+		]
 
 		},
 		{
 		"animation":"lelouchRunningToTruck",
 		"background": "lelouchRunning2",
 
-			"lines":[
-				{
-					"name": "Man On Bridge",
-					"emotion": "NONE",
-					"text": "Look! The student rescue team has arrived!",
-					"text_speed":"def",
-					"sfx": null,
-					"music":null
-				},
-				{
-					"name": "Lelouch",
-					"emotion": "default3",
-					"text": "Hey!",
-					"text_speed":"def",
-					"sfx": null,
-					"music":null
-				},
-				{
-					"name": "Lelouch",
-					"emotion": "default3",
-					"text": "Are you alright?!",
-					"text_speed":"def",
-					"sfx": null,
-					"music":null
-				},
-			]
+		"lines":[
+			{
+				"name": "Man On Bridge",
+				"emotion": "NONE",
+				"text": "Look! The student rescue team has arrived!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Lelouch",
+				"emotion": "default3",
+				"text": "Hey!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Lelouch",
+				"emotion": "default3",
+				"text": "Are you alright?!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Rivalz",
+				"emotion": "concerned",
+				"text": "Ye, ye... I know it's the right thing to do...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Rivalz",
+				"emotion": "concerned",
+				"text": "But I wish the guy would quit flaunting his pride and give it a rest for a while...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Rivalz",
+				"emotion": "concerned",
+				"text": "Now we're gonna be late for school!!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+		]
 
 		},
 		

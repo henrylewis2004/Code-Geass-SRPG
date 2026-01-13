@@ -15,7 +15,7 @@ const ACTION_BOX_ITEM := preload("res://resources/scripts/enumClasses/ENUM_actio
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_unitSelectionTiles.gd").SELECTION_TILES_ID
 
-@onready var abilitiesAnim: AnimationPlayer = $abilitiesAnim/AnimationPlayer
+
 @onready var battleCam: BattleCamController = $BattleCam
 @onready var playerUnits: Array[BaseUnit] = getUnits($battleUnits/playerUnits.get_children() )
 @onready var enemyUnits: Array[BaseUnit] = getUnits($battleUnits/enemyUnits.get_children() )
@@ -33,7 +33,7 @@ const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_uni
 
 var aiManager : AiManager = AiManager.new()
 var itemAbMan : Item_abilityManager = Item_abilityManager.new()
-
+@onready var abilitiesAnim: AnimationPlayer = $abilitiesAnim/AnimationPlayer
 
 var apCost: Vector2 = Vector2.INF #x = ap at start of turn, y = ap after move, then final ap taken in attack phase and turn ends
 
@@ -300,7 +300,7 @@ func useItemAbility(unit: BaseUnit, targetUnit: BaseUnit, activity: BaseItem, se
 		itemAbMan.useItem(selectedActivity,unitTurn,selectedActivityUnit,selectedBodyPart)
 
 
-func itemEndTurn(abilitiy: bool) -> void:
+func itemEndTurn(ability: bool) -> void:
 	var anim: String = "itemAnim" #item
 	if ability:
 		anim = "geassAnim"	#ability
@@ -936,6 +936,7 @@ func _ready():
 	aiManager.setRoot(self)
 
 	itemAbMan.connect("actionComplete",itemEndTurn)
+	abilitiesAnim.play("itemAnim")
 	
 	updateOccupiedMapGrid()
 	
