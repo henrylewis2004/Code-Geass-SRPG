@@ -107,7 +107,6 @@ func getSceneScript(path:String = dialog_script_path) -> void:
 	textData = parseJson(path)
 
 	sceneImages = {}
-	
 	for character in textData["character_dictionary"]:
 		sceneImages[character] = {}
 		for emotion in textData["character_dictionary"][character]:

@@ -628,10 +628,58 @@
 				"music":null
 			},
 		]
+		},
+		{
+		"animation":null,
+		"background": "ccSpeak",
+
+		"lines":[
+			{
+				"name": "CC",
+				"display name": "Mysterious Voice",
+				"emotion": "hidden",
+				"text": "It's you...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "CC",
+				"display name": "Mysterious Voice",
+				"emotion": "hidden",
+				"text": "Finally, I have found my...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+		]
 
 		},
-		
-		
-		
+		{
+		"animation":null,
+		"background": "lelouchOnTruck",
+
+		"lines":[
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "shocked",
+				"text": "Huh...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "shocked",
+				"text": "What was that...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
+		],
+		},
 	]
 }

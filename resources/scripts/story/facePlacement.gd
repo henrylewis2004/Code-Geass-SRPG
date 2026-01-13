@@ -40,6 +40,12 @@ func getOffset(character:String,emotion: String) -> Vector2:
 				
 				"typing": return Vector2(84,-41)
 				
+		"cc":
+			match(emotion):
+				"shouting": return Vector2(87,-36)
+				
+				"hidden": return Vector2(87,-36)
+		
 		"rivalz":
 			match(emotion):
 				"default": return Vector2(98,-41)
