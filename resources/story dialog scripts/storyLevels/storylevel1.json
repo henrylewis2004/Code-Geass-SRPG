@@ -21,9 +21,9 @@
 			"default",
 			"sad"
 		],
-		"Mysterious Voice":
+		"Kallen":
 		[
-			"kallen"
+			"hidden"
 		]
 		
 	},
@@ -65,6 +65,7 @@
 			"lines":[
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": null,
 					"text_speed":null,
@@ -81,6 +82,7 @@
 			"lines":[
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": null,
 					"text_speed":null,
@@ -97,6 +99,7 @@
 			"lines":[
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "happy",
 					"text": "I love playing against the nobility!",
 					"text_speed":"def",
@@ -105,6 +108,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "happy",
 					"text": "When they lose they always pay out of pride!",
 					"text_speed":"def",
@@ -113,6 +117,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "default",
 					"text": "By the way, 8 minutes and 32 seconds is a new record",
 					"text_speed":"def",
@@ -121,6 +126,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "happy",
 					"text": "He also didn't have much time to move either",
 					"text_speed":"def",
@@ -129,6 +135,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "happy",
 					"text": "And as opponents go...",
 					"text_speed":"def",
@@ -146,6 +153,7 @@
 			"lines":[
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "happy",
 					"text": "Well then why don't you challenge one of the elevens, they're NOTHING like us Britannians",
 					"text_speed":"def",
@@ -161,6 +169,7 @@
 			"lines":[
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "none",
 					"text": "Huh...",
 					"text_speed":"def",
@@ -176,6 +185,7 @@
 			"lines":[
 				{
 					"name": "Nearby Male Britannian",
+					"display name": null,
 					"emotion": "none",
 					"text": "What are they trying to prove by killing innocent people?!",
 					"text_speed":0.01,
@@ -184,6 +194,7 @@
 				},
 				{
 					"name": "Nearby Female Britannian",
+					"display name": null,
 					"emotion": "none",
 					"text": "Those Elevens terrify me!",
 					"text_speed":0.01,
@@ -199,6 +210,7 @@
 			"lines":[
 				{
 					"name": "News Anchor",
+					"display name": null,
 					"emotion": "none",
 					"text": "We apologise for the delay",
 					"text_speed":"def",
@@ -207,6 +219,7 @@
 				},
 				{
 					"name": "News Anchor",
+					"display name": null,
 					"emotion": "none",
 					"text": "Now, his royal highness Prince Clovis, 3rd Prince of Britannia, will address the nation",
 					"text_speed":"def",
@@ -223,6 +236,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "To all my Imperial subjects...",
 					"text_speed":"def",
@@ -231,6 +245,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "Inlcuding of course, the many cooperative Elevans who...",
 					"text_speed":"def",
@@ -246,6 +261,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "choose to serve the Empire of Brtiannia",
 					"text_speed":"def",
@@ -253,8 +269,9 @@
 					"music":null
 				},
 				{
-					"name": "Mysterious Voice",
-					"emotion": "kallen",
+					"name": "Kallen",
+					"display name": "Japanese Terrorist",
+					"emotion": "hidden",
 					"text": "We're not Elevens, we're JAPANESE!",
 					"text_speed":"def",
 					"sfx": null,
@@ -269,6 +286,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "Do you not see my pain?",
 					"text_speed":"def",
@@ -277,6 +295,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "My heart was...",
 					"text_speed":"def",
@@ -285,6 +304,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "RIPPED...",
 					"text_speed":"def",
@@ -293,6 +313,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "from my chest, only to be torn apart...",
 					"text_speed":"def",
@@ -301,6 +322,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "the remnants are filled with rage and sadness",
 					"text_speed":"def",
@@ -317,6 +339,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "However, as ruler of Area 11, I will not tolerate terrorism of any kind!",
 					"text_speed":"def",
@@ -332,6 +355,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "Because the battle we fight is a RIGHTEOUS one!",
 					"text_speed":"def",
@@ -347,6 +371,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "A virtuous battle to protect the wellbeing of one and all!",
 					"text_speed":"def",
@@ -362,6 +387,7 @@
 			"lines":[
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "Now, everyone I would like you to join me in observance of the eight who...",
 					"text_speed":"def",
@@ -370,6 +396,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "emotional",
 					"text": "died for justice in the line of duty...",
 					"text_speed":"def",
@@ -378,6 +405,7 @@
 				},
 				{
 					"name": "News Anchor",
+					"display name": null,
 					"emotion": "none",
 					"text": "A moment of silence now please...",
 					"text_speed":"def",
@@ -393,6 +421,7 @@
 			"lines":[
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "default",
 					"text": "Well aren't you going to join in?",
 					"text_speed":"def",
@@ -401,6 +430,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "happy",
 					"text": "Aren't you?",
 					"text_speed":"def",
@@ -409,6 +439,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "happy",
 					"text": "Heh... it's sort of embarassing",
 					"text_speed":"def",
@@ -417,6 +448,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "happy",
 					"text": "And I agree with you",
 					"text_speed":"def",
@@ -425,6 +457,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "happy",
 					"text": "Besides, spilling tears over those people won't bring them back to life, now will it?",
 					"text_speed":"def",
@@ -433,6 +466,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "happy",
 					"text": "Dang! Thats dark buddy!",
 					"text_speed":"def",
@@ -441,6 +475,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default2",
 					"text": "It's all about self satisfaction...",
 					"text_speed":"def",
@@ -449,6 +484,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default2",
 					"text": "It doesn't matter how hard you try, you can't do it...",
 					"text_speed":"def",
@@ -457,6 +493,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default2",
 					"text": "There's no way you can change the world....",
 					"text_speed":"def",
@@ -503,6 +540,7 @@
 			"lines":[
 				{
 					"name": "Party Goers",
+					"display name": null,
 					"emotion": "none",
 					"text": "You were magnificent, your highness!",
 					"text_speed":"def",
@@ -511,6 +549,7 @@
 				},
 				{
 					"name": "Party Goers",
+					"display name": null,
 					"emotion": "none",
 					"text": "One would never guess that you were attending a party whilst doing that!",
 					"text_speed":"def",
@@ -519,6 +558,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "default",
 					"text": "Well!",
 					"text_speed":"def",
@@ -527,6 +567,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "default",
 					"text": "After all the viceroy is the markey actor of Area 11, I need to change costumes quickly",
 					"text_speed":"def",
@@ -535,6 +576,7 @@
 				},
 				{
 					"name": "Party Goers",
+					"display name": null,
 					"emotion": "none",
 					"text": "My... You're so self confident!",
 					"text_speed":"def",
@@ -543,6 +585,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "default",
 					"text": "It's all in the performance...",
 					"text_speed":"def",
@@ -551,6 +594,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "default",
 					"text": "Since the media want a charismatic prince, I give them one",
 					"text_speed":"def",
@@ -559,6 +603,7 @@
 				},
 				{
 					"name": "Party Goers",
+					"display name": null,
 					"emotion": "none",
 					"text": "Untrue! Prince Clovis, our key purpose in life is to support and assist your reign in anyway we can!",
 					"text_speed":"def",
@@ -567,6 +612,7 @@
 				},
 				{
 					"name": "Diethard",
+					"display name": null,
 					"emotion": "sulk",
 					"text": "Tsch...",
 					"text_speed":"def",
@@ -575,6 +621,7 @@
 				},
 				{
 					"name": "Diethard",
+					"display name": null,
 					"emotion": "sulk",
 					"text": "His reign is a pathetic sham...",
 					"text_speed":"def",
@@ -583,6 +630,7 @@
 				},
 				{
 					"name": "Bartley",
+					"display name": "General Bartley",
 					"emotion": "sad",
 					"text": "Yo-your highness!!",
 					"text_speed":"def",
@@ -591,6 +639,7 @@
 				},
 				{
 					"name": "Diethard",
+					"display name": null,
 					"emotion": "sulk",
 					"text": "Hmm? A soldier?",
 					"text_speed":"def",
@@ -599,6 +648,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "default",
 					"text": "How borish of you",
 					"text_speed":"def",
@@ -607,6 +657,7 @@
 				},
 				{
 					"name": "Bartley",
+					"display name": "General Bartley",
 					"emotion": "sad",
 					"text": "I beg your pardon, your highness",
 					"text_speed":"def",
@@ -615,6 +666,7 @@
 				},
 				{
 					"name": "Diethard",
+					"display name": null,
 					"emotion": "sulk",
 					"text": "Not another appearance for him? I hope it's not as dreary...",
 					"text_speed":"def",
@@ -623,6 +675,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "angry",
 					"text": "You FOOL!!",
 					"text_speed":"def",
@@ -631,6 +684,7 @@
 				},
 				{
 					"name": "Bartley",
+					"display name": "General Bartley",
 					"emotion": "sad",
 					"text": "The police where informed that it was 'Medical Equipment' thats all...",
 					"text_speed":"def",
@@ -639,6 +693,7 @@
 				},
 				{
 					"name": "Bartley",
+					"display name": "General Bartley",
 					"emotion": "sad",
 					"text": "If we scramble the army there'll be a reco- ",
 					"text_speed":"def",
@@ -647,6 +702,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "angry",
 					"text": "Deploy the Royal Guard!",
 					"text_speed":"def",
@@ -655,6 +711,7 @@
 				},
 				{
 					"name": "Prince Clovis",
+					"display name": null,
 					"emotion": "angry",
 					"text": "The knightmares aswell!",
 					"text_speed":"def",

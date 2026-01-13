@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbcav7kr3nahe"
-path="res://.godot/imported/default_angry.png-beed8f4b613d1d9b48a72c1174fd5cc3.ctex"
+uid="uid://ca052j74s364a"
+path="res://.godot/imported/kallen_hidden.png-95ef49d3899681b6a8b5b898f0f2d890.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/story/kallen/face/default_angry.png"
-dest_files=["res://.godot/imported/default_angry.png-beed8f4b613d1d9b48a72c1174fd5cc3.ctex"]
+source_file="res://assets/2d/characters/story/kallen/body/kallen_hidden.png"
+dest_files=["res://.godot/imported/kallen_hidden.png-95ef49d3899681b6a8b5b898f0f2d890.ctex"]
 
 [params]
 

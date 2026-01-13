@@ -6,7 +6,7 @@
 			"default",
 			"default3",
 			"shocked",
-			"angry"
+			"angry2"
 		],
 		"Rivalz":[
 			"default",
@@ -15,14 +15,17 @@
 			"default_question",
 			"concerned"
 		],
-		"Mysterious Voice":[
-			"kallen",
+		"Kallen":[
+			"hidden",
 		],
 		"Naoto":[
 			"default",
 		],
 		"Bartley":[
 			"default",
+		],
+		"CC":[
+			"hidden",
 		],
 
 		
@@ -43,7 +46,24 @@
 		"peopleReaction":"area11/level2/lelouchLookingatPeople",
 		"lelouchRunning1":"area11/level2/lelouchRunning",
 		"lelouchRunning2":"area11/level2/lelouchrunning2",
-
+		
+		"lelouchOnTruck":"area11/level2/lelouchOnTruck",
+		"pedal":"area11/level2/carDrivingPedal",
+		"tireSpin":"area11/level2/tiresSpinning",
+		"ccSpeak":"area11/level2/ccSpeaking",
+		"lelouchFalling":"area11/level2/lelouchFalling",
+		"rivalzLookingAtTruck":"area11/level2/rivalzLookingAtTruck",
+		"kallenReveal1":"area11/level2/kallenReveal1",
+		"kallenReveal2":"area11/level2/kallenReveal2",
+		
+		"lInTruck1":"area11/level2/lelouchInTruck1",
+		"lInTruck2":"area11/level2/lelouchInTruck2",
+		"lInTruck3":"area11/level2/lelouchInTruck3",
+		"kWalkTruck":"area11/level2/kallenWalkingInTruck",
+	
+		"heliShooting":"area11/level2/helicoptersShooting",
+		"heliTargetting":"area11/level2/heliTargeting",
+		"rivalzLookingForLelouch":"area11/level2/rivalzLookingForLelouch",
 	},
 	
 
@@ -83,6 +103,7 @@
 			"lines":[
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "confused",
 					"text": "That first move you made...",
 					"text_speed":"def",
@@ -91,6 +112,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "confused",
 					"text": "Why'd you start with the king?",
 					"text_speed":"def",
@@ -99,6 +121,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default_happy",
 					"text": "If the king doesn't lead, how can he expect his subordinates to follow?",
 					"text_speed":"def",
@@ -107,6 +130,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "confused",
 					"text": "What's with that?",
 					"text_speed":"def",
@@ -115,6 +139,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default_happy",
 					"text": "Whats with what?",
 					"text_speed":"def",
@@ -123,6 +148,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "confused",
 					"text": "Do you fantasize about running a major corporation, or something?",
 					"text_speed":"def",
@@ -131,6 +157,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default_happy",
 					"text": "No way, amitions like that will ruin your hea- ",
 					"text_speed":"def",
@@ -146,6 +173,7 @@
 			"lines":[
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": null,
 					"text_speed":null,
@@ -161,6 +189,7 @@
 			"lines":[
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "shocked",
 					"text": "Waaaaah...",
 					"text_speed":"def",
@@ -169,6 +198,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "shocked",
 					"text": "We're gonna die!!",
 					"text_speed":"def",
@@ -177,6 +207,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "shocked",
 					"text": "Are they crazy?",
 					"text_speed":"def",
@@ -193,6 +224,7 @@
 			"lines":[
 				{
 					"name": "Naoto",
+					"display name": null,
 					"emotion": "default",
 					"text": "Ugh...",
 					"text_speed":"def",
@@ -201,6 +233,7 @@
 				},
 				{
 					"name": "Naoto",
+					"display name": null,
 					"emotion": "default",
 					"text": "You idiots!!",
 					"text_speed":"def",
@@ -209,6 +242,7 @@
 				},
 				{
 					"name": "Naoto",
+					"display name": null,
 					"emotion": "default",
 					"text": "Watch where you're going!!",
 					"text_speed":"def",
@@ -216,8 +250,9 @@
 					"music":null
 				},
 				{
-					"name": "Mysterious Voice",
-					"emotion": "kallen",
+					"name": "Kallen",
+					"display name": "Japanese Terrorist",
+					"emotion": "hidden",
 					"text": "NO! Not that way!!",
 					"text_speed":"def",
 					"sfx": null,
@@ -232,8 +267,9 @@
 
 			"lines":[
 				{
-					"name": "Mysterious Voice",
-					"emotion": "kallen",
+					"name": "Kallen",
+					"display name": "Japanese Terrorist",
+					"emotion": "hidden",
 					"text": "Watch out!!",
 					"text_speed":"def",
 					"sfx": null,
@@ -249,6 +285,7 @@
 			"lines":[
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": null,
 					"text_speed":null,
@@ -265,6 +302,7 @@
 			"lines":[
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "confused",
 					"text": "Uhh...",
 					"text_speed":"def",
@@ -273,6 +311,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "confused",
 					"text": "Was that our fault?",
 					"text_speed":"def",
@@ -281,6 +320,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default3",
 					"text": "I don't think so",
 					"text_speed":"def",
@@ -297,6 +337,7 @@
 			"lines":[
 				{
 					"name": "Helicopter Pilot",
+					"display name": null,
 					"emotion": "NONE",
 					"text": "Control, the target has crashed at the abandoned V.O. construction site",
 					"text_speed":"def",
@@ -305,6 +346,7 @@
 				},
 				{
 					"name": "Control",
+					"display name": null,
 					"emotion": "NONE",
 					"text": "The military will take over, General Bartley's command",
 					"text_speed":"def",
@@ -313,6 +355,7 @@
 				},
 				{
 					"name": "Helicopter Pilot",
+					"display name": null,
 					"emotion": "NONE",
 					"text": "HIM??",
 					"text_speed":"def",
@@ -321,6 +364,7 @@
 				},
 				{
 					"name": "Bartley",
+					"display name": "General Bartley",
 					"emotion": "default",
 					"text": "We have to retrieve it at all costs...",
 					"text_speed":"def",
@@ -337,6 +381,7 @@
 			"lines":[
 				{
 					"name": "Bartley",
+					"display name": "General Bartley",
 					"emotion": "default",
 					"text": "That THING...",
 					"text_speed":"def",
@@ -345,6 +390,7 @@
 				},
 				{
 					"name": "Bartley",
+					"display name": "General Bartley",
 					"emotion": "default",
 					"text": "in the wrong hands...",
 					"text_speed":"def",
@@ -353,6 +399,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default3",
 					"text": "What is that...",
 					"text_speed":"def",
@@ -361,6 +408,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "default_question",
 					"text": "Oh man! This sucks!",
 					"text_speed":"def",
@@ -369,6 +417,7 @@
 				},
 				{
 					"name": "Rivalz",
+					"display name": null,
 					"emotion": "default_question",
 					"text": "The powerline on the bike got cut",
 					"text_speed":"def",
@@ -377,6 +426,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default3",
 					"text": "Yeah...",
 					"text_speed":"def",
@@ -385,6 +435,7 @@
 				},
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default3",
 					"text": "Rivalz, come check this out",
 					"text_speed":"def",
@@ -401,6 +452,7 @@
 			"lines":[
 				{
 					"name": "Man On Bridge",
+					"display name": null,
 					"emotion": "NONE",
 					"text": "Hey! Over here!",
 					"text_speed":"def",
@@ -409,6 +461,7 @@
 				},
 				{
 					"name": "Person On Bridge",
+					"display name": null,
 					"emotion": "NONE",
 					"text": "Woah! That's a nasty crash!",
 					"text_speed":"def",
@@ -417,6 +470,7 @@
 				},
 				{
 					"name": "Woman On Bridge",
+					"display name": null,
 					"emotion": "NONE",
 					"text": "What happened? Some sort of accident?",
 					"text_speed":"def",
@@ -425,6 +479,7 @@
 				},
 				{
 					"name": "Old Man On Bridge",
+					"display name": null,
 					"emotion": "NONE",
 					"text": "Probably some drunk driver...",
 					"text_speed":"def",
@@ -433,6 +488,7 @@
 				},
 				{
 					"name": "Woman On Bridge",
+					"display name": null,
 					"emotion": "NONE",
 					"text": "It's always some moron",
 					"text_speed":"def",
@@ -441,6 +497,7 @@
 				},
 				{
 					"name": "Person On Bridge",
+					"display name": null,
 					"emotion": "NONE",
 					"text": "Maybe someone aught to go help?",
 					"text_speed":"def",
@@ -449,7 +506,8 @@
 				},
 				{
 					"name": "Lelouch",
-					"emotion": "angry",
+					"display name": null,
+					"emotion": "angry2",
 					"text": "Those idiots!",
 					"text_speed":"def",
 					"sfx": null,
@@ -465,6 +523,7 @@
 		"lines":[
 			{
 				"name": "Rivalz",
+				"display name": null,
 				"emotion": "confused",
 				"text": "Wait!",
 				"text_speed":"def",
@@ -481,6 +540,7 @@
 		"lines":[
 			{
 				"name": "Man On Bridge",
+				"display name": null,
 				"emotion": "NONE",
 				"text": "Look! The student rescue team has arrived!",
 				"text_speed":"def",
@@ -489,6 +549,7 @@
 			},
 			{
 				"name": "Lelouch",
+				"display name": null,
 				"emotion": "default3",
 				"text": "Hey!",
 				"text_speed":"def",
@@ -497,6 +558,7 @@
 			},
 			{
 				"name": "Lelouch",
+				"display name": null,
 				"emotion": "default3",
 				"text": "Are you alright?!",
 				"text_speed":"def",
@@ -505,6 +567,7 @@
 			},
 			{
 				"name": "Rivalz",
+				"display name": null,
 				"emotion": "concerned",
 				"text": "Ye, ye... I know it's the right thing to do...",
 				"text_speed":"def",
@@ -513,6 +576,7 @@
 			},
 			{
 				"name": "Rivalz",
+				"display name": null,
 				"emotion": "concerned",
 				"text": "But I wish the guy would quit flaunting his pride and give it a rest for a while...",
 				"text_speed":"def",
@@ -521,8 +585,44 @@
 			},
 			{
 				"name": "Rivalz",
+				"display name": null,
 				"emotion": "concerned",
 				"text": "Now we're gonna be late for school!!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Kallen",
+				"display name": "Japanese Terrorist",
+				"emotion": "hidden",
+				"text": "Naota? Are you ok? Naota?!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+		]
+
+		},
+		{
+		"animation":null,
+		"background": "lelouchOnTruck",
+
+		"lines":[
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "default3",
+				"text": "Can you hear me?",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "default3",
+				"text": "Are you ok?",
 				"text_speed":"def",
 				"sfx": null,
 				"music":null

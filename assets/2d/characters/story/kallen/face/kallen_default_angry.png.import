@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8lmas5ob0hjn"
-path="res://.godot/imported/mysterious voice_naoto.png-f1874bfcb154b9f872382cf3eca2572c.ctex"
+uid="uid://cbcav7kr3nahe"
+path="res://.godot/imported/kallen_default_angry.png-147f0eae2f1d74cd2a4ce2b9820fcf3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/story/mysterious voice/face/mysterious voice_naoto.png"
-dest_files=["res://.godot/imported/mysterious voice_naoto.png-f1874bfcb154b9f872382cf3eca2572c.ctex"]
+source_file="res://assets/2d/characters/story/kallen/face/kallen_default_angry.png"
+dest_files=["res://.godot/imported/kallen_default_angry.png-147f0eae2f1d74cd2a4ce2b9820fcf3b.ctex"]
 
 [params]
 

@@ -206,6 +206,9 @@ func playLine(lineInfo: Dictionary) -> void:
 
 		if lineInfo["name"] != null:
 			textBox_name.text = lineInfo["name"]
+			if lineInfo["display name"] != null:
+				textBox_name.text = lineInfo["display name"]
+			
 			
 			#character Image
 			if lineInfo["emotion"] != null && (lineInfo["emotion"] != "none" && lineInfo["emotion"] != "NONE"):

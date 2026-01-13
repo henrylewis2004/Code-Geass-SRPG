@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg03rx5s4h3h0"
-path="res://.godot/imported/default_angry.png-a186ea3f9a07099d5cbdfd080305a554.ctex"
+uid="uid://cgq5yadt32q58"
+path="res://.godot/imported/lelouchOnTruck.png-ab7b26fcf33d9ea95eedbd0efd30b489.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/story/kallen/body/default_angry.png"
-dest_files=["res://.godot/imported/default_angry.png-a186ea3f9a07099d5cbdfd080305a554.ctex"]
+source_file="res://assets/2d/backgrounds/area11/level2/lelouchOnTruck.png"
+dest_files=["res://.godot/imported/lelouchOnTruck.png-ab7b26fcf33d9ea95eedbd0efd30b489.ctex"]
 
 [params]
 

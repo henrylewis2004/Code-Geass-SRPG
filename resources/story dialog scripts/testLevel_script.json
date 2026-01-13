@@ -31,6 +31,7 @@
 			"lines":[
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": null,
 					"text_speed":null,
@@ -47,6 +48,7 @@
 			"lines":[
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "thinking",
 					"text": "Hello, there my friend!",
 					"text_speed":0.03,
@@ -63,6 +65,7 @@
 			"lines":[
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "default",
 					"text": "this is the second line",
 					"text_speed": 0.03,
