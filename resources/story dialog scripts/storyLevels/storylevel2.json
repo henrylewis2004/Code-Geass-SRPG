@@ -922,7 +922,23 @@
 				"name": "Kallen",
 				"display name": null,
 				"emotion": "default_angry",
-				"text": "peepoo",
+				"text": "Can you enter the subway via the Azabu route?",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+		],
+		},
+		{
+		"animation":"kWalk",
+		"background": "lInTruck3",
+
+		"lines":[
+			{
+				"name": "Kallen",
+				"display name": null,
+				"emotion": "default_angry",
+				"text": "Can you enter the subway via the Azabu route?",
 				"text_speed":"def",
 				"sfx": null,
 				"music":null

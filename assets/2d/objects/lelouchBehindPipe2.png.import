@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdgupgehtrf3s"
-path="res://.godot/imported/au_b0415.ncer_2.png-fefd802c0aa7649000af63d89ca9ac64.ctex"
+uid="uid://4m877hdahrv1"
+path="res://.godot/imported/lelouchBehindPipe2.png-826245270319dbf76e977a645baba97d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/story/kallen/Kallen Kozuki/au_b0415.ncer_2.png"
-dest_files=["res://.godot/imported/au_b0415.ncer_2.png-fefd802c0aa7649000af63d89ca9ac64.ctex"]
+source_file="res://assets/2d/objects/lelouchBehindPipe2.png"
+dest_files=["res://.godot/imported/lelouchBehindPipe2.png-826245270319dbf76e977a645baba97d.ctex"]
 
 [params]
 
