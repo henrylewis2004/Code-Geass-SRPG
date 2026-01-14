@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwcbov20off1k"]
+
+[ext_resource type="Texture2D" uid="uid://11ntj1j6byj5" path="res://assets/2d/characters/overworld_sprites/kallen_default_spriteSheet.png" id="1_jq0c2"]
+
+[node name="kallenDefault" type="Sprite2D"]
+texture = ExtResource("1_jq0c2")
+hframes = 5
+vframes = 11

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b0ny6js34ybnr" path="res://scripts/gameLogic/story/DialogManager.gd" id="1_m7hsp"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="2_i8sy6"]
-[ext_resource type="Texture2D" uid="uid://drkju5217d3j5" path="res://assets/2d/characters/story/cc/body/cc_shouting.png" id="2_prlsa"]
+[ext_resource type="Texture2D" uid="uid://boclwpbmybryo" path="res://assets/2d/characters/story/kallen/body/kallen_shocked.png" id="2_prlsa"]
 [ext_resource type="FontFile" uid="uid://dp40uiq2ohbvd" path="res://assets/fonts/INVASION2000.TTF" id="3_achk7"]
-[ext_resource type="Texture2D" uid="uid://802nc61vu3bw" path="res://assets/2d/characters/story/cc/face/cc_shouting.png" id="3_dxjdx"]
+[ext_resource type="Texture2D" uid="uid://bnvdtwvutmftb" path="res://assets/2d/characters/story/kallen/face/kallen_shocked.png" id="3_dxjdx"]
 [ext_resource type="FontFile" uid="uid://ksxp5agk3ixw" path="res://assets/fonts/Silver.ttf" id="5_ummlq"]
 
 [sub_resource type="Animation" id="Animation_prlsa"]
@@ -174,7 +174,7 @@ hframes = 3
 frame = 2
 
 [node name="charImg_face" type="Sprite2D" parent="base/Control"]
-position = Vector2(87, -36)
+position = Vector2(96, -58)
 texture = ExtResource("3_dxjdx")
 hframes = 3
 

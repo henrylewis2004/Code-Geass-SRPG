@@ -6,7 +6,9 @@
 			"default",
 			"default3",
 			"shocked",
-			"angry2"
+			"angry2",
+			"annoyed",
+			"thinking"
 		],
 		"Rivalz":[
 			"default",
@@ -17,6 +19,7 @@
 		],
 		"Kallen":[
 			"hidden",
+			"default_angry"
 		],
 		"Naoto":[
 			"default",
@@ -322,7 +325,7 @@
 					"name": "Lelouch",
 					"display name": null,
 					"emotion": "default3",
-					"text": "I don't think so",
+					"text": "I don't think so...",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -672,13 +675,258 @@
 			{
 				"name": "Lelouch",
 				"display name": null,
-				"emotion": "shocked",
+				"emotion": "thinking",
 				"text": "What was that...",
 				"text_speed":"def",
 				"sfx": null,
 				"music":null
 			},
 
+		],
+		},
+		{
+		"animation":null,
+		"background": "pedal",
+
+		"lines":[
+			{
+				"name": "Naoto",
+				"display name": null,
+				"emotion": "default",
+				"text": "Lets get out of here!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
+		],
+		},
+		{
+		"animation":null,
+		"background": "tireSpin",
+
+		"lines":[
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "shocked",
+				"text": "Uhh...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
+		],
+		},
+		{
+		"animation":null,
+		"background": "lelouchFalling",
+
+		"lines":[
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "shocked",
+				"text": "Ugh... Waah",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
+		],
+		},
+		{
+		"animation":null,
+		"background": "lInTruck1",
+
+		"lines":[
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "annoyed",
+				"text": "Stop!!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "annoyed",
+				"text": "I'm in here!!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
+		],
+		},
+		{
+		"animation":null,
+		"background": "rivalzLookingAtTruck",
+
+		"lines":[
+			{
+				"name": "Rivalz",
+				"display name": null,
+				"emotion": "confused",
+				"text": "So, would you call that a hit and run?",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
+		],
+		},
+		{
+		"animation":null,
+		"background": "lInTruck2",
+
+		"lines":[
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "annoyed",
+				"text": "You think they'd stick a ladder inside too...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Area 11 Police",
+				"display name": null,
+				"emotion": "none",
+				"text": "STOP THE VEHICLE!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
+		],
+		},
+		{
+		"animation":null,
+		"background": "heliShooting",
+
+		"lines":[
+			{
+				"name": "Area 11 Police",
+				"display name": null,
+				"emotion": "none",
+				"text": "Surrender now and you'll get the chance to defend yourself in court!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Area 11 Police",
+				"display name": null,
+				"emotion": "none",
+				"text": "Stop and surrender at once!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Naoto",
+				"display name": null,
+				"emotion": "default",
+				"text": "Ugh...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Area 11 Police",
+				"display name": null,
+				"emotion": "none",
+				"text": "Give up now, or we'll shoot to kill!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Naoto",
+				"display name": null,
+				"emotion": "default",
+				"text": "Now what do we do? That's the army!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+		],
+		},
+		{
+		"animation":null,
+		"background": "kallenReveal1",
+
+		"lines":[
+			{
+				"name": "Kallen",
+				"display name": null,
+				"emotion": "hidden",
+				"text": "Have you forgotten?!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+		],
+		},
+		{
+		"animation":null,
+		"background": "kallenReveal2",
+
+		"lines":[
+			{
+				"name": "Kallen",
+				"display name": null,
+				"emotion": "default_angry",
+				"text": "That's what I'm here for!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+		],
+		},
+		{
+		"animation":null,
+		"background": "lInTruck3",
+
+		"lines":[
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "thinking",
+				"text": "If I jump out, I have the choice of breaking my neck or getting shot...",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Lelouch",
+				"display name": null,
+				"emotion": "thinking",
+				"text": "I could try to ca-",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+		],
+		},
+		{
+		"animation":"kWalk",
+		"background": "kWalkTruck",
+
+		"lines":[
+			{
+				"name": "Kallen",
+				"display name": null,
+				"emotion": "default_angry",
+				"text": "peepoo",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
 		],
 		},
 	]
