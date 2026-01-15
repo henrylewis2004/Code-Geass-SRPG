@@ -3,10 +3,10 @@ mechanics:
 		> sound
 	> attack animation
 		> plays animation x
-			> make animation
-		> sound
-		> particle affects
+			> make animation	x
+		> sound				x
 
+		> particle affects
 		> hit animation
 			> particle is red / yellow
 		> miss animation
@@ -133,8 +133,6 @@ art:
 	> psx shader
 
 	> 2d art
-		> status screen
-
 		> gun art
 			> show weapon destroeyd
 				> say destroyed
@@ -149,9 +147,6 @@ art:
 		> animations
 			> shoot
 			> die
-			> move
-			> ability
-			> item
 
 		> knightmares
 		> helis

@@ -935,14 +935,24 @@
 
 		"lines":[
 			{
-				"name": "Kallen",
+				"name": "Naoto",
 				"display name": null,
-				"emotion": "default_angry",
-				"text": "Can you enter the subway via the Azabu route?",
+				"emotion": "default",
+				"text": "Why don't we use it now?",
 				"text_speed":"def",
 				"sfx": null,
 				"music":null
 			},
+			{
+				"name": "Kallen",
+				"display name": null,
+				"emotion": "default_angry",
+				"text": "some something damage",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
 		],
 		},
 	]

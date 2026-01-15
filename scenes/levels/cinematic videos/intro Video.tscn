@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://docaydd600uqt"]
+[gd_scene load_steps=4 format=3 uid="uid://docaydd600uqt"]
 
 [ext_resource type="Script" uid="uid://csiv41gutvd3x" path="res://scripts/gameLogic/video/videoLevel.gd" id="1_af3m2"]
 [ext_resource type="VideoStream" uid="uid://d2mwiqtt5lu0o" path="res://assets/video/COLORS-flow op1.ogv" id="2_af3m2"]
+[ext_resource type="PackedScene" uid="uid://8t7nouev2j2p" path="res://scenes/game logic/cinematic/video/skipAnimation.tscn" id="3_vkobt"]
 
 [node name="IntroVideo" type="Node"]
 script = ExtResource("1_af3m2")
@@ -16,5 +17,7 @@ stream = ExtResource("2_af3m2")
 autoplay = true
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="SkipAnimation" parent="." instance=ExtResource("3_vkobt")]
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="sceneOver_emit"]
