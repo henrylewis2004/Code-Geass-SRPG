@@ -1,6 +1,6 @@
 class_name VideoLevel extends Level
 
-@export var timeSkip: float = 2.0
+@export var timeSkip: float = 1.0
 
 @onready var timer: Timer = $Timer
 @onready var skipAnimPlayer: AnimationPlayer = $SkipAnimation.get_node("AnimationPlayer")
@@ -11,13 +11,6 @@ func startSkip() -> void:
 	timer.start(timeSkip)
 	skipAnimPlayer.play("skip")
 
-	await timer.timeout
-	if skip:
-		set_process(false)
-		skipAnimPlayer.play("endSkip")
-		await skipAnimPlayer.animation_finished
-		sceneOver.emit()
-
 
 
 func stopSkip() -> void:
@@ -25,8 +18,18 @@ func stopSkip() -> void:
 	skipAnimPlayer.play("RESET")
 	timer.stop()
 
+func doSkip() -> void:
+	if skip:
+		set_process(false)
+		skipAnimPlayer.play("endSkip")
+		await skipAnimPlayer.animation_finished
+		sceneOver.emit()
 
 ####
+func _ready():
+	timer.timeout.connect(doSkip)
+
+
 func _process(delta):
 	if Input.is_action_just_pressed("menu_start"):
 		startSkip()

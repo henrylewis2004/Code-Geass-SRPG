@@ -37,6 +37,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": null,
 					"text_speed": "def",
@@ -51,6 +52,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "The date was August 10 in the year 2010 of the Imperial Calendar",
 					"text_speed": "def",
@@ -65,6 +67,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "The Holy Britannian Empire had just declared war upon Japan",
 					"text_speed": "def",
@@ -79,6 +82,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "The far-east island nation had held fast to its neutrality and now...",
 					"text_speed": "def",
@@ -93,6 +97,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "Britannia looms as the world's only superpower",
 					"text_speed": "def",
@@ -107,6 +112,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "Rights to Japan's underground resources became a hotly disputed issue...",
 					"text_speed": "def",
@@ -121,6 +127,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "straining the already deep-rooted diplomatic tensions between the two sides",
 					"text_speed": "def",
@@ -135,6 +142,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "In the deciding battle for the mainland...",
 					"text_speed": "def",
@@ -149,6 +157,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "Britannian forces introduced into combat...",
 					"text_speed": "def",
@@ -163,6 +172,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "the humanoid autonomous armoured knight...",
 					"text_speed": "def",
@@ -177,6 +187,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "known as the Knightmare Frame",
 					"text_speed": "def",
@@ -191,6 +202,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "The enemy's forces were far greater than anticipated...",
 					"text_speed": "def",
@@ -205,6 +217,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "and the knightmares obliterated the Japanese line of defence on the mainland with little effort",
 					"text_speed": "def",
@@ -219,6 +232,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "Japan became a dominion of the Empire...",
 					"text_speed": "def",
@@ -233,6 +247,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "their country was stripped of its freedom...",
 					"text_speed": "def",
@@ -247,6 +262,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "its rights...",
 					"text_speed": "def",
@@ -261,6 +277,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "and its name",
 					"text_speed": "def",
@@ -275,6 +292,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "AREA 11",
 					"text_speed": "def",
@@ -289,6 +307,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "The defeated and once proud nation of Japan was rechristened with a mere number",
 					"text_speed": "def",
@@ -303,6 +322,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": "That's where you came in...",
 					"text_speed": "def",
@@ -317,6 +337,7 @@
 			"lines": [
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "none",
 					"text": "I SWEAR...",
 					"text_speed": "def",
@@ -331,6 +352,7 @@
 			"lines": [
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "none",
 					"text": "I SWEAR, so help me...",
 					"text_speed": "def",
@@ -345,6 +367,7 @@
 			"lines": [
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "none",
 					"text": "I will one day...",
 					"text_speed": "def",
@@ -359,6 +382,7 @@
 			"lines": [
 				{
 					"name": "Lelouch",
+					"display name": null,
 					"emotion": "none",
 					"text": "OBLITERATE BRITANNIA!!!",
 					"text_speed": "def",
@@ -373,6 +397,7 @@
 			"lines": [
 				{
 					"name": null,
+					"display name": null,
 					"emotion": null,
 					"text": null,
 					"text_speed": null,

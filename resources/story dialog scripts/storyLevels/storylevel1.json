@@ -141,6 +141,24 @@
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"display name": null,
+					"emotion": "happy",
+					"text": "the nobles are tepid",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				},
+				{
+					"name": "Lelouch",
+					"display name": null,
+					"emotion": "happy",
+					"text": "They're just overprivileged parasites, that's all",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
 				}
 			]
 		},
