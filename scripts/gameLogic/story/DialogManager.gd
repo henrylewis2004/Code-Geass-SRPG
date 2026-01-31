@@ -141,6 +141,7 @@ func createScene(sceneInfo: Array) -> void:
 	if musicPlayer.is_playing():
 		musicPlayer.stop()
 
+	print("endDialoge")
 	endDialoge.emit()
 	set_process(false)
 		
@@ -156,7 +157,6 @@ func playStage(stageInfo: Dictionary) -> void:
 
 	
 	if stageInfo["animation"] != null:
-		print(stageInfo["animation"])
 		animPlayer.play(stageInfo["animation"])
 
 	for line in range(stageInfo["lines"].size()):

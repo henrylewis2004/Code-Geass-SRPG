@@ -550,4 +550,6 @@ libraries = {
 }
 autoplay = "kWalk2"
 
+[connection signal="endDialoge" from="baseStoryScene/DialogManager" to="." method="sceneOver_emit"]
+
 [editable path="baseStoryScene"]

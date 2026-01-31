@@ -100,6 +100,7 @@ func saveSlot(slot:int) -> void:
 
 ###
 func loadLevel(levelPath: String,level:Level = curLevel) -> void:
+	print("load level: " + levelPath)
 	var saveRoom: bool = level.toSaveRoom()
 	var previousLevel := get_children()
 
@@ -130,6 +131,7 @@ func loadLevel(levelPath: String,level:Level = curLevel) -> void:
 
 	
 func nextLevel() -> void:
+	print("nextlevel called")
 	var nextLevelPath: String = curLevel.getNextLevelPath()
 	loadLevel(nextLevelPath)
 	
@@ -138,4 +140,4 @@ func nextLevel() -> void:
 #engine
 func _ready():
 	connectScene(curLevel)
-	#saveMan.getRecentSaveSlot()
+	saveMan.getRecentSaveSlot()
