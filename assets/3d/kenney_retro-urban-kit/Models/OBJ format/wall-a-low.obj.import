@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cxa84w7nsvr0j"
+path="res://.godot/imported/wall-a-low.obj-b0bd7a62ac5c9936039bad29b69cb105.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-a-low.obj-b0bd7a62ac5c9936039bad29b69cb105.mesh"]
+
+source_file="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-low.obj"
+dest_files=["res://.godot/imported/wall-a-low.obj-b0bd7a62ac5c9936039bad29b69cb105.mesh", "res://.godot/imported/wall-a-low.obj-b0bd7a62ac5c9936039bad29b69cb105.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c72usmbnrmjv2"]
+[gd_scene format=3 uid="uid://c72usmbnrmjv2"]
 
 [ext_resource type="Script" uid="uid://b0ny6js34ybnr" path="res://scripts/gameLogic/story/DialogManager.gd" id="1_m7hsp"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="2_i8sy6"]
@@ -150,42 +150,44 @@ _data = {
 &"test": SubResource("Animation_vfj3u")
 }
 
-[node name="DialogManager" type="Control"]
+[node name="DialogManager" type="Control" unique_id=568629886]
 z_index = 10
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_m7hsp")
 
-[node name="base" type="Control" parent="."]
+[node name="base" type="Control" parent="." unique_id=76382157]
+z_index = 5
 anchors_preset = 0
 offset_top = 191.0
 offset_right = 480.0
 offset_bottom = 254.0
 
-[node name="Control" type="Control" parent="base"]
+[node name="Control" type="Control" parent="base" unique_id=621118611]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="charImg_bod" type="Sprite2D" parent="base/Control"]
+[node name="charImg_bod" type="Sprite2D" parent="base/Control" unique_id=589522450]
 position = Vector2(99, -21)
 texture = ExtResource("2_prlsa")
 hframes = 3
 frame = 2
 
-[node name="charImg_face" type="Sprite2D" parent="base/Control"]
+[node name="charImg_face" type="Sprite2D" parent="base/Control" unique_id=1834017007]
 position = Vector2(96, -58)
 texture = ExtResource("3_dxjdx")
 hframes = 3
 
-[node name="textBox" type="Control" parent="base"]
+[node name="textBox" type="Control" parent="base" unique_id=478568682]
+z_index = 7
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.889
 offset_top = 12.0
 offset_bottom = 11.993
 
-[node name="back" type="TextureRect" parent="base/textBox"]
+[node name="back" type="TextureRect" parent="base/textBox" unique_id=832835593]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -194,7 +196,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_i8sy6")
 
-[node name="nameLabel" type="RichTextLabel" parent="base/textBox"]
+[node name="nameLabel" type="RichTextLabel" parent="base/textBox" unique_id=442267071]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.008
@@ -209,7 +211,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "Lelouch
 "
 
-[node name="dialogText" type="RichTextLabel" parent="base/textBox"]
+[node name="dialogText" type="RichTextLabel" parent="base/textBox" unique_id=1186362779]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.056
@@ -228,7 +230,7 @@ scroll_active = false
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="nextIcon" type="Label" parent="base/textBox"]
+[node name="nextIcon" type="Label" parent="base/textBox" unique_id=399572224]
 visible = false
 layout_mode = 0
 offset_left = 456.0
@@ -239,24 +241,22 @@ theme_override_fonts/font = ExtResource("5_ummlq")
 theme_override_font_sizes/font_size = 30
 text = ">"
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="." unique_id=2146013484]
 z_index = -1
 centered = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_vfj3u")
-}
-autoplay = "icon_flash"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=692566460]
+libraries/ = SubResource("AnimationLibrary_vfj3u")
+autoplay = &"icon_flash"
 
-[node name="backMusic" type="AudioStreamPlayer" parent="."]
+[node name="backMusic" type="AudioStreamPlayer" parent="." unique_id=230588131]
 
-[node name="sfx" type="AudioStreamPlayer" parent="."]
+[node name="sfx" type="AudioStreamPlayer" parent="." unique_id=1223454978]
 
-[node name="textTimer" type="Timer" parent="."]
+[node name="textTimer" type="Timer" parent="." unique_id=1400322233]
 one_shot = true
 
-[node name="blinkTimer" type="Timer" parent="."]
+[node name="blinkTimer" type="Timer" parent="." unique_id=795548624]
 wait_time = 5.0
 one_shot = true
 

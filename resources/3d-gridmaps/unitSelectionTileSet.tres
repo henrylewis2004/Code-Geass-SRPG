@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=13 format=3 uid="uid://br1frrys5qtyv"]
+[gd_resource type="MeshLibrary" format=3 uid="uid://br1frrys5qtyv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1evt6"]
 transparency = 1

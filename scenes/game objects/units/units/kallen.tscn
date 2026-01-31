@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://k4cewou3a7w4"]
+[gd_scene format=3 uid="uid://k4cewou3a7w4"]
 
 [ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_7xprv"]
-[ext_resource type="PackedScene" path="res://scenes/game objects/units/baseUnit.tscn" id="3_7xprv"]
+[ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/baseUnit.tscn" id="3_7xprv"]
 [ext_resource type="PackedScene" uid="uid://dw0k4okfbuau3" path="res://scenes/game objects/item-abilities/abilities/ability_attack/SPEED_DOWN.tscn" id="4_ghykq"]
 [ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/weapons/Mg Gun.tscn" id="5_cwe5n"]
 
-[node name="kallen" type="Node"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ghykq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghykq"]
+albedo_color = Color(0, 1, 1, 1)
+
+[node name="kallen" type="Node" unique_id=1183093597]
 script = ExtResource("1_7xprv")
 
-[node name="baseUnit" parent="." instance=ExtResource("3_7xprv")]
+[node name="baseUnit" parent="." unique_id=1237027531 instance=ExtResource("3_7xprv")]
 agilityStat = 10
 defenceStat = 10
 evasionStat = 10
@@ -22,9 +27,14 @@ luckStat = 10
 iniativeStat = 10
 turnTimer = 10
 
-[node name="MgGun" parent="baseUnit/weapons" index="0" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_cwe5n")]
+[node name="MgGun" parent="baseUnit/weapons" parent_id_path=PackedInt32Array(1237027531, 452410782) index="0" unique_id=1895928990 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_cwe5n")]
 equipPart = NodePath("../../bodyparts/R arm")
 
-[node name="SpeedDown" parent="baseUnit/inventory/abilities" index="0" instance=ExtResource("4_ghykq")]
+[node name="SpeedDown" parent="baseUnit/inventory/abilities" parent_id_path=PackedInt32Array(1237027531, 377543360) index="0" unique_id=1408530262 instance=ExtResource("4_ghykq")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="baseUnit/PathFollow3D/unitCollider" parent_id_path=PackedInt32Array(1237027531, 1641843474) index="1" unique_id=920641669]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_ghykq")
+surface_material_override/0 = SubResource("StandardMaterial3D_ghykq")
 
 [editable path="baseUnit"]

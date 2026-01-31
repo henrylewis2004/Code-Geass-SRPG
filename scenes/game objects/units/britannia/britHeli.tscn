@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch23ifeu1601i"]
+[gd_scene format=3 uid="uid://ch23ifeu1601i"]
 
 [ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_o3rf0"]
 [ext_resource type="Texture2D" uid="uid://g15ec3ye31jo" path="res://assets/2d/characters/enemy/britannia/npc/britSoldier1.png" id="2_5fcao"]
 [ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/weapons/smg.tscn" id="5_5fcao"]
 [ext_resource type="PackedScene" uid="uid://b1pswkcy0x2kx" path="res://scenes/game objects/units/stanUnit.tscn" id="6_5fcao"]
 
-[node name="BrittaniaHelicopter" type="Node"]
+[sub_resource type="PrismMesh" id="PrismMesh_o3rf0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3rf0"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="BrittaniaHelicopter" type="Node" unique_id=675714386]
 script = ExtResource("1_o3rf0")
 
-[node name="stanUnit" parent="." instance=ExtResource("6_5fcao")]
+[node name="stanUnit" parent="." unique_id=1046095234 instance=ExtResource("6_5fcao")]
 moveRange = 4
 team = 1
 char_name = "Helicopter"
@@ -16,7 +21,12 @@ charImage = ExtResource("2_5fcao")
 full_name = "Pilot"
 factionName = "Britannian Empire"
 
-[node name="Smg" parent="stanUnit/weapons" index="0" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_5fcao")]
+[node name="Smg" parent="stanUnit/weapons" parent_id_path=PackedInt32Array(1046095234, 279840207) index="0" unique_id=1683125310 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_5fcao")]
 equipPart = NodePath("../../bodyparts/body")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stanUnit/PathFollow3D/unitCollider" parent_id_path=PackedInt32Array(1046095234, 815669092) index="1" unique_id=1673832389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("PrismMesh_o3rf0")
+surface_material_override/0 = SubResource("StandardMaterial3D_o3rf0")
 
 [editable path="stanUnit"]

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://byeadlqnsiu80"
+path="res://.godot/imported/grass-corner.obj-cc97deeb1d23d87d713115bb5409acad.mesh"
+
+[deps]
+
+files=["res://.godot/imported/grass-corner.obj-cc97deeb1d23d87d713115bb5409acad.mesh"]
+
+source_file="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/grass-corner.obj"
+dest_files=["res://.godot/imported/grass-corner.obj-cc97deeb1d23d87d713115bb5409acad.mesh", "res://.godot/imported/grass-corner.obj-cc97deeb1d23d87d713115bb5409acad.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bq8ypi1qgoj8l"]
+[gd_scene format=3 uid="uid://bq8ypi1qgoj8l"]
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_lq1cs"]
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="2_6h6ij"]
@@ -53,18 +53,6 @@ tracks/3/path = NodePath("baseStoryScene/animCharacterSprites/lelouchBehind:visi
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("baseStoryScene/animCharacterSprites/lelouchBehind2:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -249,66 +237,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [6, 7, 9, 8, 6, 7, 9, 8, 6, 7, 5]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("baseStoryScene/animCharacterSprites/lelouchBehind2:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(411, 129)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5, 5)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("baseStoryScene/animCharacterSprites/LelouchSchool:frame")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.43333334, 0.73333335),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [18, 19, 18]
-}
 
 [sub_resource type="Animation" id="Animation_jeiro"]
 resource_name = "kWalk2_end"
@@ -347,18 +275,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(8, 8)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("baseStoryScene/animCharacterSprites/kallenDefault:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
 }
 
 [sub_resource type="Animation" id="Animation_6h6ij"]
@@ -500,55 +416,52 @@ _data = {
 &"ty": SubResource("Animation_4ce5h")
 }
 
-[node name="Story2" type="Node" node_paths=PackedStringArray("dialogPlayer")]
+[node name="Story2" type="Node" unique_id=214116107 node_paths=PackedStringArray("dialogPlayer")]
 script = ExtResource("1_lq1cs")
+nextLevel_path = "res://scenes/levels/battle/battleLevel01.tscn"
 dialogOnStart = true
 dialogPath = "res://resources/story dialog scripts/storyLevels/storylevel2.json"
 dialogPlayer = NodePath("baseStoryScene/DialogManager")
 loadingScreen = false
 
-[node name="baseStoryScene" parent="." instance=ExtResource("2_6h6ij")]
+[node name="baseStoryScene" parent="." unique_id=549369599 instance=ExtResource("2_6h6ij")]
 
-[node name="LelouchSchool" parent="baseStoryScene/animCharacterSprites" index="0" instance=ExtResource("3_4ce5h")]
-visible = false
-z_index = 5
-position = Vector2(394, 117)
-scale = Vector2(4, 4)
-frame = 19
+[node name="animCharacterSprites" parent="baseStoryScene" index="1"]
+z_index = 10
 
-[node name="kallenDefault" parent="baseStoryScene/animCharacterSprites" index="1" instance=ExtResource("4_6h6ij")]
+[node name="LelouchSchool" parent="baseStoryScene/animCharacterSprites" index="0" unique_id=2133458339 instance=ExtResource("3_4ce5h")]
 visible = false
-z_index = 6
+position = Vector2(411, 129)
+scale = Vector2(5, 5)
+frame = 18
+
+[node name="kallenDefault" parent="baseStoryScene/animCharacterSprites" index="1" unique_id=430196115 instance=ExtResource("4_6h6ij")]
+visible = false
 position = Vector2(137, 151)
 scale = Vector2(8, 8)
 frame = 5
 
-[node name="lelouchBehind" type="Sprite2D" parent="baseStoryScene/animCharacterSprites" index="2"]
+[node name="lelouchBehind" type="Sprite2D" parent="baseStoryScene/animCharacterSprites" index="2" unique_id=733824006]
 visible = false
-z_index = 5
 position = Vector2(368, 135)
 texture = ExtResource("5_4ce5h")
 
-[node name="lelouchBehind2" type="Sprite2D" parent="baseStoryScene/animCharacterSprites" index="3"]
+[node name="lelouchBehind2" type="Sprite2D" parent="baseStoryScene/animCharacterSprites" index="3" unique_id=394415404]
 visible = false
-z_index = 5
 position = Vector2(240, 135)
 texture = ExtResource("6_gvcjx")
 
 [node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")
 
-[node name="placeholder" type="Sprite2D" parent="baseStoryScene"]
+[node name="placeholder" type="Sprite2D" parent="baseStoryScene" unique_id=765062070]
 visible = false
 z_index = -1
 texture = ExtResource("6_4ce5h")
 centered = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_o0kvn")
-}
-autoplay = "RESET"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=250841907]
+libraries/ = SubResource("AnimationLibrary_o0kvn")
 
 [connection signal="endDialoge" from="baseStoryScene/DialogManager" to="." method="sceneOver_emit"]
 

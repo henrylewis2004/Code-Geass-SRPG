@@ -65,7 +65,7 @@
 		"kWalkTruck":"area11/level2/kallenWalkingInTruck",
 	
 		"heliShooting":"area11/level2/helicoptersShooting",
-		"heliTargetting":"area11/level2/heliTargeting",
+		"heliTargeting":"area11/level2/heliTargeting",
 		"rivalzLookingForLelouch":"area11/level2/rivalzLookingForLelouch",
 	},
 	
@@ -930,7 +930,7 @@
 		],
 		},
 		{
-		"animation":"kWalk",
+		"animation":"kWalk2",
 		"background": "lInTruck3",
 
 		"lines":[
@@ -947,7 +947,25 @@
 				"name": "Kallen",
 				"display name": null,
 				"emotion": "default_angry",
-				"text": "some something damage",
+				"text": "Are you crazy?",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Kallen",
+				"display name": null,
+				"emotion": "default_angry",
+				"text": "That would mean a slaughter!!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Naoto",
+				"display name": null,
+				"emotion": "default",
+				"text": "Yeah...",
 				"text_speed":"def",
 				"sfx": null,
 				"music":null
@@ -955,5 +973,76 @@
 
 		],
 		},
+		{
+		"animation":null,
+		"background": "rivalzLookingForLelouch",
+
+		"lines":[
+			{
+				"name": "Rivalz",
+				"display name": null,
+				"emotion": "shocked",
+				"text": "Lelouch?!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Rivalz",
+				"display name": null,
+				"emotion": "shocked",
+				"text": "Lelouch?! Where are you?!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Rivalz",
+				"display name": null,
+				"emotion": "shocked",
+				"text": "We've got to get to school!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
+		],
+		},
+		{
+		"animation":"kWalk2_end",
+		"background": "heliTargeting",
+
+		"lines":[
+			{
+				"name": "Helicopter Pilot",
+				"display name": null,
+				"emotion": "NONE",
+				"text": "The target's moving from the settlement area to the ghetto",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Police Commander",
+				"display name": null,
+				"emotion": "NONE",
+				"text": "Right... Target them!!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+			{
+				"name": "Kallen",
+				"display name": null,
+				"emotion": "default_angry",
+				"text": "Not so fast!!",
+				"text_speed":"def",
+				"sfx": null,
+				"music":null
+			},
+
+		],
+		},
+		
 	]
 }

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://psq5qd4x5hv4"
+path="res://.godot/imported/pallet-small.obj-79408edce47ae0cf45767a0b98fec61c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pallet-small.obj-79408edce47ae0cf45767a0b98fec61c.mesh"]
+
+source_file="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/pallet-small.obj"
+dest_files=["res://.godot/imported/pallet-small.obj-79408edce47ae0cf45767a0b98fec61c.mesh", "res://.godot/imported/pallet-small.obj-79408edce47ae0cf45767a0b98fec61c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

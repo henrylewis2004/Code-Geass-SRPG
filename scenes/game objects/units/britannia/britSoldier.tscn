@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://xgdy5a12w6f8"]
+[gd_scene format=3 uid="uid://xgdy5a12w6f8"]
 
 [ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_m57m1"]
 [ext_resource type="Texture2D" uid="uid://g15ec3ye31jo" path="res://assets/2d/characters/enemy/britannia/npc/britSoldier1.png" id="2_lm43b"]
 [ext_resource type="PackedScene" uid="uid://b1pswkcy0x2kx" path="res://scenes/game objects/units/stanUnit.tscn" id="5_ams47"]
 [ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/weapons/smg.tscn" id="5_qqb8i"]
 
-[node name="BritannianSoldier" type="Node"]
+[sub_resource type="PrismMesh" id="PrismMesh_m57m1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kayn"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="BritannianSoldier" type="Node" unique_id=1924810919]
 script = ExtResource("1_m57m1")
 
-[node name="stanUnit" parent="." instance=ExtResource("5_ams47")]
+[node name="stanUnit" parent="." unique_id=681919545 instance=ExtResource("5_ams47")]
 moveRange = 2
 team = 1
 char_name = "Soldier"
@@ -16,7 +21,12 @@ charImage = ExtResource("2_lm43b")
 full_name = "Soldier"
 factionName = "Britannian Empire"
 
-[node name="Smg" parent="stanUnit/weapons" index="0" node_paths=PackedStringArray("equipPart") instance=ExtResource("5_qqb8i")]
+[node name="Smg" parent="stanUnit/weapons" parent_id_path=PackedInt32Array(681919545, 279840207) index="0" unique_id=1537959719 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_qqb8i")]
 equipPart = NodePath("../../bodyparts/body")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stanUnit/PathFollow3D/unitCollider" parent_id_path=PackedInt32Array(681919545, 815669092) index="1" unique_id=2130793144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("PrismMesh_m57m1")
+surface_material_override/0 = SubResource("StandardMaterial3D_3kayn")
 
 [editable path="stanUnit"]

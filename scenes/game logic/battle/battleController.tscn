@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bm1sq66703pp4"]
+[gd_scene format=3 uid="uid://bm1sq66703pp4"]
 
 [ext_resource type="Script" uid="uid://b85g2b6j1v8gt" path="res://scripts/gameLogic/battle/BattleController.gd" id="1_npg4g"]
 [ext_resource type="PackedScene" uid="uid://cl830hpvfisf5" path="res://scenes/game logic/battle/BattleCam.tscn" id="3_q5aru"]
@@ -219,20 +219,20 @@ _data = {
 &"itemAnim": SubResource("Animation_ltndh")
 }
 
-[node name="BattleController" type="Node3D"]
+[node name="BattleController" type="Node3D" unique_id=1144206247]
 script = ExtResource("1_npg4g")
 
-[node name="battleUnits" type="Node" parent="."]
+[node name="battleUnits" type="Node" parent="." unique_id=389990162]
 
-[node name="playerUnits" type="Node" parent="battleUnits"]
+[node name="playerUnits" type="Node" parent="battleUnits" unique_id=1425858481]
 
-[node name="enemyUnits" type="Node" parent="battleUnits"]
+[node name="enemyUnits" type="Node" parent="battleUnits" unique_id=1344928099]
 
-[node name="allyUnits" type="Node" parent="battleUnits"]
+[node name="allyUnits" type="Node" parent="battleUnits" unique_id=345693535]
 
-[node name="BattleCam" parent="." instance=ExtResource("3_q5aru")]
+[node name="BattleCam" parent="." unique_id=21586113 instance=ExtResource("3_q5aru")]
 
-[node name="ui" type="Control" parent="."]
+[node name="ui" type="Control" parent="." unique_id=1142302289]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,64 +240,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AllyUnitGui" parent="ui" instance=ExtResource("4_4hww6")]
+[node name="AllyUnitGui" parent="ui" unique_id=1099543635 instance=ExtResource("4_4hww6")]
 visible = false
 layout_mode = 1
 
-[node name="curState" type="Label" parent="ui"]
+[node name="curState" type="Label" parent="ui" unique_id=948763120]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="EnemyUnitGui" parent="ui" instance=ExtResource("5_138ph")]
+[node name="EnemyUnitGui" parent="ui" unique_id=745732062 instance=ExtResource("5_138ph")]
 visible = false
 layout_mode = 1
 
-[node name="DrawManager" parent="ui" instance=ExtResource("6_cfyqa")]
+[node name="DrawManager" parent="ui" unique_id=2016285448 instance=ExtResource("6_cfyqa")]
 
-[node name="StatusScreen" parent="ui" instance=ExtResource("6_fyy83")]
+[node name="StatusScreen" parent="ui" unique_id=362001948 instance=ExtResource("6_fyy83")]
 visible = false
 layout_mode = 1
 
-[node name="TurnManager" parent="." instance=ExtResource("7_138ph")]
+[node name="TurnManager" parent="." unique_id=2051395605 instance=ExtResource("7_138ph")]
 
-[node name="Grid" type="Node" parent="."]
+[node name="Grid" type="Node" parent="." unique_id=813790483]
 
-[node name="worldWalls" type="Node" parent="Grid"]
+[node name="worldWalls" type="Node" parent="Grid" unique_id=202089400]
 
-[node name="northWall" type="StaticBody3D" parent="Grid/worldWalls"]
+[node name="northWall" type="StaticBody3D" parent="Grid/worldWalls" unique_id=6965770]
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Grid/worldWalls/northWall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grid/worldWalls/northWall" unique_id=2094962532]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_7qyck")
 
-[node name="eastWall" type="StaticBody3D" parent="Grid/worldWalls"]
+[node name="eastWall" type="StaticBody3D" parent="Grid/worldWalls" unique_id=678294214]
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Grid/worldWalls/eastWall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grid/worldWalls/eastWall" unique_id=547022335]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_138ph")
 
-[node name="southWall" type="StaticBody3D" parent="Grid/worldWalls"]
+[node name="southWall" type="StaticBody3D" parent="Grid/worldWalls" unique_id=428464115]
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Grid/worldWalls/southWall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grid/worldWalls/southWall" unique_id=816496214]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_q5aru")
 
-[node name="westWall" type="StaticBody3D" parent="Grid/worldWalls"]
+[node name="westWall" type="StaticBody3D" parent="Grid/worldWalls" unique_id=970425188]
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Grid/worldWalls/westWall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grid/worldWalls/westWall" unique_id=1070407097]
 transform = Transform3D(1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_cfyqa")
 
-[node name="unitSelection" type="GridMap" parent="Grid"]
+[node name="unitSelection" type="GridMap" parent="Grid" unique_id=672021414]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
 mesh_library = ExtResource("6_138ph")
 cell_size = Vector3(1, 1, 1)
@@ -306,16 +306,22 @@ collision_layer = 0
 collision_mask = 0
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="GameOver" parent="." instance=ExtResource("9_fyy83")]
+[node name="world_gridmap_noCOL" type="GridMap" parent="Grid" unique_id=1014665265]
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
 
-[node name="abilitiesAnim" type="Node" parent="."]
+[node name="world_gridmap_col" type="GridMap" parent="Grid" unique_id=1627591920]
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="abilitiesAnim"]
-libraries = {
-&"": SubResource("AnimationLibrary_awt8a")
-}
+[node name="GameOver" parent="." unique_id=2077553174 instance=ExtResource("9_fyy83")]
 
-[node name="geassAnim" parent="abilitiesAnim" instance=ExtResource("10_xxrgl")]
+[node name="abilitiesAnim" type="Node" parent="." unique_id=1573987854]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="abilitiesAnim" unique_id=1313593538]
+libraries/ = SubResource("AnimationLibrary_awt8a")
+
+[node name="geassAnim" parent="abilitiesAnim" unique_id=1987072281 instance=ExtResource("10_xxrgl")]
 visible = false
 position = Vector2(150, 26)
 scale = Vector2(4, 4)
