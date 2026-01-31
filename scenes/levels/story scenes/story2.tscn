@@ -548,7 +548,7 @@ centered = false
 libraries = {
 &"": SubResource("AnimationLibrary_o0kvn")
 }
-autoplay = "kWalk2"
+autoplay = "RESET"
 
 [connection signal="endDialoge" from="baseStoryScene/DialogManager" to="." method="sceneOver_emit"]
 
