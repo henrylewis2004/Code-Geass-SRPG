@@ -168,4 +168,14 @@ func createUnitTiles_FromArray(tileGrid: GridMap, unitArray: Array[Node]) -> voi
 
 func clearUnitSelectionTiles(tileGrid: GridMap) -> void:
 	tileGrid.clear()
+
+func getGridPos_fromV3(pos: Vector3) -> Vector2:
+	return Vector2(pos.x,pos.z)
+
+func getGridPos_fromV3_Array(posArray: Array[Vector3i]) -> Array[Vector2]:
+	var res: Array[Vector2] = []
+	for position in posArray:
+		res.append(getGridPos_fromV3(position))
+	return res
+
 	

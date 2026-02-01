@@ -21,6 +21,10 @@ const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_uni
 @onready var enemyUnits: Array[BaseUnit] = getUnits($battleUnits/enemyUnits.get_children() )
 @onready var allyUnits: Array[BaseUnit] = getUnits( $battleUnits/allyUnits.get_children())
 
+#gridmap
+@onready var gridMapCol: GridMap = $Grid/world_gridmap_col
+@onready var gridMap_noCol: GridMap = $Grid/world_gridmap_noCOL
+
 
 @onready var playerUnitGui: AllyUnitGui = $ui/AllyUnitGui 
 @onready var enemyUnitGui: BattleUnitGui  = $ui/EnemyUnitGui
@@ -865,7 +869,9 @@ func nextTurn() -> void:
 	playerUnitGui.updateBase(unitTurn.getName(),unitTurn.getAp(),unitTurn.getCharImage(),unitTurn.getHP())
 
 	#need to implement collision gridmap
-	var collisions: Array[Vector2] = []
+	var collisions: Array[Vector2] = gridManager.getGridPos_fromV3_Array(gridMapCol.get_used_cells())
+	
+
 
 	if unitTurn.getTeam() == TEAM.PLAYER || unitTurn.getTeam() == TEAM.ALLY:
 		unitArray = getUnits($battleUnits/enemyUnits.get_children())

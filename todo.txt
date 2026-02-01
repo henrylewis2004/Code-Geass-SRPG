@@ -1,4 +1,8 @@
 mechanics:
+	> bug:
+		> cant select attack after moving and going down options (i.e. moving to status)
+
+
 	> ability animaiton
 		> sound
 	> attack animation
