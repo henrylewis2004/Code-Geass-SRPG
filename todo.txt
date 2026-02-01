@@ -1,4 +1,6 @@
 mechanics:
+	> add los for collisions
+
 	> bug:
 		> cant select attack after moving and going down options (i.e. moving to status)
 
