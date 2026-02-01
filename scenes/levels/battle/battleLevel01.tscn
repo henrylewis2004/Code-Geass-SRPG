@@ -85,10 +85,10 @@ mapSize = Vector2(30, 30)
 set_position = Vector3(15, 0, 5)
 
 [node name="BrittaniaHelicopter" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="0" unique_id=1649521096 instance=ExtResource("4_56cp5")]
-set_position = Vector3(12, 0, 5)
+set_position = Vector3(13, 0, 15)
 
 [node name="BrittaniaHelicopter2" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="1" unique_id=373241228 instance=ExtResource("4_56cp5")]
-set_position = Vector3(10, 0, 22)
+set_position = Vector3(14, 0, 18)
 
 [node name="AllyUnitGui" parent="BattleController/ui" parent_id_path=PackedInt32Array(263131413, 1142302289) index="0" unique_id=1099543635]
 visible = true
@@ -121,7 +121,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="world_gridmap_col" parent="BattleController/Grid" parent_id_path=PackedInt32Array(263131413, 813790483) index="3" unique_id=1627591920]
 mesh_library = ExtResource("5_gl8n8")
 data = {
-"cells": PackedInt32Array(16, 7, 64, 14, 8, 64, 14, 5, 64, 15, 3, 65, 18, 13, 1441800, 18, 12, 1441800, 18, 11, 1441800, 18, 10, 1441800, 18, 9, 1441800, 18, 8, 1441800, 18, 7, 1441800, 18, 6, 1441800, 18, 5, 1441800, 18, 4, 1441800, 18, 2, 1441800, 18, 3, 1441800, 11, 13, 1441800, 11, 12, 1441800, 11, 11, 1441800, 11, 10, 1441800, 11, 9, 1441800, 11, 8, 1441800, 11, 7, 1441800, 11, 6, 1441800, 11, 5, 1441800, 11, 4, 1441800, 11, 3, 1441800, 11, 2, 1441800)
+"cells": PackedInt32Array(15, 3, 65, 18, 13, 1441800, 18, 12, 1441800, 18, 11, 1441800, 18, 10, 1441800, 18, 9, 1441800, 18, 8, 1441800, 18, 7, 1441800, 18, 6, 1441800, 18, 5, 1441800, 18, 4, 1441800, 18, 2, 1441800, 18, 3, 1441800, 11, 13, 1441800, 11, 12, 1441800, 11, 11, 1441800, 11, 10, 1441800, 11, 9, 1441800, 11, 8, 1441800, 11, 7, 1441800, 11, 6, 1441800, 11, 5, 1441800, 11, 4, 1441800, 11, 3, 1441800, 11, 2, 1441800)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 

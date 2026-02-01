@@ -19,6 +19,10 @@ run/main_scene="uid://c7qfekk0cj3xj"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://k1l5wxsbsh01"
+
 [display]
 
 window/size/viewport_width=480
@@ -26,6 +30,10 @@ window/size/viewport_height=270
 window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
