@@ -1,0 +1,500 @@
+[gd_scene format=3 uid="uid://b5iepdlrr236b"]
+
+[ext_resource type="ArrayMesh" uid="uid://bo7w4caxyhaea" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/balcony-ladder-bottom.obj" id="1_tsb24"]
+[ext_resource type="ArrayMesh" uid="uid://bktjjatwysknu" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/balcony-ladder-top.obj" id="2_fqdj5"]
+[ext_resource type="ArrayMesh" uid="uid://6d538o2ob8f5" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/balcony-type-a.obj" id="3_tjg4c"]
+[ext_resource type="ArrayMesh" uid="uid://bc14fs7v11vno" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/cliff-corner.obj" id="4_n53pc"]
+[ext_resource type="ArrayMesh" uid="uid://bl07pt7off71b" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/cliff-side.obj" id="5_dauc3"]
+[ext_resource type="ArrayMesh" uid="uid://j2t6kuv0fp2h" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-awning-small.obj" id="6_gl37a"]
+[ext_resource type="ArrayMesh" uid="uid://co6qcqx6oca5x" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-awning-wide.obj" id="7_1sl3h"]
+[ext_resource type="ArrayMesh" uid="uid://kcg412ppotie" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-barrier-strong-damaged.obj" id="8_6sk8t"]
+[ext_resource type="ArrayMesh" uid="uid://cfqwpsll1pgo7" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-barrier-strong-type-a.obj" id="9_2k2a8"]
+[ext_resource type="ArrayMesh" uid="uid://bk5foa3qg758j" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-barrier-strong-type-b.obj" id="10_6fa0v"]
+[ext_resource type="ArrayMesh" uid="uid://dx1f87v7h8uaa" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-barrier-type-a.obj" id="11_2ikqg"]
+[ext_resource type="ArrayMesh" uid="uid://dxp413krai5ny" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-barrier-type-b.obj" id="12_fvhyt"]
+[ext_resource type="ArrayMesh" uid="uid://w5k6cgq3v2pr" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-beam.obj" id="13_56pnr"]
+[ext_resource type="ArrayMesh" uid="uid://bym5yvnt34t2w" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-bench.obj" id="14_gx3wi"]
+[ext_resource type="ArrayMesh" uid="uid://bdraf0a70l6vk" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-block.obj" id="15_kiy4x"]
+[ext_resource type="ArrayMesh" uid="uid://5pi6o27fbpht" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-bricks-type-a.obj" id="16_8v0cc"]
+[ext_resource type="ArrayMesh" uid="uid://dvrrtkuvxwdps" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-bricks-type-b.obj" id="17_l57q3"]
+[ext_resource type="ArrayMesh" uid="uid://drsimlshbb057" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-cables-type-a.obj" id="18_04bca"]
+[ext_resource type="ArrayMesh" uid="uid://b3tjjchpqp5kg" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-cables-type-b.obj" id="19_6xwyg"]
+[ext_resource type="ArrayMesh" uid="uid://xj2cqd32800p" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-dumpster-closed.obj" id="20_yf1nh"]
+[ext_resource type="ArrayMesh" uid="uid://nlvvcdg5hla6" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-dumpster-open.obj" id="21_028nl"]
+[ext_resource type="ArrayMesh" uid="uid://cddrftefee5cj" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-light-double.obj" id="22_ejhgy"]
+[ext_resource type="ArrayMesh" uid="uid://d15y2qv5m8g8h" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-light-single.obj" id="23_iml0p"]
+[ext_resource type="ArrayMesh" uid="uid://cwwihywv0u203" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/detail-light-traffic.obj" id="24_7n67m"]
+[ext_resource type="ArrayMesh" uid="uid://cqqc661dhhawr" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/door-type-a.obj" id="25_ji071"]
+[ext_resource type="ArrayMesh" uid="uid://cdnbofeun00ji" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/door-type-b.obj" id="26_nvs1o"]
+[ext_resource type="ArrayMesh" uid="uid://bemhiy8qpmku6" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/grass-corner-inner.obj" id="27_8ubbr"]
+[ext_resource type="ArrayMesh" uid="uid://byeadlqnsiu80" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/grass-corner.obj" id="28_su7k0"]
+[ext_resource type="ArrayMesh" uid="uid://dvg5xo71jjkh7" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/grass-hill.obj" id="29_sh5nc"]
+[ext_resource type="ArrayMesh" uid="uid://daynsbh5h4y3g" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/grass.obj" id="30_uu1vg"]
+[ext_resource type="ArrayMesh" uid="uid://psq5qd4x5hv4" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/pallet-small.obj" id="31_gx21n"]
+[ext_resource type="ArrayMesh" uid="uid://c85rnnqcb66nr" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/pallet.obj" id="32_sd1fn"]
+[ext_resource type="ArrayMesh" uid="uid://cos83gkrawhqq" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/planks.obj" id="33_5t1ki"]
+[ext_resource type="ArrayMesh" uid="uid://c3vmcbao62lf" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-asphalt-center.obj" id="34_cnw1q"]
+[ext_resource type="ArrayMesh" uid="uid://cnajbqsoavvlt" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-asphalt-corner-inner.obj" id="35_rtdsp"]
+[ext_resource type="ArrayMesh" uid="uid://bkbbn03oaw8xn" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-asphalt-corner-outer.obj" id="36_gskvm"]
+[ext_resource type="ArrayMesh" uid="uid://fxjw5tgmds3g" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-asphalt-corner.obj" id="37_gswfj"]
+[ext_resource type="ArrayMesh" uid="uid://bwcotafmghm34" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-asphalt-damaged.obj" id="38_d0ska"]
+[ext_resource type="ArrayMesh" uid="uid://hme4lf2pajlt" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-asphalt-pavement.obj" id="39_ebn5s"]
+[ext_resource type="ArrayMesh" uid="uid://clhfdo41iupou" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-asphalt-side.obj" id="40_r861g"]
+[ext_resource type="ArrayMesh" uid="uid://c5bn3yscodmmx" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-asphalt-straight.obj" id="41_8o4pk"]
+[ext_resource type="ArrayMesh" uid="uid://brm63huuxl8c6" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-dirt-center.obj" id="42_viaod"]
+[ext_resource type="ArrayMesh" uid="uid://csohsj3jal6xq" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-dirt-corner-inner.obj" id="43_wctk6"]
+[ext_resource type="ArrayMesh" uid="uid://b627m716hsnge" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-dirt-corner-outer.obj" id="44_6vcrt"]
+[ext_resource type="ArrayMesh" uid="uid://ckhmf3hnkdp62" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-dirt-corner.obj" id="45_ytw0q"]
+[ext_resource type="ArrayMesh" uid="uid://ddrim5cyyybyv" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-dirt-damaged.obj" id="46_wd57v"]
+[ext_resource type="ArrayMesh" uid="uid://ypgme6q1bru4" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-dirt-pavement.obj" id="47_06wah"]
+[ext_resource type="ArrayMesh" uid="uid://vrs4ahxtlix1" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-dirt-side.obj" id="48_1v15v"]
+[ext_resource type="ArrayMesh" uid="uid://cakc7fqi15tk1" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-dirt-straight.obj" id="49_v5ull"]
+[ext_resource type="ArrayMesh" uid="uid://dq1676tobc1xa" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/road-dirt-tile.obj" id="50_2bqa5"]
+[ext_resource type="ArrayMesh" uid="uid://dp5lttdijncrm" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/roof-metal-poles.obj" id="51_8qdp3"]
+[ext_resource type="ArrayMesh" uid="uid://dnpwvkjh03j66" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/roof-metal-type-a.obj" id="52_187lf"]
+[ext_resource type="ArrayMesh" uid="uid://cnemot7jnevoj" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/roof-metal-type-b.obj" id="53_jl1jp"]
+[ext_resource type="ArrayMesh" uid="uid://c3eeqsqebeqn1" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/scaffolding-floor.obj" id="54_f2gix"]
+[ext_resource type="ArrayMesh" uid="uid://rptuynghm6l6" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/scaffolding-poles.obj" id="55_moihf"]
+[ext_resource type="ArrayMesh" uid="uid://ckif416tm3ku0" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/scaffolding-structure.obj" id="56_ycw0g"]
+[ext_resource type="ArrayMesh" uid="uid://4p4ikn1evljf" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/tree-large.obj" id="57_2vn41"]
+[ext_resource type="ArrayMesh" uid="uid://c18infjqx05cw" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/tree-park-large.obj" id="58_yg4yt"]
+[ext_resource type="ArrayMesh" uid="uid://d3kxv0cbn7jxq" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/tree-park-pine-large.obj" id="59_rl3lv"]
+[ext_resource type="ArrayMesh" uid="uid://hkmi5t273w3i" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/tree-pine-large.obj" id="60_hoqh3"]
+[ext_resource type="ArrayMesh" uid="uid://dypcts02jw85h" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/tree-pine-small.obj" id="61_eyfc2"]
+[ext_resource type="ArrayMesh" uid="uid://csnu7bp33rlsu" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/tree-shrub.obj" id="62_o2aa8"]
+[ext_resource type="ArrayMesh" uid="uid://kmw1wfd0ykfa" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/tree-small.obj" id="63_pwnfu"]
+[ext_resource type="ArrayMesh" uid="uid://4kksge44bxyx" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/truck-flat.obj" id="64_k08qc"]
+[ext_resource type="ArrayMesh" uid="uid://b2t04ylrgn480" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/truck-green-cargo.obj" id="65_w5yks"]
+[ext_resource type="ArrayMesh" uid="uid://pg6kbd6ep0v2" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/truck-green.obj" id="66_ldkgb"]
+[ext_resource type="ArrayMesh" uid="uid://cy4px3bq8vb3a" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/truck-grey-cargo.obj" id="67_saspd"]
+[ext_resource type="ArrayMesh" uid="uid://cvhut2trqd30k" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/truck-grey.obj" id="68_8cvol"]
+[ext_resource type="ArrayMesh" uid="uid://5e4q52yoxqgo" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-column-painted.obj" id="69_m7xg7"]
+[ext_resource type="ArrayMesh" uid="uid://c4elonxosgnvb" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-column.obj" id="70_gr3v5"]
+[ext_resource type="ArrayMesh" uid="uid://ckpt1kqk3lcw6" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-corner-painted.obj" id="71_6dvd1"]
+[ext_resource type="ArrayMesh" uid="uid://cd3avvew43ikl" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-corner.obj" id="72_jq6ob"]
+[ext_resource type="ArrayMesh" uid="uid://n1gtkx76y0rp" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-detail-painted.obj" id="73_cb343"]
+[ext_resource type="ArrayMesh" uid="uid://clck81yubenom" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-detail.obj" id="74_j5bgr"]
+[ext_resource type="ArrayMesh" uid="uid://38l1uo6baorv" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-diagonal.obj" id="75_f8rv4"]
+[ext_resource type="ArrayMesh" uid="uid://f0pjp7hux67y" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-door.obj" id="76_6ld70"]
+[ext_resource type="ArrayMesh" uid="uid://brxfuauybcy62" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-flat-garage.obj" id="77_5u567"]
+[ext_resource type="ArrayMesh" uid="uid://cv0gsve6fai5y" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-flat-painted.obj" id="78_07sbs"]
+[ext_resource type="ArrayMesh" uid="uid://nhj3hl2vaj14" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-flat-window.obj" id="79_vpo1v"]
+[ext_resource type="ArrayMesh" uid="uid://dsmyw30ulb2hu" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-flat.obj" id="80_q4h2h"]
+[ext_resource type="ArrayMesh" uid="uid://1e2v7qdip4wb" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-garage.obj" id="81_w23wd"]
+[ext_resource type="ArrayMesh" uid="uid://buwo8i3b7874h" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-low-painted.obj" id="82_yqucr"]
+[ext_resource type="ArrayMesh" uid="uid://cxa84w7nsvr0j" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-low.obj" id="83_rlr0c"]
+[ext_resource type="ArrayMesh" uid="uid://bqbfuxfr3g4r3" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-open.obj" id="84_lbh88"]
+[ext_resource type="ArrayMesh" uid="uid://cq1bosncihc1h" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-painted-diagonal.obj" id="85_mvel5"]
+[ext_resource type="ArrayMesh" uid="uid://bqhplirdkchqv" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-painted.obj" id="86_2fgks"]
+[ext_resource type="ArrayMesh" uid="uid://dgdijxxhuapgk" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-roof-detailed.obj" id="87_4knwq"]
+[ext_resource type="ArrayMesh" uid="uid://ce54t7mhmq76j" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-roof-slant-detailed.obj" id="88_w8v4d"]
+[ext_resource type="ArrayMesh" uid="uid://u3wcmosjb21" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-roof-slant.obj" id="89_1iiah"]
+[ext_resource type="ArrayMesh" uid="uid://bbmy2a1fyenb7" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-roof.obj" id="90_belc6"]
+[ext_resource type="ArrayMesh" uid="uid://cakn3ddnnprmw" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a-window.obj" id="91_be7mk"]
+[ext_resource type="ArrayMesh" uid="uid://b2m8r3lnux4xl" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-a.obj" id="92_o3wus"]
+[ext_resource type="ArrayMesh" uid="uid://02cqwufatwwt" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-column.obj" id="93_v2e8j"]
+[ext_resource type="ArrayMesh" uid="uid://6ax6f5ydfgy8" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-corner.obj" id="94_nwaxi"]
+[ext_resource type="ArrayMesh" uid="uid://dpf7752sxbfdl" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-detail-painted.obj" id="95_uhgho"]
+[ext_resource type="ArrayMesh" uid="uid://grljjos6jer1" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-diagonal.obj" id="96_wlya1"]
+[ext_resource type="ArrayMesh" uid="uid://bv7sccvoy1jlb" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-door.obj" id="97_4i45i"]
+[ext_resource type="ArrayMesh" uid="uid://bepbfe4kkycwc" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-flat-garage.obj" id="98_au607"]
+[ext_resource type="ArrayMesh" uid="uid://b5a56sn3aetpx" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-flat-window.obj" id="99_qnnau"]
+[ext_resource type="ArrayMesh" uid="uid://cfnbfavva6na3" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-flat.obj" id="100_mvdkp"]
+[ext_resource type="ArrayMesh" uid="uid://p4aao8xolwpb" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-garage.obj" id="101_ueogm"]
+[ext_resource type="ArrayMesh" uid="uid://b6qybb1hih661" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-low.obj" id="102_16jqp"]
+[ext_resource type="ArrayMesh" uid="uid://cxml5ran0l0rf" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-open.obj" id="103_ydw7p"]
+[ext_resource type="ArrayMesh" uid="uid://y7ji4lcf8oof" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-roof-detailed.obj" id="104_0f50q"]
+[ext_resource type="ArrayMesh" uid="uid://dvl4xoxb3n606" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-roof-slant-detailed.obj" id="105_0bsfh"]
+[ext_resource type="ArrayMesh" uid="uid://ccpblnnlncwin" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-roof-slant.obj" id="106_uncwj"]
+[ext_resource type="ArrayMesh" uid="uid://btt5hkbfagqky" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-roof.obj" id="107_tmfgl"]
+[ext_resource type="ArrayMesh" uid="uid://bb7lj5ph7ii77" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b-window.obj" id="108_h6bpr"]
+[ext_resource type="ArrayMesh" uid="uid://c82h62bsx5uwk" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-b.obj" id="109_t13s8"]
+[ext_resource type="ArrayMesh" uid="uid://bj2tmxkw7r0fx" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-broken-type-a.obj" id="110_8daba"]
+[ext_resource type="ArrayMesh" uid="uid://dobcu6vods70e" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-broken-type-b.obj" id="111_aa1cj"]
+[ext_resource type="ArrayMesh" uid="uid://b5aexbnrywtb0" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-c-flat-low.obj" id="112_xvuu2"]
+[ext_resource type="ArrayMesh" uid="uid://gh1tnwt6med2" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-c-flat.obj" id="113_xgn88"]
+[ext_resource type="ArrayMesh" uid="uid://doihqbnn62ntf" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-fence.obj" id="114_d8vd6"]
+[ext_resource type="ArrayMesh" uid="uid://ce1km54tog8c3" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-steps-type-a.obj" id="115_0oho0"]
+[ext_resource type="ArrayMesh" uid="uid://084r6ldsnqva" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-steps-type-b.obj" id="116_oitrx"]
+[ext_resource type="ArrayMesh" uid="uid://r0btfharpmaa" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-type-a.obj" id="117_ntwnk"]
+[ext_resource type="ArrayMesh" uid="uid://dgca5h1jn4l72" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/wall-type-b.obj" id="118_vxcm7"]
+[ext_resource type="ArrayMesh" uid="uid://cmyd6r4ecdiwl" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-small-type-a.obj" id="119_1va1x"]
+[ext_resource type="ArrayMesh" uid="uid://7w6ji4dweifw" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-small-type-b.obj" id="120_kj2t8"]
+[ext_resource type="ArrayMesh" uid="uid://cil0fn1c7wrjs" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-wide-type-a.obj" id="121_708t1"]
+[ext_resource type="ArrayMesh" uid="uid://rxpr4idakl3f" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-wide-type-b.obj" id="122_elukp"]
+[ext_resource type="ArrayMesh" uid="uid://ihopeli4e26h" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-wide-type-c.obj" id="123_x6eou"]
+[ext_resource type="ArrayMesh" uid="uid://cjmvxrbus4bqw" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-wide-type-d.obj" id="124_owtiu"]
+
+[node name="ColGridmapModels" type="GridMap" unique_id=262946309]
+
+[node name="BalconyLadderBottom" type="MeshInstance3D" parent="." unique_id=1947148690]
+mesh = ExtResource("1_tsb24")
+
+[node name="BalconyLadderTop" type="MeshInstance3D" parent="." unique_id=430715535]
+mesh = ExtResource("2_fqdj5")
+
+[node name="BalconyTypeA" type="MeshInstance3D" parent="." unique_id=1918685283]
+mesh = ExtResource("3_tjg4c")
+
+[node name="CliffCorner" type="MeshInstance3D" parent="." unique_id=1502457490]
+mesh = ExtResource("4_n53pc")
+
+[node name="CliffSide" type="MeshInstance3D" parent="." unique_id=2056196074]
+mesh = ExtResource("5_dauc3")
+
+[node name="DetailAwningSmall" type="MeshInstance3D" parent="." unique_id=2109629713]
+mesh = ExtResource("6_gl37a")
+
+[node name="DetailAwningWide" type="MeshInstance3D" parent="." unique_id=1440967445]
+mesh = ExtResource("7_1sl3h")
+
+[node name="DetailBarrierStrongDamaged" type="MeshInstance3D" parent="." unique_id=1558925437]
+mesh = ExtResource("8_6sk8t")
+
+[node name="DetailBarrierStrongTypeA" type="MeshInstance3D" parent="." unique_id=1142898002]
+mesh = ExtResource("9_2k2a8")
+
+[node name="DetailBarrierStrongTypeB" type="MeshInstance3D" parent="." unique_id=391754482]
+mesh = ExtResource("10_6fa0v")
+
+[node name="DetailBarrierTypeA" type="MeshInstance3D" parent="." unique_id=1807336279]
+mesh = ExtResource("11_2ikqg")
+
+[node name="DetailBarrierTypeB" type="MeshInstance3D" parent="." unique_id=1291455375]
+mesh = ExtResource("12_fvhyt")
+
+[node name="DetailBeam" type="MeshInstance3D" parent="." unique_id=1070276486]
+mesh = ExtResource("13_56pnr")
+
+[node name="DetailBench" type="MeshInstance3D" parent="." unique_id=2129956898]
+mesh = ExtResource("14_gx3wi")
+
+[node name="DetailBlock" type="MeshInstance3D" parent="." unique_id=1115398035]
+mesh = ExtResource("15_kiy4x")
+
+[node name="DetailBricksTypeA" type="MeshInstance3D" parent="." unique_id=2016036142]
+mesh = ExtResource("16_8v0cc")
+
+[node name="DetailBricksTypeB" type="MeshInstance3D" parent="." unique_id=389676147]
+mesh = ExtResource("17_l57q3")
+
+[node name="DetailCablesTypeA" type="MeshInstance3D" parent="." unique_id=193143709]
+mesh = ExtResource("18_04bca")
+
+[node name="DetailCablesTypeB" type="MeshInstance3D" parent="." unique_id=2134996342]
+mesh = ExtResource("19_6xwyg")
+
+[node name="DetailDumpsterClosed" type="MeshInstance3D" parent="." unique_id=75238736]
+mesh = ExtResource("20_yf1nh")
+
+[node name="DetailDumpsterOpen" type="MeshInstance3D" parent="." unique_id=1353214384]
+mesh = ExtResource("21_028nl")
+
+[node name="DetailLightDouble" type="MeshInstance3D" parent="." unique_id=1709742701]
+mesh = ExtResource("22_ejhgy")
+
+[node name="DetailLightSingle" type="MeshInstance3D" parent="." unique_id=494576663]
+mesh = ExtResource("23_iml0p")
+
+[node name="DetailLightTraffic" type="MeshInstance3D" parent="." unique_id=1077716359]
+mesh = ExtResource("24_7n67m")
+
+[node name="DoorTypeA" type="MeshInstance3D" parent="." unique_id=1406685290]
+mesh = ExtResource("25_ji071")
+
+[node name="DoorTypeB" type="MeshInstance3D" parent="." unique_id=2108732299]
+mesh = ExtResource("26_nvs1o")
+
+[node name="GrassCornerInner" type="MeshInstance3D" parent="." unique_id=582001370]
+mesh = ExtResource("27_8ubbr")
+
+[node name="GrassCorner" type="MeshInstance3D" parent="." unique_id=1863555273]
+mesh = ExtResource("28_su7k0")
+
+[node name="GrassHill" type="MeshInstance3D" parent="." unique_id=22037458]
+mesh = ExtResource("29_sh5nc")
+
+[node name="Grass" type="MeshInstance3D" parent="." unique_id=514381107]
+mesh = ExtResource("30_uu1vg")
+
+[node name="PalletSmall" type="MeshInstance3D" parent="." unique_id=1343250219]
+mesh = ExtResource("31_gx21n")
+
+[node name="Pallet" type="MeshInstance3D" parent="." unique_id=927890765]
+mesh = ExtResource("32_sd1fn")
+
+[node name="Planks" type="MeshInstance3D" parent="." unique_id=1917616223]
+mesh = ExtResource("33_5t1ki")
+
+[node name="RoadAsphaltCenter" type="MeshInstance3D" parent="." unique_id=2066457219]
+mesh = ExtResource("34_cnw1q")
+
+[node name="RoadAsphaltCornerInner" type="MeshInstance3D" parent="." unique_id=269080820]
+mesh = ExtResource("35_rtdsp")
+
+[node name="RoadAsphaltCornerOuter" type="MeshInstance3D" parent="." unique_id=453930901]
+mesh = ExtResource("36_gskvm")
+
+[node name="RoadAsphaltCorner" type="MeshInstance3D" parent="." unique_id=1872117444]
+mesh = ExtResource("37_gswfj")
+
+[node name="RoadAsphaltDamaged" type="MeshInstance3D" parent="." unique_id=1701458870]
+mesh = ExtResource("38_d0ska")
+
+[node name="RoadAsphaltPavement" type="MeshInstance3D" parent="." unique_id=84733127]
+mesh = ExtResource("39_ebn5s")
+
+[node name="RoadAsphaltSide" type="MeshInstance3D" parent="." unique_id=521710391]
+mesh = ExtResource("40_r861g")
+
+[node name="RoadAsphaltStraight" type="MeshInstance3D" parent="." unique_id=468777818]
+mesh = ExtResource("41_8o4pk")
+
+[node name="RoadDirtCenter" type="MeshInstance3D" parent="." unique_id=855196250]
+mesh = ExtResource("42_viaod")
+
+[node name="RoadDirtCornerInner" type="MeshInstance3D" parent="." unique_id=1207887275]
+mesh = ExtResource("43_wctk6")
+
+[node name="RoadDirtCornerOuter" type="MeshInstance3D" parent="." unique_id=206623910]
+mesh = ExtResource("44_6vcrt")
+
+[node name="RoadDirtCorner" type="MeshInstance3D" parent="." unique_id=1182632861]
+mesh = ExtResource("45_ytw0q")
+
+[node name="RoadDirtDamaged" type="MeshInstance3D" parent="." unique_id=370455992]
+mesh = ExtResource("46_wd57v")
+
+[node name="RoadDirtPavement" type="MeshInstance3D" parent="." unique_id=493664056]
+mesh = ExtResource("47_06wah")
+
+[node name="RoadDirtSide" type="MeshInstance3D" parent="." unique_id=327270097]
+mesh = ExtResource("48_1v15v")
+
+[node name="RoadDirtStraight" type="MeshInstance3D" parent="." unique_id=749499865]
+mesh = ExtResource("49_v5ull")
+
+[node name="RoadDirtTile" type="MeshInstance3D" parent="." unique_id=1576035442]
+mesh = ExtResource("50_2bqa5")
+
+[node name="RoofMetalPoles" type="MeshInstance3D" parent="." unique_id=1430958045]
+mesh = ExtResource("51_8qdp3")
+
+[node name="RoofMetalTypeA" type="MeshInstance3D" parent="." unique_id=735162315]
+mesh = ExtResource("52_187lf")
+
+[node name="RoofMetalTypeB" type="MeshInstance3D" parent="." unique_id=1485299068]
+mesh = ExtResource("53_jl1jp")
+
+[node name="ScaffoldingFloor" type="MeshInstance3D" parent="." unique_id=1997360283]
+mesh = ExtResource("54_f2gix")
+
+[node name="ScaffoldingPoles" type="MeshInstance3D" parent="." unique_id=2006278461]
+mesh = ExtResource("55_moihf")
+
+[node name="ScaffoldingStructure" type="MeshInstance3D" parent="." unique_id=1015222334]
+mesh = ExtResource("56_ycw0g")
+
+[node name="TreeLarge" type="MeshInstance3D" parent="." unique_id=1235643823]
+mesh = ExtResource("57_2vn41")
+
+[node name="TreeParkLarge" type="MeshInstance3D" parent="." unique_id=762509668]
+mesh = ExtResource("58_yg4yt")
+
+[node name="TreeParkPineLarge" type="MeshInstance3D" parent="." unique_id=1406669999]
+mesh = ExtResource("59_rl3lv")
+
+[node name="TreePineLarge" type="MeshInstance3D" parent="." unique_id=2024980056]
+mesh = ExtResource("60_hoqh3")
+
+[node name="TreePineSmall" type="MeshInstance3D" parent="." unique_id=17782107]
+mesh = ExtResource("61_eyfc2")
+
+[node name="TreeShrub" type="MeshInstance3D" parent="." unique_id=182628832]
+mesh = ExtResource("62_o2aa8")
+
+[node name="TreeSmall" type="MeshInstance3D" parent="." unique_id=981939644]
+mesh = ExtResource("63_pwnfu")
+
+[node name="TruckFlat" type="MeshInstance3D" parent="." unique_id=1708429844]
+mesh = ExtResource("64_k08qc")
+
+[node name="TruckGreenCargo" type="MeshInstance3D" parent="." unique_id=197577535]
+mesh = ExtResource("65_w5yks")
+
+[node name="TruckGreen" type="MeshInstance3D" parent="." unique_id=637680432]
+mesh = ExtResource("66_ldkgb")
+
+[node name="TruckGreyCargo" type="MeshInstance3D" parent="." unique_id=231913523]
+mesh = ExtResource("67_saspd")
+
+[node name="TruckGrey" type="MeshInstance3D" parent="." unique_id=180880400]
+mesh = ExtResource("68_8cvol")
+
+[node name="WallAColumnPainted" type="MeshInstance3D" parent="." unique_id=796052955]
+mesh = ExtResource("69_m7xg7")
+
+[node name="WallAColumn" type="MeshInstance3D" parent="." unique_id=1286032659]
+mesh = ExtResource("70_gr3v5")
+
+[node name="WallACornerPainted" type="MeshInstance3D" parent="." unique_id=1188539437]
+mesh = ExtResource("71_6dvd1")
+
+[node name="WallACorner" type="MeshInstance3D" parent="." unique_id=993437906]
+mesh = ExtResource("72_jq6ob")
+
+[node name="WallADetailPainted" type="MeshInstance3D" parent="." unique_id=466921023]
+mesh = ExtResource("73_cb343")
+
+[node name="WallADetail" type="MeshInstance3D" parent="." unique_id=1384638251]
+mesh = ExtResource("74_j5bgr")
+
+[node name="WallADiagonal" type="MeshInstance3D" parent="." unique_id=1281253554]
+mesh = ExtResource("75_f8rv4")
+
+[node name="WallADoor" type="MeshInstance3D" parent="." unique_id=1461229155]
+mesh = ExtResource("76_6ld70")
+
+[node name="WallAFlatGarage" type="MeshInstance3D" parent="." unique_id=1770657372]
+mesh = ExtResource("77_5u567")
+
+[node name="WallAFlatPainted" type="MeshInstance3D" parent="." unique_id=537892566]
+mesh = ExtResource("78_07sbs")
+
+[node name="WallAFlatWindow" type="MeshInstance3D" parent="." unique_id=111085785]
+mesh = ExtResource("79_vpo1v")
+
+[node name="WallAFlat" type="MeshInstance3D" parent="." unique_id=1863260397]
+mesh = ExtResource("80_q4h2h")
+
+[node name="WallAGarage" type="MeshInstance3D" parent="." unique_id=818591613]
+mesh = ExtResource("81_w23wd")
+
+[node name="WallALowPainted" type="MeshInstance3D" parent="." unique_id=1132310724]
+mesh = ExtResource("82_yqucr")
+
+[node name="WallALow" type="MeshInstance3D" parent="." unique_id=1744113896]
+mesh = ExtResource("83_rlr0c")
+
+[node name="WallAOpen" type="MeshInstance3D" parent="." unique_id=1823059706]
+mesh = ExtResource("84_lbh88")
+
+[node name="WallAPaintedDiagonal" type="MeshInstance3D" parent="." unique_id=2020040977]
+mesh = ExtResource("85_mvel5")
+
+[node name="WallAPainted" type="MeshInstance3D" parent="." unique_id=1127064870]
+mesh = ExtResource("86_2fgks")
+
+[node name="WallARoofDetailed" type="MeshInstance3D" parent="." unique_id=493506809]
+mesh = ExtResource("87_4knwq")
+
+[node name="WallARoofSlantDetailed" type="MeshInstance3D" parent="." unique_id=241049055]
+mesh = ExtResource("88_w8v4d")
+
+[node name="WallARoofSlant" type="MeshInstance3D" parent="." unique_id=675660927]
+mesh = ExtResource("89_1iiah")
+
+[node name="WallARoof" type="MeshInstance3D" parent="." unique_id=1405879176]
+mesh = ExtResource("90_belc6")
+
+[node name="WallAWindow" type="MeshInstance3D" parent="." unique_id=91508538]
+mesh = ExtResource("91_be7mk")
+
+[node name="WallA" type="MeshInstance3D" parent="." unique_id=2023378735]
+mesh = ExtResource("92_o3wus")
+
+[node name="WallBColumn" type="MeshInstance3D" parent="." unique_id=1212014530]
+mesh = ExtResource("93_v2e8j")
+
+[node name="WallBCorner" type="MeshInstance3D" parent="." unique_id=2028148244]
+mesh = ExtResource("94_nwaxi")
+
+[node name="WallBDetailPainted" type="MeshInstance3D" parent="." unique_id=21559681]
+mesh = ExtResource("95_uhgho")
+
+[node name="WallBDiagonal" type="MeshInstance3D" parent="." unique_id=1714150867]
+mesh = ExtResource("96_wlya1")
+
+[node name="WallBDoor" type="MeshInstance3D" parent="." unique_id=79829668]
+mesh = ExtResource("97_4i45i")
+
+[node name="WallBFlatGarage" type="MeshInstance3D" parent="." unique_id=1493506375]
+mesh = ExtResource("98_au607")
+
+[node name="WallBFlatWindow" type="MeshInstance3D" parent="." unique_id=1996667248]
+mesh = ExtResource("99_qnnau")
+
+[node name="WallBFlat" type="MeshInstance3D" parent="." unique_id=1624983518]
+mesh = ExtResource("100_mvdkp")
+
+[node name="WallBGarage" type="MeshInstance3D" parent="." unique_id=1611936679]
+mesh = ExtResource("101_ueogm")
+
+[node name="WallBLow" type="MeshInstance3D" parent="." unique_id=1069870053]
+mesh = ExtResource("102_16jqp")
+
+[node name="WallBOpen" type="MeshInstance3D" parent="." unique_id=887867565]
+mesh = ExtResource("103_ydw7p")
+
+[node name="WallBRoofDetailed" type="MeshInstance3D" parent="." unique_id=771855093]
+mesh = ExtResource("104_0f50q")
+
+[node name="WallBRoofSlantDetailed" type="MeshInstance3D" parent="." unique_id=978746673]
+mesh = ExtResource("105_0bsfh")
+
+[node name="WallBRoofSlant" type="MeshInstance3D" parent="." unique_id=1769284175]
+mesh = ExtResource("106_uncwj")
+
+[node name="WallBRoof" type="MeshInstance3D" parent="." unique_id=159975819]
+mesh = ExtResource("107_tmfgl")
+
+[node name="WallBWindow" type="MeshInstance3D" parent="." unique_id=1279553690]
+mesh = ExtResource("108_h6bpr")
+
+[node name="WallB" type="MeshInstance3D" parent="." unique_id=1875787600]
+mesh = ExtResource("109_t13s8")
+
+[node name="WallBrokenTypeA" type="MeshInstance3D" parent="." unique_id=1701288530]
+mesh = ExtResource("110_8daba")
+
+[node name="WallBrokenTypeB" type="MeshInstance3D" parent="." unique_id=26806891]
+mesh = ExtResource("111_aa1cj")
+
+[node name="WallCFlatLow" type="MeshInstance3D" parent="." unique_id=1750025518]
+mesh = ExtResource("112_xvuu2")
+
+[node name="WallCFlat" type="MeshInstance3D" parent="." unique_id=1966061848]
+mesh = ExtResource("113_xgn88")
+
+[node name="WallFence" type="MeshInstance3D" parent="." unique_id=1716593025]
+mesh = ExtResource("114_d8vd6")
+
+[node name="WallStepsTypeA" type="MeshInstance3D" parent="." unique_id=1388681690]
+mesh = ExtResource("115_0oho0")
+
+[node name="WallStepsTypeB" type="MeshInstance3D" parent="." unique_id=1085422928]
+mesh = ExtResource("116_oitrx")
+
+[node name="WallTypeA" type="MeshInstance3D" parent="." unique_id=689995631]
+mesh = ExtResource("117_ntwnk")
+
+[node name="WallTypeB" type="MeshInstance3D" parent="." unique_id=1101934866]
+mesh = ExtResource("118_vxcm7")
+
+[node name="WindowSmallTypeA" type="MeshInstance3D" parent="." unique_id=2079285340]
+mesh = ExtResource("119_1va1x")
+
+[node name="WindowSmallTypeB" type="MeshInstance3D" parent="." unique_id=1884579261]
+mesh = ExtResource("120_kj2t8")
+
+[node name="WindowWideTypeA" type="MeshInstance3D" parent="." unique_id=66998354]
+mesh = ExtResource("121_708t1")
+
+[node name="WindowWideTypeB" type="MeshInstance3D" parent="." unique_id=1900126649]
+mesh = ExtResource("122_elukp")
+
+[node name="WindowWideTypeC" type="MeshInstance3D" parent="." unique_id=844957491]
+mesh = ExtResource("123_x6eou")
+
+[node name="WindowWideTypeD" type="MeshInstance3D" parent="." unique_id=1899950473]
+mesh = ExtResource("124_owtiu")

@@ -942,7 +942,6 @@ func _ready():
 	aiManager.setRoot(self)
 
 	itemAbMan.connect("actionComplete",itemEndTurn)
-	abilitiesAnim.play("itemAnim")
 	
 	updateOccupiedMapGrid()
 	

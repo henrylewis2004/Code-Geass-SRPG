@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cvforvewndr61" path="res://assets/2d/ui/Geass/geass_spriteSheet.png" id="10_awt8a"]
 [ext_resource type="PackedScene" uid="uid://cqa4fu04378is" path="res://scenes/cinematic scenes/characters-sprites/geassAnim.tscn" id="10_xxrgl"]
 [ext_resource type="Texture2D" uid="uid://clpo2fmj2gggy" path="res://assets/2d/objects/pizzahut.png" id="12_ltndh"]
+[ext_resource type="AudioStream" uid="uid://btsr6r4riuho6" path="res://assets/sfx/music/codeGeassOst/loops/0 (loop).wav" id="13_2xxy7"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7qyck"]
 
@@ -334,6 +335,13 @@ centered = false
 hframes = 4
 vframes = 1
 frame = 1
+
+[node name="music" type="Node" parent="." unique_id=162737844]
+
+[node name="bkg_music" type="AudioStreamPlayer" parent="music" unique_id=1280513409]
+stream = ExtResource("13_2xxy7")
+autoplay = true
+bus = &"bkg_music"
 
 [connection signal="battleItemSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_battle_item_selected"]
 [connection signal="itemSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_item_selected"]

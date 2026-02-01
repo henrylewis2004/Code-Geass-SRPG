@@ -125,376 +125,1122 @@
 [ext_resource type="ArrayMesh" uid="uid://ihopeli4e26h" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-wide-type-c.obj" id="123_py4fo"]
 [ext_resource type="ArrayMesh" uid="uid://cjmvxrbus4bqw" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-wide-type-d.obj" id="124_wdg4c"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nicl0"]
+
 [node name="ColGridmapModels" type="GridMap" unique_id=262946309]
 
 [node name="BalconyLadderBottom" type="MeshInstance3D" parent="." unique_id=1947148690]
 mesh = ExtResource("1_nicl0")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="BalconyLadderBottom" unique_id=2095827268]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalconyLadderBottom/StaticBody3D" unique_id=327919414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="BalconyLadderTop" type="MeshInstance3D" parent="." unique_id=430715535]
 mesh = ExtResource("2_elvio")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BalconyLadderTop" unique_id=299798655]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalconyLadderTop/StaticBody3D" unique_id=1593848993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="BalconyTypeA" type="MeshInstance3D" parent="." unique_id=1918685283]
 mesh = ExtResource("3_2bmb1")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="BalconyTypeA" unique_id=1414885146]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BalconyTypeA/StaticBody3D" unique_id=1260540328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="CliffCorner" type="MeshInstance3D" parent="." unique_id=1502457490]
 mesh = ExtResource("4_fv83j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CliffCorner" unique_id=2144379406]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CliffCorner/StaticBody3D" unique_id=466138864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="CliffSide" type="MeshInstance3D" parent="." unique_id=2056196074]
 mesh = ExtResource("5_5o7mv")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="CliffSide" unique_id=48859820]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CliffSide/StaticBody3D" unique_id=1975847896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailAwningSmall" type="MeshInstance3D" parent="." unique_id=2109629713]
 mesh = ExtResource("6_7mqow")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailAwningSmall" unique_id=423680167]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailAwningSmall/StaticBody3D" unique_id=743712661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailAwningWide" type="MeshInstance3D" parent="." unique_id=1440967445]
 mesh = ExtResource("7_3fa1t")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailAwningWide" unique_id=642948671]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailAwningWide/StaticBody3D" unique_id=1032004258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailBarrierStrongDamaged" type="MeshInstance3D" parent="." unique_id=1558925437]
 mesh = ExtResource("8_r76gp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierStrongDamaged" unique_id=1672710963]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierStrongDamaged/StaticBody3D" unique_id=1019757613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBarrierStrongTypeA" type="MeshInstance3D" parent="." unique_id=1142898002]
 mesh = ExtResource("9_5fefe")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierStrongTypeA" unique_id=1663048603]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierStrongTypeA/StaticBody3D" unique_id=1924728218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailBarrierStrongTypeB" type="MeshInstance3D" parent="." unique_id=391754482]
 mesh = ExtResource("10_wybcw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierStrongTypeB" unique_id=1931175478]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierStrongTypeB/StaticBody3D" unique_id=1358779860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBarrierTypeA" type="MeshInstance3D" parent="." unique_id=1807336279]
 mesh = ExtResource("11_mkeob")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierTypeA" unique_id=1686621493]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierTypeA/StaticBody3D" unique_id=454099264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailBarrierTypeB" type="MeshInstance3D" parent="." unique_id=1291455375]
 mesh = ExtResource("12_fapdr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierTypeB" unique_id=523938783]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierTypeB/StaticBody3D" unique_id=776282345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBeam" type="MeshInstance3D" parent="." unique_id=1070276486]
 mesh = ExtResource("13_08tlb")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBeam" unique_id=1192192734]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBeam/StaticBody3D" unique_id=375985311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailBench" type="MeshInstance3D" parent="." unique_id=2129956898]
 mesh = ExtResource("14_ik48a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBench" unique_id=635517565]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBench/StaticBody3D" unique_id=1532157158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBlock" type="MeshInstance3D" parent="." unique_id=1115398035]
 mesh = ExtResource("15_q6urf")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBlock" unique_id=1102183385]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBlock/StaticBody3D" unique_id=1927837336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailBricksTypeA" type="MeshInstance3D" parent="." unique_id=2016036142]
 mesh = ExtResource("16_kvyyu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBricksTypeA" unique_id=1294852740]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBricksTypeA/StaticBody3D" unique_id=615209261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBricksTypeB" type="MeshInstance3D" parent="." unique_id=389676147]
 mesh = ExtResource("17_lycwb")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailBricksTypeB" unique_id=754887718]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBricksTypeB/StaticBody3D" unique_id=904727646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailCablesTypeA" type="MeshInstance3D" parent="." unique_id=193143709]
 mesh = ExtResource("18_sob4v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailCablesTypeA" unique_id=860300903]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailCablesTypeA/StaticBody3D" unique_id=607593640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailCablesTypeB" type="MeshInstance3D" parent="." unique_id=2134996342]
 mesh = ExtResource("19_mpdcd")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailCablesTypeB" unique_id=1365240974]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailCablesTypeB/StaticBody3D" unique_id=1077525079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailDumpsterClosed" type="MeshInstance3D" parent="." unique_id=75238736]
 mesh = ExtResource("20_jghnf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailDumpsterClosed" unique_id=32686710]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailDumpsterClosed/StaticBody3D" unique_id=744303016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailDumpsterOpen" type="MeshInstance3D" parent="." unique_id=1353214384]
 mesh = ExtResource("21_g8ufi")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailDumpsterOpen" unique_id=2142090962]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailDumpsterOpen/StaticBody3D" unique_id=1038583906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailLightDouble" type="MeshInstance3D" parent="." unique_id=1709742701]
 mesh = ExtResource("22_cluuk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailLightDouble" unique_id=286933139]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailLightDouble/StaticBody3D" unique_id=1649101923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailLightSingle" type="MeshInstance3D" parent="." unique_id=494576663]
 mesh = ExtResource("23_dkjvv")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailLightSingle" unique_id=2139518223]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailLightSingle/StaticBody3D" unique_id=205122325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DetailLightTraffic" type="MeshInstance3D" parent="." unique_id=1077716359]
 mesh = ExtResource("24_7h146")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DetailLightTraffic" unique_id=1299119634]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetailLightTraffic/StaticBody3D" unique_id=1978248713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DoorTypeA" type="MeshInstance3D" parent="." unique_id=1406685290]
 mesh = ExtResource("25_qka35")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorTypeA" unique_id=1138723019]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorTypeA/StaticBody3D" unique_id=1143072207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="DoorTypeB" type="MeshInstance3D" parent="." unique_id=2108732299]
 mesh = ExtResource("26_40j3a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorTypeB" unique_id=1644230593]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorTypeB/StaticBody3D" unique_id=720631152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="GrassCornerInner" type="MeshInstance3D" parent="." unique_id=582001370]
 mesh = ExtResource("27_ctm3u")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassCornerInner" unique_id=682137490]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassCornerInner/StaticBody3D" unique_id=1021374165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="GrassCorner" type="MeshInstance3D" parent="." unique_id=1863555273]
 mesh = ExtResource("28_vs2pc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassCorner" unique_id=948489303]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassCorner/StaticBody3D" unique_id=2144699440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="GrassHill" type="MeshInstance3D" parent="." unique_id=22037458]
 mesh = ExtResource("29_kky0n")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="GrassHill" unique_id=1740338374]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GrassHill/StaticBody3D" unique_id=792084786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="Grass" type="MeshInstance3D" parent="." unique_id=514381107]
 mesh = ExtResource("30_wiyga")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Grass" unique_id=1890062711]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grass/StaticBody3D" unique_id=1649665978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="PalletSmall" type="MeshInstance3D" parent="." unique_id=1343250219]
 mesh = ExtResource("31_jtw8w")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="PalletSmall" unique_id=578402903]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PalletSmall/StaticBody3D" unique_id=126218716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="Pallet" type="MeshInstance3D" parent="." unique_id=927890765]
 mesh = ExtResource("32_lbux6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pallet" unique_id=1525804868]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pallet/StaticBody3D" unique_id=789981432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="Planks" type="MeshInstance3D" parent="." unique_id=1917616223]
 mesh = ExtResource("33_tuyal")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Planks" unique_id=430477730]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Planks/StaticBody3D" unique_id=1699865974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoadAsphaltCenter" type="MeshInstance3D" parent="." unique_id=2066457219]
 mesh = ExtResource("34_jkynb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadAsphaltCenter" unique_id=195030790]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadAsphaltCenter/StaticBody3D" unique_id=1782917750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoadAsphaltCornerInner" type="MeshInstance3D" parent="." unique_id=269080820]
 mesh = ExtResource("35_ullee")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadAsphaltCornerInner" unique_id=608229134]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadAsphaltCornerInner/StaticBody3D" unique_id=1969276037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoadAsphaltCornerOuter" type="MeshInstance3D" parent="." unique_id=453930901]
 mesh = ExtResource("36_6rmgx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadAsphaltCornerOuter" unique_id=1427410919]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadAsphaltCornerOuter/StaticBody3D" unique_id=708402041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoadAsphaltCorner" type="MeshInstance3D" parent="." unique_id=1872117444]
 mesh = ExtResource("37_l1dit")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadAsphaltCorner" unique_id=1676044879]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadAsphaltCorner/StaticBody3D" unique_id=303072068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoadAsphaltDamaged" type="MeshInstance3D" parent="." unique_id=1701458870]
 mesh = ExtResource("38_101lw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadAsphaltDamaged" unique_id=1200187952]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadAsphaltDamaged/StaticBody3D" unique_id=371460164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoadAsphaltPavement" type="MeshInstance3D" parent="." unique_id=84733127]
 mesh = ExtResource("39_y8nuu")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadAsphaltPavement" unique_id=824206068]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadAsphaltPavement/StaticBody3D" unique_id=1119812239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoadAsphaltSide" type="MeshInstance3D" parent="." unique_id=521710391]
 mesh = ExtResource("40_a518m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadAsphaltSide" unique_id=595751729]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadAsphaltSide/StaticBody3D" unique_id=1659181267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoadAsphaltStraight" type="MeshInstance3D" parent="." unique_id=468777818]
 mesh = ExtResource("41_60qb4")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadAsphaltStraight" unique_id=190180007]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadAsphaltStraight/StaticBody3D" unique_id=2050504782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoadDirtCenter" type="MeshInstance3D" parent="." unique_id=855196250]
 mesh = ExtResource("42_pyuk5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadDirtCenter" unique_id=472450012]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadDirtCenter/StaticBody3D" unique_id=1436703128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoadDirtCornerInner" type="MeshInstance3D" parent="." unique_id=1207887275]
 mesh = ExtResource("43_wkuwx")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadDirtCornerInner" unique_id=426091425]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadDirtCornerInner/StaticBody3D" unique_id=1513196123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoadDirtCornerOuter" type="MeshInstance3D" parent="." unique_id=206623910]
 mesh = ExtResource("44_l251g")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadDirtCornerOuter" unique_id=1147296851]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadDirtCornerOuter/StaticBody3D" unique_id=1160814710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoadDirtCorner" type="MeshInstance3D" parent="." unique_id=1182632861]
 mesh = ExtResource("45_x6hfn")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadDirtCorner" unique_id=2103393306]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadDirtCorner/StaticBody3D" unique_id=603949027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoadDirtDamaged" type="MeshInstance3D" parent="." unique_id=370455992]
 mesh = ExtResource("46_0ct0x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadDirtDamaged" unique_id=892201776]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadDirtDamaged/StaticBody3D" unique_id=913843494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoadDirtPavement" type="MeshInstance3D" parent="." unique_id=493664056]
 mesh = ExtResource("47_d6ch3")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadDirtPavement" unique_id=243993035]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadDirtPavement/StaticBody3D" unique_id=440349641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoadDirtSide" type="MeshInstance3D" parent="." unique_id=327270097]
 mesh = ExtResource("48_kjaov")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadDirtSide" unique_id=1199542158]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadDirtSide/StaticBody3D" unique_id=1809125920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoadDirtStraight" type="MeshInstance3D" parent="." unique_id=749499865]
 mesh = ExtResource("49_2a10n")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadDirtStraight" unique_id=1869561830]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadDirtStraight/StaticBody3D" unique_id=1904040956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoadDirtTile" type="MeshInstance3D" parent="." unique_id=1576035442]
 mesh = ExtResource("50_x4wal")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoadDirtTile" unique_id=1982588806]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoadDirtTile/StaticBody3D" unique_id=1367481199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoofMetalPoles" type="MeshInstance3D" parent="." unique_id=1430958045]
 mesh = ExtResource("51_w1vgo")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoofMetalPoles" unique_id=1630918010]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoofMetalPoles/StaticBody3D" unique_id=1736962344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="RoofMetalTypeA" type="MeshInstance3D" parent="." unique_id=735162315]
 mesh = ExtResource("52_4yemc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RoofMetalTypeA" unique_id=2021924907]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoofMetalTypeA/StaticBody3D" unique_id=176321193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="RoofMetalTypeB" type="MeshInstance3D" parent="." unique_id=1485299068]
 mesh = ExtResource("53_34fli")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="RoofMetalTypeB" unique_id=601896347]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoofMetalTypeB/StaticBody3D" unique_id=770083683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="ScaffoldingFloor" type="MeshInstance3D" parent="." unique_id=1997360283]
 mesh = ExtResource("54_vig38")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ScaffoldingFloor" unique_id=1611948518]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScaffoldingFloor/StaticBody3D" unique_id=1431070823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="ScaffoldingPoles" type="MeshInstance3D" parent="." unique_id=2006278461]
 mesh = ExtResource("55_3csvm")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="ScaffoldingPoles" unique_id=938320911]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScaffoldingPoles/StaticBody3D" unique_id=608873198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="ScaffoldingStructure" type="MeshInstance3D" parent="." unique_id=1015222334]
 mesh = ExtResource("56_hxb1s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ScaffoldingStructure" unique_id=631863722]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScaffoldingStructure/StaticBody3D" unique_id=1510036171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="TreeLarge" type="MeshInstance3D" parent="." unique_id=1235643823]
 mesh = ExtResource("57_kvlrr")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="TreeLarge" unique_id=1039728736]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeLarge/StaticBody3D" unique_id=712629575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="TreeParkLarge" type="MeshInstance3D" parent="." unique_id=762509668]
 mesh = ExtResource("58_qy4gy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TreeParkLarge" unique_id=800819591]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeParkLarge/StaticBody3D" unique_id=375066635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="TreeParkPineLarge" type="MeshInstance3D" parent="." unique_id=1406669999]
 mesh = ExtResource("59_kpmiw")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="TreeParkPineLarge" unique_id=1312929084]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeParkPineLarge/StaticBody3D" unique_id=555679750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="TreePineLarge" type="MeshInstance3D" parent="." unique_id=2024980056]
 mesh = ExtResource("60_aw5j8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TreePineLarge" unique_id=769552647]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreePineLarge/StaticBody3D" unique_id=2040020337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="TreePineSmall" type="MeshInstance3D" parent="." unique_id=17782107]
 mesh = ExtResource("61_0s5rv")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="TreePineSmall" unique_id=1439824751]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreePineSmall/StaticBody3D" unique_id=627046154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="TreeShrub" type="MeshInstance3D" parent="." unique_id=182628832]
 mesh = ExtResource("62_73g3d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TreeShrub" unique_id=449623060]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeShrub/StaticBody3D" unique_id=1514500364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="TreeSmall" type="MeshInstance3D" parent="." unique_id=981939644]
 mesh = ExtResource("63_55ujw")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="TreeSmall" unique_id=1635653859]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeSmall/StaticBody3D" unique_id=1671128358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="TruckFlat" type="MeshInstance3D" parent="." unique_id=1708429844]
 mesh = ExtResource("64_u0bow")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TruckFlat" unique_id=1926334876]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TruckFlat/StaticBody3D" unique_id=180342249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="TruckGreenCargo" type="MeshInstance3D" parent="." unique_id=197577535]
 mesh = ExtResource("65_xfgrf")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="TruckGreenCargo" unique_id=500851593]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TruckGreenCargo/StaticBody3D" unique_id=369748084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="TruckGreen" type="MeshInstance3D" parent="." unique_id=637680432]
 mesh = ExtResource("66_3jf3f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TruckGreen" unique_id=1870850401]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TruckGreen/StaticBody3D" unique_id=1306018956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="TruckGreyCargo" type="MeshInstance3D" parent="." unique_id=231913523]
 mesh = ExtResource("67_aa35f")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="TruckGreyCargo" unique_id=1160286177]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TruckGreyCargo/StaticBody3D" unique_id=475277499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="TruckGrey" type="MeshInstance3D" parent="." unique_id=180880400]
 mesh = ExtResource("68_rknh0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TruckGrey" unique_id=1870200935]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TruckGrey/StaticBody3D" unique_id=4133495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallAColumnPainted" type="MeshInstance3D" parent="." unique_id=796052955]
 mesh = ExtResource("69_f4bqo")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAColumnPainted" unique_id=825072649]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAColumnPainted/StaticBody3D" unique_id=1278622593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallAColumn" type="MeshInstance3D" parent="." unique_id=1286032659]
 mesh = ExtResource("70_1ilpo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAColumn" unique_id=1976340433]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAColumn/StaticBody3D" unique_id=69899300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallACornerPainted" type="MeshInstance3D" parent="." unique_id=1188539437]
 mesh = ExtResource("71_dh2n5")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallACornerPainted" unique_id=624043490]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallACornerPainted/StaticBody3D" unique_id=211773801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallACorner" type="MeshInstance3D" parent="." unique_id=993437906]
 mesh = ExtResource("72_htn0u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallACorner" unique_id=568588700]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallACorner/StaticBody3D" unique_id=1492308142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallADetailPainted" type="MeshInstance3D" parent="." unique_id=466921023]
 mesh = ExtResource("73_hy1vg")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallADetailPainted" unique_id=409638548]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallADetailPainted/StaticBody3D" unique_id=1030628356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallADetail" type="MeshInstance3D" parent="." unique_id=1384638251]
 mesh = ExtResource("74_b4vr3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallADetail" unique_id=676827180]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallADetail/StaticBody3D" unique_id=2063893874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallADiagonal" type="MeshInstance3D" parent="." unique_id=1281253554]
 mesh = ExtResource("75_83u3p")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallADiagonal" unique_id=658020696]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallADiagonal/StaticBody3D" unique_id=895266645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallADoor" type="MeshInstance3D" parent="." unique_id=1461229155]
 mesh = ExtResource("76_bxbgl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallADoor" unique_id=750010105]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallADoor/StaticBody3D" unique_id=1031571105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallAFlatGarage" type="MeshInstance3D" parent="." unique_id=1770657372]
 mesh = ExtResource("77_md7ww")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAFlatGarage" unique_id=190305449]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAFlatGarage/StaticBody3D" unique_id=707719164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallAFlatPainted" type="MeshInstance3D" parent="." unique_id=537892566]
 mesh = ExtResource("78_jrveo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAFlatPainted" unique_id=1259900979]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAFlatPainted/StaticBody3D" unique_id=2058064666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallAFlatWindow" type="MeshInstance3D" parent="." unique_id=111085785]
 mesh = ExtResource("79_ciikl")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAFlatWindow" unique_id=1431996487]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAFlatWindow/StaticBody3D" unique_id=71513559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallAFlat" type="MeshInstance3D" parent="." unique_id=1863260397]
 mesh = ExtResource("80_6lghp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAFlat" unique_id=1677096422]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAFlat/StaticBody3D" unique_id=581989164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallAGarage" type="MeshInstance3D" parent="." unique_id=818591613]
 mesh = ExtResource("81_ew6du")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAGarage" unique_id=99187731]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAGarage/StaticBody3D" unique_id=1746137771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallALowPainted" type="MeshInstance3D" parent="." unique_id=1132310724]
 mesh = ExtResource("82_xn7bj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallALowPainted" unique_id=1592966846]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallALowPainted/StaticBody3D" unique_id=405252786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallALow" type="MeshInstance3D" parent="." unique_id=1744113896]
 mesh = ExtResource("83_j863v")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallALow" unique_id=116159279]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallALow/StaticBody3D" unique_id=1530449024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallAOpen" type="MeshInstance3D" parent="." unique_id=1823059706]
 mesh = ExtResource("84_wv80e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAOpen" unique_id=350589053]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAOpen/StaticBody3D" unique_id=29657560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallAPaintedDiagonal" type="MeshInstance3D" parent="." unique_id=2020040977]
 mesh = ExtResource("85_4x45b")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAPaintedDiagonal" unique_id=1709094379]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAPaintedDiagonal/StaticBody3D" unique_id=1127423928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallAPainted" type="MeshInstance3D" parent="." unique_id=1127064870]
 mesh = ExtResource("86_xfsvk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAPainted" unique_id=151003781]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAPainted/StaticBody3D" unique_id=1989878412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallARoofDetailed" type="MeshInstance3D" parent="." unique_id=493506809]
 mesh = ExtResource("87_ueax4")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallARoofDetailed" unique_id=1848121526]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallARoofDetailed/StaticBody3D" unique_id=1955782861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallARoofSlantDetailed" type="MeshInstance3D" parent="." unique_id=241049055]
 mesh = ExtResource("88_fiiwf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallARoofSlantDetailed" unique_id=509598362]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallARoofSlantDetailed/StaticBody3D" unique_id=1692013792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallARoofSlant" type="MeshInstance3D" parent="." unique_id=675660927]
 mesh = ExtResource("89_icj1o")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallARoofSlant" unique_id=365346790]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallARoofSlant/StaticBody3D" unique_id=1837406557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallARoof" type="MeshInstance3D" parent="." unique_id=1405879176]
 mesh = ExtResource("90_047ib")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallARoof" unique_id=861499626]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallARoof/StaticBody3D" unique_id=1364078809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallAWindow" type="MeshInstance3D" parent="." unique_id=91508538]
 mesh = ExtResource("91_8jvxf")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallAWindow" unique_id=1803427445]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallAWindow/StaticBody3D" unique_id=1867766845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallA" type="MeshInstance3D" parent="." unique_id=2023378735]
 mesh = ExtResource("92_llrhh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallA" unique_id=385818126]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallA/StaticBody3D" unique_id=665281536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallBColumn" type="MeshInstance3D" parent="." unique_id=1212014530]
 mesh = ExtResource("93_mqtit")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBColumn" unique_id=1459036013]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBColumn/StaticBody3D" unique_id=1591159444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallBCorner" type="MeshInstance3D" parent="." unique_id=2028148244]
 mesh = ExtResource("94_w714w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBCorner" unique_id=564638501]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBCorner/StaticBody3D" unique_id=1415291160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallBDetailPainted" type="MeshInstance3D" parent="." unique_id=21559681]
 mesh = ExtResource("95_lipti")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBDetailPainted" unique_id=1101837768]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBDetailPainted/StaticBody3D" unique_id=2006009025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallBDiagonal" type="MeshInstance3D" parent="." unique_id=1714150867]
 mesh = ExtResource("96_h723j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBDiagonal" unique_id=1369836142]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBDiagonal/StaticBody3D" unique_id=536925789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallBDoor" type="MeshInstance3D" parent="." unique_id=79829668]
 mesh = ExtResource("97_tsirj")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBDoor" unique_id=796123442]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBDoor/StaticBody3D" unique_id=539032671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallBFlatGarage" type="MeshInstance3D" parent="." unique_id=1493506375]
 mesh = ExtResource("98_x2k4s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBFlatGarage" unique_id=834366838]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBFlatGarage/StaticBody3D" unique_id=1048288363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallBFlatWindow" type="MeshInstance3D" parent="." unique_id=1996667248]
 mesh = ExtResource("99_fj75x")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBFlatWindow" unique_id=1413277572]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBFlatWindow/StaticBody3D" unique_id=231570408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallBFlat" type="MeshInstance3D" parent="." unique_id=1624983518]
 mesh = ExtResource("100_bu8jh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBFlat" unique_id=1092335591]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBFlat/StaticBody3D" unique_id=833983010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallBGarage" type="MeshInstance3D" parent="." unique_id=1611936679]
 mesh = ExtResource("101_xloj2")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBGarage" unique_id=624266876]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBGarage/StaticBody3D" unique_id=1382539682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallBLow" type="MeshInstance3D" parent="." unique_id=1069870053]
 mesh = ExtResource("102_urglk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBLow" unique_id=1925737781]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBLow/StaticBody3D" unique_id=1618112573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallBOpen" type="MeshInstance3D" parent="." unique_id=887867565]
 mesh = ExtResource("103_sl1wv")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBOpen" unique_id=920324684]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBOpen/StaticBody3D" unique_id=99645479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallBRoofDetailed" type="MeshInstance3D" parent="." unique_id=771855093]
 mesh = ExtResource("104_bcqcm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBRoofDetailed" unique_id=115977127]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBRoofDetailed/StaticBody3D" unique_id=127521269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallBRoofSlantDetailed" type="MeshInstance3D" parent="." unique_id=978746673]
 mesh = ExtResource("105_5ihhc")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBRoofSlantDetailed" unique_id=2104063314]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBRoofSlantDetailed/StaticBody3D" unique_id=395712766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallBRoofSlant" type="MeshInstance3D" parent="." unique_id=1769284175]
 mesh = ExtResource("106_rgjqh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBRoofSlant" unique_id=1822874041]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBRoofSlant/StaticBody3D" unique_id=1409849714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallBRoof" type="MeshInstance3D" parent="." unique_id=159975819]
 mesh = ExtResource("107_as7ty")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBRoof" unique_id=763509846]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBRoof/StaticBody3D" unique_id=2140922831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallBWindow" type="MeshInstance3D" parent="." unique_id=1279553690]
 mesh = ExtResource("108_1c06n")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBWindow" unique_id=1014984430]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBWindow/StaticBody3D" unique_id=1276536021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallB" type="MeshInstance3D" parent="." unique_id=1875787600]
 mesh = ExtResource("109_ukme0")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallB" unique_id=1290109594]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallB/StaticBody3D" unique_id=893560905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallBrokenTypeA" type="MeshInstance3D" parent="." unique_id=1701288530]
 mesh = ExtResource("110_kvu2b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBrokenTypeA" unique_id=1694272416]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBrokenTypeA/StaticBody3D" unique_id=1664508550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallBrokenTypeB" type="MeshInstance3D" parent="." unique_id=26806891]
 mesh = ExtResource("111_m6pna")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBrokenTypeB" unique_id=1744879329]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBrokenTypeB/StaticBody3D" unique_id=4762970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallCFlatLow" type="MeshInstance3D" parent="." unique_id=1750025518]
 mesh = ExtResource("112_42hei")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallCFlatLow" unique_id=271082507]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCFlatLow/StaticBody3D" unique_id=49812654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallCFlat" type="MeshInstance3D" parent="." unique_id=1966061848]
 mesh = ExtResource("113_emexm")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallCFlat" unique_id=1188834298]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCFlat/StaticBody3D" unique_id=1234243327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallFence" type="MeshInstance3D" parent="." unique_id=1716593025]
 mesh = ExtResource("114_40nvn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallFence" unique_id=1620210372]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallFence/StaticBody3D" unique_id=1360886355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallStepsTypeA" type="MeshInstance3D" parent="." unique_id=1388681690]
 mesh = ExtResource("115_yiej6")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallStepsTypeA" unique_id=1783934613]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallStepsTypeA/StaticBody3D" unique_id=49617019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallStepsTypeB" type="MeshInstance3D" parent="." unique_id=1085422928]
 mesh = ExtResource("116_bjjc2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallStepsTypeB" unique_id=479834670]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallStepsTypeB/StaticBody3D" unique_id=1744805077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WallTypeA" type="MeshInstance3D" parent="." unique_id=689995631]
 mesh = ExtResource("117_yym2y")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WallTypeA" unique_id=628463884]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallTypeA/StaticBody3D" unique_id=1735204615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WallTypeB" type="MeshInstance3D" parent="." unique_id=1101934866]
 mesh = ExtResource("118_18nr0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallTypeB" unique_id=1553458538]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallTypeB/StaticBody3D" unique_id=986528825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WindowSmallTypeA" type="MeshInstance3D" parent="." unique_id=2079285340]
 mesh = ExtResource("119_005g7")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WindowSmallTypeA" unique_id=1680749847]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WindowSmallTypeA/StaticBody3D" unique_id=781271071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WindowSmallTypeB" type="MeshInstance3D" parent="." unique_id=1884579261]
 mesh = ExtResource("120_rcppa")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WindowSmallTypeB" unique_id=935329841]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WindowSmallTypeB/StaticBody3D" unique_id=1727966011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WindowWideTypeA" type="MeshInstance3D" parent="." unique_id=66998354]
 mesh = ExtResource("121_1bc2u")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WindowWideTypeA" unique_id=2068057535]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WindowWideTypeA/StaticBody3D" unique_id=936865040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WindowWideTypeB" type="MeshInstance3D" parent="." unique_id=1900126649]
 mesh = ExtResource("122_5wfuy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WindowWideTypeB" unique_id=2059075777]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WindowWideTypeB/StaticBody3D" unique_id=423930608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
 
 [node name="WindowWideTypeC" type="MeshInstance3D" parent="." unique_id=844957491]
 mesh = ExtResource("123_py4fo")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="WindowWideTypeC" unique_id=410156249]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WindowWideTypeC/StaticBody3D" unique_id=150691520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")
+
 [node name="WindowWideTypeD" type="MeshInstance3D" parent="." unique_id=1899950473]
 mesh = ExtResource("124_wdg4c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WindowWideTypeD" unique_id=958941418]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WindowWideTypeD/StaticBody3D" unique_id=1814020503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nicl0")

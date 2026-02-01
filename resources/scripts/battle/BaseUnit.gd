@@ -22,7 +22,7 @@ const SPEED: int = 2
 @onready var itemsList: Node = $inventory/items
 @onready var abilitiesList: Array[Node] = $inventory/abilities.get_children()
 
-@onready var animPlayer: AnimationPlayer = $UnitAttackPlayer/animPlayer
+@onready var animPlayer: AnimationPlayer = $UnitAttackPlayer_sfx/animPlayer
 
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS

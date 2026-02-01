@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://k4cewou3a7w4" path="res://scenes/game objects/units/units/kallen.tscn" id="3_fiw7c"]
 [ext_resource type="PackedScene" uid="uid://ch23ifeu1601i" path="res://scenes/game objects/units/britannia/britHeli.tscn" id="4_56cp5"]
 [ext_resource type="MeshLibrary" uid="uid://cqyuudpk2wiml" path="res://assets/3d/gridmaps/col_gridmap.tres" id="5_gl8n8"]
+[ext_resource type="MeshLibrary" uid="uid://c3jkxw8gguv3c" path="res://assets/3d/gridmaps/no_col_gridmap.tres" id="5_q7gq7"]
 [ext_resource type="Texture2D" uid="uid://b7uqbq5sqlxkp" path="res://assets/2d/backgrounds/black.png" id="6_2lpp0"]
 
 [sub_resource type="Animation" id="Animation_a5oht"]
@@ -84,7 +85,7 @@ mapSize = Vector2(30, 30)
 set_position = Vector3(15, 0, 5)
 
 [node name="BrittaniaHelicopter" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="0" unique_id=1649521096 instance=ExtResource("4_56cp5")]
-set_position = Vector3(20, 0, 15)
+set_position = Vector3(12, 0, 5)
 
 [node name="BrittaniaHelicopter2" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="1" unique_id=373241228 instance=ExtResource("4_56cp5")]
 set_position = Vector3(10, 0, 22)
@@ -109,17 +110,20 @@ grow_vertical = 1
 visible = true
 
 [node name="world_gridmap_noCOL" parent="BattleController/Grid" parent_id_path=PackedInt32Array(263131413, 813790483) index="2" unique_id=1014665265]
-mesh_library = ExtResource("5_gl8n8")
+mesh_library = ExtResource("5_q7gq7")
+collision_layer = 1
+collision_mask = 1
 data = {
-"cells": PackedInt32Array(16, 5, 33, 15, 5, 33, 14, 5, 33, 13, 5, 33, 13, 6, 33, 13, 7, 33, 14, 8, 33, 14, 9, 33, 14, 10, 33, 14, 11, 33, 15, 11, 33, 16, 11, 33, 16, 10, 33, 17, 10, 33, 17, 9, 33, 17, 8, 33, 16, 8, 33, 16, 7, 33, 16, 6, 33, 16, 9, 33, 15, 10, 33, 15, 9, 33, 15, 8, 33, 15, 7, 33, 15, 6, 33, 14, 6, 33, 14, 7, 33, 13, 8, 33, 13, 9, 33, 13, 10, 33, 13, 11, 33, 13, 12, 33, 12, 11, 33, 12, 12, 33, 11, 11, 33, 11, 10, 33, 12, 10, 33, 12, 9, 33, 12, 8, 33, 15, 2, 65)
+"cells": PackedInt32Array(13, 3, 33, 14, 3, 33, 15, 3, 33, 16, 3, 1441825, 12, 4, 1441831, 12, 5, 1441831, 12, 6, 1441831, 12, 7, 1441831, 12, 8, 1441831, 12, 9, 1441831, 12, 10, 1441831, 12, 11, 1441831, 12, 12, 1441831, 12, 13, 1441831, 12, 14, 1441831, 12, 15, 1441831, 16, 13, 1441825, 15, 13, 1441825, 15, 12, 1441825, 14, 12, 1441825, 14, 13, 1441825, 13, 13, 1441825, 13, 12, 1441825, 13, 11, 1441825, 16, 12, 1441825, 16, 11, 1441825, 15, 11, 1441825, 14, 11, 1441825, 13, 10, 1441825, 14, 10, 1441825, 15, 10, 1441825, 16, 10, 1441825, 16, 9, 1441825, 15, 9, 1441825, 14, 9, 1441825, 13, 9, 1441825, 13, 8, 1441825, 14, 8, 1441825, 15, 8, 1441825, 16, 8, 1441825, 16, 7, 1441825, 16, 6, 1441825, 15, 6, 1441825, 14, 6, 1441825, 14, 7, 1441825, 13, 7, 1441825, 15, 7, 1441825, 13, 6, 1441825, 13, 5, 1441825, 13, 4, 1441825, 14, 4, 1441825, 14, 5, 1441825, 15, 5, 1441825, 15, 4, 1441825, 16, 5, 1441825, 16, 4, 1441825, 13, 2, 655399, 14, 2, 655399, 15, 2, 655399, 16, 2, 655399, 12, 2, 37, 12, 3, 1441831, 17, 2, 1441826, 17, 3, 1048615, 17, 4, 1048615, 17, 5, 1048615, 17, 6, 1048615, 17, 7, 1048615, 17, 8, 1048615, 17, 9, 1048615, 17, 10, 1048615, 17, 11, 1048615, 17, 12, 1048615, 17, 13, 1048615, 18, 13, 1441830, 18, 12, 1441830, 18, 11, 1441830, 18, 10, 1441830, 18, 9, 1441830, 18, 8, 1441830, 18, 7, 1441830, 18, 6, 1441830, 18, 5, 1441830, 18, 4, 1441830, 18, 3, 1441830, 18, 2, 1441830, 11, 2, 1441830, 11, 3, 1441830, 11, 4, 1441830, 11, 5, 1441830, 11, 6, 1441830, 11, 7, 1441830, 11, 8, 1441830, 11, 9, 1441830, 11, 10, 1441830, 11, 11, 1441830, 11, 12, 1441830, 11, 13, 1441830, 11, 14, 1441830)
 }
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="world_gridmap_col" parent="BattleController/Grid" parent_id_path=PackedInt32Array(263131413, 813790483) index="3" unique_id=1627591920]
 mesh_library = ExtResource("5_gl8n8")
 data = {
-"cells": PackedInt32Array(16, 7, 64, 14, 8, 64, 14, 5, 64)
+"cells": PackedInt32Array(16, 7, 64, 14, 8, 64, 14, 5, 64, 15, 3, 65, 18, 13, 1441800, 18, 12, 1441800, 18, 11, 1441800, 18, 10, 1441800, 18, 9, 1441800, 18, 8, 1441800, 18, 7, 1441800, 18, 6, 1441800, 18, 5, 1441800, 18, 4, 1441800, 18, 2, 1441800, 18, 3, 1441800, 11, 13, 1441800, 11, 12, 1441800, 11, 11, 1441800, 11, 10, 1441800, 11, 9, 1441800, 11, 8, 1441800, 11, 7, 1441800, 11, 6, 1441800, 11, 5, 1441800, 11, 4, 1441800, 11, 3, 1441800, 11, 2, 1441800)
 }
-metadata/_editor_floor_ = Vector3(0, -9, 0)
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="GameOver" parent="BattleController" index="5" unique_id=2077553174]
 endSceneDialog = true
