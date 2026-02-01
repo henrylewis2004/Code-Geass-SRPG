@@ -311,6 +311,7 @@ func hasLOS(enemyUnit: BaseUnit,gridPosition:Vector3 = self.position.floor() ) -
 	raycast.collision_mask = collisionLayer
 	
 	var result = get_world_3d().direct_space_state.intersect_ray(raycast)
+
 	
 	return (result && result.collider.get_parent().get_parent() == enemyUnit)
 
