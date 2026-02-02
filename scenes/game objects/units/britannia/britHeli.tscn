@@ -7,7 +7,7 @@
 
 [sub_resource type="PrismMesh" id="PrismMesh_o3rf0"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3rf0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q26h"]
 albedo_color = Color(1, 0, 0, 1)
 
 [node name="BrittaniaHelicopter" type="Node" unique_id=675714386]
@@ -20,13 +20,21 @@ char_name = "Helicopter"
 charImage = ExtResource("2_5fcao")
 full_name = "Pilot"
 factionName = "Britannian Empire"
+agilityStat = 15
+defenceStat = 8
+evasionStat = 7
+rangedStat = 15
+maxAp = 7
+apCharge = 5
+luckStat = 3
+iniativeStat = 10
 
 [node name="Smg" parent="stanUnit/weapons" parent_id_path=PackedInt32Array(1046095234, 279840207) index="0" unique_id=1683125310 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_5fcao")]
 equipPart = NodePath("../../bodyparts/body")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stanUnit/PathFollow3D/unitCollider" parent_id_path=PackedInt32Array(1046095234, 815669092) index="1" unique_id=1673832389]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stanUnit/PathFollow3D/unitCollider" parent_id_path=PackedInt32Array(1046095234, 815669092) index="1" unique_id=484266798]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("PrismMesh_o3rf0")
-surface_material_override/0 = SubResource("StandardMaterial3D_o3rf0")
+surface_material_override/0 = SubResource("StandardMaterial3D_2q26h")
 
 [editable path="stanUnit"]

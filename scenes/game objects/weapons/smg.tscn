@@ -1,14 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://digo5sc451hvh"]
+[gd_scene format=3 uid="uid://digo5sc451hvh"]
 
 [ext_resource type="Script" uid="uid://dc63qu57p6p5b" path="res://resources/scripts/battle/baseWeapon.gd" id="1_pni8m"]
 
-[node name="Smg" type="Node"]
+[node name="Smg" type="Node" unique_id=1787404303]
 script = ExtResource("1_pni8m")
-dmg = 2
+dmg = 12
 string_name = "SMG"
-accuracy = 50
-rounds = 10
+accuracy = 70
+rounds = 4
 apCost = 2
 range = 2
-fireRate = 0.05
 attackType = 1

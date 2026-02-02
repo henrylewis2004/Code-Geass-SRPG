@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://mv30iklrcsps"]
+
+[ext_resource type="Script" uid="uid://c2tcl4ebbkl2s" path="res://resources/scripts/battle/BaseAbility.gd" id="1_8pwsp"]
+
+[node name="SlashHarken" type="Node" unique_id=438303092]
+script = ExtResource("1_8pwsp")
+id = 1
+targetEnemy = true
+energyCost = 3
+timeAffect = 0
+dmg = 30
+status = false
+stringName = "Slash Harken"
+range = 10
+apCost = 2
+itemType = 2

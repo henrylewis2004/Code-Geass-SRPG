@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://qqotgxb0yw8c"]
+
+[ext_resource type="Script" uid="uid://dc63qu57p6p5b" path="res://resources/scripts/battle/baseWeapon.gd" id="1_2bonq"]
+
+[node name="arm_punch" type="Node" unique_id=1591838956]
+script = ExtResource("1_2bonq")
+dmg = 35
+string_name = "Arm Punch"
+accuracy = 95
+rounds = 1
+apCost = 2
+range = 1
+weaponId = 5
+attackStat = 1

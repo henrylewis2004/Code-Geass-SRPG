@@ -14,7 +14,7 @@ signal destroy_unit(unit: BaseUnit)
 @export var status_charImg: Texture
 @export var factionName: String
 
-const SPEED: int = 2
+const SPEED: int = 4
 
 @onready var bodyParts: Array[Node] = $bodyparts.get_children() #as Array[BodyPart]
 @onready var weapons: Array[Node] = $weapons.get_children()
@@ -337,6 +337,9 @@ func getAttackHitMissOffset(attackStat: int, evadeStat: int) -> int:
 	return 100 + attackStat - evadeStat
 
 func validTarget(target: BaseUnit) -> bool:
+	if getEquippedWeapon() == null:
+		return false
+		
 	if ap < getEquippedWeapon().getApCost(): #not enough ap
 		return false
 
@@ -462,3 +465,4 @@ func _process(delta):
 		pathFollow.progress = 0
 		curve.clear_points()
 		movementFinished.emit()
+		

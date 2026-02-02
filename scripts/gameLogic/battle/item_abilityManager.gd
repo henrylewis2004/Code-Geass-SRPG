@@ -6,6 +6,12 @@ const CATALOGUE := preload("res://resources/scripts/enumClasses/ENUMitems_abilit
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 
+####
+func attackBody_only(abilityID: int) -> bool:
+	if abilityID == CATALOGUE.ABILITIES.SLASH_HARKEN:
+		return true
+	return false
+
 #### methods
 func itemDistUse(position1: Vector2, position2:Vector2) -> int:
 	return (abs(position1.x-position2.x) + abs(position1.y-position2.y))
@@ -54,7 +60,11 @@ func useItem(item:BattleItem, unit: BaseUnit, targetUnit:BaseUnit, targetPart: i
 
 func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit, targetPart: int = BODYPARTS.BODY) -> void:
 	if ability.isAttack():
-		if ability.isSinglePart():
+		if attackBody_only(ability.getID()) || targetUnit is StandardUnit:
+			var tarPart: int = 0 if targetUnit is StandardUnit else BODYPARTS.BODY
+			targetUnit.getBodyparts()[tarPart].hit(ability.getDmg())
+		
+		elif ability.isSinglePart():
 			targetUnit.getBodyparts()[targetPart].hit(ability.getDmg())
 
 		else:
@@ -63,6 +73,8 @@ func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit, targetPart
 			bodyParts[BODYPARTS.L_ARM].hit(ability.getDmg() * 0.75)
 			bodyParts[BODYPARTS.R_ARM].hit(ability.getDmg() * 0.75)
 			bodyParts[BODYPARTS.LEGS].hit(ability.getDmg() * 0.5)
+				
+
 
 		for bodyPart in targetUnit.getBodyparts():
 			bodyPart.hpCheck()
@@ -71,7 +83,17 @@ func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit, targetPart
 	if ability.addStatus():
 		targetUnit.getStats().addStatus(Status.new(ability.getTier(), ability.getStatAffect(),ability.getTimeAffect()))
 
+	if ability.hasBonusAffect():
+		match(ability.getID()):
+			CATALOGUE.ABILITIES.SLASH_HARKEN:
+				#move unit to next to attack unit
+				var posDif: Vector2 = unit.getGridPos() - targetUnit.getGridPos()
+				if posDif.x == 0:
+					unit.setGridPos(Vector2(unit.getGridPos().x, targetUnit.getGridPos().y + 1 if posDif.y > 0 else targetUnit.getGridPos().y - 1))
+				elif posDif.y == 0:
+					unit.setGridPos(Vector2(targetUnit.getGridPos().x + 1 if posDif.x > 0 else targetUnit.getGridPos().x - 1, unit.getGridPos().y))
+
 	unit.incAp(-ability.getApCost())
 	unit.incEnergy(-ability.getEnergyCost())
 
-	actionComplete.emit(ability == Ability)
+	actionComplete.emit(ability is Ability)

@@ -5,14 +5,15 @@ enum TYPEID{
 }
 
 enum ITEMS{
-    HP_SINGLE,
+	HP_SINGLE,
 	HP_ALL,
 	STATUS_CLEAN,
 
 }
 
 enum ABILITIES{
-    MINUS_SPEED,
+	MINUS_SPEED,
+	SLASH_HARKEN,
 
 
 }

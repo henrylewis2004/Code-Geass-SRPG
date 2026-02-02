@@ -126,10 +126,17 @@ func showPlayerUnit() -> bool :
 		curState ==  STATE.A_UNIT_CAM_CINEMATIC 
 		|| curState == STATE.UNIT_MOVEMENT_SELECTION 
 		|| curState == STATE.ATTACK_MOVEMENT 
-		|| curState == STATE.E_UNIT_SELECTED_ATTACK 
 		|| curState == STATE.A_UNIT_ITEM_PREV 
 		|| curState == STATE.A_UNIT_PART_SELECT
 		)
+		
+func showAttackOverlay() -> bool :
+	return (
+		curState ==  STATE.BATTLE 
+		|| curState == STATE.E_UNIT_SELECTED_ATTACK 
+		|| curState == STATE.E_UNIT_ATTACK_WPN_SELECTION
+		)		
+	
 
 func showUnitOverlay() -> bool :
 	return !( 
@@ -163,7 +170,7 @@ func unitOverlay() -> void:
 	if showPlayerUnit():
 		selectUnitOverlay(unitTurn,unitTurn.getTeam())
 		
-	elif curState == STATE.BATTLE:
+	if showAttackOverlay():		
 		if unitTurn != null:
 			selectUnitOverlay(unitTurn,unitTurn.getTeam())
 		if selectedEnemyUnit != null:
@@ -220,7 +227,7 @@ func selectUnitOverlay(unit: BaseUnit, team: int) -> void: #team : 0= enemy, 1= 
 		playerUnitGui.updateBase(unit.getName(),unit.getAp(),unit.getCharImage(),unit.getHP())
 		playerUnitGui.showBase()
 		
-		if curState == STATE.ATTACK_MOVEMENT ||curState == STATE.E_UNIT_SELECTED_ATTACK:
+		if curState == STATE.ATTACK_MOVEMENT || showAttackOverlay():
 			playerUnitGui.setExpansionInfo(unit.getEquippedWeapon())
 			playerUnitGui.expand()
 	
@@ -228,7 +235,7 @@ func selectUnitOverlay(unit: BaseUnit, team: int) -> void: #team : 0= enemy, 1= 
 		enemyUnitGui.updateBase(unit.getName(),unit.getAp(),unit.getCharImage(),unit.getHP())
 		enemyUnitGui.showBase()
 
-		if curState == STATE.E_UNIT || curState == STATE.E_UNIT_SELECTED_ATTACK || curState == STATE.ATTACK_MOVEMENT:
+		if curState == STATE.E_UNIT || showAttackOverlay() || curState == STATE.ATTACK_MOVEMENT:
 			enemyUnitGui.setExpansionInfo(unit.getEquippedWeapon())
 			enemyUnitGui.expand()
 	
@@ -305,6 +312,7 @@ func useItemAbility(unit: BaseUnit, targetUnit: BaseUnit, activity: BaseItem, se
 
 
 func itemEndTurn(ability: bool) -> void:
+	print(ability)
 	var anim: String = "itemAnim" #item
 	if ability:
 		anim = "geassAnim"	#ability
@@ -487,13 +495,12 @@ func input() -> void:
 					useItemAbility(unitTurn,selectedActivityUnit,selectedActivity)
 					
 			STATE.E_UNIT_ATTACK_WPN_SELECTION:
-				if selectedEnemyUnit.getEquippedWeapon() == null || (selectedEnemyUnit.validTarget(unitTurn)):
+				if selectedEnemyUnit.getEquippedWeaponIndex() < 0 || (selectedEnemyUnit.validTarget(unitTurn)):
 					inputTaken.emit()
 
 
 	elif Input.is_action_just_pressed("cancel"):
-		gridManager.clearUnitSelectionTiles(unitSelectionTiles)
-		drawManager.cleanLos()
+			
 		match curState:
 			STATE.CAM_MOVEMENT:
 				snapCamMoveToUnit(unitTurn)
@@ -533,8 +540,9 @@ func input() -> void:
 
 				
 			STATE.UNIT_MOVEMENT_SELECTION:
-				playerInput(unitTurn)
+				gridManager.clearUnitSelectionTiles(unitSelectionTiles)
 				
+				playerInput(unitTurn)
 				curState = STATE.A_UNIT
 
 			STATE.A_UNIT_MOVED:
@@ -552,6 +560,8 @@ func input() -> void:
 				curState = STATE.A_UNIT
 				
 			STATE.ATTACK_MOVEMENT:
+				gridManager.clearUnitSelectionTiles(unitSelectionTiles)
+				
 				playerInput(unitTurn)
 				unitTurnMoved()
 				
@@ -560,6 +570,8 @@ func input() -> void:
 
 
 			STATE.A_UNIT_ITEM_PREV:
+				gridManager.clearUnitSelectionTiles(unitSelectionTiles)
+				
 				curState = STATE.A_UNIT_MENU_ITEM
 				playerInput(unitTurn)
 
@@ -595,6 +607,7 @@ func input() -> void:
 				pass
 			
 			STATE.E_UNIT_SELECTED_ATTACK:
+				
 				curState = STATE.ATTACK_MOVEMENT
 				if unitTurn.getEquippedWeapon() != null:
 					gridManager.createUnitAttackTiles(unitSelectionTiles,unitTurn.getEquippedWeapon().getRange(),unitTurn.getGridPos())
@@ -625,6 +638,7 @@ func input() -> void:
 				wpnSelection(Input.get_axis("up","down"))
 
 	elif curState == STATE.E_UNIT_ATTACK_WPN_SELECTION:
+		
 		if Input.is_action_just_pressed("down") || Input.is_action_just_pressed("up"):
 			wpnSelection(Input.get_axis("up","down"),selectedEnemyUnit,true)
 
@@ -738,7 +752,8 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 	await battleCam.cinematicMoveFinished
 
 	#ai choose weapon
-	defender.setEquippedWeapon(aiManager.getBestWeapon(defender,attacker,gridManager))
+	if defender.getTeam() == TEAM.ENEMY:
+		defender.setEquippedWeapon(aiManager.getBestWeapon(defender,attacker,gridManager))
 
 	var attackTimer: Timer = Timer.new()
 	add_child(attackTimer)
@@ -808,9 +823,7 @@ func killUnit(unit: BaseUnit) -> void:
 
 
 func aiAttackTurn(unit:BaseUnit, targetUnit: BaseUnit) -> void:
-	#add ui
 	#add los 
-	#add player ui cards
 	
 
 	curState = STATE.E_UNIT_ATTACK_WPN_SELECTION
@@ -822,6 +835,7 @@ func aiAttackTurn(unit:BaseUnit, targetUnit: BaseUnit) -> void:
 
 	await inputTaken
 	playerUnitGui.hideWeaponSelect()
+	gridManager.clearUnitSelectionTiles(unitSelectionTiles)
 	
 	attackTurn(unit,targetUnit)
 	await actionComplete
@@ -838,7 +852,6 @@ func gameOver(victory: bool):
 
 
 func endLevel(nextScene: bool) -> void:
-	print(nextScene)
 	if nextScene: 
 		sceneOver.emit()
 		return
@@ -892,7 +905,7 @@ func nextTurn() -> void:
 			unitTurn.equipAWeapon()
 	
 	else:
-		aiManager.getTurn(unitTurn,$battleUnits/enemyUnits.get_children(),$battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children(),gridManager,battleCam,itemAbMan)
+		aiManager.getTurn(unitTurn,$battleUnits/enemyUnits.get_children(),getUnits($battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children()),gridManager,battleCam,itemAbMan)
 		await aiManager.turnFinished
 
 		var timer: Timer = Timer.new()
@@ -945,8 +958,6 @@ func _ready():
 	
 	updateOccupiedMapGrid()
 	
-
-
 func _physics_process(delta):
 	if curState > STATE.GAME_OVER:
 		unitOverlay()
@@ -954,4 +965,6 @@ func _physics_process(delta):
 	if curState > STATE.NONE:
 		input()
 		
+	
+
 	$ui/curState.text = "curState: " + str(STATE.find_key(curState))

@@ -30,8 +30,8 @@ func _process(delta):
 				setIndex(selectIndex + input.y)
 			"HBoxContainer":
 				setIndex(selectIndex + input.x)
-			"GridContainer":
-				setIndex(selectIndex + input.y + input.x * menuParent.columns)
+		#	"GridContainer":
+		#		setIndex(selectIndex + input.y + input.x * menuParent.columns) #note: doesnt work with the wrapping index for invisible nodes
 		
 		if Input.is_action_just_pressed("accept"):
 			if menuParent.get_parent().name == "action": 
@@ -66,7 +66,7 @@ func setIndex(index: int) -> void:
 		return 
 	
 	if menuItem.visible == false:
-		setIndex(index + 1 if index > 0 else index - 1)
+		setIndex(index + 1 if index > getIndex() else index - 1)
 		return
 	
 	

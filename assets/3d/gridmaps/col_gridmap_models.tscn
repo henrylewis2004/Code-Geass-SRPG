@@ -193,48 +193,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBarrierStrongDamaged" type="MeshInstance3D" parent="." unique_id=1558925437]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+visible = false
 mesh = ExtResource("8_r76gp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierStrongDamaged" unique_id=1672710963]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierStrongDamaged/StaticBody3D" unique_id=1019757613]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBarrierStrongTypeA" type="MeshInstance3D" parent="." unique_id=1142898002]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("9_5fefe")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierStrongTypeA" unique_id=1663048603]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierStrongTypeA/StaticBody3D" unique_id=1924728218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBarrierStrongTypeB" type="MeshInstance3D" parent="." unique_id=391754482]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("10_wybcw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierStrongTypeB" unique_id=1931175478]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierStrongTypeB/StaticBody3D" unique_id=1358779860]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBarrierTypeA" type="MeshInstance3D" parent="." unique_id=1807336279]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("11_mkeob")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierTypeA" unique_id=1686621493]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierTypeA/StaticBody3D" unique_id=454099264]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBarrierTypeB" type="MeshInstance3D" parent="." unique_id=1291455375]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("12_fapdr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DetailBarrierTypeB" unique_id=523938783]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetailBarrierTypeB/StaticBody3D" unique_id=776282345]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_nicl0")
 
 [node name="DetailBeam" type="MeshInstance3D" parent="." unique_id=1070276486]

@@ -8,6 +8,7 @@ signal actionTaken(taken:bool)
 signal attackPlayer_input(unit: BaseUnit, targetUnit: BaseUnit)
 
 var tree_root: Node
+var selectedEnemyUnit: BaseUnit
 
 
 
@@ -15,6 +16,9 @@ var tree_root: Node
 func setRoot(new_root:Node) -> void:
 	tree_root = new_root
 
+###
+func getTargetUnit() -> BaseUnit:
+	return selectedEnemyUnit
 
 
 ##
@@ -89,7 +93,7 @@ func bestAttack(mv:Vector2, weapon: Weapon, unit:BaseUnit, targetUnit:BaseUnit, 
 
 
 	
-func attackTurn(unit:BaseUnit, allyUnits: Array[BaseUnit],enemyUnits: Array[Node],attackRange: int,grid: BattleGrid,camera: BattleCamController) -> void:
+func attackTurn(unit:BaseUnit, allyUnits: Array[BaseUnit],enemyUnits: Array[BaseUnit],attackRange: int,grid: BattleGrid,camera: BattleCamController) -> void:
 	if attackRange == 0:
 		actionComplete_timeout(false,0.01)
 		return
@@ -147,7 +151,8 @@ func attackTurn(unit:BaseUnit, allyUnits: Array[BaseUnit],enemyUnits: Array[Node
 									targetMv = Vector2(-index_x,index_y)
 									unit.setEquippedWeapon_fromWeapon(weapon)
 				
-
+	
+	selectedEnemyUnit = targetEnemy
 	if targetEnemy == null:
 		actionComplete_timeout(false,0.01)
 		return
@@ -184,7 +189,7 @@ func actionComplete_timeout(actionComplete: bool = true,timeout: float = 0) -> v
 
 
 			
-func moveTurn(unit: BaseUnit, enemyUnits: Array[Node],grid:BattleGrid,camera:BattleCamController) -> void:
+func moveTurn(unit: BaseUnit, enemyUnits: Array[BaseUnit],grid:BattleGrid,camera:BattleCamController) -> void:
 	var closestEnemy: BaseUnit = null
 	var dist: int = 0
 	for e_unit in enemyUnits:
@@ -200,9 +205,7 @@ func moveTurn(unit: BaseUnit, enemyUnits: Array[Node],grid:BattleGrid,camera:Bat
 
 	if targetLoc != Vector2.INF :
 		var moveCost: int = unit.moveCost(grid.getASindex(unit.getGridPos()),grid.getASindex(targetLoc),grid.getAstar())
-		print(unit.getAp())
 		unit.incAp(-moveCost)
-		print(unit.getAp())
 
 		grid.setPosition_occupied(targetLoc,unit.getGridPos())
 		unit.moveTo(grid.getASindex(unit.getGridPos()),grid.getASindex(targetLoc),grid.getAstar())
@@ -259,7 +262,7 @@ func validMovementTile(unitOrigin:Vector2,enemyPos:Vector2,posDif: Vector2,grid:
 
 
 
-func getTurn(unit: BaseUnit, allyUnits: Array[Node],enemyUnits: Array[Node],grid: BattleGrid, camera: BattleCamController, itemAbManager: Item_abilityManager) -> void:
+func getTurn(unit: BaseUnit, allyUnits: Array[Node],enemyUnits: Array[BaseUnit],grid: BattleGrid, camera: BattleCamController, itemAbManager: Item_abilityManager) -> void:
 	var asBoard = grid.getAstar()
 	var teamUnits: Array[BaseUnit] = []
 

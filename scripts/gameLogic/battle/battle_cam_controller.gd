@@ -5,6 +5,8 @@ signal cinematicMoveFinished
 @onready var _CameraPivot := $camPivot as Node3D
 @onready var gridTile := $CollisionShape3D as CollisionShape3D
 
+@export var startingRot : float = 0
+
 var moveDir: Vector2 = Vector2()
 const moveSpeed: int = 5
 const camSensitivity: float = 0.07
@@ -84,7 +86,12 @@ func islocked() -> bool:
 	return (!canMove || !canRot)
 
 	
-#engine interaction
+#engine interaction#
+func _ready() -> void:
+	_CameraPivot.rotate_y(deg_to_rad(startingRot))
+
 func _physics_process(delta):
 	movement()
+	
+
 	

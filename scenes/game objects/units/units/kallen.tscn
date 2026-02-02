@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_7xprv"]
 [ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/baseUnit.tscn" id="3_7xprv"]
-[ext_resource type="PackedScene" uid="uid://dw0k4okfbuau3" path="res://scenes/game objects/item-abilities/abilities/ability_attack/SPEED_DOWN.tscn" id="4_ghykq"]
+[ext_resource type="PackedScene" uid="uid://qqotgxb0yw8c" path="res://scenes/game objects/weapons/arm_punch.tscn" id="4_ghykq"]
+[ext_resource type="PackedScene" uid="uid://mv30iklrcsps" path="res://scenes/game objects/item-abilities/abilities/ability_attack/slash_harken.tscn" id="5_cfnoi"]
 [ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/weapons/Mg Gun.tscn" id="5_cwe5n"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ghykq"]
@@ -14,24 +15,33 @@ albedo_color = Color(0, 1, 1, 1)
 script = ExtResource("1_7xprv")
 
 [node name="baseUnit" parent="." unique_id=1237027531 instance=ExtResource("3_7xprv")]
-factionName = "JAPANESE FIGHTER"
-agilityStat = 10
-defenceStat = 10
-evasionStat = 10
-meleeStat = 10
-rangedStat = 10
-maxAp = 10
-apCharge = 10
-maxEnergy = 10
-energyCharge = 10
-luckStat = 10
-iniativeStat = 10
-turnTimer = 10
+factionName = "JAPANESE TERRORIST"
+agilityStat = 20
+defenceStat = 8
+evasionStat = 18
+meleeStat = 5
+rangedStat = 12
+maxAp = 7
+apCharge = 4
+maxEnergy = 20
+energyCharge = 20
+luckStat = 13
+iniativeStat = 25
+turnTimer = 15
 
-[node name="MgGun" parent="baseUnit/weapons" parent_id_path=PackedInt32Array(1237027531, 452410782) index="0" unique_id=1895928990 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_cwe5n")]
+[node name="body" parent="baseUnit/bodyparts" parent_id_path=PackedInt32Array(1237027531, 1950766110) index="2" unique_id=741045526]
+totalHp = 120
+
+[node name="legs" parent="baseUnit/bodyparts" parent_id_path=PackedInt32Array(1237027531, 1950766110) index="3" unique_id=704321938]
+totalHp = 60
+
+[node name="MgGun" parent="baseUnit/weapons" parent_id_path=PackedInt32Array(1237027531, 452410782) index="0" unique_id=1311324289 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_cwe5n")]
 equipPart = NodePath("../../bodyparts/R arm")
 
-[node name="SpeedDown" parent="baseUnit/inventory/abilities" parent_id_path=PackedInt32Array(1237027531, 377543360) index="0" unique_id=1408530262 instance=ExtResource("4_ghykq")]
+[node name="arm_punch" parent="baseUnit/weapons" parent_id_path=PackedInt32Array(1237027531, 452410782) index="1" unique_id=1591838956 node_paths=PackedStringArray("equipPart") instance=ExtResource("4_ghykq")]
+equipPart = NodePath("../../bodyparts/L arm")
+
+[node name="SlashHarken" parent="baseUnit/inventory/abilities" parent_id_path=PackedInt32Array(1237027531, 377543360) index="0" unique_id=438303092 instance=ExtResource("5_cfnoi")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="baseUnit/PathFollow3D/unitCollider" parent_id_path=PackedInt32Array(1237027531, 1641843474) index="1" unique_id=920641669]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)

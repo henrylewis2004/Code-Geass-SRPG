@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl830hpvfisf5"]
+[gd_scene format=3 uid="uid://cl830hpvfisf5"]
 
 [ext_resource type="Script" uid="uid://dtgiw2j5xyvcx" path="res://scripts/gameLogic/battle/battle_cam_controller.gd" id="1_bnpnl"]
 
@@ -12,7 +12,7 @@ albedo_color = Color(0, 1, 0, 0.407843)
 [sub_resource type="TorusMesh" id="TorusMesh_qleuy"]
 material = SubResource("StandardMaterial3D_bnpnl")
 
-[node name="BattleCam" type="CharacterBody3D"]
+[node name="BattleCam" type="CharacterBody3D" unique_id=766673955]
 collision_layer = 128
 collision_mask = 128
 floor_constant_speed = true
@@ -20,21 +20,21 @@ platform_floor_layers = 4294967040
 platform_wall_layers = 128
 script = ExtResource("1_bnpnl")
 
-[node name="camPivot" type="Node3D" parent="."]
+[node name="camPivot" type="Node3D" parent="." unique_id=1363853049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="SpringArm3D" type="SpringArm3D" parent="camPivot"]
+[node name="SpringArm3D" type="SpringArm3D" parent="camPivot" unique_id=885870403]
 spring_length = 3.0
 
-[node name="Camera3D" type="Camera3D" parent="camPivot/SpringArm3D"]
+[node name="Camera3D" type="Camera3D" parent="camPivot/SpringArm3D" unique_id=893711847]
 transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
 current = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1374741242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_0e41j")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=219033282]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.45, 0)
 mesh = SubResource("TorusMesh_qleuy")
 skeleton = NodePath("")

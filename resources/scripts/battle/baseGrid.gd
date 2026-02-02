@@ -27,16 +27,17 @@ func createBoard():
 
 #gridMap
 func setPosition_occupied(new_position:Vector2,old_position : Vector2 = Vector2.INF) -> void:
-	mapGrid[new_position.x][new_position.y].setOccupied(true)
-	
-	if old_position != Vector2.INF:
-		mapGrid[old_position.x][old_position.y].setOccupied(false)
+	if new_position.x < mapSize.x && new_position.y < mapSize.y:
+		mapGrid[new_position.x][new_position.y].setOccupied(true)
+		
+		if old_position != Vector2.INF:
+			mapGrid[old_position.x][old_position.y].setOccupied(false)
 		
 func resetPosition_occupied(position:Vector2) -> void:
-	mapGrid[position.x][position.y].setOccupied(false)
+	if position.x < mapSize.x && position.y < mapSize.y:
+		mapGrid[position.x][position.y].setOccupied(false)
 	
 func isOccupiedPosition(position: Vector2) -> bool:
 	print(position)
 
 	return mapGrid[position.x][position.y].isOccupied()
-

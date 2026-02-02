@@ -1,40 +1,40 @@
 {
-    "character_dictionary":{
-        "Kallen":[
-            "default",
-        ]
-    },
+	"character_dictionary":{
+		"Kallen":[
+			"default",
+		]
+	},
 
-    "background_dictionary":{
-    },
-    
+	"background_dictionary":{
+	},
+	
 
-    "music_dictionary":{
-        "sfx":[
-        ],
+	"music_dictionary":{
+		"sfx":[
+		],
 
-        "music":{
+		"music":{
 
-        }
-    },
-    
-    
-    "scene":[
-        {
-            "animation": null,
-	    "background": null,
+		}
+	},
+	
+	
+	"scene":[
+		{
+			"animation": null,
+		"background": null,
 
-            "lines":[
-                {
-                    "name": "Kallen",
-                    "emotion": "default",
-                    "text": "",
-                    "text_speed":0.03,
-                    "sfx": null,
-                    "music":null
-                }
-            ]
+			"lines":[
+				{
+					"name": "Kallen",
+					"emotion": "default",
+					"text": "That'll show you!!",
+					"text_speed":"def",
+					"sfx": null,
+					"music":null
+				}
+			]
 
-        },
-    ]
+		},
+	]
 }
