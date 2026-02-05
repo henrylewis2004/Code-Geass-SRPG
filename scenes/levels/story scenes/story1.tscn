@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ggmwy8xld1a5"]
+[gd_scene format=3 uid="uid://ggmwy8xld1a5"]
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_tjihg"]
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="1_x4kkd"]
@@ -295,7 +295,7 @@ _data = {
 &"lelouchMoveStart": SubResource("Animation_wc5ec")
 }
 
-[node name="Story1" type="Node" node_paths=PackedStringArray("dialogPlayer")]
+[node name="Story1" type="Node" unique_id=358148973 node_paths=PackedStringArray("dialogPlayer")]
 script = ExtResource("1_tjihg")
 nextLevel_path = "res://scenes/levels/story scenes/story2.tscn"
 dialogOnStart = true
@@ -303,15 +303,15 @@ dialogPath = "res://resources/story dialog scripts/storyLevels/storylevel1.json"
 dialogPlayer = NodePath("baseStoryScene/DialogManager")
 loadingScreen = false
 
-[node name="baseStoryScene" parent="." instance=ExtResource("1_x4kkd")]
+[node name="baseStoryScene" parent="." unique_id=1257066542 instance=ExtResource("1_x4kkd")]
 
-[node name="LelouchSchool" parent="baseStoryScene/animCharacterSprites" index="0" instance=ExtResource("3_r030a")]
+[node name="LelouchSchool" parent="baseStoryScene/animCharacterSprites" index="0" unique_id=1456302070 instance=ExtResource("3_r030a")]
 z_index = 5
 position = Vector2(-72, 260)
 scale = Vector2(2, 2)
 frame = 31
 
-[node name="rivalzSchool" parent="baseStoryScene/animCharacterSprites" index="1" instance=ExtResource("4_d58t0")]
+[node name="rivalzSchool" parent="baseStoryScene/animCharacterSprites" index="1" unique_id=2118705785 instance=ExtResource("4_d58t0")]
 z_index = 5
 position = Vector2(-24, 257)
 scale = Vector2(2, 2)
@@ -320,13 +320,11 @@ frame = 18
 [node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")
 
-[node name="sfx" parent="baseStoryScene/DialogManager" index="4"]
+[node name="sfx" parent="baseStoryScene/DialogManager" index="4" unique_id=1223454978]
 stream = ExtResource("5_d58t0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_o0kvn")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=348201647]
+libraries/ = SubResource("AnimationLibrary_o0kvn")
 
 [connection signal="endDialoge" from="baseStoryScene/DialogManager" to="." method="sceneOver_emit"]
 

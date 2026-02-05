@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cxtggmsl78ela" path="res://scenes/cinematic scenes/characters-sprites/lelouch_school.tscn" id="3_4ce5h"]
 [ext_resource type="PackedScene" uid="uid://bwcbov20off1k" path="res://scenes/cinematic scenes/characters-sprites/kallen_default.tscn" id="4_6h6ij"]
 [ext_resource type="Texture2D" uid="uid://dexcvbfd4rjgp" path="res://assets/2d/objects/lelouchBehindPipe.png" id="5_4ce5h"]
-[ext_resource type="Texture2D" uid="uid://dj5qe1y5pt47k" path="res://assets/2d/backgrounds/area11/level2/lelouchInTruck3.png" id="6_4ce5h"]
 [ext_resource type="Texture2D" uid="uid://4m877hdahrv1" path="res://assets/2d/objects/lelouchBehindPipe2.png" id="6_gvcjx"]
 
 [sub_resource type="Animation" id="Animation_23etq"]
@@ -422,7 +421,6 @@ nextLevel_path = "res://scenes/levels/battle/battleLevel01.tscn"
 dialogOnStart = true
 dialogPath = "res://resources/story dialog scripts/storyLevels/storylevel2.json"
 dialogPlayer = NodePath("baseStoryScene/DialogManager")
-loadingScreen = false
 
 [node name="baseStoryScene" parent="." unique_id=549369599 instance=ExtResource("2_6h6ij")]
 
@@ -453,12 +451,6 @@ texture = ExtResource("6_gvcjx")
 
 [node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")
-
-[node name="placeholder" type="Sprite2D" parent="baseStoryScene" unique_id=765062070]
-visible = false
-z_index = -1
-texture = ExtResource("6_4ce5h")
-centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=250841907]
 libraries/ = SubResource("AnimationLibrary_o0kvn")

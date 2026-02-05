@@ -1,5 +1,7 @@
 class_name LevelManager extends Node
 
+signal loaded
+
 const saveRoomScene := preload("res://scenes/levels/menu/saveRoom.tscn")
 @onready var loadingScreen := $LoadingScreen
 
@@ -58,7 +60,6 @@ func loadRecentSave() -> void:
 
 #saving
 func deleteSlot(slot:int) -> void:
-	print(slot)
 	saveMan.deleteSave(slot)
 
 
@@ -100,29 +101,38 @@ func saveSlot(slot:int) -> void:
 
 ###
 func loadLevel(levelPath: String,level:Level = curLevel) -> void:
-	print("load level: " + levelPath)
 	var saveRoom: bool = level.toSaveRoom()
 	var previousLevel := get_children()
 
-	curLevel = load(levelPath).instantiate() if !saveRoom else saveRoomScene.instantiate() 
-	
-	if curLevel.loadingScreen:
+	ResourceLoader.load_threaded_request(levelPath)
+
+	if level.loadingScreen:
 		loadingScreen.set_visible(true)
-		loadingScreen.get_node("AnimationPlayer").play("loading")
+		var loadingTimer: Timer = loadingScreen.get_node("progressTimer")
+		var loadingBar: TextureProgressBar = loadingScreen.get_node("progressbar")
+
+		loadingBar.value = 0
+		loadingTimer.connect("timeout",load_timeout.bind(loadingTimer,loadingBar,levelPath))
+
+		load_timeout(loadingTimer,loadingBar,levelPath)
+	
 
 	for child in previousLevel:
 		if child != loadingScreen:
 			remove_child(child)
 			child.queue_free()
-		
+
+	if level.loadingScreen:
+		await loaded
+		loadingScreen.set_visible(false)
+
+	var nextLevel_Scene := ResourceLoader.load_threaded_get(levelPath)
+	curLevel = nextLevel_Scene.instantiate() if !saveRoom else saveRoomScene.instantiate() 
+
 	if saveRoom:
 		curLevel.setNextLevel(levelPath)
 		curLevel.exitToMenu.connect(goToMenu)
 		curLevel.saveChosen.connect(findSaveSlot)
-
-	if curLevel.loadingScreen && loadingScreen.get_node("AnimationPlayer").is_playing():
-		await loadingScreen.get_node("AnimationPlayer").animation_finished
-		loadingScreen.set_visible(false)
 
 	add_child(curLevel)
 	connectScene(curLevel)
@@ -131,10 +141,29 @@ func loadLevel(levelPath: String,level:Level = curLevel) -> void:
 
 	
 func nextLevel() -> void:
-	print("nextlevel called")
 	var nextLevelPath: String = curLevel.getNextLevelPath()
 	loadLevel(nextLevelPath)
 	
+	
+func load_timeout(timer:Timer,progressbar:TextureProgressBar,levelPath:String) -> void:
+	var progress: Array = []
+	var load_status := ResourceLoader.load_threaded_get_status(levelPath,progress)
+	var progressValue : float = progress[0] * 100
+
+	if load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
+		progressbar.value = progressValue
+		loaded.emit()
+		return
+
+	if load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_FAILED || load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_INVALID_RESOURCE:
+		#might need to further implement ?
+		print("loading failed")
+		return
+
+	if load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS:
+		progressbar.value = progressValue
+		timer.start()
+		
 	
 	
 #engine

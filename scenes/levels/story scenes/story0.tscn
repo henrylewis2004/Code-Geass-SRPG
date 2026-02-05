@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cginmpwneoceu"]
+[gd_scene format=3 uid="uid://cginmpwneoceu"]
 
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="1_cxci4"]
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_i05wj"]
@@ -57,7 +57,7 @@ _data = {
 &"animOut": SubResource("Animation_i05wj")
 }
 
-[node name="Story0" type="Node" node_paths=PackedStringArray("dialogPlayer")]
+[node name="Story0" type="Node" unique_id=2013983020 node_paths=PackedStringArray("dialogPlayer")]
 script = ExtResource("1_i05wj")
 nextLevel_path = "res://scenes/levels/cinematic videos/intro Video.tscn"
 dialogOnStart = true
@@ -65,15 +65,13 @@ dialogPath = "res://resources/story dialog scripts/storyLevels/storyLevel0.json"
 dialogPlayer = NodePath("baseStoryScene/DialogManager")
 loadingScreen = false
 
-[node name="baseStoryScene" parent="." instance=ExtResource("1_cxci4")]
+[node name="baseStoryScene" parent="." unique_id=140879218 instance=ExtResource("1_cxci4")]
 
 [node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_o0kvn")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1869789857]
+libraries/ = SubResource("AnimationLibrary_o0kvn")
 
 [connection signal="endDialoge" from="baseStoryScene/DialogManager" to="." method="sceneOver_emit"]
 

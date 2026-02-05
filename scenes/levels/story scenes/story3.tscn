@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://c1bgfge7rxkl7"]
+
+[ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_rfsp2"]
+[ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="2_ssmdi"]
+[ext_resource type="Texture2D" uid="uid://dj5qe1y5pt47k" path="res://assets/2d/backgrounds/area11/level2/lelouchInTruck3.png" id="7_e80ak"]
+
+[sub_resource type="Animation" id="Animation_23etq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("baseStoryScene/back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7btpv"]
+resource_name = "animIntro"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("baseStoryScene/back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i05wj"]
+resource_name = "animOut"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("baseStoryScene/back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d58t0"]
+resource_name = "animOutLong"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("baseStoryScene/back:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gvcjx"]
+resource_name = "bikeCrash"
+length = 0.3
+
+[sub_resource type="Animation" id="Animation_m1txm"]
+resource_name = "kWalk"
+length = 1.6
+
+[sub_resource type="Animation" id="Animation_c2f6b"]
+resource_name = "kWalk2"
+length = 1.4
+
+[sub_resource type="Animation" id="Animation_jeiro"]
+resource_name = "kWalk2_end"
+
+[sub_resource type="Animation" id="Animation_6h6ij"]
+resource_name = "lelouchRunningFromBike"
+
+[sub_resource type="Animation" id="Animation_lq1cs"]
+resource_name = "lelouchRunningToTruck"
+length = 1.8
+
+[sub_resource type="Animation" id="Animation_stp26"]
+resource_name = "truckCrash"
+
+[sub_resource type="Animation" id="Animation_4ce5h"]
+resource_name = "ty"
+length = 0.5
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0kvn"]
+_data = {
+&"RESET": SubResource("Animation_23etq"),
+&"animIntro": SubResource("Animation_7btpv"),
+&"animOut": SubResource("Animation_i05wj"),
+&"animOutLong": SubResource("Animation_d58t0"),
+&"bikeCrash": SubResource("Animation_gvcjx"),
+&"kWalk": SubResource("Animation_m1txm"),
+&"kWalk2": SubResource("Animation_c2f6b"),
+&"kWalk2_end": SubResource("Animation_jeiro"),
+&"lelouchRunningFromBike": SubResource("Animation_6h6ij"),
+&"lelouchRunningToTruck": SubResource("Animation_lq1cs"),
+&"truckCrash": SubResource("Animation_stp26"),
+&"ty": SubResource("Animation_4ce5h")
+}
+
+[node name="Story3" type="Node" unique_id=214116107 node_paths=PackedStringArray("dialogPlayer")]
+script = ExtResource("1_rfsp2")
+nextLevel_path = "res://scenes/levels/battle/battleLevel01.tscn"
+dialogOnStart = true
+dialogPath = "res://resources/story dialog scripts/storyLevels/storyLevel3.json"
+dialogPlayer = NodePath("baseStoryScene/DialogManager")
+
+[node name="baseStoryScene" parent="." unique_id=549369599 instance=ExtResource("2_ssmdi")]
+
+[node name="animCharacterSprites" parent="baseStoryScene" index="1"]
+z_index = 10
+
+[node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
+animPlayer = NodePath("../../AnimationPlayer")
+
+[node name="placeholder" type="Sprite2D" parent="baseStoryScene" unique_id=765062070]
+z_index = -1
+texture = ExtResource("7_e80ak")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=250841907]
+libraries/ = SubResource("AnimationLibrary_o0kvn")
+
+[connection signal="endDialoge" from="baseStoryScene/DialogManager" to="." method="sceneOver_emit"]
+
+[editable path="baseStoryScene"]

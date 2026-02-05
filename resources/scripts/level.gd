@@ -21,7 +21,7 @@ func start() -> void:
 			return
 
 	if dialogOnStart && dialogPlayer != null:
-		if dialogPath != "" || dialogPath != null:
+		if dialogPath != "" && dialogPath != null:
 			dialogPlayer.play(dialogPath)
 			return
 		dialogPlayer.play()
