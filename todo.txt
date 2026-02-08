@@ -1,12 +1,8 @@
 mechanics:
+	> change hit chance to user hit chance
+	> enemy red?
+	> add end turn screen
 	> add/move timer to endTurn()
-
-	> implement loading
-
-
-	> bug:
-		> cant select attack after moving and going down options (i.e. moving to status)
-
 
 	> ability animaiton
 		> sound

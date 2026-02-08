@@ -50,7 +50,6 @@ const maxDmgMod: Dictionary = {"min": 0.1,"max": 4.0}
 @onready var stats: Stats = Stats.new(agilityStat, defenceStat,evasionStat,meleeStat,rangedStat,maxAp,apCharge,maxEnergy,energyCharge,luckStat,iniativeStat)
 
 @export var turnTimer: int = 0
-@onready var predTurnTimer: int = turnTimer
 
 #getters
 func getGridPos() -> Vector2:
@@ -226,16 +225,10 @@ func setTurnTimer(timer: int) -> void:
 	turnTimer = timer
 	
 func incTurnTimer() -> void:
-	turnTimer += stats.getStat(STATS.AGILITY)
+	turnTimer += getStat(STATS.AGILITY)
 
-func getPredTurnTimer() -> int:
-	return predTurnTimer
-
-func setPredTurnTimer(timer: int) -> void:
-	predTurnTimer = timer
-	
-func resetPredTurnTimer() -> void:
-	predTurnTimer = turnTimer
+func resetTurnTimer(val: int = 0) -> void:
+	turnTimer = val
 	
 
 #setters

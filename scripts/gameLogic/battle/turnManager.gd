@@ -2,57 +2,91 @@ class_name TurnManager extends Node
 
 @onready var unitGui : VBoxContainer= $Control/unitOrderGFX
 
+class turnObject:
+	var unit: BaseUnit
+	var turnTime: int
+	var agility: int
+	var iniative: int
+
+	func _init(unit: BaseUnit, turnTime:int, agility:int, iniative: int) -> void:
+		self.unit = unit
+		self.turnTime = turnTime
+		self.agility = agility
+
+	func incTurnTime(inc: int = agility, turnCnt: int = 1) -> void:
+		turnTime += inc * turnCnt
+
+	func resetTurnTime() -> void:
+		turnTime = 0
+
+	func getUnit() -> BaseUnit:
+		return unit
+
+
 const turnOrderCnt: int = 6 #the number of units to display
-var turnCnt: int = -1
-var unitOrder: Array[BaseUnit] #next 10 turns
+var curTurn: int = -1
+var unitOrder: Array[turnObject] #next 10 turns
 
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 
 
 #methods
+func printOrder() -> void:
+	print("======unit order========")
+	for unit in unitOrder:
+		print(unit.getUnit().getName() + " | curTurnTime" + str(unit.getUnit().getTurnTimer()) + " | object turn time " + str(unit.turnTime) )
+
+
 func getTurnNo() -> int:
-	return turnCnt
+	return curTurn
 
 func nextTurn() -> void:
-	turnCnt += 1
+	curTurn += 1
 
 
 func createTurnOrder(unitArray: Array[BaseUnit]) -> void:
 	nextTurn()
 	unitOrder = []
+	var turnUnits: Array[turnObject] = []
 
 	for unit in unitArray:
-		unit.resetPredTurnTimer()
+		turnUnits.append(turnObject.new(unit,unit.getTurnTimer(),unit.getStat(STATS.AGILITY),unit.getStat(STATS.INITIATIVE)))
+
 
 	if getTurnNo() == 0:
-		calcFirstTurnOrder(unitArray)
+		calcFirstTurnOrder(turnUnits)
+		print("1")
+		printOrder()
 		updateUnitGuiOrder()
 		return
 
-	if getTurnNo() > 0:
-		for unit in unitArray:
-			unit.incTurnTimer()
+	for unit in turnUnits:
+		unit.incTurnTime()
+		unit.getUnit().incTurnTimer()
 
 
-	calcTurnOrder(unitArray)
+	print("2")
+	printOrder()
+	calcTurnOrder(turnUnits)
 	updateUnitGuiOrder()
 
 		
 
 
-func calcFirstTurnOrder(unitArray: Array[BaseUnit]) -> void:
-	var order: Array[BaseUnit] = orderTurn(unitArray,0,unitArray.size() - 1)
+func calcFirstTurnOrder(unitArray: Array[turnObject]) -> void:
+	var order: Array[turnObject] = orderTurn(unitArray,0,unitArray.size() - 1)
 	for unit in range(unitArray.size() - 1, -1, -1):
 		unitOrder.append(order[unit])
+	printOrder()
 
 	calcTurnOrder(unitArray, 1)
 
 
 
 
-func calcTurnOrder(unitArray: Array[BaseUnit],turn: int = 0) -> Array[BaseUnit]:
+func calcTurnOrder(unitArray: Array[turnObject],turn: int = 0) -> Array[turnObject]:
 
-	var order : Array[BaseUnit] = orderTurn(unitArray, 0, unitArray.size() - 1)
+	var order : Array[turnObject] = orderTurn(unitArray, 0, unitArray.size() - 1)
 	unitOrder.append(order[unitArray.size() - 1])
 
 
@@ -60,9 +94,9 @@ func calcTurnOrder(unitArray: Array[BaseUnit],turn: int = 0) -> Array[BaseUnit]:
 		updateUnitGuiOrder()
 		return unitOrder
 	
-	unitArray[unitArray.size()-1].setPredTurnTimer(0)
+	unitArray[unitArray.size()-1].resetTurnTime()
 	for unit in unitArray:
-		unit.setPredTurnTimer(unit.getPredTurnTimer() + unit.getStat(STATS.AGILITY))
+		unit.incTurnTime()
 		
 
 	return calcTurnOrder(unitArray,turn + 1)
@@ -70,15 +104,15 @@ func calcTurnOrder(unitArray: Array[BaseUnit],turn: int = 0) -> Array[BaseUnit]:
 
 
 #turn ordering based on unit turn time
-func orderTurnPartition(unitArray: Array[BaseUnit], lowIndex: int, highIndex: int) -> int:
-	var pivotUnit: BaseUnit = unitArray[highIndex]
+func orderTurnPartition(unitArray: Array[turnObject], lowIndex: int, highIndex: int) -> int:
+	var pivotUnit: turnObject = unitArray[highIndex]
 	var swapIndex = lowIndex -1
 
 	for unitIndex in range(lowIndex, highIndex):
-		if (unitArray[unitIndex].getPredTurnTimer() < pivotUnit.getPredTurnTimer()) || (unitArray[unitIndex].getPredTurnTimer() == pivotUnit.getPredTurnTimer() && unitArray[unitIndex].getStat(STATS.INITIATIVE) < pivotUnit.getStat(STATS.INITIATIVE)):
+		if (unitArray[unitIndex].turnTime < pivotUnit.turnTime) || (unitArray[unitIndex].turnTime == pivotUnit.turnTime && unitArray[unitIndex].iniative < pivotUnit.iniative):
 			swapIndex += 1
 			
-			var temp = unitArray[unitIndex]
+			var temp: turnObject = unitArray[unitIndex]
 			unitArray[unitIndex] = unitArray[swapIndex]
 			unitArray[swapIndex] = temp
 			
@@ -91,15 +125,15 @@ func orderTurnPartition(unitArray: Array[BaseUnit], lowIndex: int, highIndex: in
 
 
 #iniative
-func orderTurnPartitionInitiative(unitArray: Array[BaseUnit], lowIndex: int, highIndex: int) -> int:
-	var pivotUnit: BaseUnit = unitArray[highIndex]
+func orderTurnPartitionInitiative(unitArray: Array[turnObject], lowIndex: int, highIndex: int) -> int:
+	var pivotUnit: turnObject = unitArray[highIndex]
 	var swapIndex = lowIndex -1
 
 	for unitIndex in range(lowIndex, highIndex):
-		if (unitArray[unitIndex].getStat(STATS.INITIATIVE) < pivotUnit.getStat(STATS.INITIATIVE) || (unitArray[unitIndex].getStat(STATS.INITIATIVE) == pivotUnit.getStat(STATS.INITIATIVE) && unitArray[unitIndex].getStat(STATS.AGILITY) < pivotUnit.getStat(STATS.AGILITY))):
+		if (unitArray[unitIndex].iniative < pivotUnit.iniative || (unitArray[unitIndex].iniative == pivotUnit.iniative && unitArray[unitIndex].iniative < pivotUnit.iniative)):
 			swapIndex += 1
 			
-			var temp = unitArray[unitIndex]
+			var temp : turnObject = unitArray[unitIndex]
 			unitArray[unitIndex] = unitArray[swapIndex]
 			unitArray[swapIndex] = temp
 			
@@ -111,7 +145,7 @@ func orderTurnPartitionInitiative(unitArray: Array[BaseUnit], lowIndex: int, hig
 	return swapIndex + 1
 
 ##order the turn
-func orderTurn(unitArray: Array[BaseUnit], lowIndex: int, highIndex: int, iniative: bool = false) -> Array[BaseUnit]:
+func orderTurn(unitArray: Array[turnObject], lowIndex: int, highIndex: int, iniative: bool = false) -> Array[turnObject]:
 	if lowIndex < highIndex:
 		var pivot: int 
 		if iniative:
@@ -129,7 +163,7 @@ func orderTurn(unitArray: Array[BaseUnit], lowIndex: int, highIndex: int, iniati
 
 #get next unit turn
 func getNextUnit() -> BaseUnit:
-	return unitOrder[0]
+	return unitOrder[0].getUnit()
 
 
 #unit turn showcase
@@ -150,7 +184,7 @@ func resetUnitGuiScale() -> void:
 func updateUnitGuiOrder() -> void:
 	var unitGuiArray := unitGui.get_children()
 	for unit in range(unitOrder.size()):
-		unitGuiArray[unit].texture = unitOrder[unit].getCharImage()
+		unitGuiArray[unit].texture = unitOrder[unit].getUnit().getCharImage()
 
 
 func _ready():

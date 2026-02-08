@@ -873,7 +873,6 @@ func nextTurn() -> void:
 	var unitArray := getUnits($battleUnits/playerUnits.get_children()) + getUnits($battleUnits/enemyUnits.get_children()) + getUnits($battleUnits/allyUnits.get_children() )
 
 	turnManager.createTurnOrder(unitArray)
-
 	selectUnit(turnManager.getNextUnit())
 	unitTurn.newTurn()
 	apCost.x = unitTurn.getAp()
