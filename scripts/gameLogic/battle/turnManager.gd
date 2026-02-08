@@ -7,6 +7,7 @@ class turnObject:
 	var turnTime: int
 	var agility: int
 	var iniative: int
+	var moved: bool = false
 
 	func _init(unit: BaseUnit, turnTime:int, agility:int, iniative: int) -> void:
 		self.unit = unit
@@ -24,7 +25,7 @@ class turnObject:
 
 
 const turnOrderCnt: int = 6 #the number of units to display
-var curTurn: int = -1
+var curTurn: int = 0
 var unitOrder: Array[turnObject] #next 10 turns
 
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
@@ -45,44 +46,36 @@ func nextTurn() -> void:
 
 
 func createTurnOrder(unitArray: Array[BaseUnit]) -> void:
-	nextTurn()
+	print(unitOrder)
 	unitOrder = []
+	print(unitOrder)
 	var turnUnits: Array[turnObject] = []
+	var turnUnits_iniative: Array[turnObject] = []
 
 	for unit in unitArray:
-		turnUnits.append(turnObject.new(unit,unit.getTurnTimer(),unit.getStat(STATS.AGILITY),unit.getStat(STATS.INITIATIVE)))
+		var turnObj: turnObject = turnObject.new(unit,unit.getTurnTimer(),unit.getStat(STATS.AGILITY),unit.getStat(STATS.INITIATIVE))
+		turnUnits.append(turnObj)
+
+		if turnObj.moved == false:
+			turnUnits_iniative.append(turnObject.new(unit,unit.getTurnTimer(),unit.getStat(STATS.AGILITY),unit.getStat(STATS.INITIATIVE)))
+			turnObj.resetTurnTime()
 
 
-	if getTurnNo() == 0:
-		calcFirstTurnOrder(turnUnits)
-		print("1")
-		printOrder()
-		updateUnitGuiOrder()
-		return
+	if turnUnits_iniative.size() > 1:
+		var order: Array[turnObject] = calcFirstTurnOrder(turnUnits_iniative)
+		for unit in range(order.size() - 1, -1, -1):
+			unitOrder.append(order[unit])
 
-	for unit in turnUnits:
-		unit.incTurnTime()
-		unit.getUnit().incTurnTimer()
-
-
-	print("2")
-	printOrder()
 	calcTurnOrder(turnUnits)
 	updateUnitGuiOrder()
+
+	nextTurn()
 
 		
 
 
-func calcFirstTurnOrder(unitArray: Array[turnObject]) -> void:
-	var order: Array[turnObject] = orderTurn(unitArray,0,unitArray.size() - 1)
-	for unit in range(unitArray.size() - 1, -1, -1):
-		unitOrder.append(order[unit])
-	printOrder()
-
-	calcTurnOrder(unitArray, 1)
-
-
-
+func calcFirstTurnOrder(unitArray: Array[turnObject]) -> Array[turnObject]:
+	return orderTurn(unitArray,0,unitArray.size() - 1, true)
 
 func calcTurnOrder(unitArray: Array[turnObject],turn: int = 0) -> Array[turnObject]:
 
@@ -94,9 +87,9 @@ func calcTurnOrder(unitArray: Array[turnObject],turn: int = 0) -> Array[turnObje
 		updateUnitGuiOrder()
 		return unitOrder
 	
-	unitArray[unitArray.size()-1].resetTurnTime()
 	for unit in unitArray:
 		unit.incTurnTime()
+	unitArray[unitArray.size()-1].resetTurnTime()
 		
 
 	return calcTurnOrder(unitArray,turn + 1)
@@ -163,6 +156,7 @@ func orderTurn(unitArray: Array[turnObject], lowIndex: int, highIndex: int, inia
 
 #get next unit turn
 func getNextUnit() -> BaseUnit:
+	unitOrder[0].moved = true
 	return unitOrder[0].getUnit()
 
 
