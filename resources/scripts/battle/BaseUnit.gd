@@ -15,6 +15,7 @@ signal destroy_unit(unit: BaseUnit)
 @export var factionName: String
 
 const SPEED: int = 4
+var moved: bool = false
 
 @onready var bodyParts: Array[Node] = $bodyparts.get_children() #as Array[BodyPart]
 @onready var weapons: Array[Node] = $weapons.get_children()
@@ -128,6 +129,12 @@ func getStats() -> Stats:
 
 func getStat(stat:int) -> int:
 	return stats.getStat(stat)
+
+func hasMoved() -> bool:
+	return moved
+
+func setMoved(moved: bool = true) -> void:
+	self.moved = moved
 
 #status getters
 func getFullName() -> String:

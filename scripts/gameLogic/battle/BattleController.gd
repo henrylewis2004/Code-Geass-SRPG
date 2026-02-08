@@ -928,6 +928,7 @@ func endTurn() -> void:
 	if unitTurn != null:
 		#take unit time away
 		unitTurn.setTurnTimer(0) #need to change (placeholder)
+		unitTurn.setMoved(true)
 
 
 	nextTurn()
