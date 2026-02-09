@@ -6,7 +6,20 @@ const CATALOGUE := preload("res://resources/scripts/enumClasses/ENUMitems_abilit
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
 
+var animPlayer: AnimationPlayer
+
 ####
+func _init(animPlayer: AnimationPlayer) -> void:
+	self.animPlayer = animPlayer
+
+func end_animation(ability: bool) -> void:
+	var anim: String = "itemAnim" #item
+	if ability:
+		anim = "geassAnim"	#ability
+
+	animPlayer.play(anim)
+
+
 func attackBody_only(abilityID: int) -> bool:
 	if abilityID == CATALOGUE.ABILITIES.SLASH_HARKEN:
 		return true
@@ -39,6 +52,8 @@ func validActivity(unit: BaseUnit,targetUnit:BaseUnit,activity: BaseItem) -> boo
 #### open core
 
 func useItem(item:BattleItem, unit: BaseUnit, targetUnit:BaseUnit, targetPart: int = BODYPARTS.BODY) -> void:
+	end_animation(false)
+	await animPlayer.animation_finished
 
 	match(item.getID()):
 		CATALOGUE.ITEMS.HP_SINGLE:
@@ -56,9 +71,12 @@ func useItem(item:BattleItem, unit: BaseUnit, targetUnit:BaseUnit, targetPart: i
 	
 	unit.incAp(-item.getApCost())
 	
-	actionComplete.emit(item == Ability) #ends turn
+	actionComplete.emit(false) #ends turn
 
 func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit, targetPart: int = BODYPARTS.BODY) -> void:
+	end_animation(true)
+	await animPlayer.animation_finished
+
 	if ability.isAttack():
 		if attackBody_only(ability.getID()) || targetUnit is StandardUnit:
 			var tarPart: int = 0 if targetUnit is StandardUnit else BODYPARTS.BODY
@@ -92,8 +110,10 @@ func useAbility(ability: Ability, unit:BaseUnit,targetUnit: BaseUnit, targetPart
 					unit.setGridPos(Vector2(unit.getGridPos().x, targetUnit.getGridPos().y + 1 if posDif.y > 0 else targetUnit.getGridPos().y - 1))
 				elif posDif.y == 0:
 					unit.setGridPos(Vector2(targetUnit.getGridPos().x + 1 if posDif.x > 0 else targetUnit.getGridPos().x - 1, unit.getGridPos().y))
+				else:
+					unit.setGridPos(Vector2(targetUnit.getGridPos().x + 1 if posDif.x > 0 else targetUnit.getGridPos().x - 1, targetUnit.getGridPos().y + 1 if posDif.y > 0 else targetUnit.getGridPos().y - 1))
 
 	unit.incAp(-ability.getApCost())
 	unit.incEnergy(-ability.getEnergyCost())
 
-	actionComplete.emit(ability is Ability)
+	actionComplete.emit(true)

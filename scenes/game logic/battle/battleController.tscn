@@ -321,12 +321,12 @@ collision_mask = 3072
 
 [node name="GameOver" parent="." unique_id=2077553174 instance=ExtResource("9_fyy83")]
 
-[node name="abilitiesAnim" type="Node" parent="." unique_id=1573987854]
+[node name="animation" type="Node" parent="." unique_id=1573987854]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="abilitiesAnim" unique_id=1313593538]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="animation" unique_id=1313593538]
 libraries/ = SubResource("AnimationLibrary_awt8a")
 
-[node name="geassAnim" parent="abilitiesAnim" unique_id=1987072281 instance=ExtResource("10_xxrgl")]
+[node name="geassAnim" parent="animation" unique_id=1987072281 instance=ExtResource("10_xxrgl")]
 visible = false
 position = Vector2(150, 26)
 scale = Vector2(4, 4)

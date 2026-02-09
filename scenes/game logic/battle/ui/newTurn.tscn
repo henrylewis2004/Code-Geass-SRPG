@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b6rd8o0iyx5hr"]
+
+[ext_resource type="FontFile" uid="uid://dp40uiq2ohbvd" path="res://assets/fonts/INVASION2000.TTF" id="1_1gngq"]
+[ext_resource type="Texture2D" uid="uid://d3cvcfkmovvar" path="res://assets/2d/ui/geass.png" id="2_jmccb"]
+
+[node name="NewTurn" type="Control" unique_id=1889570455]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1686891496]
+z_index = 1
+layout_mode = 0
+offset_left = 173.0
+offset_top = 33.0
+offset_right = 265.0
+offset_bottom = 58.0
+theme_override_fonts/font = ExtResource("1_1gngq")
+theme_override_font_sizes/font_size = 24
+text = "TURN 1"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1028395105]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 5.0
+offset_right = 411.0
+offset_bottom = 165.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_jmccb")

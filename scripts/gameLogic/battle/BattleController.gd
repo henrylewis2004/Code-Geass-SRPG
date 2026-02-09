@@ -36,8 +36,8 @@ const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_uni
 @onready var gameOverMan: GameOverManager = $GameOver
 
 var aiManager : AiManager = AiManager.new()
-var itemAbMan : Item_abilityManager = Item_abilityManager.new()
-@onready var abilitiesAnim: AnimationPlayer = $abilitiesAnim/AnimationPlayer
+@onready var animPlayer: AnimationPlayer = $animation/AnimationPlayer
+@onready var itemAbMan : Item_abilityManager = Item_abilityManager.new(animPlayer)
 
 var apCost: Vector2 = Vector2.INF #x = ap at start of turn, y = ap after move, then final ap taken in attack phase and turn ends
 
@@ -312,13 +312,6 @@ func useItemAbility(unit: BaseUnit, targetUnit: BaseUnit, activity: BaseItem, se
 
 
 func itemEndTurn(ability: bool) -> void:
-	print(ability)
-	var anim: String = "itemAnim" #item
-	if ability:
-		anim = "geassAnim"	#ability
-
-	abilitiesAnim.play(anim)
-	await abilitiesAnim.animation_finished
 	endTurn()
 	
 func wpnSelection(input: int,unit:BaseUnit = unitTurn,noCounter:bool = false) -> void:
