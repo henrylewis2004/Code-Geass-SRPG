@@ -231,8 +231,8 @@ func getTurnTimer() -> int:
 func setTurnTimer(timer: int) -> void:
 	turnTimer = timer
 	
-func incTurnTimer() -> void:
-	turnTimer += getStat(STATS.AGILITY)
+func incTurnTimer(val: int = getStat(STATS.AGILITY)) -> void:
+	turnTimer += val
 
 func resetTurnTimer(val: int = 0) -> void:
 	turnTimer = val

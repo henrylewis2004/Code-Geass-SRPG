@@ -23,6 +23,20 @@ class turnObject:
 	func getUnit() -> BaseUnit:
 		return unit
 
+class turnAction:
+	var movement: int = 0
+	var attack: int= 0
+	var item: int= 0
+
+	const MOVECOST: int = 2
+
+	func getTurnCost() -> int:
+		return (movement + attack + item)
+
+	func reset() -> void:
+		movement = 0
+		attack = 0
+		item = 0
 
 const turnOrderCnt: int = 6 #the number of units to display
 var curTurn: int = 0
@@ -30,8 +44,29 @@ var unitOrder: Array[turnObject] #next 10 turns
 
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 
+var turnAction = turnAction.new()
+
 
 #methods
+func setTurnCost(field: String, val: int) -> void:
+	match(field):
+		"movement" -> turnAction.movement = val
+		"attack" -> turnAction.attack = val
+		"item" -> turnAction.item = val
+
+func getTurnCost() -> int:
+	return turnAction.getTurnCost()
+
+func unitMoved(tiles: int ) -> void:
+	self.setTurnCost("movement", tiles * turnAction.MOVECOST)
+
+
+
+
+func resetTurnCost() -> void:
+	turnAction.reset()
+
+
 func printOrder() -> void:
 	print("======unit order========")
 	for unit in unitOrder:

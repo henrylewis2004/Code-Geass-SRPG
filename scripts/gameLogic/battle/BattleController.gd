@@ -1,5 +1,6 @@
 class_name BattleController extends Node
 
+
 signal sceneOver
 signal resetScene
 
@@ -861,6 +862,7 @@ func nextTurn() -> void:
 	selectedEnemyUnit = null
 	selectedActivityUnit = null
 	selectedActivity = null
+	turnManager.resetTurnCost()
 
 	updateUnitGridPos()
 	var unitArray := getUnits($battleUnits/playerUnits.get_children()) + getUnits($battleUnits/enemyUnits.get_children()) + getUnits($battleUnits/allyUnits.get_children() )
@@ -920,7 +922,7 @@ func endTurn() -> void:
 
 	if unitTurn != null:
 		#take unit time away
-		unitTurn.setTurnTimer(0) #need to change (placeholder)
+		unitTurn.setTurnTimer(turnManager.getTurnCost() * - 1) 
 		unitTurn.setMoved(true)
 
 
