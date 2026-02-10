@@ -43,6 +43,7 @@ var curTurn: int = 0
 var unitOrder: Array[turnObject] #next 10 turns
 
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
+const WEAPONS := preload("res://resources/scripts/enumClasses/ENUMweaponids.gd").WEAPONIDS
 
 var turnAction = turnAction.new()
 
@@ -54,14 +55,37 @@ func setTurnCost(field: String, val: int) -> void:
 		"attack" -> turnAction.attack = val
 		"item" -> turnAction.item = val
 
-func getTurnCost() -> int:
-	return turnAction.getTurnCost()
-
 func unitMoved(tiles: int ) -> void:
 	self.setTurnCost("movement", tiles * turnAction.MOVECOST)
 
+func unitAttacked(weapon: int, defender: bool = false) -> void:
+	var timeCost: int = getAttackTimeCost(weapon, defender) 
+
+	self.setTurnCost("attack", timeCost)
+
+func getAttackTimeCost(weapon: int, defender: bool = false) -> int:
+	match(weapon):
+		WEAPONS.SMG:
+			return (8 * 0.5 if defender else 8)
+		WEAPONS.MG:
+			return (12 * 0.5 if defender else 12)
+		WEAPONS.RIFLE:
+			return (12 * 0.5 if defender else 12)
+		WEAPONS.SNIPER:
+			return (16 * 0.5 if defender else 16)
+		WEAPONS.SHOTGUN:
+			return (10 * 0.5 if defender else 10)
+		WEAPONS.PUNCH:
+			return (6 * 0.5 if defender else 6)
+		WEAPONS.SOLDIER_PISTOL:
+			return (8 * 0.5 if defender else 8)
+
+func itemAbUsed(cost: int) -> void:
+	self.setTurnCost("item", cost)
 
 
+func getTurnCost() -> int:
+	return turnAction.getTurnCost()
 
 func resetTurnCost() -> void:
 	turnAction.reset()

@@ -25,6 +25,23 @@ func attackBody_only(abilityID: int) -> bool:
 		return true
 	return false
 
+func getItemTimeCost(item: int) -> int:
+	match(item):
+		CATALOGUE.ITEMS.HP_SINGLE:
+			return 10
+		CATALOGUE.ITEMS.HP_ALL:
+			return 12
+		CATALOGUE.ITEMS.STATUS_CLEAN:
+			return 12
+
+func getAbilityTimeCost(item: int) -> int:
+	match(item):
+		CATALOGUE.ABILITIES.MINUS_SPEED
+			return 10
+		CATALOGUE.ABILITIES.SLASH_HARKEN
+			return 12
+
+
 #### methods
 func itemDistUse(position1: Vector2, position2:Vector2) -> int:
 	return (abs(position1.x-position2.x) + abs(position1.y-position2.y))

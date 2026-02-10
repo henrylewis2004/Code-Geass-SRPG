@@ -1,6 +1,5 @@
 class_name BattleController extends Node
 
-
 signal sceneOver
 signal resetScene
 
@@ -308,8 +307,14 @@ func useItemAbility(unit: BaseUnit, targetUnit: BaseUnit, activity: BaseItem, se
 	if selectedActivity is Ability:
 		itemAbMan.useAbility(selectedActivity,unitTurn,selectedActivityUnit, selectedBodyPart)
 
+		turnManager.itemAbUsed(itemAbMan.getAbilityTimeCost(selectedActivity.getID()))
+
 	else:
 		itemAbMan.useItem(selectedActivity,unitTurn,selectedActivityUnit,selectedBodyPart)
+
+		turnManager.itemAbUsed(itemAbMan.getItemTimeCost(selectedActivity.getID()))
+
+	turnManager.
 
 
 func itemEndTurn(ability: bool) -> void:
@@ -763,6 +768,8 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 	attackTimer.start(0.5)
 	await attackTimer.timeout
 
+	turnManager.unitAttacked(attacker.getEquippedWeapon().getWeaponID())
+
 	#enemy turn
 	battleCam.moveToGridPos(Vector3(defender.getGridPos().x,0,defender.getGridPos().y),5)
 	await battleCam.cinematicMoveFinished
@@ -778,6 +785,8 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 			attackTimer.start(0.5)
 			await attackTimer.timeout
+
+			defender.incTurnTimer(turnManager.getAttackTimeCost(defender.getEquippedWeapon().getWeaponID(),true))
 
 			if attacker.isDestroyed():
 				battleCam.moveToGridPos(Vector3(attacker.getGridPos().x,0,attacker.getGridPos().y),5)
@@ -922,6 +931,8 @@ func endTurn() -> void:
 
 	if unitTurn != null:
 		#take unit time away
+		turnManager.unitMoved(gridManager.absDist(unitTurn.getGridPos(),unitOriginPos))
+
 		unitTurn.setTurnTimer(turnManager.getTurnCost() * - 1) 
 		unitTurn.setMoved(true)
 
