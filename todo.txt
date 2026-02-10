@@ -1,4 +1,6 @@
 mechanics:
+	> add credits / thanks for playing scene
+		> bts pictures
 	> change hit chance to user hit chance
 	> enemy red?
 		> change colour?
