@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://du8nxcy6wqxab" path="res://scenes/game logic/shared/DrawManager.tscn" id="6_cfyqa"]
 [ext_resource type="PackedScene" uid="uid://bqmoefvgajp40" path="res://scenes/game logic/battle/ui/statusScreen.tscn" id="6_fyy83"]
 [ext_resource type="PackedScene" uid="uid://b044aembwt1bj" path="res://scenes/game logic/battle/TurnManager.tscn" id="7_138ph"]
+[ext_resource type="PackedScene" uid="uid://b6rd8o0iyx5hr" path="res://scenes/game logic/battle/ui/newTurn.tscn" id="7_g5e8r"]
 [ext_resource type="PackedScene" uid="uid://cs56of0iacvcp" path="res://scenes/game logic/battle/GameOver.tscn" id="9_fyy83"]
 [ext_resource type="Texture2D" uid="uid://cvforvewndr61" path="res://assets/2d/ui/Geass/geass_spriteSheet.png" id="10_awt8a"]
 [ext_resource type="PackedScene" uid="uid://cqa4fu04378is" path="res://scenes/cinematic scenes/characters-sprites/geassAnim.tscn" id="10_xxrgl"]
@@ -35,6 +36,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ui/NewTurn:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ui/NewTurn:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.023529412)]
 }
 
 [sub_resource type="Animation" id="Animation_xxrgl"]
@@ -213,11 +238,40 @@ tracks/6/keys = {
 "values": [ExtResource("12_ltndh")]
 }
 
+[sub_resource type="Animation" id="Animation_g5e8r"]
+resource_name = "newTurn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ui/NewTurn:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ui/NewTurn:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 1.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.023529412), Color(1, 1, 1, 1), Color(1, 1, 1, 0.023529412)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_awt8a"]
 _data = {
 &"RESET": SubResource("Animation_awt8a"),
 &"geassAnim": SubResource("Animation_xxrgl"),
-&"itemAnim": SubResource("Animation_ltndh")
+&"itemAnim": SubResource("Animation_ltndh"),
+&"newTurn": SubResource("Animation_g5e8r")
 }
 
 [node name="BattleController" type="Node3D" unique_id=1144206247]
@@ -259,6 +313,18 @@ layout_mode = 1
 [node name="StatusScreen" parent="ui" unique_id=362001948 instance=ExtResource("6_fyy83")]
 visible = false
 layout_mode = 1
+
+[node name="NewTurn" parent="ui" unique_id=1889570455 instance=ExtResource("7_g5e8r")]
+visible = false
+modulate = Color(1, 1, 1, 0.023529412)
+layout_mode = 1
+
+[node name="turntimers" type="Label" parent="ui" unique_id=845209206]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 62.0
+offset_right = 41.0
+offset_bottom = 85.0
 
 [node name="TurnManager" parent="." unique_id=2051395605 instance=ExtResource("7_138ph")]
 

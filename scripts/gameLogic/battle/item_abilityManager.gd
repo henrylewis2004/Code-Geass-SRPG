@@ -1,4 +1,4 @@
-class_name Item_abilityManager 
+class_name ItemAbilityManager
 
 signal actionComplete(ability: bool)
 
@@ -34,12 +34,16 @@ func getItemTimeCost(item: int) -> int:
 		CATALOGUE.ITEMS.STATUS_CLEAN:
 			return 12
 
+	return 0
+
 func getAbilityTimeCost(item: int) -> int:
 	match(item):
-		CATALOGUE.ABILITIES.MINUS_SPEED
+		CATALOGUE.ABILITIES.MINUS_SPEED:
 			return 10
-		CATALOGUE.ABILITIES.SLASH_HARKEN
+		CATALOGUE.ABILITIES.SLASH_HARKEN:
 			return 12
+
+	return 0
 
 
 #### methods

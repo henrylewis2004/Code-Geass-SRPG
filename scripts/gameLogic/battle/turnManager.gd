@@ -23,16 +23,16 @@ class turnObject:
 	func getUnit() -> BaseUnit:
 		return unit
 
-class turnAction:
+class TurnAction:
 	var movement: int = 0
 	var attack: int= 0
 	var item: int= 0
 
-	const MOVECOST: int = 2
+	const MOVECOST: int = 10
 
 	func getTurnCost() -> int:
-		var val: int = movement + attack + item)
-		return (val if val > 5 else 5)
+		var val: int = movement + attack + item
+		return (val if val > 10 else 10)
 
 	func reset() -> void:
 		movement = 0
@@ -46,40 +46,41 @@ var unitOrder: Array[turnObject] #next 10 turns
 const STATS := preload("res://resources/scripts/enumClasses/ENUMstats.gd").UNIT_STATS
 const WEAPONS := preload("res://resources/scripts/enumClasses/ENUMweaponids.gd").WEAPONIDS
 
-var turnAction = turnAction.new()
+var turnAction = TurnAction.new()
 
 
 #methods
 func setTurnCost(field: String, val: int) -> void:
 	match(field):
-		"movement" -> turnAction.movement = val
-		"attack" -> turnAction.attack = val
-		"item" -> turnAction.item = val
+		"movement":  turnAction.movement = val
+		"attack":  turnAction.attack = val
+		"item":  turnAction.item = val
 
 func unitMoved(tiles: int ) -> void:
 	self.setTurnCost("movement", tiles * turnAction.MOVECOST)
 
-func unitAttacked(weapon: int, defender: bool = false) -> void:
-	var timeCost: int = getAttackTimeCost(weapon, defender) 
+func unitAttacked(weaponId: int, defender: bool = false) -> void:
+	var timeCost: int = getAttackTimeCost(weaponId, defender) 
 
 	self.setTurnCost("attack", timeCost)
 
-func getAttackTimeCost(weapon: int, defender: bool = false) -> int:
-	match(weapon):
+func getAttackTimeCost(weaponId: int, defender: bool = false) -> int:
+	match(weaponId):
 		WEAPONS.SMG:
-			return (8 * 0.5 if defender else 8)
-		WEAPONS.MG:
-			return (12 * 0.5 if defender else 12)
-		WEAPONS.RIFLE:
-			return (12 * 0.5 if defender else 12)
-		WEAPONS.SNIPER:
 			return (16 * 0.5 if defender else 16)
+		WEAPONS.MG:
+			return (20 * 0.5 if defender else 20)
+		WEAPONS.RIFLE:
+			return (18 * 0.5 if defender else 18)
+		WEAPONS.SNIPER:
+			return (24 * 0.5 if defender else 24)
 		WEAPONS.SHOTGUN:
-			return (10 * 0.5 if defender else 10)
+			return (18 * 0.5 if defender else 18)
 		WEAPONS.PUNCH:
-			return (6 * 0.5 if defender else 6)
+			return (10 * 0.5 if defender else 10)
 		WEAPONS.SOLDIER_PISTOL:
-			return (8 * 0.5 if defender else 8)
+			return (14 * 0.5 if defender else 14)
+		_: return 0
 
 func itemAbUsed(cost: int) -> void:
 	self.setTurnCost("item", cost)
@@ -123,8 +124,10 @@ func createTurnOrder(unitArray: Array[BaseUnit]) -> void:
 	calcTurnOrder(turnUnits)
 
 	curTurn += 1
-	for unit in unitArray:
-		unit.incTurnTimer()
+
+	for index in turnUnits:
+		if index.getUnit() != getNextUnit():
+			index.getUnit().incTurnTimer()
 
 		
 
@@ -139,10 +142,11 @@ func calcTurnOrder(unitArray: Array[turnObject],turn: int = 0) -> Array[turnObje
 
 	var order : Array[turnObject] = orderTurn(unitArray, 0, unitArray.size() - 1)
 	unitOrder.append(order[unitArray.size() - 1])
+	order[unitArray.size() -1].incTurnTime(-20) # an avg move cost
 
-	unitArray[unitArray.size()-1].incTurnTime(-20)
 	for unit in unitArray:
-		unit.incTurnTime()
+		if unit != order[unitArray.size() - 1]:
+			unit.incTurnTime()
 
 		
 

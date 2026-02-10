@@ -34,10 +34,11 @@ const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_uni
 @onready var drawManager: DrawManager = $ui/DrawManager
 
 @onready var gameOverMan: GameOverManager = $GameOver
+@onready var newTurnGraphic: Control = $ui/NewTurn
 
 var aiManager : AiManager = AiManager.new()
 @onready var animPlayer: AnimationPlayer = $animation/AnimationPlayer
-@onready var itemAbMan : Item_abilityManager = Item_abilityManager.new(animPlayer)
+@onready var itemAbMan : ItemAbilityManager = ItemAbilityManager.new(animPlayer)
 
 var apCost: Vector2 = Vector2.INF #x = ap at start of turn, y = ap after move, then final ap taken in attack phase and turn ends
 
@@ -314,7 +315,6 @@ func useItemAbility(unit: BaseUnit, targetUnit: BaseUnit, activity: BaseItem, se
 
 		turnManager.itemAbUsed(itemAbMan.getItemTimeCost(selectedActivity.getID()))
 
-	turnManager.
 
 
 func itemEndTurn(ability: bool) -> void:
@@ -862,11 +862,21 @@ func endLevel(nextScene: bool) -> void:
 
 
 	#add animation of game over 
+func newTurnGFX(player: bool, character_name: String) -> void:
+	var text: String = "- [color=green]PLAYER[/color] TURN -"
+	if !player: text = "- [color=red]ENEMY[/color] TURN -"
+
+	newTurnGraphic.get_node("Label").text = text + "\n" + character_name
+	
+	animPlayer.play("newTurn")
+	await animPlayer.animation_finished
+	animPlayer.play("RESET")
 		
 func nextTurn() -> void:
 	gridManager.clearUnitSelectionTiles(unitSelectionTiles)
 	playerUnitGui.showMoveOption(true)
 	
+	curState = STATE.NONE
 	apCost = Vector2.INF 
 	selectedEnemyUnit = null
 	selectedActivityUnit = null
@@ -884,8 +894,9 @@ func nextTurn() -> void:
 	playerTurn = unitTurn.getTeam() == TEAM.PLAYER
 	playerUnitGui.updateBase(unitTurn.getName(),unitTurn.getAp(),unitTurn.getCharImage(),unitTurn.getHP())
 
-	#need to implement collision gridmap
 	var collisions: Array[Vector2] = gridManager.getGridPos_fromV3_Array(gridMapCol.get_used_cells())
+	newTurnGFX(playerTurn,unitTurn.getName())
+	await animPlayer.animation_finished
 
 	if unitTurn.getTeam() == TEAM.PLAYER || unitTurn.getTeam() == TEAM.ALLY:
 		unitArray = getUnits($battleUnits/enemyUnits.get_children())
@@ -897,7 +908,6 @@ func nextTurn() -> void:
 		
 	astarBoard = gridManager.updateBoardCollisions(collisions)
 
-	curState = STATE.NONE
 	unitOriginPos = unitTurn.getGridPos()
 
 	if playerTurn:
@@ -936,7 +946,9 @@ func endTurn() -> void:
 		#take unit time away
 		turnManager.unitMoved(gridManager.absDist(unitTurn.getGridPos(),unitOriginPos))
 
+		print(unitTurn.getName()+  " b: " + str(unitTurn.getTurnTimer()))
 		unitTurn.incTurnTimer(turnManager.getTurnCost() * -1) 
+		print(unitTurn.getName()+  " a: " + str(unitTurn.getTurnTimer()))
 		unitTurn.setMoved(true)
 
 
@@ -957,6 +969,19 @@ func updateOccupiedMapGrid() -> void:
 func startLevel() -> void:
 	nextTurn()
 
+
+func printUnitTimes() -> String:
+	var text: String = "\n"
+	for unit in playerUnits:
+		text += unit.getName() + " | " + str(unit.getTurnTimer()) + "\n"
+	for unit in allyUnits:
+		text += unit.getName() + " | " + str(unit.getTurnTimer()) + "\n"
+	for unit in enemyUnits:
+		text += unit.getName() + " | " + str(unit.getTurnTimer()) + "\n"
+
+	return text
+
+
 #engine operation
 func _ready():
 	gridManager.init(mapSize,collisionWalls)
@@ -976,4 +1001,4 @@ func _physics_process(delta):
 		
 	
 
-	$ui/curState.text = "curState: " + str(STATE.find_key(curState))
+	$ui/curState.text = "curState: " + str(STATE.find_key(curState)) + printUnitTimes()

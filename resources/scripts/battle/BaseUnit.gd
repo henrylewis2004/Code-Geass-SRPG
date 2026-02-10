@@ -50,6 +50,7 @@ const maxDmgMod: Dictionary = {"min": 0.1,"max": 4.0}
 @export var iniativeStat: int
 @onready var stats: Stats = Stats.new(agilityStat, defenceStat,evasionStat,meleeStat,rangedStat,maxAp,apCharge,maxEnergy,energyCharge,luckStat,iniativeStat)
 
+const maxTurnTimer: int = 350
 @export var turnTimer: int = 0
 
 #getters
@@ -232,9 +233,15 @@ func setTurnTimer(timer: int) -> void:
 	turnTimer = timer
 	
 func incTurnTimer(val: int = getStat(STATS.AGILITY)) -> void:
+	print(getName())
+	print("tt timer: " + str(turnTimer))
+	print("val: " + str(val))
 	turnTimer += val
 	if turnTimer < 0:
 		turnTimer = 0
+
+	print("tt timer: " + str(turnTimer))
+
 
 func resetTurnTimer(val: int = 0) -> void:
 	turnTimer = val
@@ -448,7 +455,6 @@ func _ready():
 	resetEnergy()
 	setTeam(getTeam()) #sets collider for collisions
 	equipAWeapon()
-	
 	
 	setGridPos(Vector2(position.x,position.z).floor())
 	set_process(false)

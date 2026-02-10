@@ -4,11 +4,6 @@ mechanics:
 	> change hit chance to user hit chance
 	> enemy red?
 		> change colour?
-	> add end turn screen
-		> add new turn screen
-		> sfx
-	> add/move timer to endTurn()			x
-		> set correct time cost values
 
 	> ability animaiton
 		> sound

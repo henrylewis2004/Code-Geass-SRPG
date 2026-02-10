@@ -262,7 +262,7 @@ func validMovementTile(unitOrigin:Vector2,enemyPos:Vector2,posDif: Vector2,grid:
 
 
 
-func getTurn(unit: BaseUnit, allyUnits: Array[Node],enemyUnits: Array[BaseUnit],grid: BattleGrid, camera: BattleCamController, itemAbManager: Item_abilityManager) -> void:
+func getTurn(unit: BaseUnit, allyUnits: Array[Node],enemyUnits: Array[BaseUnit],grid: BattleGrid, camera: BattleCamController, itemAbManager: ItemAbilityManager) -> void:
 	var asBoard = grid.getAstar()
 	var teamUnits: Array[BaseUnit] = []
 
