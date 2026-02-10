@@ -31,7 +31,8 @@ class turnAction:
 	const MOVECOST: int = 2
 
 	func getTurnCost() -> int:
-		return (movement + attack + item)
+		var val: int = movement + attack + item)
+		return (val if val > 5 else 5)
 
 	func reset() -> void:
 		movement = 0
@@ -138,10 +139,11 @@ func calcTurnOrder(unitArray: Array[turnObject],turn: int = 0) -> Array[turnObje
 
 	var order : Array[turnObject] = orderTurn(unitArray, 0, unitArray.size() - 1)
 	unitOrder.append(order[unitArray.size() - 1])
-	
+
+	unitArray[unitArray.size()-1].incTurnTime(-20)
 	for unit in unitArray:
 		unit.incTurnTime()
-	unitArray[unitArray.size()-1].resetTurnTime()
+
 		
 
 	return calcTurnOrder(unitArray,turn + 1)

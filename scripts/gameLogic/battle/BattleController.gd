@@ -886,8 +886,6 @@ func nextTurn() -> void:
 
 	#need to implement collision gridmap
 	var collisions: Array[Vector2] = gridManager.getGridPos_fromV3_Array(gridMapCol.get_used_cells())
-	
-
 
 	if unitTurn.getTeam() == TEAM.PLAYER || unitTurn.getTeam() == TEAM.ALLY:
 		unitArray = getUnits($battleUnits/enemyUnits.get_children())
@@ -900,19 +898,24 @@ func nextTurn() -> void:
 	astarBoard = gridManager.updateBoardCollisions(collisions)
 
 	curState = STATE.NONE
+	unitOriginPos = unitTurn.getGridPos()
+
 	if playerTurn:
 		curState = STATE.CAM_MOVEMENT
-		unitOriginPos = unitTurn.getGridPos()
 		
 		if unitTurn.getEquippedWeapon() == null:
 			unitTurn.equipAWeapon()
 	
 	else:
+		var timer: Timer = Timer.new()
+		add_child(timer)
+
+		timer.start(0.5)
+		await timer.timeout
+
 		aiManager.getTurn(unitTurn,$battleUnits/enemyUnits.get_children(),getUnits($battleUnits/allyUnits.get_children() + $battleUnits/playerUnits.get_children()),gridManager,battleCam,itemAbMan)
 		await aiManager.turnFinished
 
-		var timer: Timer = Timer.new()
-		add_child(timer)
 		timer.start(0.5)
 		await timer.timeout
 
@@ -933,7 +936,7 @@ func endTurn() -> void:
 		#take unit time away
 		turnManager.unitMoved(gridManager.absDist(unitTurn.getGridPos(),unitOriginPos))
 
-		unitTurn.setTurnTimer(turnManager.getTurnCost() * - 1) 
+		unitTurn.incTurnTimer(turnManager.getTurnCost() * -1) 
 		unitTurn.setMoved(true)
 
 
