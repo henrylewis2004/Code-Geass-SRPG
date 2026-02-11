@@ -1,22 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dly5daisvnqrg"]
+[gd_scene format=3 uid="uid://dly5daisvnqrg"]
 
 [ext_resource type="Texture2D" uid="uid://b7uqbq5sqlxkp" path="res://assets/2d/backgrounds/black.png" id="1_7btpv"]
 [ext_resource type="PackedScene" uid="uid://c72usmbnrmjv2" path="res://scenes/game logic/cinematic/2d/dialog Manager.tscn" id="1_ky7s1"]
 
-[node name="baseStoryScene" type="Node2D"]
+[node name="baseStoryScene" type="Node2D" unique_id=1159766786]
 metadata/_edit_vertical_guides_ = [63.0]
 
-[node name="back" type="Sprite2D" parent="."]
+[node name="back" type="Sprite2D" parent="." unique_id=505096618]
 modulate = Color(1, 1, 1, 0)
 z_index = 20
 texture = ExtResource("1_7btpv")
 centered = false
 
-[node name="animCharacterSprites" type="Node2D" parent="."]
+[node name="animCharacterSprites" type="Node2D" parent="." unique_id=1388121552]
 z_index = 5
 
-[node name="DialogManager" parent="." node_paths=PackedStringArray("animPlayer") instance=ExtResource("1_ky7s1")]
-animPlayer = NodePath("")
+[node name="DialogManager" parent="." unique_id=1394361277 instance=ExtResource("1_ky7s1")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=569538352]
 position = Vector2(240, 135)

@@ -101,41 +101,42 @@ func saveSlot(slot:int) -> void:
 
 ###
 func loadLevel(levelPath: String,level:Level = curLevel) -> void:
-	var saveRoom: bool = level.toSaveRoom()
-	var previousLevel := get_children()
+	if levelPath != "":
+		var saveRoom: bool = level.toSaveRoom()
+		var previousLevel := get_children()
 
-	ResourceLoader.load_threaded_request(levelPath)
+		ResourceLoader.load_threaded_request(levelPath)
 
-	if level.loadingScreen:
-		loadingScreen.set_visible(true)
-		var loadingTimer: Timer = loadingScreen.get_node("progressTimer")
-		var loadingBar: TextureProgressBar = loadingScreen.get_node("progressbar")
+		if level.loadingScreen:
+			loadingScreen.set_visible(true)
+			var loadingTimer: Timer = loadingScreen.get_node("progressTimer")
+			var loadingBar: TextureProgressBar = loadingScreen.get_node("progressbar")
 
-		loadingBar.value = 0
-		loadingTimer.connect("timeout",load_timeout.bind(loadingTimer,loadingBar,levelPath))
+			loadingBar.value = 0
+			loadingTimer.connect("timeout",load_timeout.bind(loadingTimer,loadingBar,levelPath))
 
-		load_timeout(loadingTimer,loadingBar,levelPath)
-	
+			load_timeout(loadingTimer,loadingBar,levelPath)
+		
 
-	for child in previousLevel:
-		if child != loadingScreen:
-			remove_child(child)
-			child.queue_free()
+		for child in previousLevel:
+			if child != loadingScreen:
+				remove_child(child)
+				child.queue_free()
 
-	if level.loadingScreen:
-		await loaded
-		loadingScreen.set_visible(false)
+		if level.loadingScreen:
+			await loaded
+			loadingScreen.set_visible(false)
 
-	var nextLevel_Scene := ResourceLoader.load_threaded_get(levelPath)
-	curLevel = nextLevel_Scene.instantiate() if !saveRoom else saveRoomScene.instantiate() 
+		var nextLevel_Scene := ResourceLoader.load_threaded_get(levelPath)
+		curLevel = nextLevel_Scene.instantiate() if !saveRoom else saveRoomScene.instantiate() 
 
-	if saveRoom:
-		curLevel.setNextLevel(levelPath)
-		curLevel.exitToMenu.connect(goToMenu)
-		curLevel.saveChosen.connect(findSaveSlot)
+		if saveRoom:
+			curLevel.setNextLevel(levelPath)
+			curLevel.exitToMenu.connect(goToMenu)
+			curLevel.saveChosen.connect(findSaveSlot)
 
-	add_child(curLevel)
-	connectScene(curLevel)
+		add_child(curLevel)
+		connectScene(curLevel)
 
 
 

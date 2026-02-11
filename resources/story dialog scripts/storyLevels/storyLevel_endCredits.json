@@ -1,0 +1,246 @@
+{
+	"character_dictionary": {
+	},
+
+	"background_dictionary": {
+		"pc1":"endCredits/endCredit_pc1",
+	},
+
+	"music_dictionary": {
+		"sfx": [],
+		"music": {
+			"masquerade": "codeGeassOst/loops/Masquerade (loop)",
+		}
+	},
+
+	"scene": [
+		{
+			"animation": "CreditsScroll",
+			"background": "pc1",
+			"lines": [
+				{
+					"name": null,
+					"display name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed": "def",
+					"sfx": null,
+					"music": "masquerade",
+				}
+			]
+		},
+		{
+			"animation": "creditsFlick",
+			"background": null,
+			"lines": [
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Thanks for playing the game!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Unfortunately, this is the end of the demo...",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Demo? Final version?",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Time will tell, maybe I'll pick it up again in the future",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Still it took me far longer than I had expected to 'finish' and despite loving to learn and having a blast",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "I now want to move onto other projects",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Still there is more that could be added, so if any developers out there would like to collaberate contact me",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+			]
+		},
+		{
+			"animation": null,
+			"background": null,
+			"lines": [
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Code Geass is one of my favourite shows",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Establishing itself as a major part of my life for the past years...",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "As an introduction to the best of anime; making of friendships; and a favourite drinking game",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "It is no surprise I would want to use it as motivation",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "I believe it naturally suites this style of game; taking inspiration from Front Mission and Fire Emblem",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "While I had wanted to include the entire shinjiku sections in the first two episodes time eluded me",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Instead it merely covers the introduction to the show and a couple battles",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "I had also wanted to include mini-games for the various school sections, and maybe a chess game for a tutorial",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "All, put to the wayside so that I could finish and move on",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "Even so getting to see Code Geass as a video game is a dream come true",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+			]
+		},
+		{
+			"animation": null,
+			"background": null,
+			"lines": [
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "The story sections were quoted directly from the show with minor tweeks",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "With assets, sounds and music compiled from Code Geass: Lelouch Of The Rebellion - DS/DSi video game",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+			]
+		},
+		{
+			"animation": null,
+			"background": null,
+			"lines": [
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "So, with all being said...",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "THANKS FOR PLAYING!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+			]
+		},
+	]
+}

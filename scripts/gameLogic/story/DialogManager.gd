@@ -164,7 +164,11 @@ func playStage(stageInfo: Dictionary) -> void:
 		await playNextLine
 		
 	if stageInfo["animation"] != null && animPlayer.is_playing():
-		await animPlayer.animation_finished
+		if animPlayer.get_animation(animPlayer.current_animation).loop_mode == Animation.LOOP_LINEAR:
+			animPlayer.stop()
+		else:
+			await animPlayer.animation_finished
+
 
 	stageFinished = true
 	
