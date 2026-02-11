@@ -141,7 +141,6 @@ func createScene(sceneInfo: Array) -> void:
 	if musicPlayer.is_playing():
 		musicPlayer.stop()
 
-	print("endDialoge")
 	endDialoge.emit()
 	set_process(false)
 		

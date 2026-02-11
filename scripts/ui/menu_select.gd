@@ -6,6 +6,7 @@ signal partSelected(partId: int)
 
 @export var menuParent: Node
 @onready var inputTimer := $inputTimer
+@onready var sfxPlayer: AudioStreamPlayer = $AudioStreamPlayer
 
 const deselectOpacity: float = 0.5
 var selectIndex: int = 0
@@ -13,6 +14,9 @@ var lastItem: Label
 
 var enabled: bool = false
 @export var enabledShadow_text: bool = false
+
+#const menu_moveSFX: String = "res://assets/sfx/sfx/ds_sfx/select01.wav"
+#const menu_selectSFX: String = "res://assets/sfx/sfx/ds_sfx/select01.wav"
 
 #methods
 func getMenuParentName() -> String:
@@ -24,16 +28,28 @@ func _process(delta):
 	if enabled:
 		input.y = int(Input.is_action_just_pressed("down")) - int(Input.is_action_just_pressed("up"))
 		input.x = int(Input.is_action_just_pressed("right")) - int(Input.is_action_just_pressed("left"))
+
 		
 		match (menuParent.get_class()):
 			"VBoxContainer":
 				setIndex(selectIndex + input.y)
+
+				if input.y != 0:
+				#	sfxPlayer.set_stream(load(menu_moveSFX))
+					sfxPlayer.play()
+
 			"HBoxContainer":
 				setIndex(selectIndex + input.x)
+
+				if input.x != 0:
+				#	sfxPlayer.set_stream(load(menu_moveSFX))
+					sfxPlayer.play()
 		#	"GridContainer":
 		#		setIndex(selectIndex + input.y + input.x * menuParent.columns) #note: doesnt work with the wrapping index for invisible nodes
 		
 		if Input.is_action_just_pressed("accept"):
+			sfxPlayer.play()
+
 			if menuParent.get_parent().name == "action": 
 				itemSelected.emit(getMenuItem(selectIndex).text)
 				
@@ -108,6 +124,10 @@ func enable(enableSelection:bool) -> void:
 		
 func setMenu(node: Node) -> void:
 	menuParent = node
+
+
+
+
 
 
 func _on_input_timer_timeout():

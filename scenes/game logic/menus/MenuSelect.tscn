@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvtl2v8c3w6bg"]
+[gd_scene format=3 uid="uid://dvtl2v8c3w6bg"]
 
 [ext_resource type="Script" uid="uid://dhyjvhtdw3bn6" path="res://scripts/ui/menu_select.gd" id="1_kjj5l"]
+[ext_resource type="AudioStream" uid="uid://c0o7dqty705co" path="res://assets/sfx/sfx/ds_sfx/select01.wav" id="2_cto8n"]
 
-[node name="MenuSelect" type="Control"]
+[node name="MenuSelect" type="Control" unique_id=765923801]
 layout_mode = 3
 anchor_right = 0.346
 anchor_bottom = 0.667
@@ -12,8 +13,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kjj5l")
 
-[node name="inputTimer" type="Timer" parent="."]
+[node name="inputTimer" type="Timer" parent="." unique_id=1927558463]
 wait_time = 0.1
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=827492278]
+stream = ExtResource("2_cto8n")
 
 [connection signal="timeout" from="inputTimer" to="." method="_on_input_timer_timeout"]

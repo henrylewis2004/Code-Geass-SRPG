@@ -1,7 +1,7 @@
 {
 	"character_dictionary":{
 		"Kallen":[
-			"default",
+			"pilot_angry3",
 		]
 	},
 
@@ -27,7 +27,8 @@
 			"lines":[
 				{
 					"name": "Kallen",
-					"emotion": "default",
+					"display name": null,
+					"emotion": "pilot_angry3",
 					"text": "That'll show you!!",
 					"text_speed":"def",
 					"sfx": null,

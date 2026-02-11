@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dp8cylbrmxqtd"]
+
+[ext_resource type="Script" uid="uid://csiv41gutvd3x" path="res://scripts/gameLogic/video/videoLevel.gd" id="1_6qt6m"]
+[ext_resource type="VideoStream" uid="uid://d2mwiqtt5lu0o" path="res://assets/video/COLORS-flow op1.ogv" id="2_o1vx3"]
+[ext_resource type="PackedScene" uid="uid://8t7nouev2j2p" path="res://scenes/game logic/cinematic/video/skipAnimation.tscn" id="3_hy7rj"]
+
+[node name="IntroVideo_toMainMenu" type="Node" unique_id=1765131588]
+script = ExtResource("1_6qt6m")
+nextLevel_path = "res://scenes/levels/menu/mainMenu.tscn"
+loadingScreen = false
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=183655995]
+offset_right = 852.0
+offset_bottom = 480.0
+scale = Vector2(0.565, 0.565)
+stream = ExtResource("2_o1vx3")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1782276809]
+
+[node name="SkipAnimation" parent="." unique_id=1643677391 instance=ExtResource("3_hy7rj")]
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="sceneOver_emit"]

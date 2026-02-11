@@ -1,11 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7qfekk0cj3xj"]
+[gd_scene format=3 uid="uid://c7qfekk0cj3xj"]
 
 [ext_resource type="PackedScene" uid="uid://dvmagytfxrhbs" path="res://scenes/game logic/shared/levelManager.tscn" id="1_ty8y3"]
-[ext_resource type="PackedScene" uid="uid://docaydd600uqt" path="res://scenes/levels/cinematic videos/intro Video.tscn" id="2_xnrmx"]
+[ext_resource type="PackedScene" uid="uid://dp8cylbrmxqtd" path="res://scenes/levels/cinematic videos/intro Video_toMainMenu.tscn" id="2_xnrmx"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=166885427]
 
-[node name="LevelManager" parent="." instance=ExtResource("1_ty8y3")]
+[node name="LevelManager" parent="." unique_id=314663689 instance=ExtResource("1_ty8y3")]
 
-[node name="IntroVideo" parent="LevelManager" instance=ExtResource("2_xnrmx")]
-nextLevel_path = "res://scenes/levels/menu/mainMenu.tscn"
+[node name="IntroVideo_toMainMenu" parent="LevelManager" unique_id=1765131588 instance=ExtResource("2_xnrmx")]

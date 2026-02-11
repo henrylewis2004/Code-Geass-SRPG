@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ba3qy8oxii033" path="res://assets/2d/ui/saveRoom.png" id="1_nbljg"]
 [ext_resource type="Texture2D" uid="uid://drid2hopqya6a" path="res://assets/2d/ui/playerHp.png" id="2_5l37v"]
 [ext_resource type="FontFile" uid="uid://dp40uiq2ohbvd" path="res://assets/fonts/INVASION2000.TTF" id="3_8ynml"]
+[ext_resource type="AudioStream" uid="uid://d0i6r3sh6tqhw" path="res://assets/sfx/music/codeGeassOst/The First Signature.wav" id="4_8ynml"]
 
 [node name="LoadingScreen" type="Node2D" unique_id=1414865981]
 
@@ -19,7 +20,7 @@ text = "LOADING..."
 horizontal_alignment = 1
 
 [node name="progressTimer" type="Timer" parent="." unique_id=1074962010]
-wait_time = 0.009999999999999998
+wait_time = 0.00999999999999999
 
 [node name="progressbar" type="TextureProgressBar" parent="." unique_id=1267351202]
 offset_left = 64.0
@@ -28,3 +29,7 @@ offset_right = 80.0
 offset_bottom = 224.5
 scale = Vector2(22, 2)
 texture_progress = ExtResource("2_5l37v")
+
+[node name="loadingMusic" type="AudioStreamPlayer" parent="." unique_id=104556656]
+stream = ExtResource("4_8ynml")
+bus = &"bkg_music"

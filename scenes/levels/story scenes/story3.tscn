@@ -114,17 +114,17 @@ _data = {
 
 [node name="Story3" type="Node" unique_id=214116107 node_paths=PackedStringArray("dialogPlayer")]
 script = ExtResource("1_rfsp2")
-nextLevel_path = "res://scenes/levels/battle/battleLevel01.tscn"
+nextLevel_path = "res://scenes/levels/battle/battleLevel02.tscn"
 dialogOnStart = true
 dialogPath = "res://resources/story dialog scripts/storyLevels/storyLevel3.json"
 dialogPlayer = NodePath("baseStoryScene/DialogManager")
 
 [node name="baseStoryScene" parent="." unique_id=549369599 instance=ExtResource("2_ssmdi")]
 
-[node name="animCharacterSprites" parent="baseStoryScene" index="1"]
+[node name="animCharacterSprites" parent="baseStoryScene" index="1" unique_id=1388121552]
 z_index = 10
 
-[node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
+[node name="DialogManager" parent="baseStoryScene" index="2" unique_id=1394361277 node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")
 
 [node name="placeholder" type="Sprite2D" parent="baseStoryScene" unique_id=765062070]

@@ -34,8 +34,9 @@ func resetLevel() -> void:
 func goToMenu() -> void:
 	const mainMenuPath: String = "res://scenes/levels/menu/mainMenu.tscn"
 	for child in get_children():
-		remove_child(child)
-		child.queue_free()
+		if child != loadingScreen:
+			remove_child(child)
+			child.queue_free()
 
 	curLevel = load(mainMenuPath).instantiate()
 	add_child(curLevel)
@@ -107,8 +108,9 @@ func loadLevel(levelPath: String,level:Level = curLevel) -> void:
 
 		ResourceLoader.load_threaded_request(levelPath)
 
-		if level.loadingScreen:
+		if level.toLoadingScreen():
 			loadingScreen.set_visible(true)
+			loadingScreen.get_node("loadingMusic").play()
 			var loadingTimer: Timer = loadingScreen.get_node("progressTimer")
 			var loadingBar: TextureProgressBar = loadingScreen.get_node("progressbar")
 
@@ -123,8 +125,9 @@ func loadLevel(levelPath: String,level:Level = curLevel) -> void:
 				remove_child(child)
 				child.queue_free()
 
-		if level.loadingScreen:
+		if level.toLoadingScreen():
 			await loaded
+			loadingScreen.get_node("loadingMusic").stop()
 			loadingScreen.set_visible(false)
 
 		var nextLevel_Scene := ResourceLoader.load_threaded_get(levelPath)
@@ -134,6 +137,8 @@ func loadLevel(levelPath: String,level:Level = curLevel) -> void:
 			curLevel.setNextLevel(levelPath)
 			curLevel.exitToMenu.connect(goToMenu)
 			curLevel.saveChosen.connect(findSaveSlot)
+
+			curLevel.setToLoadingScreen(level.toLoadingScreen())
 
 		add_child(curLevel)
 		connectScene(curLevel)

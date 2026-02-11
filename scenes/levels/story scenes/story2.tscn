@@ -424,7 +424,7 @@ dialogPlayer = NodePath("baseStoryScene/DialogManager")
 
 [node name="baseStoryScene" parent="." unique_id=549369599 instance=ExtResource("2_6h6ij")]
 
-[node name="animCharacterSprites" parent="baseStoryScene" index="1"]
+[node name="animCharacterSprites" parent="baseStoryScene" index="1" unique_id=1388121552]
 z_index = 10
 
 [node name="LelouchSchool" parent="baseStoryScene/animCharacterSprites" index="0" unique_id=2133458339 instance=ExtResource("3_4ce5h")]
@@ -449,7 +449,7 @@ visible = false
 position = Vector2(240, 135)
 texture = ExtResource("6_gvcjx")
 
-[node name="DialogManager" parent="baseStoryScene" index="2" node_paths=PackedStringArray("animPlayer")]
+[node name="DialogManager" parent="baseStoryScene" index="2" unique_id=1394361277 node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=250841907]

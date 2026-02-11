@@ -233,14 +233,9 @@ func setTurnTimer(timer: int) -> void:
 	turnTimer = timer
 	
 func incTurnTimer(val: int = getStat(STATS.AGILITY)) -> void:
-	print(getName())
-	print("tt timer: " + str(turnTimer))
-	print("val: " + str(val))
 	turnTimer += val
 	if turnTimer < 0:
 		turnTimer = 0
-
-	print("tt timer: " + str(turnTimer))
 
 
 func resetTurnTimer(val: int = 0) -> void:
@@ -343,7 +338,7 @@ func getAttackDmgStOffset(attackStat: int, defenceStat: int) -> float:
 	return 1 + (attackStat - defenceStat)/100
 
 func getAttackHitMissOffset(attackStat: int, evadeStat: int) -> int:
-	return 100 + attackStat - evadeStat
+	return  attackStat - evadeStat
 
 func validTarget(target: BaseUnit) -> bool:
 	if getEquippedWeapon() == null:
@@ -390,6 +385,7 @@ func attack(unit: BaseUnit,animation: String) -> void:
 				var hitRoll: int = randi() % 101 
 
 				if hitRoll <= accuracy + getAttackHitMissOffset(self.getWeaponStatHitAffect(getEquippedWeapon().getAttackStat()),unit.getStat(STATS.EVASION)) || crit:
+					print("hit")
 					#which bodypart is hit
 					var bodyPartHit: int = randi() % unit.getBodyparts().size()
 					while unit.getBodyparts()[bodyPartHit].isDestroyed():
@@ -420,6 +416,7 @@ func attack(unit: BaseUnit,animation: String) -> void:
 					unit.getBodyparts()[bodyPartHit].hit(int(weapon.getDmg() * dmgMod))
 						
 				else:
+					print("miss")
 					pass
 					#add miss gfx
 

@@ -1,10 +1,5 @@
 mechanics:
-	> add credits / thanks for playing scene
-		> bts pictures
-	> change hit chance to user hit chance
-	> enemy red?
-		> change colour?
-
+	> add sound affects to everything
 	> ability animaiton
 		> sound
 	> attack animation

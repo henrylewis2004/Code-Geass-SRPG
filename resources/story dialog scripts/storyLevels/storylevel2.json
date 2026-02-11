@@ -974,7 +974,7 @@
 		],
 		},
 		{
-		"animation":null,
+		"animation":"kWalk2_end",
 		"background": "rivalzLookingForLelouch",
 
 		"lines":[
@@ -1009,7 +1009,7 @@
 		],
 		},
 		{
-		"animation":"kWalk2_end",
+		"animation":null,
 		"background": "heliTargeting",
 
 		"lines":[

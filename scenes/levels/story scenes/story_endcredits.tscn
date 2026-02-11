@@ -5,9 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://d3cvcfkmovvar" path="res://assets/2d/ui/geass.png" id="3_a8d1a"]
 [ext_resource type="FontFile" uid="uid://dp40uiq2ohbvd" path="res://assets/fonts/INVASION2000.TTF" id="4_wqc4m"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="5_wqc4m"]
+[ext_resource type="Texture2D" uid="uid://cvforvewndr61" path="res://assets/2d/ui/Geass/geass_spriteSheet.png" id="6_77l7f"]
 
 [sub_resource type="Animation" id="Animation_77l7f"]
 resource_name = "CreditsScroll"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,7 +17,7 @@ tracks/0/path = NodePath("baseStoryScene/animCharacterSprites/thanksforPlaying:p
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(144, -49), Vector2(144, 74)]
@@ -44,6 +46,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("baseStoryScene/back:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_d43s8"]
 length = 0.001
@@ -70,6 +84,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(91, 9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("baseStoryScene/back:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("baseStoryScene/animCharacterSprites/geass:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("baseStoryScene/animCharacterSprites/geass:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_a8d1a"]
@@ -113,16 +163,45 @@ tracks/2/keys = {
 "values": [Vector2(91, 9), Vector2(91, -2), Vector2(91, 9)]
 }
 
+[sub_resource type="Animation" id="Animation_5llom"]
+resource_name = "geass"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("baseStoryScene/animCharacterSprites/geass:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("baseStoryScene/animCharacterSprites/geass:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5llom"]
 _data = {
 &"CreditsScroll": SubResource("Animation_77l7f"),
 &"RESET": SubResource("Animation_d43s8"),
-&"creditsFlick": SubResource("Animation_a8d1a")
+&"creditsFlick": SubResource("Animation_a8d1a"),
+&"geass": SubResource("Animation_5llom")
 }
 
 [node name="Story_endcredits" type="Node" unique_id=214116107 node_paths=PackedStringArray("dialogPlayer")]
 script = ExtResource("1_iy0h2")
-nextLevel_path = "res://scenes/levels/Main.tscn"
+nextLevel_path = "res://scenes/levels/cinematic videos/intro Video_toMainMenu.tscn"
 dialogOnStart = true
 dialogPath = "res://resources/story dialog scripts/storyLevels/storyLevel_endCredits.json"
 dialogPlayer = NodePath("baseStoryScene/DialogManager")
@@ -158,6 +237,16 @@ offset_right = 29.36097
 offset_bottom = 11.0
 scale = Vector2(5.54054, 1.7777777)
 texture = ExtResource("5_wqc4m")
+
+[node name="geass" type="Sprite2D" parent="baseStoryScene/animCharacterSprites" index="1" unique_id=1581004298]
+visible = false
+z_index = 20
+position = Vector2(239, 141)
+scale = Vector2(2, 2)
+texture = ExtResource("6_77l7f")
+hframes = 5
+vframes = 2
+frame = 1
 
 [node name="DialogManager" parent="baseStoryScene" index="2" unique_id=1394361277 node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")

@@ -96,7 +96,7 @@ func getOffset(character:String,emotion: String) -> Vector2:
 				
 				"pilot_angry2": return Vector2(109,-17)
 				
-				"pilot_angry3": return Vector2(107,-45)
+				"pilot_angry3": return Vector2(100,-30)
 				
 				
 		"naoto":

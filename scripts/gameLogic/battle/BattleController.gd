@@ -36,6 +36,11 @@ const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_uni
 @onready var gameOverMan: GameOverManager = $GameOver
 @onready var newTurnGraphic: Control = $ui/NewTurn
 
+#music
+@onready var music_sfxPlayer: AudioStreamPlayer = $audio/sfx/sfx_ui
+@onready var music_musicPlayer: AudioStreamPlayer = $audio/music/bkg_music
+
+
 var aiManager : AiManager = AiManager.new()
 @onready var animPlayer: AnimationPlayer = $animation/AnimationPlayer
 @onready var itemAbMan : ItemAbilityManager = ItemAbilityManager.new(animPlayer)
@@ -111,6 +116,7 @@ func canCamRot() -> bool:
 	return !(
 		curState == STATE.NONE 
 		|| curState == STATE.BATTLE
+		|| curState == STATE.GAME_OVER
 		)
 
 #weapon selection
@@ -144,6 +150,8 @@ func showUnitOverlay() -> bool :
 		curState == STATE.UNIT_MENU_PLAYER 
 		|| curState == STATE.UNIT_MENU_ENEMY 
 		|| curState == STATE.UNIT_MENU_ALLY
+		|| curState == STATE.NONE 
+		|| curState == STATE.GAME_OVER
 		)
 
 func unitOverlay() -> void:
@@ -200,17 +208,19 @@ func set_unitOverlay(primary_unit:BaseUnit,target_unit: BaseUnit, activity: Base
 		
 func unitOverlayAttack() -> void:
 	if curState == STATE.E_UNIT_SELECTED_ATTACK || curState == STATE.E_UNIT_ATTACK_WPN_SELECTION:
+		var unit: BaseUnit = primaryUnit_ui if primaryUnit_ui.getTeam() == TEAM.PLAYER else targetUnit_ui
+		var e_unit: BaseUnit = targetUnit_ui if primaryUnit_ui.getTeam() == TEAM.PLAYER else primaryUnit_ui 
 		var text: String
-		if primaryUnit_ui.getEquippedWeapon() == null: 
+		if unit.getEquippedWeapon() == null: 
 			text = "X\nNO COUNTER"
-			drawManager.drawAccText(primaryUnit_ui.position,targetUnit_ui.position,text, Color.RED,drawManager.defaultTextPos)
+			drawManager.drawAccText(unit.position,e_unit.position,text, Color.RED,drawManager.defaultTextPos)
 			return
-		else: text = str(primaryUnit_ui.getEquippedWeapon().getAccuracy()) + "%"
-		if primaryUnit_ui.getAp() < primaryUnit_ui.getEquippedWeapon().getApCost(): text = "X\nNO AP"
-		if gridManager.absDist(targetUnit_ui.getGridPos(),primaryUnit_ui.getGridPos()) > primaryUnit_ui.getEquippedWeapon().getRange(): text = "X\nOUT OF\nRANGE"
-		if !primaryUnit_ui.hasLOS(targetUnit_ui): text = "X\nNO LOS"
+		else: text = str(unit.getEquippedWeapon().getAccuracy()) + "%"
+		if unit.getAp() < unit.getEquippedWeapon().getApCost(): text = "X\nNO AP"
+		if gridManager.absDist(e_unit.getGridPos(),unit.getGridPos()) > unit.getEquippedWeapon().getRange(): text = "X\nOUT OF\nRANGE"
+		if !unit.hasLOS(e_unit): text = "X\nNO LOS"
 
-		drawManager.drawAccText(primaryUnit_ui.position,targetUnit_ui.position,text, Color.RED,drawManager.defaultTextPos)
+		drawManager.drawAccText(unit.position,e_unit.position,text, Color.RED,drawManager.defaultTextPos)
 		
 func unitOverlayItem() -> void:
 	if curState == STATE.A_UNIT_ITEM || curState == STATE.A_UNIT_PART_SELECT:
@@ -436,6 +446,7 @@ func input() -> void:
 								pass
 
 							else: #unit turn selected
+								gridManager.clearUnitSelectionTiles(unitSelectionTiles)
 								unitTurnMoved()
 								playerInput(unitTurn)
 						TEAM.ALLY:
@@ -499,7 +510,6 @@ func input() -> void:
 
 
 	elif Input.is_action_just_pressed("cancel"):
-			
 		match curState:
 			STATE.CAM_MOVEMENT:
 				snapCamMoveToUnit(unitTurn)
@@ -851,6 +861,7 @@ func aiAttackTurn(unit:BaseUnit, targetUnit: BaseUnit) -> void:
 	
 func gameOver(victory: bool):
 	curState = STATE.GAME_OVER
+	unitOverlay()
 	gameOverMan.gameOver(victory)
 
 
@@ -864,10 +875,16 @@ func endLevel(nextScene: bool) -> void:
 	#add animation of game over 
 func newTurnGFX(player: bool, character_name: String) -> void:
 	var text: String = "- [color=green]PLAYER[/color] TURN -"
-	if !player: text = "- [color=red]ENEMY[/color] TURN -"
+	var sfx: String = "res://assets/sfx/sfx/ds_sfx/select06.wav"
+	if !player: 
+		text = "- [color=red]ENEMY[/color] TURN -"
+		sfx = "res://assets/sfx/sfx/ds_sfx/select07.wav"
 
 	newTurnGraphic.get_node("Label").text = text + "\n" + character_name
 	
+	music_sfxPlayer.set_stream(load(sfx))
+	music_sfxPlayer.play()
+
 	animPlayer.play("newTurn")
 	await animPlayer.animation_finished
 	animPlayer.play("RESET")

@@ -32,6 +32,12 @@ func battleLevelStart() -> void:
 func getNextLevelPath() -> String:
 	return nextLevel_path
 
+func toLoadingScreen() -> bool:
+	return loadingScreen
+
+func setToLoadingScreen(go: bool) -> void:
+	loadingScreen = go
+
 func toSaveRoom() -> bool:
 	return goToSaveRoom
 

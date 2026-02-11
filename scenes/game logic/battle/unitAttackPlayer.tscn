@@ -134,3 +134,4 @@ _data = {
 libraries/ = SubResource("AnimationLibrary_33goq")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=105497754]
+bus = &"weapon_sfx"

@@ -73,7 +73,7 @@
 					"name": "Thanks For Playing",
 					"display name": null,
 					"emotion": "none",
-					"text": "Still it took me far longer than I had expected to 'finish' and despite loving to learn and having a blast",
+					"text": "It took me far longer than I had expected to 'finish' and despite loving to learn and having a blast",
 					"text_speed": "def",
 					"sfx": null,
 					"music": null
@@ -115,15 +115,6 @@
 					"name": "Thanks For Playing",
 					"display name": null,
 					"emotion": "none",
-					"text": "Establishing itself as a major part of my life for the past years...",
-					"text_speed": "def",
-					"sfx": null,
-					"music": null
-				},
-				{
-					"name": "Thanks For Playing",
-					"display name": null,
-					"emotion": "none",
 					"text": "As an introduction to the best of anime; making of friendships; and a favourite drinking game",
 					"text_speed": "def",
 					"sfx": null,
@@ -151,7 +142,7 @@
 					"name": "Thanks For Playing",
 					"display name": null,
 					"emotion": "none",
-					"text": "While I had wanted to include the entire shinjiku sections in the first two episodes time eluded me",
+					"text": "While I had wanted to include the entire shinjiku sections in the first two episodes, time eluded me",
 					"text_speed": "def",
 					"sfx": null,
 					"music": null
@@ -170,15 +161,6 @@
 					"display name": null,
 					"emotion": "none",
 					"text": "I had also wanted to include mini-games for the various school sections, and maybe a chess game for a tutorial",
-					"text_speed": "def",
-					"sfx": null,
-					"music": null
-				},
-				{
-					"name": "Thanks For Playing",
-					"display name": null,
-					"emotion": "none",
-					"text": "All, put to the wayside so that I could finish and move on",
 					"text_speed": "def",
 					"sfx": null,
 					"music": null
@@ -211,7 +193,16 @@
 					"name": "Thanks For Playing",
 					"display name": null,
 					"emotion": "none",
-					"text": "With assets, sounds and music compiled from Code Geass: Lelouch Of The Rebellion - DS/DSi video game",
+					"text": "With assets, sounds and music compiled from Code Geass: Lelouch Of The Rebellion - DS/DSi video game...",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+				{
+					"name": "Thanks For Playing",
+					"display name": null,
+					"emotion": "none",
+					"text": "and from screenshots of the show",
 					"text_speed": "def",
 					"sfx": null,
 					"music": null
@@ -236,6 +227,21 @@
 					"display name": null,
 					"emotion": "none",
 					"text": "THANKS FOR PLAYING!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null
+				},
+			]
+		},
+		{
+			"animation": "geass",
+			"background": null,
+			"lines": [
+				{
+					"name": null,
+					"display name": null,
+					"emotion": null,
+					"text": null,
 					"text_speed": "def",
 					"sfx": null,
 					"music": null
