@@ -4,9 +4,13 @@ signal movementFinished
 signal attackFinished
 signal destroy_unit(unit: BaseUnit)
 
+signal attack_landed(landed: bool)
+
 @export_enum("player","enemy","ally") var team: int
 @export var char_name: String
 @export var charImage: Texture
+
+@onready var bkgSfx_player: AudioStreamPlayer3D = $unit_bkg_sfx
 
 
 #status info
@@ -414,10 +418,11 @@ func attack(unit: BaseUnit,animation: String) -> void:
 					#hit
 
 					unit.getBodyparts()[bodyPartHit].hit(int(weapon.getDmg() * dmgMod))
+
+					attack_landed.emit(true)
 						
 				else:
-					print("miss")
-					pass
+					attack_landed.emit(false)
 					#add miss gfx
 
 				#add animation
@@ -469,5 +474,6 @@ func _process(delta):
 		position = curve.get_point_position(curve.point_count - 1) + position
 		pathFollow.progress = 0
 		curve.clear_points()
+
 		movementFinished.emit()
 		

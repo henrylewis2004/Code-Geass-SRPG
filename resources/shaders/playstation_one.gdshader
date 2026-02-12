@@ -1,15 +1,4 @@
-[gd_scene format=3 uid="uid://k4cewou3a7w4"]
-
-[ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_7xprv"]
-[ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/baseUnit.tscn" id="3_7xprv"]
-[ext_resource type="PackedScene" uid="uid://qqotgxb0yw8c" path="res://scenes/game objects/weapons/arm_punch.tscn" id="4_ghykq"]
-[ext_resource type="PackedScene" uid="uid://mv30iklrcsps" path="res://scenes/game objects/item-abilities/abilities/ability_attack/slash_harken.tscn" id="5_cfnoi"]
-[ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/weapons/Mg Gun.tscn" id="5_cwe5n"]
-[ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="6_c5s2f"]
-[ext_resource type="Texture2D" uid="uid://drid2hopqya6a" path="res://assets/2d/ui/playerHp.png" id="7_chlvt"]
-
-[sub_resource type="Shader" id="Shader_chlvt"]
-code = "shader_type spatial;
+shader_type spatial;
 render_mode skip_vertex_transform;
 
 uniform bool billboard = false;
@@ -152,63 +141,3 @@ void light() {
 	DIFFUSE_LIGHT = vec3(1);
 	SPECULAR_LIGHT = vec3(0);
 }
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xf0cm"]
-render_priority = 0
-shader = SubResource("Shader_chlvt")
-shader_parameter/billboard = false
-shader_parameter/color_texture = ExtResource("7_chlvt")
-shader_parameter/tint = Color(1, 1, 1, 1)
-shader_parameter/vertex_snapping = true
-shader_parameter/affine_texture_mapping = true
-shader_parameter/add_fog = false
-shader_parameter/fog_color = Color(0.42, 0.42, 0.45, 1)
-shader_parameter/fog_start_end = Vector2(10, 100)
-shader_parameter/add_dynamic_vertex_lighting = false
-shader_parameter/light_direction = Vector3(0, 1, 0)
-shader_parameter/light_intensity = 1.0
-shader_parameter/ambient_light = Color(0, 0, 0, 1)
-shader_parameter/add_dither = true
-shader_parameter/dither_spread = 10.0
-shader_parameter/dither_gamma = 10.0
-
-[node name="kallen" type="Node" unique_id=1183093597]
-script = ExtResource("1_7xprv")
-
-[node name="baseUnit" parent="." unique_id=1237027531 instance=ExtResource("3_7xprv")]
-movesfx = "res://assets/sfx/sfx/ds_sfx/WAVE_SE066 (loop).wav"
-factionName = "JAPANESE TERRORIST"
-agilityStat = 20
-defenceStat = 8
-evasionStat = 18
-meleeStat = 5
-rangedStat = 12
-maxAp = 7
-apCharge = 4
-maxEnergy = 20
-energyCharge = 20
-luckStat = 13
-iniativeStat = 25
-turnTimer = 15
-
-[node name="body" parent="baseUnit/bodyparts" parent_id_path=PackedInt32Array(1237027531, 1950766110) index="2" unique_id=741045526]
-totalHp = 120
-
-[node name="legs" parent="baseUnit/bodyparts" parent_id_path=PackedInt32Array(1237027531, 1950766110) index="3" unique_id=704321938]
-totalHp = 60
-
-[node name="MgGun" parent="baseUnit/weapons" parent_id_path=PackedInt32Array(1237027531, 452410782) index="0" unique_id=1311324289 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_cwe5n")]
-equipPart = NodePath("../../bodyparts/R arm")
-
-[node name="arm_punch" parent="baseUnit/weapons" parent_id_path=PackedInt32Array(1237027531, 452410782) index="1" unique_id=1591838956 node_paths=PackedStringArray("equipPart") instance=ExtResource("4_ghykq")]
-equipPart = NodePath("../../bodyparts/L arm")
-
-[node name="SlashHarken" parent="baseUnit/inventory/abilities" parent_id_path=PackedInt32Array(1237027531, 377543360) index="0" unique_id=438303092 instance=ExtResource("5_cfnoi")]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="baseUnit/PathFollow3D/unitCollider" parent_id_path=PackedInt32Array(1237027531, 1641843474) index="1" unique_id=920641669]
-transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
-mesh = ExtResource("6_c5s2f")
-surface_material_override/0 = SubResource("ShaderMaterial_xf0cm")
-
-[editable path="baseUnit"]

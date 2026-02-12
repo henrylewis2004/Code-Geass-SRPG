@@ -1,5 +1,10 @@
 mechanics:
+	> psx shader?
+		> lighting
+		> textures
+
 	> add sound affects to everything
+		> select 7/6 for item/ability
 	> ability animaiton
 		> sound
 	> attack animation

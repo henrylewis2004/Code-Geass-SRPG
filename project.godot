@@ -177,3 +177,6 @@ reload_level={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+shading/overrides/force_vertex_shading=true
+environment/ssao/quality=0
+textures/light_projectors/filter=2

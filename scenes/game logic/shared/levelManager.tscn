@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvmagytfxrhbs"]
+[gd_scene format=3 uid="uid://dvmagytfxrhbs"]
 
-[ext_resource type="Script" uid="uid://yregk1ht0a45" path="res://scripts/gameLogic/LevelManager.gd" id="1_8jykq"]
+[ext_resource type="Script" uid="uid://b7cc1mxaklcwo" path="res://scripts/gameLogic/LevelManager.gd" id="1_8jykq"]
 [ext_resource type="PackedScene" uid="uid://djrvarijrlv6r" path="res://scenes/game logic/shared/loadingScreen.tscn" id="2_mb2s6"]
+[ext_resource type="AudioStream" uid="uid://8qgokij3n2kr" path="res://assets/sfx/sfx/ds_sfx/save01.wav" id="3_7ay2k"]
 
-[node name="LevelManager" type="Node"]
+[node name="LevelManager" type="Node" unique_id=1097969924]
 script = ExtResource("1_8jykq")
 
-[node name="LoadingScreen" parent="." instance=ExtResource("2_mb2s6")]
+[node name="keep" type="Node" parent="." unique_id=1554478658]
+
+[node name="LoadingScreen" parent="keep" unique_id=375448018 instance=ExtResource("2_mb2s6")]
 visible = false
+
+[node name="sfx" type="AudioStreamPlayer" parent="keep" unique_id=879046170]
+stream = ExtResource("3_7ay2k")

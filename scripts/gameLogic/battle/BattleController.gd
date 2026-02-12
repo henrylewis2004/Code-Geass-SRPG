@@ -40,6 +40,8 @@ const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_uni
 @onready var music_sfxPlayer: AudioStreamPlayer = $audio/sfx/sfx_ui
 @onready var music_musicPlayer: AudioStreamPlayer = $audio/music/bkg_music
 
+const sfx_select: String = "res://assets/sfx/sfx/ds_sfx/select05.wav"
+
 
 var aiManager : AiManager = AiManager.new()
 @onready var animPlayer: AnimationPlayer = $animation/AnimationPlayer
@@ -131,6 +133,7 @@ func showWeaponSelection() -> bool:
 func showPlayerUnit() -> bool :
 	return (
 		curState ==  STATE.A_UNIT_CAM_CINEMATIC 
+		|| curState ==  STATE.E_UNIT_CAM_CINEMATIC 
 		|| curState == STATE.UNIT_MOVEMENT_SELECTION 
 		|| curState == STATE.ATTACK_MOVEMENT 
 		|| curState == STATE.A_UNIT_ITEM_PREV 
@@ -150,7 +153,6 @@ func showUnitOverlay() -> bool :
 		curState == STATE.UNIT_MENU_PLAYER 
 		|| curState == STATE.UNIT_MENU_ENEMY 
 		|| curState == STATE.UNIT_MENU_ALLY
-		|| curState == STATE.NONE 
 		|| curState == STATE.GAME_OVER
 		)
 
@@ -414,16 +416,21 @@ func input() -> void:
 							pass
 					
 				else: #no unit selected
-					var targetLoc: Vector2 = battleCam.getGridPos() #need to add valid location check
+					var targetLoc: Vector2 = battleCam.getGridPos() 
 					if gridManager.validMove(targetLoc,unitTurn):
+						music_sfxPlayer.set_stream(load(sfx_select))
+						music_sfxPlayer.play()
+
+
+
 						unitTurn.incAp(-gridManager.apMoveCost(unitTurn.getGridPos(),targetLoc))
 						apCost.y = unitTurn.getAp()
 
 						gridManager.clearUnitSelectionTiles(unitSelectionTiles)
-						moveUnit(unitTurn,targetLoc)
-						
-						battleCam.followUnit(unitTurn)
+
 						curState = STATE.A_UNIT_CAM_CINEMATIC
+						moveUnit(unitTurn,targetLoc)
+						battleCam.followUnit(unitTurn)
 						
 						await unitTurn.movementFinished
 
@@ -601,6 +608,7 @@ func input() -> void:
 				
 				selectedActivityUnit = null
 				set_unitOverlay(null,null,null)
+				drawManager.cleanLos()
 				
 			STATE.A_UNIT_PART_SELECT:
 				curState = STATE.A_UNIT_ITEM_PREV
@@ -772,11 +780,15 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 	if attacker.getEquippedWeapon() != null:
 	#	curState = STATE.BATTLE
+		attacker.connect("attack_landed",attackGFX)
 		attacker.attack(defender,attackAnimMan.getWeaponAnim(attacker.getEquippedWeapon().getWeaponID()))
 		await attacker.attackFinished
+		attacker.disconnect("attack_landed",attackGFX)
+
 	
 	attackTimer.start(0.5)
 	await attackTimer.timeout
+	hideAttackGFX()
 
 	turnManager.unitAttacked(attacker.getEquippedWeapon().getWeaponID())
 
@@ -790,11 +802,14 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 		if defender.getEquippedWeapon() != null && defender.getAp() >= defender.getEquippedWeapon().getApCost():
 			attackTimer.start(0.5)
 			await attackTimer.timeout
+			defender.connect("attack_landed",attackGFX)
 			defender.attack(attacker,attackAnimMan.getWeaponAnim(defender.getEquippedWeapon().getWeaponID()))
 			await defender.attackFinished
+			defender.disconnect("attack_landed",attackGFX)
 
 			attackTimer.start(0.5)
 			await attackTimer.timeout
+			hideAttackGFX()
 
 			defender.incTurnTimer(turnManager.getAttackTimeCost(defender.getEquippedWeapon().getWeaponID(),true))
 
@@ -821,6 +836,20 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 	actionComplete.emit()
 	
+
+func attackGFX(landed: bool) ->void:
+	print(landed)
+	for control in $animation/AttackMiss.get_children():
+		for label in control.get_children():
+			label.text = "HIT" if landed else "MISS"
+
+	animPlayer.play("RESET")
+	animPlayer.play("attack_miss")
+
+func hideAttackGFX() -> void:
+	animPlayer.play("RESET")
+
+
 
 func killUnit(unit: BaseUnit) -> void:
 	match unit.getTeam():
@@ -998,11 +1027,14 @@ func printUnitTimes() -> String:
 
 	return text
 
+func stateChange(state:int) -> void:
+	curState = state
 
 #engine operation
 func _ready():
 	gridManager.init(mapSize,collisionWalls)
 	aiManager.attackPlayer_input.connect(aiAttackTurn)
+	aiManager.connect("stateChange",stateChange)
 	aiManager.setRoot(self)
 
 	itemAbMan.connect("actionComplete",itemEndTurn)

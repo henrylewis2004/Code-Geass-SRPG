@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cpg1l3f3wciw0"
-path="res://.godot/imported/WAVE_SE064.wav-66708b77b5696d42c68b65e842136765.sample"
+path="res://.godot/imported/drill03.wav-fb3e60db2b92d6f3f01e02374de762a9.sample"
 
 [deps]
 
-source_file="res://assets/sfx/sfx/ds_sfx/WAVE_SE064.wav"
-dest_files=["res://.godot/imported/WAVE_SE064.wav-66708b77b5696d42c68b65e842136765.sample"]
+source_file="res://assets/sfx/sfx/ds_sfx/drill03.wav"
+dest_files=["res://.godot/imported/drill03.wav-fb3e60db2b92d6f3f01e02374de762a9.sample"]
 
 [params]
 

@@ -70,6 +70,7 @@ func getGridPos() -> Vector2:
 #movement locks
 func lockMovement(lock: bool):
 	canMove = !lock
+	gridTile.set_visible(!lock)
 	
 func lockRot(lock: bool):
 	canRot = !lock

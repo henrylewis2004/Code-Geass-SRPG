@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ch23ifeu1601i" path="res://scenes/game objects/units/britannia/britHeli.tscn" id="4_56cp5"]
 [ext_resource type="MeshLibrary" uid="uid://cqyuudpk2wiml" path="res://assets/3d/gridmaps/col_gridmap.tres" id="5_gl8n8"]
 [ext_resource type="Texture2D" uid="uid://b7uqbq5sqlxkp" path="res://assets/2d/backgrounds/black.png" id="6_2lpp0"]
+[ext_resource type="Texture2D" uid="uid://e5eki7fi5r1i" path="res://assets/2d/backgrounds/area11/japan.png" id="7_q7gq7"]
 
 [sub_resource type="Animation" id="Animation_a5oht"]
 length = 0.001
@@ -68,16 +69,22 @@ _data = {
 &"animIntro": SubResource("Animation_cl6q2")
 }
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yowyx"]
+panorama = ExtResource("7_q7gq7")
+
+[sub_resource type="Sky" id="Sky_il7rx"]
+sky_material = SubResource("PanoramaSkyMaterial_yowyx")
+
+[sub_resource type="Environment" id="Environment_gl8n8"]
+background_mode = 2
+sky = SubResource("Sky_il7rx")
+ambient_light_color = Color(0.94509804, 1, 1, 1)
+
 [node name="battleLevel01" type="Node3D" unique_id=1961232284]
 script = ExtResource("1_gl8n8")
 nextLevel_path = "res://scenes/levels/story scenes/story3.tscn"
 goToSaveRoom = true
 loadingScreen = false
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1049895303]
-transform = Transform3D(0.64679, 0.319903, -0.692333, 0, 0.907777, 0.419452, 0.762668, -0.271297, 0.587141, 0, 5.749, 0)
-
-[node name="Node" type="Node" parent="." unique_id=1791323925]
 
 [node name="BattleController" parent="." unique_id=263131413 instance=ExtResource("2_q7gq7")]
 mapSize = Vector2(9, 20)
@@ -150,6 +157,9 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("6_2lpp0")
 centered = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=520226366]
+environment = SubResource("Environment_gl8n8")
 
 [connection signal="resetScene" from="BattleController" to="." method="resetScene_emit"]
 [connection signal="sceneOver" from="BattleController" to="." method="sceneOver_emit"]

@@ -3,7 +3,11 @@ class_name LevelManager extends Node
 signal loaded
 
 const saveRoomScene := preload("res://scenes/levels/menu/saveRoom.tscn")
-@onready var loadingScreen := $LoadingScreen
+@onready var loadingScreen := $keep/LoadingScreen
+
+#sfx
+@onready var sfx_player: AudioStreamPlayer = $keep/sfx
+const save_success: String = "res://assets/sfx/sfx/ds_sfx/save01.wav"
 
 @onready var curLevel : Level = get_child(1)
 var saveMan: SaveManager = SaveManager.new()
@@ -23,8 +27,9 @@ func connectScene(scene:Level) -> void:
 func resetLevel() -> void:
 	var curLevelPath := curLevel.scene_file_path
 	for child in get_children():
-		remove_child(child)
-		child.queue_free()
+		if child.name != "keep":
+			remove_child(child)
+			child.queue_free()
 		
 	curLevel = load(curLevelPath).instantiate()
 	add_child(curLevel)
@@ -34,7 +39,7 @@ func resetLevel() -> void:
 func goToMenu() -> void:
 	const mainMenuPath: String = "res://scenes/levels/menu/mainMenu.tscn"
 	for child in get_children():
-		if child != loadingScreen:
+		if child.name != "keep":
 			remove_child(child)
 			child.queue_free()
 
@@ -67,6 +72,7 @@ func deleteSlot(slot:int) -> void:
 func saveState(slot:int,time:String,date:String,seconds:String,levelPath:String=curLevel.getNextLevelPath()) -> void:
 	saveMan.saveComplete.connect(curLevel.findUserInput)
 	saveMan.writeSave(slot,time,date,seconds,levelPath)
+	sfx_player.play()
 	saveMan.saveComplete.disconnect(curLevel.findUserInput)
 
 func getSaveInfo() -> Array:
@@ -121,7 +127,7 @@ func loadLevel(levelPath: String,level:Level = curLevel) -> void:
 		
 
 		for child in previousLevel:
-			if child != loadingScreen:
+			if child.name != "keep":
 				remove_child(child)
 				child.queue_free()
 

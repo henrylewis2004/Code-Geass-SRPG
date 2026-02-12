@@ -24,7 +24,7 @@ func getDateOfSave() -> String:
 	return dateOfSave
 
 func getSaveSlotLevel(slot:int) -> String:
-	return parseJson(savePathFolder)["slot"+str(slot+1)]["curLevel"]
+	return parseJson(savePathFolder)["slot"+str(slot)]["curLevel"]
 
 func getRecentSaveSlot() -> int:
 	var loadData : Dictionary = parseJson(savePathFolder)

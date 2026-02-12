@@ -58,6 +58,8 @@ func validItem(unit: BaseUnit,targetUnit:BaseUnit,activity: BaseItem) -> bool:
 		return false
 	if activity.getRange() < itemDistUse(unit.getGridPos(),targetUnit.getGridPos()):
 		return false
+	if targetUnit == unit && !activity.allow_selfTarget():
+		return false
 
 	return true
 

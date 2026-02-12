@@ -5,6 +5,7 @@ class_name BaseItem extends Node
 @export var apCost: int
 @export var singlePart: bool
 @export var tier: int = 1
+@export var selfTarget: bool = true
 
 @export_enum(
 	"HP",
@@ -23,6 +24,8 @@ func getName() -> String:
 func getRange() -> int:
 	return range
 
+func allow_selfTarget() -> bool:
+	return selfTarget
 
 func isSinglePart() -> bool:
 	return singlePart

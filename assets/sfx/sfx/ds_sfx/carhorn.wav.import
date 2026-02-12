@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cpk42kxj8c4mp"
-path="res://.godot/imported/WAVE_SE014.wav-29eda2af119a0ecd1fa0ba5d663679ff.sample"
+path="res://.godot/imported/carhorn.wav-47fd1ccea59778bd083e9973b63e81f2.sample"
 
 [deps]
 
-source_file="res://assets/sfx/sfx/ds_sfx/WAVE_SE014.wav"
-dest_files=["res://.godot/imported/WAVE_SE014.wav-29eda2af119a0ecd1fa0ba5d663679ff.sample"]
+source_file="res://assets/sfx/sfx/ds_sfx/carhorn.wav"
+dest_files=["res://.godot/imported/carhorn.wav-47fd1ccea59778bd083e9973b63e81f2.sample"]
 
 [params]
 

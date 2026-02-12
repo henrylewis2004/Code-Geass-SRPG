@@ -13,4 +13,5 @@ status = false
 stringName = "Slash Harken"
 range = 10
 apCost = 2
+selfTarget = false
 itemType = 2

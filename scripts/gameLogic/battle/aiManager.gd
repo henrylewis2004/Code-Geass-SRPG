@@ -1,9 +1,12 @@
 class_name AiManager extends Node
 
 const BODYPARTS := preload("res://resources/scripts/enumClasses/ENUMbodyparts.gd").BODYPARTS
+const STATES := preload("res://resources/scripts/enumClasses/ENUMstates.gd").BATTLESTATE
 
 signal turnFinished
 signal actionTaken(taken:bool)
+
+signal stateChange(state:int)
 
 signal attackPlayer_input(unit: BaseUnit, targetUnit: BaseUnit)
 
@@ -164,9 +167,11 @@ func attackTurn(unit:BaseUnit, allyUnits: Array[BaseUnit],enemyUnits: Array[Base
 		grid.setPosition_occupied(unit.getGridPos() + targetMv,unit.getGridPos())
 		unit.moveTo(grid.getASindex(unit.getGridPos()),grid.getASindex(unit.getGridPos() + targetMv),grid.getAstar())
 
+		stateChange.emit(STATES.E_UNIT_CAM_CINEMATIC)
 		camera.followUnit(unit)
 		await unit.movementFinished
 		camera.clearUnitFollow()
+		stateChange.emit(STATES.NONE)
 
 	#get user input
 	attackPlayer_input.emit(unit,targetEnemy)
@@ -210,9 +215,11 @@ func moveTurn(unit: BaseUnit, enemyUnits: Array[BaseUnit],grid:BattleGrid,camera
 		grid.setPosition_occupied(targetLoc,unit.getGridPos())
 		unit.moveTo(grid.getASindex(unit.getGridPos()),grid.getASindex(targetLoc),grid.getAstar())
 
+		stateChange.emit(STATES.E_UNIT_CAM_CINEMATIC)
 		camera.followUnit(unit)
 		await unit.movementFinished
 		camera.clearUnitFollow()
+		stateChange.emit(STATES.NONE)
 		
 		actionComplete_timeout(true,0.01)
 		return
