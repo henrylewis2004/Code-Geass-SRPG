@@ -15,6 +15,7 @@ signal resetScene
 func start() -> void:
 	if self.get_node("BattleController") != null:
 		if dialogOnStart:
+			dialogPlayer.set_visible(true)
 			dialogPlayer.endDialoge.connect(battleLevelStart)
 		else:
 			battleLevelStart()
@@ -27,6 +28,9 @@ func start() -> void:
 		dialogPlayer.play()
 
 func battleLevelStart() -> void:
+	if dialogPlayer:
+		dialogPlayer.endDialoge.disconnect(battleLevelStart)
+		dialogPlayer.set_visible(false)
 	self.get_node("BattleController").startLevel()
 
 func getNextLevelPath() -> String:

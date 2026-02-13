@@ -1,7 +1,16 @@
 mechanics:
+	> add unit artworko
+		> kallen face
+
+	> add skybox
+
+	> add attack animatino for abilities
+
 	> psx shader?
 		> lighting
 		> textures
+
+	> fix turn timer
 
 	> add sound affects to everything
 		> select 7/6 for item/ability
@@ -27,8 +36,6 @@ mechanics:
 		> survive number of turns
 
 		> lose conditions
-
-	> tilemap for level
 
 	> status screen
 		> show current status affects

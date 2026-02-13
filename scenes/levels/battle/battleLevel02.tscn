@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_td642"]
 [ext_resource type="PackedScene" uid="uid://bm1sq66703pp4" path="res://scenes/game logic/battle/battleController.tscn" id="2_6fybn"]
 [ext_resource type="PackedScene" uid="uid://k4cewou3a7w4" path="res://scenes/game objects/units/units/kallen.tscn" id="3_al3nk"]
-[ext_resource type="PackedScene" uid="uid://ch23ifeu1601i" path="res://scenes/game objects/units/britannia/britHeli.tscn" id="4_td642"]
+[ext_resource type="PackedScene" uid="uid://bhc5fglb8w0u6" path="res://scenes/game objects/units/britannia/jeremiah.tscn" id="4_6fybn"]
+[ext_resource type="PackedScene" uid="uid://crdtjoag0s37v" path="res://scenes/game objects/units/britannia/villetta.tscn" id="5_al3nk"]
 [ext_resource type="MeshLibrary" uid="uid://cqyuudpk2wiml" path="res://assets/3d/gridmaps/col_gridmap.tres" id="5_foehu"]
 [ext_resource type="Texture2D" uid="uid://b7uqbq5sqlxkp" path="res://assets/2d/backgrounds/black.png" id="6_wb73t"]
 
@@ -84,8 +85,11 @@ mapSize = Vector2(9, 20)
 [node name="Kallen" parent="BattleController/battleUnits/playerUnits" parent_id_path=PackedInt32Array(263131413, 1425858481) index="0" unique_id=1844558109 instance=ExtResource("3_al3nk")]
 set_position = Vector3(4, 0, 3)
 
-[node name="BrittaniaHelicopter" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="0" unique_id=675714386 instance=ExtResource("4_td642")]
-set_position = Vector3(5, 0, 0)
+[node name="jeremiah" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="0" unique_id=1183093597 instance=ExtResource("4_6fybn")]
+set_position = Vector3(5, 0, 13)
+
+[node name="villetta" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="1" unique_id=2028034031 instance=ExtResource("5_al3nk")]
+set_position = Vector3(2, 0, 15)
 
 [node name="BattleCam" parent="BattleController" index="1" unique_id=21586113]
 startingRot = 180.0
@@ -155,3 +159,4 @@ centered = false
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox/action/VBoxContainer/topLabel"]
 [editable path="BattleController/ui/AllyUnitGui/weaponSelect/weaponsBox/topLabel"]
+[editable path="BattleController/animation/AttackMiss"]

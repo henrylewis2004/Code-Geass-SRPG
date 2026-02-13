@@ -1,5 +1,8 @@
 {
 	"character_dictionary": {
+		"kallen": "pilot_angry3",
+		"jeremiah": "default",
+		"villetta": "default",
 	},
 
 	"background_dictionary": {
@@ -17,10 +20,10 @@
 			"background": null,
 			"lines": [
 				{
-					"name": "test",
+					"name": "Kallen",
 					"display name": null,
-					"emotion": "NONE",
-					"text": "im an idiiot",
+					"emotion": "pilot_angry3",
+					"text": "ALL RIGHT!!",
 					"text_speed": "def",
 					"sfx": null,
 					"music": null,

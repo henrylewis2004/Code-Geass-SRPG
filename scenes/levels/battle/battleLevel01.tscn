@@ -34,6 +34,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BattleController/BattleCam:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.5, 0, 17.701942)]
+}
 
 [sub_resource type="Animation" id="Animation_cl6q2"]
 resource_name = "animIntro"
@@ -63,10 +75,27 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_q7gq7"]
+resource_name = "cam_pan"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BattleController/BattleCam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(4.5, 0, 20.5), Vector3(4.5, 0, 3.5)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t7p2l"]
 _data = {
 &"RESET": SubResource("Animation_a5oht"),
-&"animIntro": SubResource("Animation_cl6q2")
+&"animIntro": SubResource("Animation_cl6q2"),
+&"cam_pan": SubResource("Animation_q7gq7")
 }
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_yowyx"]
@@ -80,10 +109,13 @@ background_mode = 2
 sky = SubResource("Sky_il7rx")
 ambient_light_color = Color(0.94509804, 1, 1, 1)
 
-[node name="battleLevel01" type="Node3D" unique_id=1961232284]
+[node name="battleLevel01" type="Node3D" unique_id=1961232284 node_paths=PackedStringArray("dialogPlayer")]
 script = ExtResource("1_gl8n8")
 nextLevel_path = "res://scenes/levels/story scenes/story3.tscn"
+dialogOnStart = true
+dialogPath = "res://resources/story dialog scripts/battleLevels/startScreen/battlelevel01_start.json"
 goToSaveRoom = true
+dialogPlayer = NodePath("BattleController/GameOver/DialogManager")
 loadingScreen = false
 
 [node name="BattleController" parent="." unique_id=263131413 instance=ExtResource("2_q7gq7")]
@@ -99,6 +131,7 @@ set_position = Vector3(6, 0, 15)
 set_position = Vector3(2, 0, 18)
 
 [node name="BattleCam" parent="BattleController" index="1" unique_id=21586113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 17.701942)
 startingRot = 180.0
 
 [node name="AllyUnitGui" parent="BattleController/ui" parent_id_path=PackedInt32Array(263131413, 1142302289) index="0" unique_id=1099543635]
@@ -146,6 +179,9 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 endSceneDialog = true
 dialogPath = "res://resources/story dialog scripts/battleLevels/endScreen/battleLevel01endScript.json"
 
+[node name="DialogManager" parent="BattleController/GameOver" index="0" node_paths=PackedStringArray("animPlayer")]
+animPlayer = NodePath("../../../animationPlayer/AnimationPlayer")
+
 [node name="animationPlayer" type="Node" parent="." unique_id=1999978439]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="animationPlayer" unique_id=835308208]
@@ -169,3 +205,8 @@ environment = SubResource("Environment_gl8n8")
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox/action/VBoxContainer/topLabel"]
 [editable path="BattleController/ui/AllyUnitGui/weaponSelect/weaponsBox/topLabel"]
+[editable path="BattleController/GameOver"]
+[editable path="BattleController/GameOver/GameOverScreen/confirmationMenu/defeat/options/retry"]
+[editable path="BattleController/GameOver/GameOverScreen/confirmationMenu/defeat/options/exit"]
+[editable path="BattleController/GameOver/GameOverScreen/confirmationMenu/victory/options/continue"]
+[editable path="BattleController/animation/AttackMiss"]

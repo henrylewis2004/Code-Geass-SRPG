@@ -1,0 +1,58 @@
+{
+	"character_dictionary":{
+		"Kallen":[
+			"pilot_angry3",
+		]
+	},
+
+	"background_dictionary":{
+	},
+	
+
+	"music_dictionary":{
+		"sfx":[
+		],
+
+		"music":{
+
+		}
+	},
+	
+	
+	"scene":[
+		{
+		"animation": "cam_pan",
+		"background": null,
+
+			"lines":[
+				{
+					"name": null,
+					"display name": null,
+					"emotion": null,
+					"text": null,
+					"text_speed":null,
+					"sfx": null,
+					"music":null
+				}
+			]
+
+		},
+		{
+		"animation": null,
+		"background": null,
+
+			"lines":[
+				{
+					"name": "Kallen",
+					"display name": null,
+					"emotion": "pilot_angry3",
+					"text": "You know full well what this badass machine can do!!",
+					"text_speed":0.01,
+					"sfx": null,
+					"music":null
+				}
+			]
+
+		},
+	]
+}
