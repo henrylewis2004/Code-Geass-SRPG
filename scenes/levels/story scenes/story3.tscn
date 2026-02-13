@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_rfsp2"]
 [ext_resource type="PackedScene" uid="uid://dly5daisvnqrg" path="res://scenes/game logic/cinematic/2d/baseStoryScene.tscn" id="2_ssmdi"]
-[ext_resource type="Texture2D" uid="uid://dj5qe1y5pt47k" path="res://assets/2d/backgrounds/area11/level2/lelouchInTruck3.png" id="7_e80ak"]
 
 [sub_resource type="Animation" id="Animation_23etq"]
 length = 0.001
@@ -126,11 +125,6 @@ z_index = 10
 
 [node name="DialogManager" parent="baseStoryScene" index="2" unique_id=1394361277 node_paths=PackedStringArray("animPlayer")]
 animPlayer = NodePath("../../AnimationPlayer")
-
-[node name="placeholder" type="Sprite2D" parent="baseStoryScene" unique_id=765062070]
-z_index = -1
-texture = ExtResource("7_e80ak")
-centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=250841907]
 libraries/ = SubResource("AnimationLibrary_o0kvn")

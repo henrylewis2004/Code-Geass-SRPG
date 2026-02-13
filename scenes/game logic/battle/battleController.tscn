@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cs56of0iacvcp" path="res://scenes/game logic/battle/GameOver.tscn" id="9_fyy83"]
 [ext_resource type="Texture2D" uid="uid://cvforvewndr61" path="res://assets/2d/ui/Geass/geass_spriteSheet.png" id="10_awt8a"]
 [ext_resource type="PackedScene" uid="uid://cqa4fu04378is" path="res://scenes/cinematic scenes/characters-sprites/geassAnim.tscn" id="10_xxrgl"]
+[ext_resource type="AudioStream" uid="uid://y8jqgk17iyb2" path="res://assets/sfx/sfx/ds_sfx/select07.wav" id="12_ffcql"]
 [ext_resource type="Texture2D" uid="uid://clpo2fmj2gggy" path="res://assets/2d/objects/pizzahut.png" id="12_ltndh"]
 [ext_resource type="AudioStream" uid="uid://btsr6r4riuho6" path="res://assets/sfx/music/codeGeassOst/loops/0 (loop).wav" id="13_2xxy7"]
+[ext_resource type="AudioStream" uid="uid://dq4dqbnqq8s3j" path="res://assets/sfx/sfx/ds_sfx/select06.wav" id="14_12pim"]
 [ext_resource type="PackedScene" uid="uid://b240r7mk7vwoj" path="res://scenes/game objects/battle-animations/attack_miss.tscn" id="14_jdcwr"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7qyck"]
@@ -23,6 +25,11 @@
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q5aru"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_cfyqa"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_g5e8r"]
+data = PackedByteArray("cW9hZgAACRgBAD6ACRgDwAAAAAAAAAAAAAAAAOAAQACASCC4k7SpAH/DiBnXASQdaFyKLMwpn/p2hkIXSazfvH1yZvVlF8ckgYBii6t8wE6aqwxG2wFCo5BZeY6disDIjm4cPgAhJ2+bCWaLAXnV1aQpBYJAJZpQtkuUwuNUsAW3uALGCXY2S4QKuZ3da87XjMWF7tuzjwGxdUDQWGWrKqDCYPzJYQ8KpndgNWeAkkKPvQ2KQXukmppVMq+bRZTTlvefeFxXNquZ0Ol0vLKqmoVQaBksYLssnxkUBsEMhEqLCEIVZ0PvvH66ZqpBEIAljXNBp1L6ix1tWWSTEYYhrmIJnbQXs4pDYtVBBQwpxkBemyiB1fUwGFTSiCArIYLVUFCUfroqxNNMkjw/SgOKN21LLJIAIAKIUKltVKgtAR07/Woo4xngBVZDCYFEcLLZMVZJr54xc1tArB0THvwTYTW+bRyu4bCbRNfCpGsgApJKAQkw1UQwC0E8BoJTMAcbPT6dDxz70aov2PUc8jusJ0jTBKab3TCLO7wmKow/CfUyGiqJ0wRUajccDRMu+sZMOiffdMNMFMpESm94SAwASTzbTTcoIcTeN3H5gpgEoWMjQS7B8CcbqyAE+HzMTnJ6RUKoMAAgkpoqSrAdwZ2R9zQ+qTBRYJjJLVIuFsqm7og2inKFUCUwEyhKLc7zP1S8JOVMqxxvVRsgqVVQZzCVYyTRLQuYRKYaKppuOwphFxspUHGEQQSVQSnCZQJCYK+ZFJXOfBgu/dYnqaHAo63coCDr+iAd5MiAN0FCEtlwJCk68UmOQ4gqaDKSBdJiQFLcMJFulIRs0mI0yaCkkxyBAit5aWhvtkUTL0GLEX0yRUsmkgh/09pOuyKQBFsChdASMJk0sYBNcAgkA6nMXyHIEzJbuCTnBJSaLlxIh8hpQLsucJLObrNUPyw1bXE8UNdSJQF+KnbwdvEwwSqUiGvE0SM7CBQlqpzaK7kvSz3C4qswC4DKV8wSCzVjMNlhIBKoJ7MD7xpuP6so9XLnG93BdTSpRaILnjBAJ7iS7oNXXVUim4Q7uGg4KiQQJKZCBLnAJWNkGxpywxoUXKN4BS+BOCLTNzKITgBAEkT4Gm1xrqkfdVmNdI4iAhsLLN4lVJ9GH65FQJRoAMIaT15UWXwJUBgRUQEaLRu9FdXeD0KwnEwXnAiCCU2DUxBDT8DCBQAAFFNEgNMMEEgK/QrhIYMFEgDG8YZNRA6sDvGNJwAIJwgAQCCCHKiGigcIAKIAIDjAAOMAMAAAAAA=")
+format = 3
+mix_rate = 16000
 
 [sub_resource type="Animation" id="Animation_awt8a"]
 length = 0.001
@@ -170,6 +177,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [Vector2(6, -51)]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../audio/sfx/sfx_ui:stream")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AudioStreamWAV_g5e8r")]
+}
 
 [sub_resource type="Animation" id="Animation_s1jn4"]
 resource_name = "attack_miss"
@@ -279,7 +298,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -15)]
+"values": [Vector2(20, 30), Vector2(20, 15)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -405,6 +424,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(1.8854166, 1.8854166)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../audio/sfx/sfx_ui:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_ffcql")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../audio/sfx/sfx_ui:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ltndh"]
 resource_name = "itemAnim"
@@ -493,6 +536,30 @@ tracks/6/keys = {
 "update": 1,
 "values": [ExtResource("12_ltndh")]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../audio/sfx/sfx_ui:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_12pim")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../audio/sfx/sfx_ui:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_g5e8r"]
 resource_name = "newTurn"
@@ -530,11 +597,6 @@ _data = {
 &"itemAnim": SubResource("Animation_ltndh"),
 &"newTurn": SubResource("Animation_g5e8r")
 }
-
-[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_g5e8r"]
-data = PackedByteArray("cW9hZgAACRgBAD6ACRgDwAAAAAAAAAAAAAAAAOAAQACASCC4k7SpAH/DiBnXASQdaFyKLMwpn/p2hkIXSazfvH1yZvVlF8ckgYBii6t8wE6aqwxG2wFCo5BZeY6disDIjm4cPgAhJ2+bCWaLAXnV1aQpBYJAJZpQtkuUwuNUsAW3uALGCXY2S4QKuZ3da87XjMWF7tuzjwGxdUDQWGWrKqDCYPzJYQ8KpndgNWeAkkKPvQ2KQXukmppVMq+bRZTTlvefeFxXNquZ0Ol0vLKqmoVQaBksYLssnxkUBsEMhEqLCEIVZ0PvvH66ZqpBEIAljXNBp1L6ix1tWWSTEYYhrmIJnbQXs4pDYtVBBQwpxkBemyiB1fUwGFTSiCArIYLVUFCUfroqxNNMkjw/SgOKN21LLJIAIAKIUKltVKgtAR07/Woo4xngBVZDCYFEcLLZMVZJr54xc1tArB0THvwTYTW+bRyu4bCbRNfCpGsgApJKAQkw1UQwC0E8BoJTMAcbPT6dDxz70aov2PUc8jusJ0jTBKab3TCLO7wmKow/CfUyGiqJ0wRUajccDRMu+sZMOiffdMNMFMpESm94SAwASTzbTTcoIcTeN3H5gpgEoWMjQS7B8CcbqyAE+HzMTnJ6RUKoMAAgkpoqSrAdwZ2R9zQ+qTBRYJjJLVIuFsqm7og2inKFUCUwEyhKLc7zP1S8JOVMqxxvVRsgqVVQZzCVYyTRLQuYRKYaKppuOwphFxspUHGEQQSVQSnCZQJCYK+ZFJXOfBgu/dYnqaHAo63coCDr+iAd5MiAN0FCEtlwJCk68UmOQ4gqaDKSBdJiQFLcMJFulIRs0mI0yaCkkxyBAit5aWhvtkUTL0GLEX0yRUsmkgh/09pOuyKQBFsChdASMJk0sYBNcAgkA6nMXyHIEzJbuCTnBJSaLlxIh8hpQLsucJLObrNUPyw1bXE8UNdSJQF+KnbwdvEwwSqUiGvE0SM7CBQlqpzaK7kvSz3C4qswC4DKV8wSCzVjMNlhIBKoJ7MD7xpuP6so9XLnG93BdTSpRaILnjBAJ7iS7oNXXVUim4Q7uGg4KiQQJKZCBLnAJWNkGxpywxoUXKN4BS+BOCLTNzKITgBAEkT4Gm1xrqkfdVmNdI4iAhsLLN4lVJ9GH65FQJRoAMIaT15UWXwJUBgRUQEaLRu9FdXeD0KwnEwXnAiCCU2DUxBDT8DCBQAAFFNEgNMMEEgK/QrhIYMFEgDG8YZNRA6sDvGNJwAIJwgAQCCCHKiGigcIAKIAIDjAAOMAMAAAAAA=")
-format = 3
-mix_rate = 16000
 
 [node name="BattleController" type="Node3D" unique_id=1144206247]
 script = ExtResource("1_npg4g")
@@ -662,7 +724,6 @@ texture = ExtResource("12_ltndh")
 centered = false
 hframes = 4
 vframes = 1
-frame = 1
 
 [node name="AttackMiss" parent="animation" unique_id=209050766 instance=ExtResource("14_jdcwr")]
 visible = false

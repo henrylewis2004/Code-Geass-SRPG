@@ -119,6 +119,7 @@ func canCamRot() -> bool:
 		curState == STATE.NONE 
 		|| curState == STATE.BATTLE
 		|| curState == STATE.GAME_OVER
+		|| curState == STATE.E_UNIT_CAM_CINEMATIC
 		)
 
 #weapon selection
@@ -765,7 +766,7 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 	
 	drawManager.cleanLos()
 
-	battleCam.moveToGridPos(Vector3(attacker.getGridPos().x,0,attacker.getGridPos().y), 5)
+	battleCam.moveToGridPos(Vector3(defender.getGridPos().x,0,defender.getGridPos().y), 5)
 	await battleCam.cinematicMoveFinished
 
 	#ai choose weapon
@@ -777,6 +778,8 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 	attackTimer.start(0.5)
 	await attackTimer.timeout
+	
+
 
 	if attacker.getEquippedWeapon() != null:
 	#	curState = STATE.BATTLE
@@ -793,11 +796,10 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 	turnManager.unitAttacked(attacker.getEquippedWeapon().getWeaponID())
 
 	#enemy turn
-	battleCam.moveToGridPos(Vector3(defender.getGridPos().x,0,defender.getGridPos().y),5)
-	await battleCam.cinematicMoveFinished
-
 	#check if dead
 	if !defender.isDestroyed():
+		battleCam.moveToGridPos(Vector3(attacker.getGridPos().x,0,attacker.getGridPos().y),5)
+		await battleCam.cinematicMoveFinished
 		#ai attack
 		if defender.getEquippedWeapon() != null && defender.getAp() >= defender.getEquippedWeapon().getApCost():
 			attackTimer.start(0.5)
@@ -814,12 +816,22 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 			defender.incTurnTimer(turnManager.getAttackTimeCost(defender.getEquippedWeapon().getWeaponID(),true))
 
 			if attacker.isDestroyed():
-				battleCam.moveToGridPos(Vector3(attacker.getGridPos().x,0,attacker.getGridPos().y),5)
-				await battleCam.cinematicMoveFinished
-
 				killUnit(attacker)
 
 				attackTimer.start(1)
+				await attackTimer.timeout
+
+				battleCam.moveToGridPos(Vector3(defender.getGridPos().x,0,defender.getGridPos().y),5 * 2)
+				await battleCam.cinematicMoveFinished
+
+				attackTimer.start(0.5) # might need changing
+				await attackTimer.timeout
+
+			else:
+				battleCam.moveToGridPos(Vector3(attacker.getGridPos().x,0,attacker.getGridPos().y),5 * 2)
+				await battleCam.cinematicMoveFinished
+
+				attackTimer.start(0.5) # might need changing
 				await attackTimer.timeout
 
 
@@ -827,6 +839,12 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 		killUnit(defender)
 
 		attackTimer.start(1) # might need changing
+		await attackTimer.timeout
+
+		battleCam.moveToGridPos(Vector3(attacker.getGridPos().x,0,attacker.getGridPos().y),5 * 2)
+		await battleCam.cinematicMoveFinished
+
+		attackTimer.start(0.5) # might need changing
 		await attackTimer.timeout
 		
 	

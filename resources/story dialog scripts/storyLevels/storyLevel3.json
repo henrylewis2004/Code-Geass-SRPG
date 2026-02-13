@@ -1,11 +1,33 @@
 {
 	"character_dictionary": {
-		"kallen": "pilot_angry3",
-		"jeremiah": "default",
-		"villetta": "default",
+		"Kallen": [
+			"pilot_angry3",
+		],
+		"Jeremiah": [
+			"pilot_default",
+			"pilot_happy",
+		],
+		"Villetta": [
+			"pilot_angry1",
+			"pilot_angry2",
+		],
+		"Naoto": [
+			"default",
+		],
 	},
 
 	"background_dictionary": {
+		"j_entrance1":"area11/level3/jeremiah_entrance1",
+		"j_entrance2":"area11/level3/jeremiah_entrance2",
+		"j_entrance3":"area11/level3/jeremiah_entrance3",
+
+		"knightmare_fight": "area11/level3/knightmare_fight",
+
+		"v_entrance1":"area11/level3/villetta_entrance",
+		"v_entrance2":"area11/level3/villetta_entrance2",
+
+		"j_smile":"area11/level3/jeremiah_smile",
+		
 	},
 
 	"music_dictionary": {
@@ -17,17 +39,197 @@
 	"scene": [
 		{
 			"animation": null,
-			"background": null,
+			"background": "j_entrance1",
+			"lines": [
+				{
+					"name": "Jeremiah",
+					"display name": null,
+					"emotion": "pilot_default",
+					"text": "The rest of you back off!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+				{
+					"name": "Jeremiah",
+					"display name": null,
+					"emotion": "pilot_default",
+					"text": "I'll take this guy!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+			]
+		},
+		{
+			"animation": null,
+			"background": "j_entrance2",
+			"lines": [
+				{
+					"name": "Jeremiah",
+					"display name": null,
+					"emotion": "pilot_default",
+					"text": "I can only assume you've dug that obselete relic out of a scrap heap",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+				{
+					"name": "Jeremiah",
+					"display name": null,
+					"emotion": "pilot_default",
+					"text": "An over the hill Glasgow is no match for a Sutherland!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+			]
+		},
+		{
+			"animation": null,
+			"background": "j_entrance3",
+			"lines": [
+				{
+					"name": "Jeremiah",
+					"display name": null,
+					"emotion": "pilot_default",
+					"text": "Not to mention a filthy 11 who spurns the compassion of our GLORIOUS Emperor!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+				{
+					"name": "Naoto",
+					"display name": null,
+					"emotion": "default",
+					"text": "Kallen!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+				{
+					"name": "Naoto",
+					"display name": null,
+					"emotion": "default",
+					"text": "We've got to split up! Both of us can't risk being killed!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+				{
+					"name": "Naoto",
+					"display name": null,
+					"emotion": "default",
+					"text": "RUN FOR IT!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+				{
+					"name": "Kallen",
+					"display name": null,
+					"emotion": "pilot_angry3",
+					"text": "BUT!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+			]
+		},
+		{
+			"animation": null,
+			"background": "v_entrance1",
+			"lines": [
+				{
+					"name": "Villetta",
+					"display name": null,
+					"emotion": "pilot_angry2",
+					"text": "Well what do we have here...",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+				{
+					"name": "Naoto",
+					"display name": null,
+					"emotion": "default",
+					"text": "Ugh...",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+			]
+		},
+		{
+			"animation": null,
+			"background": "v_entrance2",
+			"lines": [
+				{
+					"name": "Naoto",
+					"display name": null,
+					"emotion": "default",
+					"text": "Good luck Kallen...",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+				{
+					"name": "Villetta",
+					"display name": null,
+					"emotion": "pilot_angry2",
+					"text": "Another simple minded 11",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+			]
+		},
+		{
+			"animation": null,
+			"background": "knightmare_fight",
 			"lines": [
 				{
 					"name": "Kallen",
 					"display name": null,
 					"emotion": "pilot_angry3",
-					"text": "ALL RIGHT!!",
+					"text": "No way!!",
 					"text_speed": "def",
 					"sfx": null,
 					"music": null,
-				}
+				},
+				{
+					"name": "Kallen",
+					"display name": null,
+					"emotion": "pilot_angry3",
+					"text": "The arm's stuck!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+				{
+					"name": "Jeremiah",
+					"display name": null,
+					"emotion": "pilot_default",
+					"text": "Second hand JUNK!!",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
+			]
+		},
+		{
+			"animation": null,
+			"background": "j_smile",
+			"lines": [
+				{
+					"name": "Jeremiah",
+					"display name": null,
+					"emotion": "NONE",
+					"text": "I'll admit I like your spirit, HOWEVER...",
+					"text_speed": "def",
+					"sfx": null,
+					"music": null,
+				},
 			]
 		},
 	]

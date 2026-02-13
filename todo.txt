@@ -1,10 +1,15 @@
 mechanics:
-	> add unit artworko
-		> kallen face
+	> add death animation
+		> camera swirl
+		> explosion sound
+		> smoke?
+
+	> add unit artworks
 
 	> add skybox
 
 	> add attack animatino for abilities
+		> sound
 
 	> psx shader?
 		> lighting
@@ -12,30 +17,13 @@ mechanics:
 
 	> fix turn timer
 
-	> add sound affects to everything
-		> select 7/6 for item/ability
-	> ability animaiton
-		> sound
 	> attack animation
-		> plays animation x
-			> make animation	x
-		> sound				x
-
-		> particle affects
+		> add other weapons
 		> hit animation
-			> particle is red / yellow
-		> miss animation
-			> particle is gray
+			> particle affects
 			
 
 
-	> add win conditions
-		> specific unit killed
-		> hp level for unit reached
-		> reach certain grid position
-		> survive number of turns
-
-		> lose conditions
 
 	> status screen
 		> show current status affects

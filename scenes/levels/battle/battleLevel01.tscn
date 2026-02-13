@@ -3,9 +3,12 @@
 [ext_resource type="Script" uid="uid://bslgkjxrxeq56" path="res://resources/scripts/level.gd" id="1_gl8n8"]
 [ext_resource type="PackedScene" uid="uid://bm1sq66703pp4" path="res://scenes/game logic/battle/battleController.tscn" id="2_q7gq7"]
 [ext_resource type="PackedScene" uid="uid://k4cewou3a7w4" path="res://scenes/game objects/units/units/kallen.tscn" id="3_fiw7c"]
+[ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/weapons/Mg Gun.tscn" id="4_7nq0b"]
 [ext_resource type="PackedScene" uid="uid://ch23ifeu1601i" path="res://scenes/game objects/units/britannia/britHeli.tscn" id="4_56cp5"]
+[ext_resource type="PackedScene" uid="uid://qqotgxb0yw8c" path="res://scenes/game objects/weapons/arm_punch.tscn" id="5_2lpp0"]
 [ext_resource type="MeshLibrary" uid="uid://cqyuudpk2wiml" path="res://assets/3d/gridmaps/col_gridmap.tres" id="5_gl8n8"]
 [ext_resource type="Texture2D" uid="uid://b7uqbq5sqlxkp" path="res://assets/2d/backgrounds/black.png" id="6_2lpp0"]
+[ext_resource type="PackedScene" uid="uid://mv30iklrcsps" path="res://scenes/game objects/item-abilities/abilities/ability_attack/slash_harken.tscn" id="6_g3mun"]
 [ext_resource type="Texture2D" uid="uid://e5eki7fi5r1i" path="res://assets/2d/backgrounds/area11/japan.png" id="7_q7gq7"]
 
 [sub_resource type="Animation" id="Animation_a5oht"]
@@ -124,6 +127,17 @@ mapSize = Vector2(9, 20)
 [node name="Kallen" parent="BattleController/battleUnits/playerUnits" parent_id_path=PackedInt32Array(263131413, 1425858481) index="0" unique_id=1844558109 instance=ExtResource("3_fiw7c")]
 set_position = Vector3(4, 0, 3)
 
+[node name="baseUnit" parent="BattleController/battleUnits/playerUnits/Kallen" index="0" unique_id=1237027531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
+[node name="MgGun" parent="BattleController/battleUnits/playerUnits/Kallen/baseUnit/weapons" parent_id_path=PackedInt32Array(1844558109, 1237027531, 452410782) index="0" unique_id=1575076045 node_paths=PackedStringArray("equipPart") instance=ExtResource("4_7nq0b")]
+equipPart = NodePath("../../bodyparts/R arm")
+
+[node name="arm_punch" parent="BattleController/battleUnits/playerUnits/Kallen/baseUnit/weapons" parent_id_path=PackedInt32Array(1844558109, 1237027531, 452410782) index="1" unique_id=1591838956 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_2lpp0")]
+equipPart = NodePath("../../bodyparts/L arm")
+
+[node name="SlashHarken" parent="BattleController/battleUnits/playerUnits/Kallen/baseUnit/inventory/abilities" parent_id_path=PackedInt32Array(1844558109, 1237027531, 377543360) index="0" unique_id=438303092 instance=ExtResource("6_g3mun")]
+
 [node name="BrittaniaHelicopter" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="0" unique_id=1649521096 instance=ExtResource("4_56cp5")]
 set_position = Vector3(6, 0, 15)
 
@@ -201,6 +215,8 @@ environment = SubResource("Environment_gl8n8")
 [connection signal="sceneOver" from="BattleController" to="." method="sceneOver_emit"]
 
 [editable path="BattleController"]
+[editable path="BattleController/battleUnits/playerUnits/Kallen"]
+[editable path="BattleController/battleUnits/playerUnits/Kallen/baseUnit"]
 [editable path="BattleController/ui/AllyUnitGui"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox/action/VBoxContainer/topLabel"]

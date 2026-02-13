@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bhc5fglb8w0u6" path="res://scenes/game objects/units/britannia/jeremiah.tscn" id="4_6fybn"]
 [ext_resource type="PackedScene" uid="uid://crdtjoag0s37v" path="res://scenes/game objects/units/britannia/villetta.tscn" id="5_al3nk"]
 [ext_resource type="MeshLibrary" uid="uid://cqyuudpk2wiml" path="res://assets/3d/gridmaps/col_gridmap.tres" id="5_foehu"]
+[ext_resource type="PackedScene" uid="uid://qqotgxb0yw8c" path="res://scenes/game objects/weapons/arm_punch.tscn" id="5_wb73t"]
+[ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/weapons/Mg Gun.tscn" id="6_n8dmo"]
 [ext_resource type="Texture2D" uid="uid://b7uqbq5sqlxkp" path="res://assets/2d/backgrounds/black.png" id="6_wb73t"]
+[ext_resource type="Texture2D" uid="uid://e5eki7fi5r1i" path="res://assets/2d/backgrounds/area11/japan.png" id="8_al3nk"]
 
 [sub_resource type="Animation" id="Animation_a5oht"]
 length = 0.001
@@ -69,13 +72,21 @@ _data = {
 &"animIntro": SubResource("Animation_cl6q2")
 }
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_f4a6o"]
+panorama = ExtResource("8_al3nk")
+
+[sub_resource type="Sky" id="Sky_foehu"]
+sky_material = SubResource("PanoramaSkyMaterial_f4a6o")
+
+[sub_resource type="Environment" id="Environment_6fybn"]
+background_mode = 2
+sky = SubResource("Sky_foehu")
+ambient_light_color = Color(1, 1, 1, 1)
+
 [node name="battleLevel02" type="Node3D" unique_id=1961232284]
 script = ExtResource("1_td642")
-nextLevel_path = "res://scenes/levels/story scenes/testStoryScene.tscn"
+nextLevel_path = "res://scenes/levels/story scenes/story_endcredits.tscn"
 loadingScreen = false
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1049895303]
-transform = Transform3D(0.64679, 0.319903, -0.692333, 0, 0.907777, 0.419452, 0.762668, -0.271297, 0.587141, 0, 5.749, 0)
 
 [node name="Node" type="Node" parent="." unique_id=1791323925]
 
@@ -85,11 +96,32 @@ mapSize = Vector2(9, 20)
 [node name="Kallen" parent="BattleController/battleUnits/playerUnits" parent_id_path=PackedInt32Array(263131413, 1425858481) index="0" unique_id=1844558109 instance=ExtResource("3_al3nk")]
 set_position = Vector3(4, 0, 3)
 
+[node name="baseUnit" parent="BattleController/battleUnits/playerUnits/Kallen" index="0" unique_id=1237027531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
+
 [node name="jeremiah" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="0" unique_id=1183093597 instance=ExtResource("4_6fybn")]
 set_position = Vector3(5, 0, 13)
 
+[node name="baseUnit" parent="BattleController/battleUnits/enemyUnits/jeremiah" index="0" unique_id=1237027531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 13)
+
+[node name="arm_punch" parent="BattleController/battleUnits/enemyUnits/jeremiah/baseUnit/weapons" parent_id_path=PackedInt32Array(1183093597, 1237027531, 452410782) index="0" unique_id=1591838956 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_wb73t")]
+equipPart = NodePath("../../bodyparts/L arm")
+
+[node name="MgGun" parent="BattleController/battleUnits/enemyUnits/jeremiah/baseUnit/weapons" parent_id_path=PackedInt32Array(1183093597, 1237027531, 452410782) index="1" unique_id=1575076045 node_paths=PackedStringArray("equipPart") instance=ExtResource("6_n8dmo")]
+equipPart = NodePath("../../bodyparts/R arm")
+
 [node name="villetta" parent="BattleController/battleUnits/enemyUnits" parent_id_path=PackedInt32Array(263131413, 1344928099) index="1" unique_id=2028034031 instance=ExtResource("5_al3nk")]
 set_position = Vector3(2, 0, 15)
+
+[node name="baseUnit" parent="BattleController/battleUnits/enemyUnits/villetta" index="0" unique_id=1237027531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 15)
+
+[node name="arm_punch" parent="BattleController/battleUnits/enemyUnits/villetta/baseUnit/weapons" parent_id_path=PackedInt32Array(2028034031, 1237027531, 452410782) index="0" unique_id=1639133555 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_wb73t")]
+equipPart = NodePath("../../bodyparts/L arm")
+
+[node name="MgGun" parent="BattleController/battleUnits/enemyUnits/villetta/baseUnit/weapons" parent_id_path=PackedInt32Array(2028034031, 1237027531, 452410782) index="1" unique_id=989381485 node_paths=PackedStringArray("equipPart") instance=ExtResource("6_n8dmo")]
+equipPart = NodePath("../../bodyparts/R arm")
 
 [node name="BattleCam" parent="BattleController" index="1" unique_id=21586113]
 startingRot = 180.0
@@ -151,10 +183,19 @@ modulate = Color(1, 1, 1, 0)
 texture = ExtResource("6_wb73t")
 centered = false
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1562508667]
+environment = SubResource("Environment_6fybn")
+
 [connection signal="resetScene" from="BattleController" to="." method="resetScene_emit"]
 [connection signal="sceneOver" from="BattleController" to="." method="sceneOver_emit"]
 
 [editable path="BattleController"]
+[editable path="BattleController/battleUnits/playerUnits/Kallen"]
+[editable path="BattleController/battleUnits/playerUnits/Kallen/baseUnit"]
+[editable path="BattleController/battleUnits/enemyUnits/jeremiah"]
+[editable path="BattleController/battleUnits/enemyUnits/jeremiah/baseUnit"]
+[editable path="BattleController/battleUnits/enemyUnits/villetta"]
+[editable path="BattleController/battleUnits/enemyUnits/villetta/baseUnit"]
 [editable path="BattleController/ui/AllyUnitGui"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox"]
 [editable path="BattleController/ui/AllyUnitGui/base/MenuBox/action/VBoxContainer/topLabel"]

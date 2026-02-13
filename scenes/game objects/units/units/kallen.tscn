@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_7xprv"]
 [ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/baseUnit.tscn" id="3_7xprv"]
-[ext_resource type="PackedScene" uid="uid://qqotgxb0yw8c" path="res://scenes/game objects/weapons/arm_punch.tscn" id="4_ghykq"]
-[ext_resource type="PackedScene" uid="uid://mv30iklrcsps" path="res://scenes/game objects/item-abilities/abilities/ability_attack/slash_harken.tscn" id="5_cfnoi"]
-[ext_resource type="PackedScene" uid="uid://c8p5ylsgkn1dc" path="res://scenes/game objects/weapons/Mg Gun.tscn" id="5_cwe5n"]
 [ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="6_c5s2f"]
 [ext_resource type="Texture2D" uid="uid://drid2hopqya6a" path="res://assets/2d/ui/playerHp.png" id="7_chlvt"]
 
@@ -177,7 +174,6 @@ shader_parameter/dither_gamma = 10.0
 script = ExtResource("1_7xprv")
 
 [node name="baseUnit" parent="." unique_id=1237027531 instance=ExtResource("3_7xprv")]
-movesfx = "res://assets/sfx/sfx/ds_sfx/WAVE_SE066 (loop).wav"
 factionName = "JAPANESE TERRORIST"
 agilityStat = 20
 defenceStat = 8
@@ -197,14 +193,6 @@ totalHp = 120
 
 [node name="legs" parent="baseUnit/bodyparts" parent_id_path=PackedInt32Array(1237027531, 1950766110) index="3" unique_id=704321938]
 totalHp = 60
-
-[node name="MgGun" parent="baseUnit/weapons" parent_id_path=PackedInt32Array(1237027531, 452410782) index="0" unique_id=1311324289 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_cwe5n")]
-equipPart = NodePath("../../bodyparts/R arm")
-
-[node name="arm_punch" parent="baseUnit/weapons" parent_id_path=PackedInt32Array(1237027531, 452410782) index="1" unique_id=1591838956 node_paths=PackedStringArray("equipPart") instance=ExtResource("4_ghykq")]
-equipPart = NodePath("../../bodyparts/L arm")
-
-[node name="SlashHarken" parent="baseUnit/inventory/abilities" parent_id_path=PackedInt32Array(1237027531, 377543360) index="0" unique_id=438303092 instance=ExtResource("5_cfnoi")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="baseUnit/PathFollow3D/unitCollider" parent_id_path=PackedInt32Array(1237027531, 1641843474) index="1" unique_id=920641669]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
