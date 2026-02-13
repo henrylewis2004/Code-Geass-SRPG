@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://crk4o8v3ndkoy"]
+[gd_scene format=3 uid="uid://crk4o8v3ndkoy"]
 
 [ext_resource type="Script" uid="uid://cngpmqfh6ht6d" path="res://resources/scripts/battle/battleUnitGui.gd" id="1_oy4te"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="2_2nu32"]
-[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="3_dqtrq"]
+[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/battle/main/kallen/kallen1.png" id="3_dqtrq"]
 [ext_resource type="FontFile" uid="uid://dovir8dg2ksv5" path="res://assets/fonts/dpcomic.ttf" id="4_vo6s2"]
 [ext_resource type="FontFile" uid="uid://crpmyv2e2r4wr" path="res://assets/fonts/Xirod.otf" id="5_al1sb"]
 [ext_resource type="Texture2D" uid="uid://4the1wii17g4" path="res://assets/2d/ui/unitHp_back.png" id="6_2nu32"]
@@ -13,7 +13,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nfb6r"]
 size = Vector2(20, 20)
 
-[node name="EnemyUnitGui" type="Control"]
+[node name="EnemyUnitGui" type="Control" unique_id=173941102]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oy4te")
 
-[node name="base" type="Control" parent="."]
+[node name="base" type="Control" parent="." unique_id=899365385]
 visible = false
 layout_mode = 1
 anchor_left = 0.042
@@ -36,7 +36,7 @@ offset_bottom = 1.95999
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="backImage" type="TextureRect" parent="base"]
+[node name="backImage" type="TextureRect" parent="base" unique_id=18795050]
 layout_mode = 0
 anchor_top = 0.032
 anchor_right = 1.0
@@ -48,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_2nu32")
 
-[node name="characterImage" type="TextureRect" parent="base"]
+[node name="characterImage" type="TextureRect" parent="base" unique_id=832048622]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.03
@@ -63,9 +63,8 @@ grow_vertical = 2
 texture = ExtResource("3_dqtrq")
 expand_mode = 1
 stretch_mode = 5
-flip_h = true
 
-[node name="nameText" type="RichTextLabel" parent="base"]
+[node name="nameText" type="RichTextLabel" parent="base" unique_id=340109297]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.032
@@ -84,7 +83,7 @@ text = "KALLEN"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="apText" type="RichTextLabel" parent="base"]
+[node name="apText" type="RichTextLabel" parent="base" unique_id=1376935193]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.035
@@ -101,7 +100,7 @@ scroll_active = false
 tab_size = 0
 horizontal_alignment = 2
 
-[node name="hp" type="Control" parent="base"]
+[node name="hp" type="Control" parent="base" unique_id=577677923]
 layout_mode = 1
 anchor_top = 0.033
 anchor_right = 0.189
@@ -111,7 +110,7 @@ offset_top = 13.954
 offset_right = 311.84
 offset_bottom = -16.0
 
-[node name="rArmHp" type="TextureProgressBar" parent="base/hp"]
+[node name="rArmHp" type="TextureProgressBar" parent="base/hp" unique_id=694997937]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -124,7 +123,7 @@ value = 100.0
 texture_under = ExtResource("6_2nu32")
 texture_progress = ExtResource("6_oy4te")
 
-[node name="lArmHp" type="TextureProgressBar" parent="base/hp"]
+[node name="lArmHp" type="TextureProgressBar" parent="base/hp" unique_id=1656289867]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -137,7 +136,7 @@ value = 100.0
 texture_under = ExtResource("6_2nu32")
 texture_progress = ExtResource("6_oy4te")
 
-[node name="bodyHp" type="TextureProgressBar" parent="base/hp"]
+[node name="bodyHp" type="TextureProgressBar" parent="base/hp" unique_id=1811397057]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -150,7 +149,7 @@ value = 100.0
 texture_under = ExtResource("6_2nu32")
 texture_progress = ExtResource("6_oy4te")
 
-[node name="legsHp" type="TextureProgressBar" parent="base/hp"]
+[node name="legsHp" type="TextureProgressBar" parent="base/hp" unique_id=231104577]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -163,7 +162,7 @@ value = 100.0
 texture_under = ExtResource("6_2nu32")
 texture_progress = ExtResource("6_oy4te")
 
-[node name="expand" type="Control" parent="."]
+[node name="expand" type="Control" parent="." unique_id=149849341]
 visible = false
 layout_mode = 1
 anchor_left = 0.212
@@ -175,14 +174,14 @@ offset_top = -3.03999
 offset_right = 218.16
 offset_bottom = 3.09
 
-[node name="backImage" type="TextureRect" parent="expand"]
+[node name="backImage" type="TextureRect" parent="expand" unique_id=439726308]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("2_2nu32")
 
-[node name="weaponInfo_dmg" type="RichTextLabel" parent="expand"]
+[node name="weaponInfo_dmg" type="RichTextLabel" parent="expand" unique_id=1503357804]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -200,7 +199,7 @@ scroll_active = false
 tab_size = 0
 horizontal_alignment = 2
 
-[node name="weaponImg" type="TextureRect" parent="expand"]
+[node name="weaponImg" type="TextureRect" parent="expand" unique_id=1618394735]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -211,7 +210,7 @@ grow_vertical = 2
 texture = ExtResource("8_krnuw")
 flip_h = true
 
-[node name="weaponInfo_range" type="RichTextLabel" parent="expand"]
+[node name="weaponInfo_range" type="RichTextLabel" parent="expand" unique_id=2139166754]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -229,7 +228,7 @@ scroll_active = false
 tab_size = 0
 horizontal_alignment = 2
 
-[node name="weaponTypeImg" type="TextureRect" parent="expand"]
+[node name="weaponTypeImg" type="TextureRect" parent="expand" unique_id=1973766625]
 layout_mode = 0
 offset_left = 5.00001
 offset_top = 4.0

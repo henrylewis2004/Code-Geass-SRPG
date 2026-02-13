@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_70e20"]
 [ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/baseUnit.tscn" id="2_p5t03"]
+[ext_resource type="Texture2D" uid="uid://baek8fv7dg4cd" path="res://assets/2d/characters/battle/main/jeremiah/jer2.png" id="3_j26k8"]
+[ext_resource type="Texture2D" uid="uid://bbjq58j3a03xd" path="res://assets/2d/characters/battle/status/jer2.png" id="4_j26k8"]
 [ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="6_asnk6"]
 [ext_resource type="Texture2D" uid="uid://dtts7dl70u3o6" path="res://assets/2d/ui/enemyHp.png" id="7_ww2d1"]
 
@@ -176,7 +178,9 @@ script = ExtResource("1_70e20")
 [node name="baseUnit" parent="." unique_id=1237027531 instance=ExtResource("2_p5t03")]
 team = 1
 char_name = "Jeremiah"
+charImage = ExtResource("3_j26k8")
 full_name = "Jeremiah Gottwald"
+status_charImg = ExtResource("4_j26k8")
 factionName = "Britannian Empire"
 agilityStat = 20
 defenceStat = 8

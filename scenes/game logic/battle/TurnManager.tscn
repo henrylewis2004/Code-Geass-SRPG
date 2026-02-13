@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b044aembwt1bj"]
+[gd_scene format=3 uid="uid://b044aembwt1bj"]
 
 [ext_resource type="Script" uid="uid://2joeo10dyfs5" path="res://scripts/gameLogic/battle/turnManager.gd" id="1_534s0"]
-[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="2_y87lx"]
+[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/battle/main/kallen/kallen1.png" id="2_y87lx"]
 
 [node name="TurnManager" type="Node"]
 script = ExtResource("1_534s0")

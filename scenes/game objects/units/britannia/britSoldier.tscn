@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://xgdy5a12w6f8"]
 
 [ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_m57m1"]
-[ext_resource type="Texture2D" uid="uid://g15ec3ye31jo" path="res://assets/2d/characters/enemy/britannia/npc/britSoldier1.png" id="2_lm43b"]
+[ext_resource type="Texture2D" uid="uid://djfkxkdy2jibt" path="res://assets/2d/characters/battle/npc/britSold.png" id="3_3kayn"]
+[ext_resource type="Texture2D" uid="uid://bfei5p4s54eek" path="res://assets/2d/characters/battle/status/britSold.png" id="4_ams47"]
 [ext_resource type="PackedScene" uid="uid://b1pswkcy0x2kx" path="res://scenes/game objects/units/stanUnit.tscn" id="5_ams47"]
 [ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/weapons/smg.tscn" id="5_qqb8i"]
 
@@ -17,8 +18,9 @@ script = ExtResource("1_m57m1")
 moveRange = 2
 team = 1
 char_name = "Soldier"
-charImage = ExtResource("2_lm43b")
+charImage = ExtResource("3_3kayn")
 full_name = "Soldier"
+status_charImg = ExtResource("4_ams47")
 factionName = "Britannian Empire"
 
 [node name="Smg" parent="stanUnit/weapons" parent_id_path=PackedInt32Array(681919545, 279840207) index="0" unique_id=1537959719 node_paths=PackedStringArray("equipPart") instance=ExtResource("5_qqb8i")]

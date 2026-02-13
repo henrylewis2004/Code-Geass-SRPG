@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtcrttgfpy0si"
-path="res://.godot/imported/lelouch1.png-bd4a1c7d31f5c840e612f4d433c1e4fb.ctex"
+uid="uid://dxwfn6q1aqv4e"
+path="res://.godot/imported/jer1.png-a096bb75e7e0f868c590bcf219b7f333.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/main/lelouch/lelouch1.png"
-dest_files=["res://.godot/imported/lelouch1.png-bd4a1c7d31f5c840e612f4d433c1e4fb.ctex"]
+source_file="res://assets/2d/characters/battle/main/jeremiah/jer1.png"
+dest_files=["res://.godot/imported/jer1.png-a096bb75e7e0f868c590bcf219b7f333.ctex"]
 
 [params]
 

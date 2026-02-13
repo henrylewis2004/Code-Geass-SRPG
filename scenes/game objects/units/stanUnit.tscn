@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1pswkcy0x2kx"]
 
 [ext_resource type="Script" uid="uid://clr1kavhyrbu7" path="res://scripts/units/stanUNit.gd" id="1_7478y"]
-[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="2_lnjvq"]
+[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/battle/main/kallen/kallen1.png" id="2_lnjvq"]
 [ext_resource type="Script" uid="uid://cx86q4auwr5l5" path="res://resources/scripts/battle/BaseBodypart.gd" id="3_oqhg4"]
 [ext_resource type="PackedScene" uid="uid://04xva0vfqr6g" path="res://scenes/game logic/battle/unitAttackPlayer.tscn" id="5_ijl1s"]
 

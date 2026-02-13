@@ -125,376 +125,623 @@
 [ext_resource type="ArrayMesh" uid="uid://ihopeli4e26h" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-wide-type-c.obj" id="123_x6eou"]
 [ext_resource type="ArrayMesh" uid="uid://cjmvxrbus4bqw" path="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/window-wide-type-d.obj" id="124_owtiu"]
 
-[node name="ColGridmapModels" type="GridMap" unique_id=262946309]
+[node name="ColGridmapModels" type="Node" unique_id=1700917400]
 
 [node name="BalconyLadderBottom" type="MeshInstance3D" parent="." unique_id=1947148690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 mesh = ExtResource("1_tsb24")
 
 [node name="BalconyLadderTop" type="MeshInstance3D" parent="." unique_id=430715535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("2_fqdj5")
 
 [node name="BalconyTypeA" type="MeshInstance3D" parent="." unique_id=1918685283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("3_tjg4c")
 
 [node name="CliffCorner" type="MeshInstance3D" parent="." unique_id=1502457490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("4_n53pc")
 
 [node name="CliffSide" type="MeshInstance3D" parent="." unique_id=2056196074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("5_dauc3")
 
 [node name="DetailAwningSmall" type="MeshInstance3D" parent="." unique_id=2109629713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("6_gl37a")
 
 [node name="DetailAwningWide" type="MeshInstance3D" parent="." unique_id=1440967445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("7_1sl3h")
 
 [node name="DetailBarrierStrongDamaged" type="MeshInstance3D" parent="." unique_id=1558925437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("8_6sk8t")
 
 [node name="DetailBarrierStrongTypeA" type="MeshInstance3D" parent="." unique_id=1142898002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("9_2k2a8")
 
 [node name="DetailBarrierStrongTypeB" type="MeshInstance3D" parent="." unique_id=391754482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("10_6fa0v")
 
 [node name="DetailBarrierTypeA" type="MeshInstance3D" parent="." unique_id=1807336279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("11_2ikqg")
 
 [node name="DetailBarrierTypeB" type="MeshInstance3D" parent="." unique_id=1291455375]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 2, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("12_fvhyt")
 
 [node name="DetailBeam" type="MeshInstance3D" parent="." unique_id=1070276486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("13_56pnr")
 
 [node name="DetailBench" type="MeshInstance3D" parent="." unique_id=2129956898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("14_gx3wi")
 
 [node name="DetailBlock" type="MeshInstance3D" parent="." unique_id=1115398035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("15_kiy4x")
 
 [node name="DetailBricksTypeA" type="MeshInstance3D" parent="." unique_id=2016036142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("16_8v0cc")
 
 [node name="DetailBricksTypeB" type="MeshInstance3D" parent="." unique_id=389676147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("17_l57q3")
 
 [node name="DetailCablesTypeA" type="MeshInstance3D" parent="." unique_id=193143709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("18_04bca")
 
 [node name="DetailCablesTypeB" type="MeshInstance3D" parent="." unique_id=2134996342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("19_6xwyg")
 
 [node name="DetailDumpsterClosed" type="MeshInstance3D" parent="." unique_id=75238736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("20_yf1nh")
 
 [node name="DetailDumpsterOpen" type="MeshInstance3D" parent="." unique_id=1353214384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("21_028nl")
 
 [node name="DetailLightDouble" type="MeshInstance3D" parent="." unique_id=1709742701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("22_ejhgy")
 
 [node name="DetailLightSingle" type="MeshInstance3D" parent="." unique_id=494576663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("23_iml0p")
 
 [node name="DetailLightTraffic" type="MeshInstance3D" parent="." unique_id=1077716359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("24_7n67m")
 
 [node name="DoorTypeA" type="MeshInstance3D" parent="." unique_id=1406685290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("25_ji071")
 
 [node name="DoorTypeB" type="MeshInstance3D" parent="." unique_id=2108732299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("26_nvs1o")
 
 [node name="GrassCornerInner" type="MeshInstance3D" parent="." unique_id=582001370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("27_8ubbr")
 
 [node name="GrassCorner" type="MeshInstance3D" parent="." unique_id=1863555273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("28_su7k0")
 
 [node name="GrassHill" type="MeshInstance3D" parent="." unique_id=22037458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("29_sh5nc")
 
 [node name="Grass" type="MeshInstance3D" parent="." unique_id=514381107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("30_uu1vg")
 
 [node name="PalletSmall" type="MeshInstance3D" parent="." unique_id=1343250219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("31_gx21n")
 
 [node name="Pallet" type="MeshInstance3D" parent="." unique_id=927890765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("32_sd1fn")
 
 [node name="Planks" type="MeshInstance3D" parent="." unique_id=1917616223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("33_5t1ki")
 
 [node name="RoadAsphaltCenter" type="MeshInstance3D" parent="." unique_id=2066457219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("34_cnw1q")
 
 [node name="RoadAsphaltCornerInner" type="MeshInstance3D" parent="." unique_id=269080820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("35_rtdsp")
 
 [node name="RoadAsphaltCornerOuter" type="MeshInstance3D" parent="." unique_id=453930901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("36_gskvm")
 
 [node name="RoadAsphaltCorner" type="MeshInstance3D" parent="." unique_id=1872117444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("37_gswfj")
 
 [node name="RoadAsphaltDamaged" type="MeshInstance3D" parent="." unique_id=1701458870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("38_d0ska")
 
 [node name="RoadAsphaltPavement" type="MeshInstance3D" parent="." unique_id=84733127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("39_ebn5s")
 
 [node name="RoadAsphaltSide" type="MeshInstance3D" parent="." unique_id=521710391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("40_r861g")
 
 [node name="RoadAsphaltStraight" type="MeshInstance3D" parent="." unique_id=468777818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("41_8o4pk")
 
 [node name="RoadDirtCenter" type="MeshInstance3D" parent="." unique_id=855196250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("42_viaod")
 
 [node name="RoadDirtCornerInner" type="MeshInstance3D" parent="." unique_id=1207887275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("43_wctk6")
 
 [node name="RoadDirtCornerOuter" type="MeshInstance3D" parent="." unique_id=206623910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("44_6vcrt")
 
 [node name="RoadDirtCorner" type="MeshInstance3D" parent="." unique_id=1182632861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("45_ytw0q")
 
 [node name="RoadDirtDamaged" type="MeshInstance3D" parent="." unique_id=370455992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("46_wd57v")
 
 [node name="RoadDirtPavement" type="MeshInstance3D" parent="." unique_id=493664056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("47_06wah")
 
 [node name="RoadDirtSide" type="MeshInstance3D" parent="." unique_id=327270097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("48_1v15v")
 
 [node name="RoadDirtStraight" type="MeshInstance3D" parent="." unique_id=749499865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("49_v5ull")
 
 [node name="RoadDirtTile" type="MeshInstance3D" parent="." unique_id=1576035442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("50_2bqa5")
 
 [node name="RoofMetalPoles" type="MeshInstance3D" parent="." unique_id=1430958045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("51_8qdp3")
 
 [node name="RoofMetalTypeA" type="MeshInstance3D" parent="." unique_id=735162315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("52_187lf")
 
 [node name="RoofMetalTypeB" type="MeshInstance3D" parent="." unique_id=1485299068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("53_jl1jp")
 
 [node name="ScaffoldingFloor" type="MeshInstance3D" parent="." unique_id=1997360283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("54_f2gix")
 
 [node name="ScaffoldingPoles" type="MeshInstance3D" parent="." unique_id=2006278461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("55_moihf")
 
 [node name="ScaffoldingStructure" type="MeshInstance3D" parent="." unique_id=1015222334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("56_ycw0g")
 
 [node name="TreeLarge" type="MeshInstance3D" parent="." unique_id=1235643823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("57_2vn41")
 
 [node name="TreeParkLarge" type="MeshInstance3D" parent="." unique_id=762509668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("58_yg4yt")
 
 [node name="TreeParkPineLarge" type="MeshInstance3D" parent="." unique_id=1406669999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("59_rl3lv")
 
 [node name="TreePineLarge" type="MeshInstance3D" parent="." unique_id=2024980056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("60_hoqh3")
 
 [node name="TreePineSmall" type="MeshInstance3D" parent="." unique_id=17782107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("61_eyfc2")
 
 [node name="TreeShrub" type="MeshInstance3D" parent="." unique_id=182628832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("62_o2aa8")
 
 [node name="TreeSmall" type="MeshInstance3D" parent="." unique_id=981939644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("63_pwnfu")
 
 [node name="TruckFlat" type="MeshInstance3D" parent="." unique_id=1708429844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("64_k08qc")
 
 [node name="TruckGreenCargo" type="MeshInstance3D" parent="." unique_id=197577535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("65_w5yks")
 
 [node name="TruckGreen" type="MeshInstance3D" parent="." unique_id=637680432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("66_ldkgb")
 
 [node name="TruckGreyCargo" type="MeshInstance3D" parent="." unique_id=231913523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("67_saspd")
 
 [node name="TruckGrey" type="MeshInstance3D" parent="." unique_id=180880400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("68_8cvol")
 
 [node name="WallAColumnPainted" type="MeshInstance3D" parent="." unique_id=796052955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("69_m7xg7")
 
 [node name="WallAColumn" type="MeshInstance3D" parent="." unique_id=1286032659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("70_gr3v5")
 
 [node name="WallACornerPainted" type="MeshInstance3D" parent="." unique_id=1188539437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("71_6dvd1")
 
 [node name="WallACorner" type="MeshInstance3D" parent="." unique_id=993437906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("72_jq6ob")
 
 [node name="WallADetailPainted" type="MeshInstance3D" parent="." unique_id=466921023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("73_cb343")
 
 [node name="WallADetail" type="MeshInstance3D" parent="." unique_id=1384638251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("74_j5bgr")
 
 [node name="WallADiagonal" type="MeshInstance3D" parent="." unique_id=1281253554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("75_f8rv4")
 
 [node name="WallADoor" type="MeshInstance3D" parent="." unique_id=1461229155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("76_6ld70")
 
 [node name="WallAFlatGarage" type="MeshInstance3D" parent="." unique_id=1770657372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("77_5u567")
 
 [node name="WallAFlatPainted" type="MeshInstance3D" parent="." unique_id=537892566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("78_07sbs")
 
 [node name="WallAFlatWindow" type="MeshInstance3D" parent="." unique_id=111085785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("79_vpo1v")
 
 [node name="WallAFlat" type="MeshInstance3D" parent="." unique_id=1863260397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("80_q4h2h")
 
 [node name="WallAGarage" type="MeshInstance3D" parent="." unique_id=818591613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("81_w23wd")
 
 [node name="WallALowPainted" type="MeshInstance3D" parent="." unique_id=1132310724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("82_yqucr")
 
 [node name="WallALow" type="MeshInstance3D" parent="." unique_id=1744113896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("83_rlr0c")
 
 [node name="WallAOpen" type="MeshInstance3D" parent="." unique_id=1823059706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("84_lbh88")
 
 [node name="WallAPaintedDiagonal" type="MeshInstance3D" parent="." unique_id=2020040977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("85_mvel5")
 
 [node name="WallAPainted" type="MeshInstance3D" parent="." unique_id=1127064870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("86_2fgks")
 
 [node name="WallARoofDetailed" type="MeshInstance3D" parent="." unique_id=493506809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("87_4knwq")
 
 [node name="WallARoofSlantDetailed" type="MeshInstance3D" parent="." unique_id=241049055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("88_w8v4d")
 
 [node name="WallARoofSlant" type="MeshInstance3D" parent="." unique_id=675660927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("89_1iiah")
 
 [node name="WallARoof" type="MeshInstance3D" parent="." unique_id=1405879176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("90_belc6")
 
 [node name="WallAWindow" type="MeshInstance3D" parent="." unique_id=91508538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("91_be7mk")
 
 [node name="WallA" type="MeshInstance3D" parent="." unique_id=2023378735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("92_o3wus")
 
 [node name="WallBColumn" type="MeshInstance3D" parent="." unique_id=1212014530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("93_v2e8j")
 
 [node name="WallBCorner" type="MeshInstance3D" parent="." unique_id=2028148244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("94_nwaxi")
 
 [node name="WallBDetailPainted" type="MeshInstance3D" parent="." unique_id=21559681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("95_uhgho")
 
 [node name="WallBDiagonal" type="MeshInstance3D" parent="." unique_id=1714150867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("96_wlya1")
 
 [node name="WallBDoor" type="MeshInstance3D" parent="." unique_id=79829668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("97_4i45i")
 
 [node name="WallBFlatGarage" type="MeshInstance3D" parent="." unique_id=1493506375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("98_au607")
 
 [node name="WallBFlatWindow" type="MeshInstance3D" parent="." unique_id=1996667248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("99_qnnau")
 
 [node name="WallBFlat" type="MeshInstance3D" parent="." unique_id=1624983518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("100_mvdkp")
 
 [node name="WallBGarage" type="MeshInstance3D" parent="." unique_id=1611936679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("101_ueogm")
 
 [node name="WallBLow" type="MeshInstance3D" parent="." unique_id=1069870053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("102_16jqp")
 
 [node name="WallBOpen" type="MeshInstance3D" parent="." unique_id=887867565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("103_ydw7p")
 
 [node name="WallBRoofDetailed" type="MeshInstance3D" parent="." unique_id=771855093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("104_0f50q")
 
 [node name="WallBRoofSlantDetailed" type="MeshInstance3D" parent="." unique_id=978746673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("105_0bsfh")
 
 [node name="WallBRoofSlant" type="MeshInstance3D" parent="." unique_id=1769284175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("106_uncwj")
 
 [node name="WallBRoof" type="MeshInstance3D" parent="." unique_id=159975819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("107_tmfgl")
 
 [node name="WallBWindow" type="MeshInstance3D" parent="." unique_id=1279553690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("108_h6bpr")
 
 [node name="WallB" type="MeshInstance3D" parent="." unique_id=1875787600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("109_t13s8")
 
 [node name="WallBrokenTypeA" type="MeshInstance3D" parent="." unique_id=1701288530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("110_8daba")
 
 [node name="WallBrokenTypeB" type="MeshInstance3D" parent="." unique_id=26806891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("111_aa1cj")
 
 [node name="WallCFlatLow" type="MeshInstance3D" parent="." unique_id=1750025518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("112_xvuu2")
 
 [node name="WallCFlat" type="MeshInstance3D" parent="." unique_id=1966061848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("113_xgn88")
 
 [node name="WallFence" type="MeshInstance3D" parent="." unique_id=1716593025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("114_d8vd6")
 
 [node name="WallStepsTypeA" type="MeshInstance3D" parent="." unique_id=1388681690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("115_0oho0")
 
 [node name="WallStepsTypeB" type="MeshInstance3D" parent="." unique_id=1085422928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("116_oitrx")
 
 [node name="WallTypeA" type="MeshInstance3D" parent="." unique_id=689995631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("117_ntwnk")
 
 [node name="WallTypeB" type="MeshInstance3D" parent="." unique_id=1101934866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("118_vxcm7")
 
 [node name="WindowSmallTypeA" type="MeshInstance3D" parent="." unique_id=2079285340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("119_1va1x")
 
 [node name="WindowSmallTypeB" type="MeshInstance3D" parent="." unique_id=1884579261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("120_kj2t8")
 
 [node name="WindowWideTypeA" type="MeshInstance3D" parent="." unique_id=66998354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("121_708t1")
 
 [node name="WindowWideTypeB" type="MeshInstance3D" parent="." unique_id=1900126649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("122_elukp")
 
 [node name="WindowWideTypeC" type="MeshInstance3D" parent="." unique_id=844957491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("123_x6eou")
 
 [node name="WindowWideTypeD" type="MeshInstance3D" parent="." unique_id=1899950473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = ExtResource("124_owtiu")

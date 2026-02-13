@@ -23,7 +23,7 @@ const SELECTION_TILE_ID := preload("res://resources/scripts/enumClasses/ENUM_uni
 
 #gridmap
 @onready var gridMapCol: GridMap = $Grid/world_gridmap_col
-@onready var gridMap_noCol: GridMap = $Grid/world_gridmap_noCOL
+#@onready var gridMap_noCol: GridMap = $Grid/world_gridmap_noCOL
 
 
 @onready var playerUnitGui: AllyUnitGui = $ui/AllyUnitGui 

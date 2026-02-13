@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ch23ifeu1601i"]
 
 [ext_resource type="Script" uid="uid://1kj8r81y1j75" path="res://resources/scripts/battle/unitPos.gd" id="1_o3rf0"]
-[ext_resource type="Texture2D" uid="uid://g15ec3ye31jo" path="res://assets/2d/characters/enemy/britannia/npc/britSoldier1.png" id="2_5fcao"]
+[ext_resource type="Texture2D" uid="uid://b7a2yhqf51xr3" path="res://assets/2d/characters/battle/npc/britSold2.png" id="3_2q26h"]
+[ext_resource type="Texture2D" uid="uid://bfpogqjg3udq" path="res://assets/2d/characters/battle/status/britSold2.png" id="4_5fcao"]
 [ext_resource type="PackedScene" uid="uid://digo5sc451hvh" path="res://scenes/game objects/weapons/smg.tscn" id="5_5fcao"]
 [ext_resource type="PackedScene" uid="uid://b1pswkcy0x2kx" path="res://scenes/game objects/units/stanUnit.tscn" id="6_5fcao"]
 
@@ -17,8 +18,9 @@ script = ExtResource("1_o3rf0")
 moveRange = 4
 team = 1
 char_name = "Helicopter"
-charImage = ExtResource("2_5fcao")
-full_name = "Pilot"
+charImage = ExtResource("3_2q26h")
+full_name = "Helicopter Pilot"
+status_charImg = ExtResource("4_5fcao")
 factionName = "Britannian Empire"
 agilityStat = 15
 defenceStat = 8

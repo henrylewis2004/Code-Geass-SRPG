@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqmoefvgajp40"]
+[gd_scene format=3 uid="uid://bqmoefvgajp40"]
 
 [ext_resource type="Script" uid="uid://by51rript87ik" path="res://scripts/gameLogic/battle/StatusScreen.gd" id="1_ubxvt"]
 [ext_resource type="Texture2D" uid="uid://4kradks8onch" path="res://assets/2d/ui/menuItemDeselect.png" id="1_xoct0"]
-[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/main/kallen/battle/kallen1.png" id="2_cqmuk"]
+[ext_resource type="Texture2D" uid="uid://cob5p4iheradg" path="res://assets/2d/characters/battle/main/kallen/kallen1.png" id="2_cqmuk"]
 [ext_resource type="Texture2D" uid="uid://4the1wii17g4" path="res://assets/2d/ui/unitHp_back.png" id="3_djq6a"]
 [ext_resource type="FontFile" uid="uid://crpmyv2e2r4wr" path="res://assets/fonts/Xirod.otf" id="3_jkcvu"]
 [ext_resource type="FontFile" uid="uid://cyjefgtlc3n1c" path="res://assets/fonts/Neoblock DEMO.otf" id="4_bbc5g"]
@@ -14,7 +14,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wl34q"]
 size = Vector2(15, 15)
 
-[node name="StatusScreen" type="Control"]
+[node name="StatusScreen" type="Control" unique_id=1431135653]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,12 +23,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ubxvt")
 
-[node name="top" type="Control" parent="."]
+[node name="top" type="Control" parent="." unique_id=847876290]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="back" type="TextureRect" parent="top"]
+[node name="back" type="TextureRect" parent="top" unique_id=756212903]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_xoct0")
 
-[node name="charImg" type="TextureRect" parent="top"]
+[node name="charImg" type="TextureRect" parent="top" unique_id=1922624698]
 layout_mode = 0
 offset_left = 43.0
 offset_top = 24.0
@@ -49,17 +49,18 @@ offset_right = 125.0
 offset_bottom = 102.0
 texture = ExtResource("2_cqmuk")
 
-[node name="nameLabel" type="RichTextLabel" parent="top"]
+[node name="nameLabel" type="RichTextLabel" parent="top" unique_id=1563604058]
 layout_mode = 0
 offset_left = 127.0
 offset_top = 25.0
 offset_right = 257.0
 offset_bottom = 65.0
 theme_override_fonts/normal_font = ExtResource("3_jkcvu")
+theme_override_font_sizes/normal_font_size = 13
 text = "KALLEN KOZUKI"
 horizontal_alignment = 1
 
-[node name="apLabel" type="RichTextLabel" parent="top"]
+[node name="apLabel" type="RichTextLabel" parent="top" unique_id=1993500620]
 layout_mode = 0
 offset_left = -12.0
 offset_top = 104.0
@@ -70,7 +71,7 @@ theme_override_font_sizes/normal_font_size = 13
 text = "AP: 8/12"
 horizontal_alignment = 1
 
-[node name="factionLabel" type="RichTextLabel" parent="top"]
+[node name="factionLabel" type="RichTextLabel" parent="top" unique_id=935352801]
 layout_mode = 0
 offset_left = 284.0
 offset_top = 4.0
@@ -82,7 +83,7 @@ theme_override_font_sizes/normal_font_size = 12
 text = "THE BLACK KNIGHTS"
 horizontal_alignment = 1
 
-[node name="epLabel" type="RichTextLabel" parent="top"]
+[node name="epLabel" type="RichTextLabel" parent="top" unique_id=2050951461]
 layout_mode = 0
 offset_left = 95.0
 offset_top = 105.0
@@ -93,12 +94,12 @@ theme_override_font_sizes/normal_font_size = 13
 text = "EP: 3/5"
 horizontal_alignment = 1
 
-[node name="pageTitles" type="Control" parent="top"]
+[node name="pageTitles" type="Control" parent="top" unique_id=1555608983]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="hpTitle" type="Label" parent="top/pageTitles"]
+[node name="hpTitle" type="Label" parent="top/pageTitles" unique_id=124065590]
 layout_mode = 0
 offset_left = 269.0
 offset_top = 19.0
@@ -110,7 +111,7 @@ theme_override_font_sizes/font_size = 20
 text = "HP"
 horizontal_alignment = 1
 
-[node name="weaponTitle" type="Label" parent="top/pageTitles"]
+[node name="weaponTitle" type="Label" parent="top/pageTitles" unique_id=1719111834]
 modulate = Color(1, 1, 1, 0.47058824)
 layout_mode = 0
 offset_left = 267.0
@@ -123,7 +124,7 @@ theme_override_font_sizes/font_size = 20
 text = "WEAPON"
 horizontal_alignment = 1
 
-[node name="invTitle" type="Label" parent="top/pageTitles"]
+[node name="invTitle" type="Label" parent="top/pageTitles" unique_id=803900361]
 modulate = Color(1, 1, 1, 0.47058824)
 layout_mode = 0
 offset_left = 266.0
@@ -136,7 +137,7 @@ theme_override_font_sizes/font_size = 20
 text = "INVENTORY"
 horizontal_alignment = 1
 
-[node name="statsTitle" type="Label" parent="top/pageTitles"]
+[node name="statsTitle" type="Label" parent="top/pageTitles" unique_id=1971316308]
 modulate = Color(1, 1, 1, 0.47058824)
 layout_mode = 0
 offset_left = 267.0
@@ -149,7 +150,7 @@ theme_override_font_sizes/font_size = 20
 text = "STATS"
 horizontal_alignment = 1
 
-[node name="page1" type="Control" parent="."]
+[node name="page1" type="Control" parent="." unique_id=1992719431]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -161,14 +162,14 @@ offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="hpBox" type="Control" parent="page1"]
+[node name="hpBox" type="Control" parent="page1" unique_id=1752686950]
 anchors_preset = 0
 offset_left = 3.0
 offset_top = 124.0
 offset_right = 107.0
 offset_bottom = 234.0
 
-[node name="titles" type="VBoxContainer" parent="page1/hpBox"]
+[node name="titles" type="VBoxContainer" parent="page1/hpBox" unique_id=243006896]
 layout_mode = 0
 offset_left = 3.0
 offset_top = -16.0
@@ -176,35 +177,35 @@ offset_right = 42.0
 offset_bottom = 51.0
 theme_override_constants/separation = 5
 
-[node name="body" type="Label" parent="page1/hpBox/titles"]
+[node name="body" type="Label" parent="page1/hpBox/titles" unique_id=620367849]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_bbc5g")
 theme_override_font_sizes/font_size = 20
 text = "Body"
 horizontal_alignment = 1
 
-[node name="larm" type="Label" parent="page1/hpBox/titles"]
+[node name="larm" type="Label" parent="page1/hpBox/titles" unique_id=623813136]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_bbc5g")
 theme_override_font_sizes/font_size = 20
 text = "L Arm"
 horizontal_alignment = 1
 
-[node name="rarm" type="Label" parent="page1/hpBox/titles"]
+[node name="rarm" type="Label" parent="page1/hpBox/titles" unique_id=371486236]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_bbc5g")
 theme_override_font_sizes/font_size = 20
 text = "R Arm"
 horizontal_alignment = 1
 
-[node name="legs" type="Label" parent="page1/hpBox/titles"]
+[node name="legs" type="Label" parent="page1/hpBox/titles" unique_id=922850393]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_bbc5g")
 theme_override_font_sizes/font_size = 20
 text = "Legs"
 horizontal_alignment = 1
 
-[node name="hp" type="VBoxContainer" parent="page1/hpBox"]
+[node name="hp" type="VBoxContainer" parent="page1/hpBox" unique_id=1285348827]
 layout_mode = 0
 offset_left = 49.0
 offset_top = -14.0
@@ -213,31 +214,31 @@ offset_bottom = 17.0
 scale = Vector2(4, 2)
 theme_override_constants/separation = 5
 
-[node name="bodyHp" type="TextureProgressBar" parent="page1/hpBox/hp"]
+[node name="bodyHp" type="TextureProgressBar" parent="page1/hpBox/hp" unique_id=1802966371]
 layout_mode = 2
 value = 100.0
 texture_under = ExtResource("3_djq6a")
 texture_progress = ExtResource("4_jkcvu")
 
-[node name="lArmHp" type="TextureProgressBar" parent="page1/hpBox/hp"]
+[node name="lArmHp" type="TextureProgressBar" parent="page1/hpBox/hp" unique_id=1070236741]
 layout_mode = 2
 value = 100.0
 texture_under = ExtResource("3_djq6a")
 texture_progress = ExtResource("4_jkcvu")
 
-[node name="rArmHp" type="TextureProgressBar" parent="page1/hpBox/hp"]
+[node name="rArmHp" type="TextureProgressBar" parent="page1/hpBox/hp" unique_id=1473103738]
 layout_mode = 2
 value = 100.0
 texture_under = ExtResource("3_djq6a")
 texture_progress = ExtResource("4_jkcvu")
 
-[node name="legsHp" type="TextureProgressBar" parent="page1/hpBox/hp"]
+[node name="legsHp" type="TextureProgressBar" parent="page1/hpBox/hp" unique_id=1077411978]
 layout_mode = 2
 value = 100.0
 texture_under = ExtResource("3_djq6a")
 texture_progress = ExtResource("4_jkcvu")
 
-[node name="hpNumbers" type="VBoxContainer" parent="page1/hpBox"]
+[node name="hpNumbers" type="VBoxContainer" parent="page1/hpBox" unique_id=1311935222]
 layout_direction = 2
 layout_mode = 0
 offset_left = 118.0
@@ -246,35 +247,35 @@ offset_right = 158.0
 offset_bottom = 58.0
 theme_override_constants/separation = -2
 
-[node name="body" type="Label" parent="page1/hpBox/hpNumbers"]
+[node name="body" type="Label" parent="page1/hpBox/hpNumbers" unique_id=10963995]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_bbc5g")
 theme_override_font_sizes/font_size = 17
 text = "100/100"
 horizontal_alignment = 1
 
-[node name="larm" type="Label" parent="page1/hpBox/hpNumbers"]
+[node name="larm" type="Label" parent="page1/hpBox/hpNumbers" unique_id=148346679]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_bbc5g")
 theme_override_font_sizes/font_size = 17
 text = "50/50"
 horizontal_alignment = 1
 
-[node name="rarm" type="Label" parent="page1/hpBox/hpNumbers"]
+[node name="rarm" type="Label" parent="page1/hpBox/hpNumbers" unique_id=892874428]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_bbc5g")
 theme_override_font_sizes/font_size = 17
 text = "50/50"
 horizontal_alignment = 1
 
-[node name="legs" type="Label" parent="page1/hpBox/hpNumbers"]
+[node name="legs" type="Label" parent="page1/hpBox/hpNumbers" unique_id=1512605393]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_bbc5g")
 theme_override_font_sizes/font_size = 17
 text = "75/75"
 horizontal_alignment = 1
 
-[node name="armour types" type="VBoxContainer" parent="page1/hpBox"]
+[node name="armour types" type="VBoxContainer" parent="page1/hpBox" unique_id=1731333947]
 layout_mode = 0
 offset_left = 162.0
 offset_top = -18.0
@@ -282,23 +283,23 @@ offset_right = 180.0
 offset_bottom = 49.0
 theme_override_constants/separation = 4
 
-[node name="body" type="TextureRect" parent="page1/hpBox/armour types"]
+[node name="body" type="TextureRect" parent="page1/hpBox/armour types" unique_id=933144031]
 layout_mode = 2
 texture = ExtResource("9_nr411")
 
-[node name="larm" type="TextureRect" parent="page1/hpBox/armour types"]
+[node name="larm" type="TextureRect" parent="page1/hpBox/armour types" unique_id=2130571205]
 layout_mode = 2
 texture = ExtResource("9_nr411")
 
-[node name="rarm" type="TextureRect" parent="page1/hpBox/armour types"]
+[node name="rarm" type="TextureRect" parent="page1/hpBox/armour types" unique_id=1975680905]
 layout_mode = 2
 texture = ExtResource("9_nr411")
 
-[node name="legs" type="TextureRect" parent="page1/hpBox/armour types"]
+[node name="legs" type="TextureRect" parent="page1/hpBox/armour types" unique_id=1187450601]
 layout_mode = 2
 texture = ExtResource("9_nr411")
 
-[node name="page2" type="Control" parent="."]
+[node name="page2" type="Control" parent="." unique_id=2086609764]
 visible = false
 anchors_preset = 0
 offset_left = 65.0
@@ -306,14 +307,14 @@ offset_top = 98.0
 offset_right = 105.0
 offset_bottom = 138.0
 
-[node name="weaponInfo" type="Control" parent="page2"]
+[node name="weaponInfo" type="Control" parent="page2" unique_id=1293588498]
 anchors_preset = 0
 offset_left = -1.0
 offset_top = 2.0
 offset_right = 39.0
 offset_bottom = 42.0
 
-[node name="weaponImg" type="TextureRect" parent="page2/weaponInfo"]
+[node name="weaponImg" type="TextureRect" parent="page2/weaponInfo" unique_id=870298682]
 layout_mode = 0
 offset_left = 149.0
 offset_top = 8.0
@@ -322,7 +323,7 @@ offset_bottom = 35.0
 rotation = 1.5707964
 texture = ExtResource("8_wl34q")
 
-[node name="wpnNameLabel" type="Label" parent="page2/weaponInfo"]
+[node name="wpnNameLabel" type="Label" parent="page2/weaponInfo" unique_id=502737619]
 layout_mode = 0
 offset_left = 161.0
 offset_top = 4.0
@@ -335,13 +336,13 @@ text = "SHOTGUN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="dmgLabelGroup" type="Control" parent="page2/weaponInfo"]
+[node name="dmgLabelGroup" type="Control" parent="page2/weaponInfo" unique_id=1813894281]
 anchors_preset = 0
 offset_top = 21.0
 offset_right = 109.0
 offset_bottom = 21.0
 
-[node name="title" type="Label" parent="page2/weaponInfo/dmgLabelGroup"]
+[node name="title" type="Label" parent="page2/weaponInfo/dmgLabelGroup" unique_id=1817772430]
 layout_mode = 0
 offset_left = 20.0
 offset_right = 57.0
@@ -352,7 +353,7 @@ text = "DMG:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="dmgLabel" type="Label" parent="page2/weaponInfo/dmgLabelGroup"]
+[node name="dmgLabel" type="Label" parent="page2/weaponInfo/dmgLabelGroup" unique_id=224380195]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 7.0
@@ -364,14 +365,14 @@ text = "30x30 HIT"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="rangeLabelGroup" type="Control" parent="page2/weaponInfo"]
+[node name="rangeLabelGroup" type="Control" parent="page2/weaponInfo" unique_id=618582293]
 anchors_preset = 0
 offset_left = 2.0
 offset_top = 40.0
 offset_right = 111.0
 offset_bottom = 66.0
 
-[node name="title" type="Label" parent="page2/weaponInfo/rangeLabelGroup"]
+[node name="title" type="Label" parent="page2/weaponInfo/rangeLabelGroup" unique_id=378097403]
 layout_mode = 0
 offset_left = 8.0
 offset_right = 55.0
@@ -382,7 +383,7 @@ text = "RANGE:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="rangeLabel" type="Label" parent="page2/weaponInfo/rangeLabelGroup"]
+[node name="rangeLabel" type="Label" parent="page2/weaponInfo/rangeLabelGroup" unique_id=629038387]
 layout_mode = 0
 offset_left = 55.0
 offset_top = 7.0
@@ -394,14 +395,14 @@ text = "3 TILES"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="hitLabelGroup" type="Control" parent="page2/weaponInfo"]
+[node name="hitLabelGroup" type="Control" parent="page2/weaponInfo" unique_id=1702836506]
 anchors_preset = 0
 offset_left = 4.0
 offset_top = 59.0
 offset_right = 113.0
 offset_bottom = 85.0
 
-[node name="title" type="Label" parent="page2/weaponInfo/hitLabelGroup"]
+[node name="title" type="Label" parent="page2/weaponInfo/hitLabelGroup" unique_id=1192501856]
 layout_mode = 0
 offset_left = 5.0
 offset_right = 83.0
@@ -412,7 +413,7 @@ text = "HIT CHANCE:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="hitLabel" type="Label" parent="page2/weaponInfo/hitLabelGroup"]
+[node name="hitLabel" type="Label" parent="page2/weaponInfo/hitLabelGroup" unique_id=383043455]
 layout_mode = 0
 offset_left = 83.0
 offset_top = 7.0
@@ -424,14 +425,14 @@ text = "70%"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="apLabelGroup" type="Control" parent="page2/weaponInfo"]
+[node name="apLabelGroup" type="Control" parent="page2/weaponInfo" unique_id=174167282]
 anchors_preset = 0
 offset_left = 2.0
 offset_top = 75.0
 offset_right = 111.0
 offset_bottom = 101.0
 
-[node name="title" type="Label" parent="page2/weaponInfo/apLabelGroup"]
+[node name="title" type="Label" parent="page2/weaponInfo/apLabelGroup" unique_id=1419967856]
 layout_mode = 0
 offset_left = 5.0
 offset_right = 83.0
@@ -442,7 +443,7 @@ text = "AP COST:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="apLabel" type="Label" parent="page2/weaponInfo/apLabelGroup"]
+[node name="apLabel" type="Label" parent="page2/weaponInfo/apLabelGroup" unique_id=1926129293]
 layout_mode = 0
 offset_left = 83.0
 offset_top = 7.0
@@ -454,7 +455,7 @@ text = "5 AP"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="typeImg" type="TextureRect" parent="page2/weaponInfo"]
+[node name="typeImg" type="TextureRect" parent="page2/weaponInfo" unique_id=391526596]
 layout_mode = 0
 offset_left = 36.0
 offset_top = 99.0
@@ -462,25 +463,25 @@ offset_right = 61.0
 offset_bottom = 114.0
 texture = SubResource("PlaceholderTexture2D_wl34q")
 
-[node name="page3" type="Control" parent="."]
+[node name="page3" type="Control" parent="." unique_id=10191623]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="inventoryInfo" type="Control" parent="page3"]
+[node name="inventoryInfo" type="Control" parent="page3" unique_id=260436108]
 anchors_preset = 0
 offset_left = 46.0
 offset_top = 100.0
 offset_right = 86.0
 offset_bottom = 140.0
 
-[node name="items" type="Control" parent="page3/inventoryInfo"]
+[node name="items" type="Control" parent="page3/inventoryInfo" unique_id=1205292663]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="itemsTitle" type="Label" parent="page3/inventoryInfo/items"]
+[node name="itemsTitle" type="Label" parent="page3/inventoryInfo/items" unique_id=1154846302]
 layout_mode = 0
 offset_left = -3.0
 offset_top = 17.0
@@ -490,7 +491,7 @@ theme_override_fonts/font = ExtResource("4_bbc5g")
 theme_override_font_sizes/font_size = 20
 text = "ITEMS:"
 
-[node name="itemsList" type="Label" parent="page3/inventoryInfo/items"]
+[node name="itemsList" type="Label" parent="page3/inventoryInfo/items" unique_id=1305621076]
 layout_mode = 0
 offset_left = -3.0
 offset_top = 39.0
@@ -499,12 +500,12 @@ offset_bottom = 140.0
 theme_override_fonts/font = ExtResource("7_bbc5g")
 theme_override_font_sizes/font_size = 20
 
-[node name="abilities" type="Control" parent="page3/inventoryInfo"]
+[node name="abilities" type="Control" parent="page3/inventoryInfo" unique_id=452691304]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="abilitiesTitle" type="Label" parent="page3/inventoryInfo/abilities"]
+[node name="abilitiesTitle" type="Label" parent="page3/inventoryInfo/abilities" unique_id=1575751638]
 layout_mode = 0
 offset_left = 101.0
 offset_top = 17.0
@@ -514,7 +515,7 @@ theme_override_fonts/font = ExtResource("4_bbc5g")
 theme_override_font_sizes/font_size = 20
 text = "ABILITIES:"
 
-[node name="abilitiesList" type="Label" parent="page3/inventoryInfo/abilities"]
+[node name="abilitiesList" type="Label" parent="page3/inventoryInfo/abilities" unique_id=1552331917]
 layout_mode = 0
 offset_left = 101.0
 offset_top = 39.0
@@ -523,7 +524,7 @@ offset_bottom = 140.0
 theme_override_fonts/font = ExtResource("7_bbc5g")
 theme_override_font_sizes/font_size = 20
 
-[node name="page4" type="Control" parent="."]
+[node name="page4" type="Control" parent="." unique_id=670979513]
 visible = false
 anchors_preset = 0
 offset_left = 55.0
@@ -531,7 +532,7 @@ offset_top = 100.0
 offset_right = 95.0
 offset_bottom = 140.0
 
-[node name="stats" type="Control" parent="page4"]
+[node name="stats" type="Control" parent="page4" unique_id=1235911986]
 layout_direction = 2
 anchors_preset = 0
 offset_left = -1.0
@@ -539,12 +540,12 @@ offset_top = 2.0
 offset_right = 39.0
 offset_bottom = 42.0
 
-[node name="titles" type="Control" parent="page4/stats"]
+[node name="titles" type="Control" parent="page4/stats" unique_id=1515022165]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="agility" type="Label" parent="page4/stats/titles"]
+[node name="agility" type="Label" parent="page4/stats/titles" unique_id=1960750650]
 layout_mode = 0
 offset_left = -8.0
 offset_top = 7.0
@@ -555,7 +556,7 @@ theme_override_font_sizes/font_size = 20
 text = "AGILITY:"
 vertical_alignment = 1
 
-[node name="defence" type="Label" parent="page4/stats/titles"]
+[node name="defence" type="Label" parent="page4/stats/titles" unique_id=1309957778]
 layout_mode = 0
 offset_left = -8.0
 offset_top = 22.0
@@ -566,7 +567,7 @@ theme_override_font_sizes/font_size = 20
 text = "DEFENCE:"
 vertical_alignment = 1
 
-[node name="evasion" type="Label" parent="page4/stats/titles"]
+[node name="evasion" type="Label" parent="page4/stats/titles" unique_id=276159785]
 layout_mode = 0
 offset_left = -8.0
 offset_top = 37.0
@@ -577,7 +578,7 @@ theme_override_font_sizes/font_size = 20
 text = "EVASION:"
 vertical_alignment = 1
 
-[node name="melee" type="Label" parent="page4/stats/titles"]
+[node name="melee" type="Label" parent="page4/stats/titles" unique_id=35190460]
 layout_mode = 0
 offset_left = -8.0
 offset_top = 52.0
@@ -588,7 +589,7 @@ theme_override_font_sizes/font_size = 20
 text = "MELEE:"
 vertical_alignment = 1
 
-[node name="ranged" type="Label" parent="page4/stats/titles"]
+[node name="ranged" type="Label" parent="page4/stats/titles" unique_id=592545233]
 layout_mode = 0
 offset_left = -8.0
 offset_top = 67.0
@@ -599,9 +600,9 @@ theme_override_font_sizes/font_size = 20
 text = "RANGED:"
 vertical_alignment = 1
 
-[node name="ap" type="Node" parent="page4/stats/titles"]
+[node name="ap" type="Node" parent="page4/stats/titles" unique_id=2031690238]
 
-[node name="ap_charge" type="Label" parent="page4/stats/titles"]
+[node name="ap_charge" type="Label" parent="page4/stats/titles" unique_id=284111219]
 layout_mode = 0
 offset_left = -8.0
 offset_top = 83.0
@@ -612,9 +613,9 @@ theme_override_font_sizes/font_size = 20
 text = "AP CHARGE:"
 vertical_alignment = 1
 
-[node name="energy" type="Node" parent="page4/stats/titles"]
+[node name="energy" type="Node" parent="page4/stats/titles" unique_id=1778670380]
 
-[node name="ep_charge" type="Label" parent="page4/stats/titles"]
+[node name="ep_charge" type="Label" parent="page4/stats/titles" unique_id=633260890]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 6.0
@@ -625,7 +626,7 @@ theme_override_font_sizes/font_size = 20
 text = "EP CHARGE:"
 vertical_alignment = 1
 
-[node name="luck" type="Label" parent="page4/stats/titles"]
+[node name="luck" type="Label" parent="page4/stats/titles" unique_id=225171184]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 20.0
@@ -636,7 +637,7 @@ theme_override_font_sizes/font_size = 20
 text = "LUCK:"
 vertical_alignment = 1
 
-[node name="iniative" type="Label" parent="page4/stats/titles"]
+[node name="iniative" type="Label" parent="page4/stats/titles" unique_id=1753350600]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 34.0
@@ -647,7 +648,7 @@ theme_override_font_sizes/font_size = 20
 text = "INITIATIVE:"
 vertical_alignment = 1
 
-[node name="move_range" type="Label" parent="page4/stats/titles"]
+[node name="move_range" type="Label" parent="page4/stats/titles" unique_id=1268770753]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 49.0
@@ -658,12 +659,12 @@ theme_override_font_sizes/font_size = 20
 text = "MOVE RANGE:"
 vertical_alignment = 1
 
-[node name="stat_values" type="Control" parent="page4/stats"]
+[node name="stat_values" type="Control" parent="page4/stats" unique_id=2051270]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="agility" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="agility" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=1393508516]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 14.0
@@ -675,7 +676,7 @@ bbcode_enabled = true
 text = "20"
 scroll_active = false
 
-[node name="defence" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="defence" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=255466390]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 29.0
@@ -687,7 +688,7 @@ bbcode_enabled = true
 text = "10"
 scroll_active = false
 
-[node name="evasion" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="evasion" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=1672650843]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 45.0
@@ -699,7 +700,7 @@ bbcode_enabled = true
 text = "25"
 scroll_active = false
 
-[node name="melee" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="melee" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=1098793078]
 layout_mode = 0
 offset_left = 66.0
 offset_top = 61.0
@@ -711,7 +712,7 @@ bbcode_enabled = true
 text = "20"
 scroll_active = false
 
-[node name="ranged" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="ranged" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=2033934105]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 76.0
@@ -723,9 +724,9 @@ bbcode_enabled = true
 text = "15"
 scroll_active = false
 
-[node name="ap" type="Node" parent="page4/stats/stat_values"]
+[node name="ap" type="Node" parent="page4/stats/stat_values" unique_id=1785619687]
 
-[node name="ap_charge" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="ap_charge" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=269838783]
 layout_mode = 0
 offset_left = 66.0
 offset_top = 91.0
@@ -737,9 +738,9 @@ bbcode_enabled = true
 text = "4"
 scroll_active = false
 
-[node name="energy" type="Node" parent="page4/stats/stat_values"]
+[node name="energy" type="Node" parent="page4/stats/stat_values" unique_id=1267869473]
 
-[node name="ep_charge" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="ep_charge" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=1556798966]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 13.0
@@ -751,7 +752,7 @@ bbcode_enabled = true
 text = "3"
 scroll_active = false
 
-[node name="luck" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="luck" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=227716424]
 layout_mode = 0
 offset_left = 173.0
 offset_top = 27.0
@@ -763,7 +764,7 @@ bbcode_enabled = true
 text = "15"
 scroll_active = false
 
-[node name="initiative" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="initiative" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=843690755]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 41.0
@@ -775,7 +776,7 @@ bbcode_enabled = true
 text = "29"
 scroll_active = false
 
-[node name="move_range" type="RichTextLabel" parent="page4/stats/stat_values"]
+[node name="move_range" type="RichTextLabel" parent="page4/stats/stat_values" unique_id=1587909905]
 layout_mode = 0
 offset_left = 179.0
 offset_top = 57.0

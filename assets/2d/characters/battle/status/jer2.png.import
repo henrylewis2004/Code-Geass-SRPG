@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cob5p4iheradg"
-path="res://.godot/imported/kallen1.png-1b49854b2b3f5aa1e0d7d02fa0e3e0cc.ctex"
+uid="uid://bbjq58j3a03xd"
+path="res://.godot/imported/jer2.png-3a61a54606901ab097e27959361cd4e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/main/kallen/battle/kallen1.png"
-dest_files=["res://.godot/imported/kallen1.png-1b49854b2b3f5aa1e0d7d02fa0e3e0cc.ctex"]
+source_file="res://assets/2d/characters/battle/status/jer2.png"
+dest_files=["res://.godot/imported/jer2.png-3a61a54606901ab097e27959361cd4e8.ctex"]
 
 [params]
 

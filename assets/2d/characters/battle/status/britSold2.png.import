@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mvlxadcqip1q"
-path="res://.godot/imported/rivalz1.png-57b87c29a448d28fe6d67682e726e6b2.ctex"
+uid="uid://bfpogqjg3udq"
+path="res://.godot/imported/britSold2.png-46cc24ccd291fd2128022d8983a11df7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/main/rivalz/rivalz1.png"
-dest_files=["res://.godot/imported/rivalz1.png-57b87c29a448d28fe6d67682e726e6b2.ctex"]
+source_file="res://assets/2d/characters/battle/status/britSold2.png"
+dest_files=["res://.godot/imported/britSold2.png-46cc24ccd291fd2128022d8983a11df7.ctex"]
 
 [params]
 

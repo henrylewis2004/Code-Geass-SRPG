@@ -127,7 +127,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nicl0"]
 
-[node name="ColGridmapModels" type="GridMap" unique_id=262946309]
+[node name="ColGridmapModels" type="Node" unique_id=1094023786]
 
 [node name="BalconyLadderBottom" type="MeshInstance3D" parent="." unique_id=1947148690]
 mesh = ExtResource("1_nicl0")

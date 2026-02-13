@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g15ec3ye31jo"
-path="res://.godot/imported/britSoldier1.png-1ee83db65161ed38ac4b72612a79ded0.ctex"
+uid="uid://baek8fv7dg4cd"
+path="res://.godot/imported/jer2.png-81dfefbcf42e61509ce4188627620cf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/enemy/britannia/npc/britSoldier1.png"
-dest_files=["res://.godot/imported/britSoldier1.png-1ee83db65161ed38ac4b72612a79ded0.ctex"]
+source_file="res://assets/2d/characters/battle/main/jeremiah/jer2.png"
+dest_files=["res://.godot/imported/jer2.png-81dfefbcf42e61509ce4188627620cf0.ctex"]
 
 [params]
 
