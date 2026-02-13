@@ -1,15 +1,15 @@
 mechanics:
+	> complete bl2
 	> add death animation
 		> camera swirl
 		> explosion sound
 		> smoke?
 
-	> add unit artworks
-
 	> add skybox
 
 	> add attack animatino for abilities
 		> sound
+		> make moveTo direct funciton in unit
 
 	> psx shader?
 		> lighting
