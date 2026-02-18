@@ -76,6 +76,7 @@
 		],
 
 		"music":{
+			"CC_music":"codeGeassOst/Stream of Consciousness",
 			
 
 		}
@@ -644,7 +645,7 @@
 				"text": "It's you...",
 				"text_speed":"def",
 				"sfx": null,
-				"music":null
+				"music":"CC_music"
 			},
 			{
 				"name": "CC",

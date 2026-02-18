@@ -53,6 +53,8 @@
 		],
 
 		"music":{
+			"all_hail_britannia": "codeGeassOst/loops/All Hail Britannia (loop)",
+			"cold_nobility_loop": "codeGeassOst/loops/Cold Nobility (loop)",
 		}
 	},
 	
@@ -259,7 +261,7 @@
 					"text": "To all my Imperial subjects...",
 					"text_speed":"def",
 					"sfx": null,
-					"music":null
+					"music":"all_hail_britannia"
 				},
 				{
 					"name": "Prince Clovis",
@@ -444,7 +446,7 @@
 					"text": "Well aren't you going to join in?",
 					"text_speed":"def",
 					"sfx": null,
-					"music":null
+					"music":"stop"
 				},
 				{
 					"name": "Lelouch",
@@ -546,7 +548,7 @@
 					"text": null,
 					"text_speed":null,
 					"sfx": null,
-					"music":null
+					"music":"cold_nobility_loop",
 				}
 			]
 
