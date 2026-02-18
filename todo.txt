@@ -1,9 +1,4 @@
 mechanics:
-	> add attack animatino for abilities
-		> sound
-		> make moveTo direct funciton in unit
-
-	> fix turn timer
 
 	#####################
 	> ui

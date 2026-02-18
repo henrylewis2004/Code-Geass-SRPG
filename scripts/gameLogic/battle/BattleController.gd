@@ -860,7 +860,6 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 	
 
 func attackGFX(landed: bool) ->void:
-	print(landed)
 	for control in $animation/AttackMiss.get_children():
 		for label in control.get_children():
 			label.text = "HIT" if landed else "MISS"
@@ -888,6 +887,8 @@ func killUnit(unit: BaseUnit) -> void:
 
 	updateUnitGridPos()
 	unit.kill()
+
+	unitDeath_finished.emit()
 
 
 func aiAttackTurn(unit:BaseUnit, targetUnit: BaseUnit) -> void:
@@ -1018,9 +1019,7 @@ func endTurn() -> void:
 		#take unit time away
 		turnManager.unitMoved(gridManager.absDist(unitTurn.getGridPos(),unitOriginPos))
 
-		print(unitTurn.getName()+  " b: " + str(unitTurn.getTurnTimer()))
 		unitTurn.incTurnTimer(turnManager.getTurnCost() * -1) 
-		print(unitTurn.getName()+  " a: " + str(unitTurn.getTurnTimer()))
 		unitTurn.setMoved(true)
 
 

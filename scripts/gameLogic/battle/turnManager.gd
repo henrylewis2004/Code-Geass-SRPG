@@ -95,6 +95,7 @@ func resetTurnCost() -> void:
 
 func printOrder() -> void:
 	print("======unit order========")
+	print("turn: " +str(getTurnNo()))
 	for unit in unitOrder:
 		print(unit.getUnit().getName() + " | curTurnTime" + str(unit.getUnit().getTurnTimer()) + " | object turn time " + str(unit.turnTime) + " | iniatiative " + str(unit.iniative))
 
@@ -107,19 +108,27 @@ func createTurnOrder(unitArray: Array[BaseUnit]) -> void:
 	unitOrder = []
 	var turnUnits: Array[turnObject] = []
 	var turnUnits_iniative: Array[turnObject] = []
+	var turnUnits_moved: Array[turnObject] = []
 
 	for unit in unitArray:
 		var turnObj: turnObject = turnObject.new(unit,unit.getTurnTimer(),unit.getStat(STATS.AGILITY),unit.getStat(STATS.INITIATIVE))
 		turnUnits.append(turnObj)
 
 		if unit.hasMoved() == false:
-			turnUnits_iniative.append(turnObject.new(unit,unit.getTurnTimer(),unit.getStat(STATS.AGILITY),unit.getStat(STATS.INITIATIVE)))
+			turnUnits_iniative.append(turnObj)
+		else:
+			turnUnits_moved.append(turnObj)
 
 
 	if turnUnits_iniative.size() > 0:
 		var order: Array[turnObject] = calcFirstTurnOrder(turnUnits_iniative)
 		for unit in range(order.size() - 1, -1, -1):
 			unitOrder.append(order[unit])
+
+		for index in turnUnits:
+			if index.getUnit() != getNextUnit():
+				index.incTurnTime()
+
 
 	calcTurnOrder(turnUnits)
 

@@ -21,14 +21,13 @@ func playScript(scriptPath:String=dialogMan.getScriptPath()) -> void:
 
 
 func gameOver(victory: bool) -> void:
-
-	if endSceneDialog:
-		dialogMan.set_visible(true)
-		dialogMan.getSceneScript(dialogPath)
-		await dialogMan.endDialoge
-		dialogMan.set_visible(false)
-
 	if victory: 
+		if endSceneDialog:
+			dialogMan.set_visible(true)
+			dialogMan.getSceneScript(dialogPath)
+			await dialogMan.endDialoge
+			dialogMan.set_visible(false)
+
 		menuSelect.setMenu($GameOverScreen/confirmationMenu/victory/options)
 		gameOverScreen.get_child(0).texture = screenImages[1]
 		confirmMenu.position = textLoc[1]
