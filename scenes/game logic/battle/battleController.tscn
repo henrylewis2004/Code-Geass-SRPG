@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://btsr6r4riuho6" path="res://assets/sfx/music/codeGeassOst/loops/0 (loop).wav" id="13_2xxy7"]
 [ext_resource type="AudioStream" uid="uid://dq4dqbnqq8s3j" path="res://assets/sfx/sfx/ds_sfx/select06.wav" id="14_12pim"]
 [ext_resource type="PackedScene" uid="uid://b240r7mk7vwoj" path="res://scenes/game objects/battle-animations/attack_miss.tscn" id="14_jdcwr"]
+[ext_resource type="AudioStream" uid="uid://dtbt4yxl5k60f" path="res://assets/sfx/sfx/ds_sfx/explosion01.wav" id="15_12pim"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7qyck"]
 
@@ -188,6 +189,18 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [SubResource("AudioStreamWAV_g5e8r")]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../audio/sfx/sfx_ui:volume_db")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_s1jn4"]
@@ -589,13 +602,54 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0.023529412), Color(1, 1, 1, 1), Color(1, 1, 1, 0.023529412)]
 }
 
+[sub_resource type="Animation" id="Animation_n74rc"]
+resource_name = "unitDeath"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../audio/sfx/sfx_ui:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_12pim")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../audio/sfx/sfx_ui:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../audio/sfx/sfx_ui:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -10.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_awt8a"]
 _data = {
 &"RESET": SubResource("Animation_awt8a"),
 &"attack_miss": SubResource("Animation_s1jn4"),
 &"geassAnim": SubResource("Animation_xxrgl"),
 &"itemAnim": SubResource("Animation_ltndh"),
-&"newTurn": SubResource("Animation_g5e8r")
+&"newTurn": SubResource("Animation_g5e8r"),
+&"unitDeath": SubResource("Animation_n74rc")
 }
 
 [node name="BattleController" type="Node3D" unique_id=1144206247]
@@ -770,6 +824,7 @@ stream = SubResource("AudioStreamWAV_g5e8r")
 [connection signal="partSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_part_selected"]
 [connection signal="gameOverFinished" from="GameOver" to="." method="endLevel"]
 
+[editable path="BattleCam"]
 [editable path="ui/AllyUnitGui"]
 [editable path="ui/AllyUnitGui/base/MenuBox"]
 [editable path="ui/AllyUnitGui/base/MenuBox/action/VBoxContainer/topLabel"]

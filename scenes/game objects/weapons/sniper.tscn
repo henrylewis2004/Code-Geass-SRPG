@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://u1m784aumptl"]
+
+[ext_resource type="Script" uid="uid://dc63qu57p6p5b" path="res://resources/scripts/battle/baseWeapon.gd" id="1_24cs7"]
+
+[node name="sniper" type="Node" unique_id=1575076045]
+script = ExtResource("1_24cs7")
+dmg = 85
+string_name = "Sniper-Rifle"
+accuracy = 80
+rounds = 1
+twoHanded = true
+apCost = 6
+range = 8
+weaponId = 3
+attackType = 1

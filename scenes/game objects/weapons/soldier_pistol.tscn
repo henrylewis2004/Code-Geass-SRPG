@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ul24b7dthcxv"]
+
+[ext_resource type="Script" uid="uid://dc63qu57p6p5b" path="res://resources/scripts/battle/baseWeapon.gd" id="1_350w8"]
+
+[node name="soldier_pistol" type="Node" unique_id=1575076045]
+script = ExtResource("1_350w8")
+dmg = 10
+string_name = "Soldier Pistol"
+accuracy = 75
+rounds = 3
+twoHanded = true
+apCost = 2
+range = 2
+weaponId = 6
+attackType = 1

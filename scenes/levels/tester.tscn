@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bhwq4pblj0fwl"]
 
 [ext_resource type="PackedScene" uid="uid://dvmagytfxrhbs" path="res://scenes/game logic/shared/levelManager.tscn" id="1_7xqha"]
-[ext_resource type="PackedScene" uid="uid://ds6wt3xdvvj1a" path="res://scenes/levels/battle/battleLevel01.tscn" id="2_7xqha"]
+[ext_resource type="PackedScene" uid="uid://bkprib1offpdc" path="res://scenes/levels/battle/battleLevel02.tscn" id="2_7xqha"]
 
 [node name="Main" type="Node" unique_id=1991866037]
 
 [node name="LevelManager" parent="." unique_id=1407675144 instance=ExtResource("1_7xqha")]
 
-[node name="battleLevel01" parent="LevelManager" unique_id=1961232284 instance=ExtResource("2_7xqha")]
+[node name="battleLevel02" parent="LevelManager" unique_id=1961232284 instance=ExtResource("2_7xqha")]

@@ -182,17 +182,15 @@ charImage = ExtResource("3_0xn6l")
 full_name = "Villetta Nu"
 status_charImg = ExtResource("4_4vwqh")
 factionName = "Britannian Empire"
-agilityStat = 20
-defenceStat = 8
-evasionStat = 18
-meleeStat = 5
-rangedStat = 12
-maxAp = 7
+agilityStat = 18
+defenceStat = 6
+evasionStat = 20
+meleeStat = 2
+rangedStat = 15
+maxAp = 8
 apCharge = 4
-maxEnergy = 20
-energyCharge = 20
-luckStat = 13
-iniativeStat = 20
+luckStat = 8
+iniativeStat = 10
 
 [node name="body" parent="baseUnit/bodyparts" parent_id_path=PackedInt32Array(1237027531, 1950766110) index="2" unique_id=741045526]
 totalHp = 120

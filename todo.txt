@@ -1,38 +1,9 @@
 mechanics:
-	> complete bl2
-	> add death animation
-		> camera swirl
-		> explosion sound
-		> smoke?
-
-	> add skybox
-
 	> add attack animatino for abilities
 		> sound
 		> make moveTo direct funciton in unit
 
-	> psx shader?
-		> lighting
-		> textures
-
 	> fix turn timer
-
-	> attack animation
-		> add other weapons
-		> hit animation
-			> particle affects
-			
-
-
-
-	> status screen
-		> show current status affects
-			> image of status on status screen with stats
-				> logo for if stat affected
-					> reuse for positive and negative affect
-			> add colour to stat 
-				> red if less than base stat
-				> green if more
 
 	#####################
 	> ui

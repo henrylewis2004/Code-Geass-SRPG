@@ -7,18 +7,18 @@ func getWeaponAnim(weapon: int) -> String:
 	#needs changing
 	match(weapon):
 		WEAPONID.SMG:
-			return "SMG"
+			return "smg"
 		WEAPONID.MG:
-			return "MG"
+			return "mg"
 		WEAPONID.RIFLE:
-			return "RIFLE"
+			return "rifle"
 		WEAPONID.SNIPER:
-			return "SNIPER"
+			return "sniper"
 		WEAPONID.SHOTGUN:
-			return "SHOTGUN"
+			return "shotgun"
 		WEAPONID.PUNCH:
-			return "PUNCH"
+			return "punch"
 		WEAPONID.SOLDIER_PISTOL:
-			return "SOLDIER_PISTOL"
+			return "soldier_pistol"
 
 	return ("err no anim")

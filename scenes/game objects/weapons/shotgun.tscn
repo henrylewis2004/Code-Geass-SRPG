@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dotsd0mxibjp5"]
+
+[ext_resource type="Script" uid="uid://dc63qu57p6p5b" path="res://resources/scripts/battle/baseWeapon.gd" id="1_px26o"]
+
+[node name="shotgun" type="Node" unique_id=1575076045]
+script = ExtResource("1_px26o")
+dmg = 24
+string_name = "Shotgun"
+accuracy = 70
+rounds = 2
+apCost = 3
+range = 2
+weaponId = 4

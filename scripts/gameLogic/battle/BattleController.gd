@@ -3,6 +3,8 @@ class_name BattleController extends Node
 signal sceneOver
 signal resetScene
 
+signal unitDeath_finished
+
 signal inputTaken
 signal actionComplete
 
@@ -817,6 +819,7 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 			if attacker.isDestroyed():
 				killUnit(attacker)
+				await unitDeath_finished
 
 				attackTimer.start(1)
 				await attackTimer.timeout
@@ -837,6 +840,7 @@ func attackTurn(attacker: BaseUnit, defender: BaseUnit) -> void:
 
 	else:
 		killUnit(defender)
+		await unitDeath_finished
 
 		attackTimer.start(1) # might need changing
 		await attackTimer.timeout
@@ -870,6 +874,10 @@ func hideAttackGFX() -> void:
 
 
 func killUnit(unit: BaseUnit) -> void:
+	animPlayer.play("unitDeath")
+	await animPlayer.animation_finished
+
+
 	match unit.getTeam():
 		TEAM.PLAYER: 
 			playerUnits.erase(unit)
@@ -1066,6 +1074,3 @@ func _physics_process(delta):
 	if curState > STATE.NONE:
 		input()
 		
-	
-
-	$ui/curState.text = "curState: " + str(STATE.find_key(curState)) + printUnitTimes()

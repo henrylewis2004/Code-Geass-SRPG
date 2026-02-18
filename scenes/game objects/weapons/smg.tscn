@@ -8,6 +8,6 @@ dmg = 12
 string_name = "SMG"
 accuracy = 70
 rounds = 4
-apCost = 2
+apCost = 3
 range = 2
 attackType = 1

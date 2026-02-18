@@ -8,6 +8,6 @@ dmg = 15
 string_name = "MG Gun"
 accuracy = 65
 rounds = 4
-apCost = 2
+apCost = 4
 range = 3
 attackType = 1
