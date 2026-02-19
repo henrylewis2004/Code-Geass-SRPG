@@ -17,9 +17,11 @@
 
 ## About
 
-Code Geass: Lelouch of the Rebellion is a sucessful and acclaimed 2006 anime by Sunrise.
+Code Geass: Lelouch of the Rebellion is a sucessful and acclaimed 2006 anime by Sunrise. It features Lelouch in his attempts to destroy the Holy Britannian Empire. It was a pivotal show for me that has resulted in many friendships and even a great drinking game - and now my own video game! 
 
-Godot is an open-source games developing engine 
+Using Godot I have attempted to recreate the early sections of the show ([The Shinjuku Incident](https://codegeass.fandom.com/wiki/Skirmish_in_Shinjuku_Ghetto)). Naturally, Code Geass should be a strategy game so Fire Emblem was a major source of inspiration leading the design of the character's stats, selection and attack triangle typing. Being a mecha show, [Front Mission](https://en.wikipedia.org/wiki/Front_Mission) was also an obvious source of inspiration leading the design of the body parts and their hps. 
+
+To play the game simply view the [Releases](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest) page or go to [Download](#download).
 
 ---
 
