@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bghqpkkbxr2cn"
 path.s3tc="res://.godot/imported/doors.png-99bdc02e03703d915910af4ea5a322fc.s3tc.ctex"
+path.etc2="res://.godot/imported/doors.png-99bdc02e03703d915910af4ea5a322fc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/Textures/doors.png"
-dest_files=["res://.godot/imported/doors.png-99bdc02e03703d915910af4ea5a322fc.s3tc.ctex"]
+dest_files=["res://.godot/imported/doors.png-99bdc02e03703d915910af4ea5a322fc.s3tc.ctex", "res://.godot/imported/doors.png-99bdc02e03703d915910af4ea5a322fc.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5a28ibjgekcu"
 path.s3tc="res://.godot/imported/dirt.png-5c85e4d5de5a27c8d0bd12de9a7e7f66.s3tc.ctex"
+path.etc2="res://.godot/imported/dirt.png-5c85e4d5de5a27c8d0bd12de9a7e7f66.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/Textures/dirt.png"
-dest_files=["res://.godot/imported/dirt.png-5c85e4d5de5a27c8d0bd12de9a7e7f66.s3tc.ctex"]
+dest_files=["res://.godot/imported/dirt.png-5c85e4d5de5a27c8d0bd12de9a7e7f66.s3tc.ctex", "res://.godot/imported/dirt.png-5c85e4d5de5a27c8d0bd12de9a7e7f66.etc2.ctex"]
 
 [params]
 

@@ -17,6 +17,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Code Geass srpg"
 run/main_scene="uid://c7qfekk0cj3xj"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0.5623976, 0.121073626, 0.6955849, 1)
+boot_splash/image="uid://ba3qy8oxii033"
 config/icon="res://icon.svg"
 
 [audio]

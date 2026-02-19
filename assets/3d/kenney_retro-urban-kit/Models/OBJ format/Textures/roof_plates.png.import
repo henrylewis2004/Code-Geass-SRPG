@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xfypqsr73exl"
 path.s3tc="res://.godot/imported/roof_plates.png-97398941761fed19ddb91756bdffa208.s3tc.ctex"
+path.etc2="res://.godot/imported/roof_plates.png-97398941761fed19ddb91756bdffa208.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/Textures/roof_plates.png"
-dest_files=["res://.godot/imported/roof_plates.png-97398941761fed19ddb91756bdffa208.s3tc.ctex"]
+dest_files=["res://.godot/imported/roof_plates.png-97398941761fed19ddb91756bdffa208.s3tc.ctex", "res://.godot/imported/roof_plates.png-97398941761fed19ddb91756bdffa208.etc2.ctex"]
 
 [params]
 

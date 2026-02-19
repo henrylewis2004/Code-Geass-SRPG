@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c61sb15w6ux44"
 path.s3tc="res://.godot/imported/metal.png-399eec84a946c3998f05b10e6f04f287.s3tc.ctex"
+path.etc2="res://.godot/imported/metal.png-399eec84a946c3998f05b10e6f04f287.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/Textures/metal.png"
-dest_files=["res://.godot/imported/metal.png-399eec84a946c3998f05b10e6f04f287.s3tc.ctex"]
+dest_files=["res://.godot/imported/metal.png-399eec84a946c3998f05b10e6f04f287.s3tc.ctex", "res://.godot/imported/metal.png-399eec84a946c3998f05b10e6f04f287.etc2.ctex"]
 
 [params]
 

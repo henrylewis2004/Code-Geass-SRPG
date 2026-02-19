@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://11x3ctbsauj5"
 path.s3tc="res://.godot/imported/knightmare.png-9cd01d142f63f641f929f045dc3c85cc.s3tc.ctex"
+path.etc2="res://.godot/imported/knightmare.png-9cd01d142f63f641f929f045dc3c85cc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/2d/backgrounds/introChapter/knightmare.png"
-dest_files=["res://.godot/imported/knightmare.png-9cd01d142f63f641f929f045dc3c85cc.s3tc.ctex"]
+dest_files=["res://.godot/imported/knightmare.png-9cd01d142f63f641f929f045dc3c85cc.s3tc.ctex", "res://.godot/imported/knightmare.png-9cd01d142f63f641f929f045dc3c85cc.etc2.ctex"]
 
 [params]
 

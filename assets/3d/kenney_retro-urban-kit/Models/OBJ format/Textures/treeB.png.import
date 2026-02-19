@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uf0j45hctaed"
 path.s3tc="res://.godot/imported/treeB.png-a8e556497a41d689441cf2ae22abf070.s3tc.ctex"
+path.etc2="res://.godot/imported/treeB.png-a8e556497a41d689441cf2ae22abf070.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/Textures/treeB.png"
-dest_files=["res://.godot/imported/treeB.png-a8e556497a41d689441cf2ae22abf070.s3tc.ctex"]
+dest_files=["res://.godot/imported/treeB.png-a8e556497a41d689441cf2ae22abf070.s3tc.ctex", "res://.godot/imported/treeB.png-a8e556497a41d689441cf2ae22abf070.etc2.ctex"]
 
 [params]
 

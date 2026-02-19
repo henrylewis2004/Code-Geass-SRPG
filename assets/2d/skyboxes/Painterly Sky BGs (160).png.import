@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://y4tv4l1bf3iw"
 path.s3tc="res://.godot/imported/Painterly Sky BGs (160).png-bea3df103a9fad0fbd5e3ad4319c5b2c.s3tc.ctex"
+path.etc2="res://.godot/imported/Painterly Sky BGs (160).png-bea3df103a9fad0fbd5e3ad4319c5b2c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/2d/skyboxes/Painterly Sky BGs (160).png"
-dest_files=["res://.godot/imported/Painterly Sky BGs (160).png-bea3df103a9fad0fbd5e3ad4319c5b2c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Painterly Sky BGs (160).png-bea3df103a9fad0fbd5e3ad4319c5b2c.s3tc.ctex", "res://.godot/imported/Painterly Sky BGs (160).png-bea3df103a9fad0fbd5e3ad4319c5b2c.etc2.ctex"]
 
 [params]
 

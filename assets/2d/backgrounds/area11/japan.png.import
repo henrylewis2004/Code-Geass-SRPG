@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://e5eki7fi5r1i"
 path.s3tc="res://.godot/imported/japan.png-066516bf7ed3be04fcbcc71532dfbd75.s3tc.ctex"
+path.etc2="res://.godot/imported/japan.png-066516bf7ed3be04fcbcc71532dfbd75.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/2d/backgrounds/area11/japan.png"
-dest_files=["res://.godot/imported/japan.png-066516bf7ed3be04fcbcc71532dfbd75.s3tc.ctex"]
+dest_files=["res://.godot/imported/japan.png-066516bf7ed3be04fcbcc71532dfbd75.s3tc.ctex", "res://.godot/imported/japan.png-066516bf7ed3be04fcbcc71532dfbd75.etc2.ctex"]
 
 [params]
 

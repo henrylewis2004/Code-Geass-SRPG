@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2t7awgoex1wx"
 path.s3tc="res://.godot/imported/planks.png-6e917d44904b9090e26df5ad7117ba0c.s3tc.ctex"
+path.etc2="res://.godot/imported/planks.png-6e917d44904b9090e26df5ad7117ba0c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/3d/kenney_retro-urban-kit/Models/OBJ format/Textures/planks.png"
-dest_files=["res://.godot/imported/planks.png-6e917d44904b9090e26df5ad7117ba0c.s3tc.ctex"]
+dest_files=["res://.godot/imported/planks.png-6e917d44904b9090e26df5ad7117ba0c.s3tc.ctex", "res://.godot/imported/planks.png-6e917d44904b9090e26df5ad7117ba0c.etc2.ctex"]
 
 [params]
 

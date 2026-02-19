@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba3qy8oxii033"
 path.s3tc="res://.godot/imported/saveRoom.png-950c988ce7a35651d7ebd2b53ab05c4a.s3tc.ctex"
+path.etc2="res://.godot/imported/saveRoom.png-950c988ce7a35651d7ebd2b53ab05c4a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/2d/ui/saveRoom.png"
-dest_files=["res://.godot/imported/saveRoom.png-950c988ce7a35651d7ebd2b53ab05c4a.s3tc.ctex"]
+dest_files=["res://.godot/imported/saveRoom.png-950c988ce7a35651d7ebd2b53ab05c4a.s3tc.ctex", "res://.godot/imported/saveRoom.png-950c988ce7a35651d7ebd2b53ab05c4a.etc2.ctex"]
 
 [params]
 
