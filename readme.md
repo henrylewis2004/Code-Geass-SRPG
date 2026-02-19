@@ -12,13 +12,24 @@
   <a href="#future-work">Future Work</a>
 </p>
 
----
 
 ## About
+
+Code Geass: Lelouch of the Rebellion is a sucessful and acclaimed 2006 anime by Sunrise.
+
+Godot is an open-source games developing engine 
+
 
 ---
 
 ## Download
+
+The  available now for Linux and Windows.
+
+| Platform | Download |
+|----------|----------|
+| Linux (x86_64) | [Code-Geass-SRPG_linux.x86_64](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/download/1.0.0/Code-Geass-SRPG_linux.x86_64) |
+| Windows (EXE) | [Code-Geass-SRPG_Windows.exe](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/download/1.0.0/Code-Geass.SRPG_Windows.exe) |
 
 ---
 
