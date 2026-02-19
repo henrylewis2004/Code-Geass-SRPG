@@ -48,12 +48,44 @@ The project is available for Linux and Windows.
 | Accept | X, A | Enter, Space |
 | Cancel | Circle, B | BackSpace |
 | UI Move | Dpad | W, A, S, D, Arrow Keys |
-| Enlarge Turn Order | Triangle | CapsLock |
+| Enlarge Turn Order | Triangle, Y | CapsLock |
 | Select Weapon | Square | F |
 
 ---
 
 ## Credits
+
+The majority of the assets used where found elsewhere and imported into the project, the list is shown below. If I've forgotten something and left it out please inform me :).
+
+### Fonts
+| Use Case | Name |
+|----------|----------|
+| UI Text | [DPComic](https://www.1001fonts.com/dpcomic-font.html) |
+| UI Text | [Good Timing](https://www.1001fonts.com/good-timing-font.html) |
+| UI Text | [Invasion2000](https://www.1001fonts.com/invasion2000-font.html) |
+| UI Text | [NeoBlock](https://fontesk.com/neoblock-font/) |
+| Dialog Text | [Silver](https://poppyworks.itch.io/silver) |
+| UI Text | [Xirod](https://www.1001fonts.com/xirod-font.html) |
+
+
+### 2D Assets
+| Use Case | Name |
+|----------|----------|
+| Various assets | [Code Geass: Lelouch of the Rebellion](https://www.spriters-resource.com/ds_dsi/codegeasslelouchoftherebellion/) |
+| Various Backgrounds | [Screenshots taken from the show](https://www.crunchyroll.com/series/GY2P9ED0Y/code-geass?srsltid=AfmBOopmmUFh20CRF8oK6Vde0FwOEbzTH4rjH7fZSnbuxJJWQGsKCEgn) |
+
+### 3D Assets
+| Use Case | Name |
+|----------|----------|
+| Knightmare Frame Model | [RX-78-2 Gundam](https://models.spriters-resource.com/psp/kidousenshigundamgundamvsgundamnextplus/asset/292739/) |
+| Environment models/details | [Kenney's Retro Urban Kit](https://kenney.nl/assets/retro-urban-kit) |
+| Environment models/details | [Kenney's Retro Medieval Kit](https://kenney.nl/assets/retro-medieval-kit) |
+
+### Music & Sfx
+| Use Case | Name |
+|----------|----------|
+| 3D Model | [Sutherland Knightmare Frame](https://codegeass.fandom.com/wiki/Sutherland) |
+
 
 ---
 
