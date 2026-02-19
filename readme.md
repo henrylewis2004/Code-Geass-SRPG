@@ -9,6 +9,7 @@
   <a href="#download">Download</a> •
   <a href="#controls">Controls</a> •
   <a href="#credits">Credits</a> •
+  <a href="#contributions">Contributions</a>
   <a href="#future-work">Future Work</a>
 </p>
 
@@ -28,6 +29,7 @@ The project is available for Linux and Windows.
 
 | Platform | Download |
 |----------|----------|
+| Latest Release | [Latest Release](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest) |
 | Linux (x86_64) | [Code-Geass-SRPG_linux.x86_64](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass-SRPG_linux.x86_64) |
 | Windows (EXE) | [Code-Geass-SRPG_Windows.exe](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass.SRPG_Windows.exe) |
 
@@ -55,6 +57,19 @@ The project is available for Linux and Windows.
 
 ---
 
+## Contributions
+Contributions are certainly welcome! 
+
+I would be more than willing to pick the project back up with any interested developers, or simply explain the systems and architecture in place.
+
 ## Future-Work
+The most obvious area of future additions is more assets, specifically 3D assets. Additionally, new levels covering later episodes and key events of the show 
+
+| Asset Type | Name |
+|----------|----------|
+| 3D Model | [Sutherland Knightmare Frame](https://codegeass.fandom.com/wiki/Sutherland) |
+| 3D Model | [Glasgow Knightmare Frame](hhttps://codegeass.fandom.com/wiki/Glasgow) |
+| 3D Model | Helicopter |
+| 2D Artwork | Weapon Type Images |
 
 ---
