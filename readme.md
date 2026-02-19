@@ -62,7 +62,7 @@ The majority of the assets used where found elsewhere and imported into the proj
 |----------|----------|
 | UI Text | [DPComic](https://www.1001fonts.com/dpcomic-font.html) |
 | UI Text | [Good Timing](https://www.1001fonts.com/good-timing-font.html) |
-| UI Text | [Invasion2000](https://www.1001fonts.com/invasion2000-font.html) |
+| Header Text | [Invasion2000](https://www.1001fonts.com/invasion2000-font.html) |
 | UI Text | [NeoBlock](https://fontesk.com/neoblock-font/) |
 | Dialog Text | [Silver](https://poppyworks.itch.io/silver) |
 | UI Text | [Xirod](https://www.1001fonts.com/xirod-font.html) |
@@ -74,6 +74,7 @@ The majority of the assets used where found elsewhere and imported into the proj
 | Various assets | [Code Geass: Lelouch of the Rebellion](https://www.spriters-resource.com/ds_dsi/codegeasslelouchoftherebellion/) |
 | Backgrounds | [Screenshots taken from the show](https://www.crunchyroll.com/series/GY2P9ED0Y/code-geass?srsltid=AfmBOopmmUFh20CRF8oK6Vde0FwOEbzTH4rjH7fZSnbuxJJWQGsKCEgn) |
 | Battle Skyboxes | [Painterly Sky Background](https://kalponic-studio.itch.io/painterly-sky-background) |
+| Intro Video | [Code Geass Opening - COLORS by FLOW](https://www.youtube.com/watch?v=G8CFuZ9MseQ&list=RDG8CFuZ9MseQ&start_radio=1&pp=ygUPY29kZSBnZWFzcyBvcCAxoAcB) |
 
 ### 3D Assets
 | Use Case | Name |
@@ -87,7 +88,6 @@ The majority of the assets used where found elsewhere and imported into the proj
 |----------|----------|
 | Music Tracks | [Code Geass Ost](https://codegeass.fandom.com/wiki/Music_Original_Sound_Track_(O.S.T.)) |
 | SFX | [Code Geass: Lelouch of the Rebellion](https://sounds.spriters-resource.com/ds_dsi/codegeasslelouchoftherebellion/) |
-
 
 ---
 
