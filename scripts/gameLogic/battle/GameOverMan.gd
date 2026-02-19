@@ -1,12 +1,14 @@
 class_name GameOverManager extends Node
 
 signal gameOverFinished(victory: bool) #true goto next scene, false reset scene
+signal playSong(song: AudioStreamWAV)
 
 @export var endSceneDialog: bool = false
 @export var dialogPath: String
 @onready var dialogMan: DialogManager = $DialogManager
 
 @export var screenImages: Array[Texture]
+@export var endSongs : Array[AudioStreamWAV]
 
 @onready var gameOverScreen: Control = $GameOverScreen
 @onready var confirmMenu: Control = $GameOverScreen/confirmationMenu
@@ -28,6 +30,8 @@ func gameOver(victory: bool) -> void:
 			await dialogMan.endDialoge
 			dialogMan.set_visible(false)
 
+		playSong.emit(endSongs[0])
+
 		menuSelect.setMenu($GameOverScreen/confirmationMenu/victory/options)
 		gameOverScreen.get_child(0).texture = screenImages[1]
 		confirmMenu.position = textLoc[1]
@@ -35,6 +39,8 @@ func gameOver(victory: bool) -> void:
 		confirmMenu.get_child(1).visible = true
 		confirmMenu.get_child(0).visible = false
 	else:
+		playSong.emit(endSongs[1])
+
 		menuSelect.setMenu($GameOverScreen/confirmationMenu/defeat/options)
 		gameOverScreen.get_child(0).texture = screenImages[0]
 		confirmMenu.position = textLoc[0]
@@ -63,3 +69,7 @@ func _ready() -> void:
 		dialogMan.queue_free()
 	else:
 		dialogMan.visible = false
+
+	var time: Timer = Timer.new()
+	time.start(0.05)
+	await time.timeout

@@ -49,11 +49,13 @@
 	"music_dictionary":{
 		"sfx":[
 			"ds_sfx/applause",
+			"ds_sfx/explosion04",
 			
 		],
 
 		"music":{
-			"all_hail_britannia": "codeGeassOst/loops/All Hail Britannia (loop)",
+			"stray_cat":"codeGeassOst/loops/Stray Cat (loop)",
+			"outside_road": "codeGeassOst/loops/Outside Road (loop)",
 			"cold_nobility_loop": "codeGeassOst/loops/Cold Nobility (loop)",
 		}
 	},
@@ -72,7 +74,7 @@
 					"text": null,
 					"text_speed":null,
 					"sfx": null,
-					"music":null
+					"music":"stray_cat"
 				}
 			]
 
@@ -193,8 +195,8 @@
 					"emotion": "none",
 					"text": "Huh...",
 					"text_speed":"def",
-					"sfx": null,
-					"music": null
+					"sfx": "ds_sfx/explosion04",
+					"music":"stop",
 				}
 			]
 		},
@@ -210,7 +212,7 @@
 					"text": "What are they trying to prove by killing innocent people?!",
 					"text_speed":0.01,
 					"sfx": null,
-					"music":null
+					"music": "outside_road"
 				},
 				{
 					"name": "Nearby Female Britannian",
@@ -261,7 +263,7 @@
 					"text": "To all my Imperial subjects...",
 					"text_speed":"def",
 					"sfx": null,
-					"music":"all_hail_britannia"
+					"music":null,
 				},
 				{
 					"name": "Prince Clovis",
@@ -283,7 +285,7 @@
 					"name": "Prince Clovis",
 					"display name": null,
 					"emotion": "emotional",
-					"text": "choose to serve the Empire of Brtiannia",
+					"text": "choose to serve the Empire of Britannia",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null

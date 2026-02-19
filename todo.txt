@@ -1,21 +1,4 @@
 mechanics:
-	add music to story levels
-		> st0		x
-		> st1		
-			> song for intro	
-			> song for speech	x all hail britannia
-			> song for end		x cold nobility
-		> st2
-			> song for bridge / crash
-			> song for cc
-			> song for falling into truck
-		> st3		x
-		> end_Credits	x
-
-	add sfx to story levels
-		> st1		
-		> st2
-		> st3
 
 	#####################
 	> ui

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cs56of0iacvcp" path="res://scenes/game logic/battle/GameOver.tscn" id="9_fyy83"]
 [ext_resource type="Texture2D" uid="uid://cvforvewndr61" path="res://assets/2d/ui/Geass/geass_spriteSheet.png" id="10_awt8a"]
 [ext_resource type="PackedScene" uid="uid://cqa4fu04378is" path="res://scenes/cinematic scenes/characters-sprites/geassAnim.tscn" id="10_xxrgl"]
-[ext_resource type="AudioStream" uid="uid://y8jqgk17iyb2" path="res://assets/sfx/sfx/ds_sfx/select07.wav" id="12_ffcql"]
+[ext_resource type="AudioStream" uid="uid://covmo8cm4gse" path="res://assets/sfx/sfx/ds_sfx/ability02.wav" id="12_12pim"]
 [ext_resource type="Texture2D" uid="uid://clpo2fmj2gggy" path="res://assets/2d/objects/pizzahut.png" id="12_ltndh"]
 [ext_resource type="AudioStream" uid="uid://btsr6r4riuho6" path="res://assets/sfx/music/codeGeassOst/loops/0 (loop).wav" id="13_2xxy7"]
 [ext_resource type="AudioStream" uid="uid://dq4dqbnqq8s3j" path="res://assets/sfx/sfx/ds_sfx/select06.wav" id="14_12pim"]
@@ -447,7 +447,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("12_ffcql")]
+"values": [ExtResource("12_12pim")]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -823,6 +823,7 @@ stream = SubResource("AudioStreamWAV_g5e8r")
 [connection signal="itemSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_item_selected"]
 [connection signal="partSelected" from="ui/AllyUnitGui/base/MenuBox/MenuSelect" to="." method="_on_menu_select_part_selected"]
 [connection signal="gameOverFinished" from="GameOver" to="." method="endLevel"]
+[connection signal="playSong" from="GameOver" to="." method="playSong"]
 
 [editable path="BattleCam"]
 [editable path="ui/AllyUnitGui"]

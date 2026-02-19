@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dgv5kt6htivl" path="res://scenes/game objects/units/baseUnit.tscn" id="2_eiaf8"]
 [ext_resource type="Texture2D" uid="uid://b0tr0pw6xntmj" path="res://assets/2d/characters/battle/main/villetta/vil1.png" id="3_0xn6l"]
 [ext_resource type="Texture2D" uid="uid://1ifvtmcj0ib8" path="res://assets/2d/characters/battle/status/vil.png" id="4_4vwqh"]
-[ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/RX-78-2 Gundam - Ren.obj" id="6_10mxj"]
+[ext_resource type="ArrayMesh" uid="uid://ctbb0qlbeekpm" path="res://assets/3d/RX-78-2 Gundam - Ren.obj" id="6_10mxj"]
 [ext_resource type="Texture2D" uid="uid://dtts7dl70u3o6" path="res://assets/2d/ui/enemyHp.png" id="7_uuq7r"]
 
 [sub_resource type="Shader" id="Shader_chlvt"]

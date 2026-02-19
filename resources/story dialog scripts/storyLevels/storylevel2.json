@@ -72,11 +72,15 @@
 
 	"music_dictionary":{
 		"sfx":[
+			"ds_sfx/car_driving",
+			"ds_sfx/carhorn",
 			
 		],
 
 		"music":{
-			"CC_music":"codeGeassOst/Stream of Consciousness",
+			"strange_girl":"codeGeassOst/Strange Girl",
+			"nightmare":"codeGeassOst/loops/Nightmare (loop)",
+			"shin_troop":"codeGeassOst/loops/Shin Troop (loop)",
 			
 
 		}
@@ -163,7 +167,7 @@
 					"name": "Lelouch",
 					"display name": null,
 					"emotion": "default_happy",
-					"text": "No way, amitions like that will ruin your hea- ",
+					"text": "No way, ambitions like that will ruin your hea- ",
 					"text_speed":"def",
 					"sfx": null,
 					"music":null
@@ -181,8 +185,8 @@
 					"emotion": null,
 					"text": null,
 					"text_speed":null,
-					"sfx": null,
-					"music":null
+					"sfx": "ds_sfx/car_driving",
+					"music":"shin_troop"
 				}
 			]
 
@@ -346,7 +350,7 @@
 					"text": "Control, the target has crashed at the abandoned V.O. construction site",
 					"text_speed":"def",
 					"sfx": null,
-					"music":null
+					"music":null,
 				},
 				{
 					"name": "Control",
@@ -390,7 +394,7 @@
 					"text": "That THING...",
 					"text_speed":"def",
 					"sfx": null,
-					"music":null
+					"music":null,
 				},
 				{
 					"name": "Bartley",
@@ -645,7 +649,7 @@
 				"text": "It's you...",
 				"text_speed":"def",
 				"sfx": null,
-				"music":"CC_music"
+				"music":"strange_girl"
 			},
 			{
 				"name": "CC",
@@ -671,7 +675,7 @@
 				"text": "Huh...",
 				"text_speed":"def",
 				"sfx": null,
-				"music":null
+				"music":"stop",
 			},
 			{
 				"name": "Lelouch",
@@ -697,7 +701,7 @@
 				"text": "Lets get out of here!",
 				"text_speed":"def",
 				"sfx": null,
-				"music":null
+				"music":"nightmare"
 			},
 
 		],
@@ -714,7 +718,7 @@
 				"text": "Uhh...",
 				"text_speed":"def",
 				"sfx": null,
-				"music":null
+				"music":null,
 			},
 
 		],

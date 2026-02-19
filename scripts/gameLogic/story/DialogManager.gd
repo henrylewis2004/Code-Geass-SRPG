@@ -188,6 +188,7 @@ func playLine(lineInfo: Dictionary) -> void:
 	if lineInfo["sfx"] != null:
 		sfxPlayer.stop()
 		sfxPlayer.stream = audioDictionary[lineInfo["sfx"]]
+		print(audioDictionary[lineInfo["sfx"]])
 		sfxPlayer.play()
 	
 	#text

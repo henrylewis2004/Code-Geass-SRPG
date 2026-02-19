@@ -244,8 +244,10 @@ libraries/ = SubResource("AnimationLibrary_vfj3u")
 autoplay = &"icon_flash"
 
 [node name="backMusic" type="AudioStreamPlayer" parent="." unique_id=230588131]
+bus = &"bkg_music"
 
 [node name="sfx" type="AudioStreamPlayer" parent="." unique_id=1223454978]
+bus = &"bkg_music"
 
 [node name="textTimer" type="Timer" parent="." unique_id=1400322233]
 one_shot = true

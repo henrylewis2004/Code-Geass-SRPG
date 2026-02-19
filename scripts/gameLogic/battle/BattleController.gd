@@ -1055,6 +1055,10 @@ func printUnitTimes() -> String:
 func stateChange(state:int) -> void:
 	curState = state
 
+func playSong(song: AudioStreamWAV) -> void:
+	music_musicPlayer.set_stream(song)
+	music_musicPlayer.play()
+
 #engine operation
 func _ready():
 	gridManager.init(mapSize,collisionWalls)
