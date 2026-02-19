@@ -7,6 +7,7 @@
 <p align="center">
   <a href="#about">About</a> •
   <a href="#downloads">Downloads</a> •
+  <a href="#images">Images</a> •
   <a href="#controls">Controls</a> •
   <a href="#credits">Credits</a> •
   <a href="#contributions">Contributions</a> &
@@ -24,6 +25,18 @@ Using Godot I have attempted to recreate the early sections of the show ([The Sh
 To play the game simply view the [Releases](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest) page or go to [Downloads](#downloads).
 
 The game is split into two sections: Story and Battle. With the Story sections narrating the story of the show through a visual-novel narritive and the Battle sections attempting to recreate battles from  the show. 
+
+---
+
+## Downloads
+
+The project is available for Linux and Windows.
+
+| Platform | Download |
+|----------|----------|
+| Latest Release | [Latest Release](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest) |
+| Linux (x86_64) | [Code-Geass-SRPG_linux.x86_64](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass-SRPG_linux.x86_64) |
+| Windows (EXE) | [Code-Geass-SRPG_Windows.exe](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass.SRPG_Windows.exe) |
 
 ---
 
@@ -53,22 +66,6 @@ The game is split into two sections: Story and Battle. With the Story sections n
 <p align="center">
     <img src="https://github.com/henrylewis2004/Code-Geass-SRPG/blob/main/.github/images/battleLevel02_status.png" width=600 />
 </p>
-
-
-
-
-
----
-
-## Downloads
-
-The project is available for Linux and Windows.
-
-| Platform | Download |
-|----------|----------|
-| Latest Release | [Latest Release](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest) |
-| Linux (x86_64) | [Code-Geass-SRPG_linux.x86_64](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass-SRPG_linux.x86_64) |
-| Windows (EXE) | [Code-Geass-SRPG_Windows.exe](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass.SRPG_Windows.exe) |
 
 ---
 
