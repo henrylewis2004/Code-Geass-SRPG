@@ -63,13 +63,16 @@ Contributions are certainly welcome!
 I would be more than willing to pick the project back up with any interested developers, or simply explain the systems and architecture in place.
 
 ## Future-Work
-The most obvious area of future additions is more assets, specifically 3D assets. Additionally, new levels covering later episodes and key events of the show 
+The most obvious area of future additions is more assets, specifically 3D assets. Additionally, new levels covering later episodes and key events of the show could be added - I initially started the project with [The Shinjuku Incident](https://codegeass.fandom.com/wiki/Skirmish_in_Shinjuku_Ghetto) and [The Battle of Narita](https://codegeass.fandom.com/wiki/Battle_of_Narita) as key inspiration. 
 
+### Asset Ideas
 | Asset Type | Name |
 |----------|----------|
 | 3D Model | [Sutherland Knightmare Frame](https://codegeass.fandom.com/wiki/Sutherland) |
-| 3D Model | [Glasgow Knightmare Frame](hhttps://codegeass.fandom.com/wiki/Glasgow) |
+| 3D Model | [Glasgow Knightmare Frame](https://codegeass.fandom.com/wiki/Glasgow) |
 | 3D Model | Helicopter |
+| 2D Artwork | Various UI Elements |
 | 2D Artwork | Weapon Type Images |
+| 2D Artwork | Weapon Images |
 
 ---
