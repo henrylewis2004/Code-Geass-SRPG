@@ -35,8 +35,8 @@ The project is available for Linux and Windows.
 | Platform | Download |
 |----------|----------|
 | Latest Release | [Latest Release](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest) |
-| Linux (x86_64) | [Code-Geass-SRPG_linux.x86_64](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass-SRPG_linux.x86_64) |
-| Windows (EXE) | [Code-Geass-SRPG_Windows.exe](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass.SRPG_Windows.exe) |
+| Linux (x86_64) | [Code-Geass-SRPG_linux.zip](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass-SRPG_linux.zip) |
+| Windows (EXE) | [Code-Geass-SRPG_Windows.exe](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass-SRPG_Windows.exe) |
 
 ---
 
