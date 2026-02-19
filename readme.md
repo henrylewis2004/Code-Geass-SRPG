@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="#about">About</a> •
-  <a href="#download">Download</a> •
+  <a href="#downloads">Downloads</a> •
   <a href="#controls">Controls</a> •
   <a href="#credits">Credits</a> •
   <a href="#contributions">Contributions</a> &
@@ -19,9 +19,11 @@
 
 Code Geass: Lelouch of the Rebellion is a sucessful and acclaimed 2006 anime by Sunrise. It features Lelouch in his attempts to destroy the Holy Britannian Empire. It was a pivotal show for me that has resulted in many friendships and even a great drinking game - and now my own video game! 
 
-Using Godot I have attempted to recreate the early sections of the show ([The Shinjuku Incident](https://codegeass.fandom.com/wiki/Skirmish_in_Shinjuku_Ghetto)). Naturally, Code Geass should be a strategy game so Fire Emblem was a major source of inspiration leading the design of the character's stats, selection and attack triangle typing. Being a mecha show, [Front Mission](https://en.wikipedia.org/wiki/Front_Mission) was also an obvious source of inspiration leading the design of the body parts and their hps. 
+Using Godot I have attempted to recreate the early sections of the show ([The Shinjuku Incident](https://codegeass.fandom.com/wiki/Skirmish_in_Shinjuku_Ghetto)). Naturally, Code Geass should be a strategy game so [Fire Emblem](https://en.wikipedia.org/wiki/Fire_Emblem) was a major source of inspiration leading the design of the character's stats, selection and attack triangle typing. Being a mecha show, [Front Mission](https://en.wikipedia.org/wiki/Front_Mission) was also an obvious source of inspiration leading the design of the body parts and their hps. 
 
-To play the game simply view the [Releases](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest) page or go to [Download](#download).
+To play the game simply view the [Releases](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest) page or go to [Downloads](#downloads).
+
+The game is split into two sections: Story and Battle. With the Story sections narrating the story of the show through a visual-novel narritive and the Battle sections attempting to recreate battles from  the show. 
 
 ---
 
@@ -29,7 +31,7 @@ To play the game simply view the [Releases](https://github.com/henrylewis2004/Co
 
 ---
 
-## Download
+## Downloads
 
 The project is available for Linux and Windows.
 
@@ -100,6 +102,7 @@ I would also be more than willing to pick the project back up with any intereste
 
 ## Future-Work
 The most obvious area of future additions is more assets, specifically 3D assets. Additionally, new levels covering later episodes and key events of the show could be added - I initially started the project with [The Shinjuku Incident](https://codegeass.fandom.com/wiki/Skirmish_in_Shinjuku_Ghetto) and [The Battle of Narita](https://codegeass.fandom.com/wiki/Battle_of_Narita) as key inspiration. 
+Further inspection of the game's loading times might also warrant success as they can be quite slow on weaker machines, likely due to the usage of *preloading* and *@onready* values. Further optimisation would be a valuable improvement.
 
 ### Asset Contribution Ideas
 | Asset Type | Name |
