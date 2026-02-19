@@ -29,6 +29,35 @@ The game is split into two sections: Story and Battle. With the Story sections n
 
 ## Images
 
+<h3 align="center">Main Menu</h3>
+<p align="center">
+    <img src="https://github.com/henrylewis2004/Code-Geass-SRPG/blob/main/.github/images/startScreen.png" width=600 />
+</p>
+<h3 align="center">Story Prologue</h3>
+<p align="center">
+    <img src="https://github.com/henrylewis2004/Code-Geass-SRPG/blob/main/.github/images/prologueImage.png" width=600 />
+</p>
+<h3 align="center">Example Story Level</h3>
+<p align="center">
+    <img src="https://github.com/henrylewis2004/Code-Geass-SRPG/blob/main/.github/images/storyLevel01.png" width=600 />
+</p>
+<h3 align="center">Example Battle Level</h2>
+<p align="center">
+    <img src="https://github.com/henrylewis2004/Code-Geass-SRPG/blob/main/.github/images/battleLevel01.png" width=600 />
+</p>
+<h3 align="center">Example Story Level</h2>
+<p align="center">
+    <img src="https://github.com/henrylewis2004/Code-Geass-SRPG/blob/main/.github/images/storyLevel01_2.png" width=600 />
+</p>
+<h3 align="center">Unit Status</h2>
+<p align="center">
+    <img src="https://github.com/henrylewis2004/Code-Geass-SRPG/blob/main/.github/images/battleLevel02_status.png" width=600 />
+</p>
+
+
+
+
+
 ---
 
 ## Downloads
