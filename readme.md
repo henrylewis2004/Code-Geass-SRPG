@@ -10,7 +10,8 @@
   <a href="#controls">Controls</a> •
   <a href="#credits">Credits</a> •
   <a href="#contributions">Contributions</a> &
-  <a href="#future-work">Future Work</a>
+  <a href="#future-work">Future Work</a> •
+  <a href="#license">License</a>
 </p>
 
 
@@ -20,6 +21,9 @@ Code Geass: Lelouch of the Rebellion is a sucessful and acclaimed 2006 anime by 
 
 Godot is an open-source games developing engine 
 
+---
+
+## Images
 
 ---
 
@@ -49,10 +53,6 @@ The project is available for Linux and Windows.
 
 ---
 
-## Images
-
----
-
 ## Credits
 
 ---
@@ -60,12 +60,12 @@ The project is available for Linux and Windows.
 ## Contributions
 Contributions are certainly welcome! 
 
-I would be more than willing to pick the project back up with any interested developers, or simply explain the systems and architecture in place.
+I would also be more than willing to pick the project back up with any interested developers, or simply explain the systems and architecture in place.
 
 ## Future-Work
 The most obvious area of future additions is more assets, specifically 3D assets. Additionally, new levels covering later episodes and key events of the show could be added - I initially started the project with [The Shinjuku Incident](https://codegeass.fandom.com/wiki/Skirmish_in_Shinjuku_Ghetto) and [The Battle of Narita](https://codegeass.fandom.com/wiki/Battle_of_Narita) as key inspiration. 
 
-### Asset Ideas
+### Asset Contribution Ideas
 | Asset Type | Name |
 |----------|----------|
 | 3D Model | [Sutherland Knightmare Frame](https://codegeass.fandom.com/wiki/Sutherland) |
@@ -74,5 +74,11 @@ The most obvious area of future additions is more assets, specifically 3D assets
 | 2D Artwork | Various UI Elements |
 | 2D Artwork | Weapon Type Images |
 | 2D Artwork | Weapon Images |
+
+---
+
+## License
+
+GPL-3.0 License — see [LICENSE](LICENSE) for details.
 
 ---
