@@ -9,7 +9,7 @@
   <a href="#download">Download</a> •
   <a href="#controls">Controls</a> •
   <a href="#credits">Credits</a> •
-  <a href="#contributions">Contributions</a>
+  <a href="#contributions">Contributions</a> &
   <a href="#future-work">Future Work</a>
 </p>
 
