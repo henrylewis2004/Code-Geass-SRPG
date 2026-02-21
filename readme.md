@@ -80,6 +80,9 @@ The project is available for Linux and Windows.
 | UI Move | Dpad | W, A, S, D, Arrow Keys |
 | Enlarge Turn Order | Triangle, Y | CapsLock |
 | Select Weapon | Square | F |
+| Skip Video | START, MENU | Space |
+| Reset Level | * | Ctrl + Esc |
+| Delete Save Slot | * | Delete |
 
 ---
 
