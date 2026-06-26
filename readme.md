@@ -38,6 +38,8 @@ The project is available for Linux and Windows.
 | Linux (x86_64) | [Code-Geass-SRPG_linux.zip](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass-SRPG_linux.zip) |
 | Windows (EXE) | [Code-Geass-SRPG_Windows.exe](https://github.com/henrylewis2004/Code-Geass-SRPG/releases/latest/download/Code-Geass-SRPG_Windows.exe) |
 
+The project is also available on [itch.io](https://thehenster123.itch.io/code-geass-srpg), although may be less up-to-date.
+
 ---
 
 ## Images
